@@ -27,8 +27,8 @@ const LadderIcon = mk(<path d="M8 3v18M16 3v18M8 8h8M8 13h8M8 18h8" />);
 const VERSION = 'v1.2.0';
 const CHANGELOG = [
   { v: 'v1.2.0', date: '2026-11-04',
-    en: ['First release: 24 diuretics (18 core plus 6 sold in the UK, EU or Japan) with doses, electrolyte effects and side effects.', 'Tile, list and table views.', 'Mechanism button: highlights where selected drugs act on the nephron.', 'Diuretic resistance: sequential nephron blockade guide.', 'Market (brand) names on every card, in a Brands column and by country in the detail view; search also finds brand names.', 'Electrolyte filter in two rows (increased on top, decreased below, same electrolyte stacked): pick several electrolytes, one direction each; the other arrow switches it.', 'Warning triangle on serious side effects (hyperkalemia, ototoxicity, liver injury, ODS, DKA, blood-count drops, AKI, pulmonary edema) on cards, table and detail view; filters open with FDA status “Current” selected by default.', 'Key clinical trials in each drug’s detail view, summarised from the PubMed abstracts with PubMed and DOI links (drugs with no landmark outcome trial say so).', 'References section at the bottom of the page (collapsible, as in the bronchodilator guide).', 'Mechanism diagram redrawn on the ScienceDirect Topics nephron layout (glomerulus, macula densa, cortex / medulla, osmolality gradient, water / salt / urea flow, ADH and aldosterone), with the source listed.', 'Kidney / liver dosing and key interactions on every drug (from labels and guidelines), and a loop dose conversion table.', 'Thai NLEM 2569 chip checked against the official list (5 Basic drugs, the rest Non-NLEM) and TH / US / UK / EU / JP availability filter (all five checked 2026-11-04: UK on emc, EU on Spain AEMPS, EMA lists and national sources, JP on KEGG / JAPIC). FDA status per country (current / past † / never ⊘) with a filter; US checked against openFDA. Doses and Thai brands checked against MIMS Thailand.'],
-    th: ['เปิดตัวครั้งแรก: ยาขับปัสสาวะ 24 ชนิด (หลัก 18 ชนิด และอีก 6 ชนิดที่มีใน UK, EU หรือญี่ปุ่น) พร้อมขนาดยา ผลต่ออิเล็กโทรไลต์ และผลข้างเคียง', 'มุมมองการ์ด รายการ และตาราง', 'ปุ่มกลไก: แสดงตำแหน่งที่ยาที่เลือกออกฤทธิ์บนเนฟรอน', 'ภาวะดื้อยาขับปัสสาวะ: แนวทางการปิดกั้นเนฟรอนตามลำดับ', 'ชื่อทางการค้าในทุกการ์ด คอลัมน์ชื่อการค้าในตาราง และแยกตามประเทศในหน้ารายละเอียด ค้นหาด้วยชื่อการค้าได้', 'ตัวกรองอิเล็กโทรไลต์สองแถว (เพิ่มขึ้นแถวบน ลดลงแถวล่าง อิเล็กโทรไลต์เดียวกันซ้อนกัน) เลือกได้หลายตัว ตัวละหนึ่งทิศทาง กดลูกศรอีกด้านเพื่อสลับ', 'สัญลักษณ์เตือนรูปสามเหลี่ยมที่ผลข้างเคียงสำคัญ (โพแทสเซียมสูง พิษต่อหู ตับ ODS DKA เม็ดเลือดผิดปกติ AKI ปอดบวมน้ำ) ในการ์ด ตาราง และหน้ารายละเอียด ตัวกรองเปิดไว้และเลือกสถานะ อย. “ปัจจุบัน” เป็นค่าเริ่มต้น', 'การศึกษาทางคลินิกสำคัญในหน้ารายละเอียดของแต่ละยา (ตรวจกับบทคัดย่อใน PubMed พร้อมลิงก์ PubMed และ DOI)', 'ส่วนเอกสารอ้างอิงท้ายหน้า (พับ/เปิดได้ เหมือนแอปยาขยายหลอดลม)', 'แผนภาพกลไกวาดใหม่ตามผังเนฟรอนของ ScienceDirect Topics (โกลเมอรูลัส แมคูลาเดนซา เปลือก/ไขสันหลังไต ความเข้มข้นออสโมลาลิตี การเคลื่อนของน้ำ/เกลือ/ยูเรีย ADH และอัลโดสเตอโรน) พร้อมแหล่งอ้างอิง', 'ขนาดยาตามการทำงานของไต/ตับ และยาที่ต้องระวังเมื่อใช้ร่วมในทุกตัวยา (จากฉลากและแนวทางเวชปฏิบัติ) พร้อมตารางเทียบขนาดยาลูป', 'ป้าย NLEM 2569 ตรวจกับบัญชียาหลักฯ ฉบับจริง (หมวดพื้นฐาน 5 ชนิด ที่เหลือไม่อยู่ใน NLEM) และตัวกรองประเทศ TH / US / UK / EU / JP (ตรวจครบทั้งห้าเมื่อ 2026-11-04: UK ใน emc, EU ใน AEMPS สเปน รายการ EMA และแหล่งระดับประเทศ, JP ใน KEGG / JAPIC) สถานะ อย. รายประเทศ (ปัจจุบัน / เคยมี † / ไม่เคยมี ⊘) พร้อมตัวกรอง ตรวจสหรัฐฯ กับ openFDA ตรวจขนาดยาและยี่ห้อในไทยกับ MIMS Thailand'] },
+    en: ['First release: 24 diuretics (18 core plus 6 sold in the UK, EU or Japan) with doses, electrolyte effects and side effects.', 'Tile, list and table views.', 'Mechanism button: highlights where selected drugs act on the nephron.', 'Diuretic resistance: sequential nephron blockade guide.', 'References grouped by topic (Thai lists, country registration, labels, heart failure, hypertension and kidney, pharmacology).', 'Market (brand) names on every card, in a Brands column and by country in the detail view; search also finds brand names.', 'Electrolyte filter in two rows (increased on top, decreased below, same electrolyte stacked): pick several electrolytes, one direction each; the other arrow switches it.', 'Warning triangle on serious side effects (hyperkalemia, ototoxicity, liver injury, ODS, DKA, blood-count drops, AKI, pulmonary edema) on cards, table and detail view; filters open with FDA status “Current” selected by default.', 'Key clinical trials in each drug’s detail view, summarised from the PubMed abstracts with PubMed and DOI links (drugs with no landmark outcome trial say so).', 'References section at the bottom of the page (collapsible, as in the bronchodilator guide).', 'Mechanism diagram redrawn on the ScienceDirect Topics nephron layout (glomerulus, macula densa, cortex / medulla, osmolality gradient, water / salt / urea flow, ADH and aldosterone), with the source listed.', 'Kidney / liver dosing and key interactions on every drug (from labels and guidelines), and a loop dose conversion table.', 'Thai NLEM 2569 chip checked against the official list (5 Basic drugs, the rest Non-NLEM) and TH / US / UK / EU / JP availability filter (all five checked 2026-11-04: UK on emc, EU on Spain AEMPS, EMA lists and national sources, JP on KEGG / JAPIC). FDA status per country (current / past † / never ⊘) with a filter; US checked against openFDA. Doses and Thai brands checked against MIMS Thailand.'],
+    th: ['เปิดตัวครั้งแรก: ยาขับปัสสาวะ 24 ชนิด (หลัก 18 ชนิด และอีก 6 ชนิดที่มีใน UK, EU หรือญี่ปุ่น) พร้อมขนาดยา ผลต่ออิเล็กโทรไลต์ และผลข้างเคียง', 'มุมมองการ์ด รายการ และตาราง', 'ปุ่มกลไก: แสดงตำแหน่งที่ยาที่เลือกออกฤทธิ์บนเนฟรอน', 'ภาวะดื้อยาขับปัสสาวะ: แนวทางการปิดกั้นเนฟรอนตามลำดับ', 'เอกสารอ้างอิงจัดกลุ่มตามหัวข้อ (บัญชียาไทย การขึ้นทะเบียนรายประเทศ ฉลากยา หัวใจล้มเหลว ความดันและไต เภสัชวิทยา)', 'ชื่อทางการค้าในทุกการ์ด คอลัมน์ชื่อการค้าในตาราง และแยกตามประเทศในหน้ารายละเอียด ค้นหาด้วยชื่อการค้าได้', 'ตัวกรองอิเล็กโทรไลต์สองแถว (เพิ่มขึ้นแถวบน ลดลงแถวล่าง อิเล็กโทรไลต์เดียวกันซ้อนกัน) เลือกได้หลายตัว ตัวละหนึ่งทิศทาง กดลูกศรอีกด้านเพื่อสลับ', 'สัญลักษณ์เตือนรูปสามเหลี่ยมที่ผลข้างเคียงสำคัญ (โพแทสเซียมสูง พิษต่อหู ตับ ODS DKA เม็ดเลือดผิดปกติ AKI ปอดบวมน้ำ) ในการ์ด ตาราง และหน้ารายละเอียด ตัวกรองเปิดไว้และเลือกสถานะ อย. “ปัจจุบัน” เป็นค่าเริ่มต้น', 'การศึกษาทางคลินิกสำคัญในหน้ารายละเอียดของแต่ละยา (ตรวจกับบทคัดย่อใน PubMed พร้อมลิงก์ PubMed และ DOI)', 'ส่วนเอกสารอ้างอิงท้ายหน้า (พับ/เปิดได้ เหมือนแอปยาขยายหลอดลม)', 'แผนภาพกลไกวาดใหม่ตามผังเนฟรอนของ ScienceDirect Topics (โกลเมอรูลัส แมคูลาเดนซา เปลือก/ไขสันหลังไต ความเข้มข้นออสโมลาลิตี การเคลื่อนของน้ำ/เกลือ/ยูเรีย ADH และอัลโดสเตอโรน) พร้อมแหล่งอ้างอิง', 'ขนาดยาตามการทำงานของไต/ตับ และยาที่ต้องระวังเมื่อใช้ร่วมในทุกตัวยา (จากฉลากและแนวทางเวชปฏิบัติ) พร้อมตารางเทียบขนาดยาลูป', 'ป้าย NLEM 2569 ตรวจกับบัญชียาหลักฯ ฉบับจริง (หมวดพื้นฐาน 5 ชนิด ที่เหลือไม่อยู่ใน NLEM) และตัวกรองประเทศ TH / US / UK / EU / JP (ตรวจครบทั้งห้าเมื่อ 2026-11-04: UK ใน emc, EU ใน AEMPS สเปน รายการ EMA และแหล่งระดับประเทศ, JP ใน KEGG / JAPIC) สถานะ อย. รายประเทศ (ปัจจุบัน / เคยมี † / ไม่เคยมี ⊘) พร้อมตัวกรอง ตรวจสหรัฐฯ กับ openFDA ตรวจขนาดยาและยี่ห้อในไทยกับ MIMS Thailand'] },
 ];
 
 // Nephron segments, in flow order
@@ -876,51 +876,60 @@ function ChangelogModal({ onClose, lang }) {
 
 /* ---------- References (same collapsible section as the bronchodilator guide) ---------- */
 const REFS = [
-  { cite: 'คณะกรรมการพัฒนาระบบยาแห่งชาติ. ประกาศคณะกรรมการพัฒนาระบบยาแห่งชาติ เรื่อง บัญชียาหลักแห่งชาติ พ.ศ. 2569. ราชกิจจานุเบกษา (30 มีนาคม 2569).', url: 'https://ndp.fda.moph.go.th/nlem/69-1',
+  { cite: 'คณะกรรมการพัฒนาระบบยาแห่งชาติ. ประกาศคณะกรรมการพัฒนาระบบยาแห่งชาติ เรื่อง บัญชียาหลักแห่งชาติ พ.ศ. 2569. ราชกิจจานุเบกษา (30 มีนาคม 2569).', url: 'https://ndp.fda.moph.go.th/nlem/69-1', g: 'th',
     en: 'Thai NLEM 2569 status, category and forms (checked row by row against the official list).', th: 'สถานะ หมวด และรูปแบบยาในบัญชียาหลักแห่งชาติ 2569 (ตรวจทีละรายการกับบัญชีฉบับจริง)' },
-  { cite: 'MIMS Thailand. Drug monographs and brand listings (accessed 4 November 2026).', url: 'https://www.mims.com/thailand',
+  { cite: 'MIMS Thailand. Drug monographs and brand listings (accessed 4 November 2026).', url: 'https://www.mims.com/thailand', g: 'th',
     en: 'Thai brands and Thai dosing.', th: 'ยี่ห้อและขนาดยาในประเทศไทย' },
-  { cite: 'U.S. Food and Drug Administration. openFDA Drugs@FDA API (accessed 4 November 2026).', url: 'https://open.fda.gov/apis/drug/drugsfda/',
+  { cite: 'U.S. Food and Drug Administration. openFDA Drugs@FDA API (accessed 4 November 2026).', url: 'https://open.fda.gov/apis/drug/drugsfda/', g: 'reg',
     en: 'US status (current, past, never).', th: 'สถานะในสหรัฐฯ (ปัจจุบัน เคยมี ไม่เคยมี)' },
-  { cite: 'Electronic Medicines Compendium (emc). UK summaries of product characteristics (accessed 4 November 2026).', url: 'https://www.medicines.org.uk/emc',
+  { cite: 'Electronic Medicines Compendium (emc). UK summaries of product characteristics (accessed 4 November 2026).', url: 'https://www.medicines.org.uk/emc', g: 'reg',
     en: 'UK status, UK dosing (bendroflumethiazide, indapamide, eplerenone) and SGLT2 inhibitor eGFR limits.', th: 'สถานะและขนาดยาใน UK (bendroflumethiazide, indapamide, eplerenone) และเกณฑ์ eGFR ของ SGLT2i' },
-  { cite: 'Agencia Española de Medicamentos y Productos Sanitarios (AEMPS). CIMA medicines database (accessed 4 November 2026).', url: 'https://cima.aemps.es',
+  { cite: 'Agencia Española de Medicamentos y Productos Sanitarios (AEMPS). CIMA medicines database (accessed 4 November 2026).', url: 'https://cima.aemps.es', g: 'reg',
     en: 'EU status: marketed products in Spain.', th: 'สถานะใน EU: ยาที่จำหน่ายในสเปน' },
-  { cite: 'European Medicines Agency. Metolazone: list of nationally authorised medicinal products (PSUSA/00002037/202506).', url: 'https://www.ema.europa.eu/en/documents/psusa/metolazone-list-nationally-authorised-medicinal-products-psusa-00002037-202506_en.pdf',
+  { cite: 'European Medicines Agency. Metolazone: list of nationally authorised medicinal products (PSUSA/00002037/202506).', url: 'https://www.ema.europa.eu/en/documents/psusa/metolazone-list-nationally-authorised-medicinal-products-psusa-00002037-202506_en.pdf', g: 'reg',
     en: 'EU status of metolazone (Denmark, Italy).', th: 'สถานะ metolazone ใน EU (เดนมาร์ก อิตาลี)' },
-  { cite: 'Läkemedelsverket (Swedish Medical Products Agency). Bendroflumetiazid Evolan 2.5 mg tablets: summary of product characteristics.', url: 'https://docetp.mpa.se/LMF/Bendroflumetiazid%20Evolan%20tablet%20ENG%20SmPC_09001bee807a0c7b.pdf',
+  { cite: 'Läkemedelsverket (Swedish Medical Products Agency). Bendroflumetiazid Evolan 2.5 mg tablets: summary of product characteristics.', url: 'https://docetp.mpa.se/LMF/Bendroflumetiazid%20Evolan%20tablet%20ENG%20SmPC_09001bee807a0c7b.pdf', g: 'reg',
     en: 'EU status of bendroflumethiazide (Sweden).', th: 'สถานะ bendroflumethiazide ใน EU (สวีเดน)' },
-  { cite: 'Bioindustria L.I.M. Reomax (ethacrynic acid) 50 mg tablets, Italy: product information (Codifa).', url: 'https://www.codifa.it/farmaci/r/reomax-compresse-acido-etacrinico--acido-etacrinico-diuretici',
+  { cite: 'Bioindustria L.I.M. Reomax (ethacrynic acid) 50 mg tablets, Italy: product information (Codifa).', url: 'https://www.codifa.it/farmaci/r/reomax-compresse-acido-etacrinico--acido-etacrinico-diuretici', g: 'reg',
     en: 'EU status of ethacrynic acid (Italy).', th: 'สถานะ ethacrynic acid ใน EU (อิตาลี)' },
-  { cite: 'Kanrenol (potassium canrenoate), Italy: product information (MyPersonalTrainer).', url: 'https://www.my-personaltrainer.it/farmaci/kanrenol.html',
+  { cite: 'Kanrenol (potassium canrenoate), Italy: product information (MyPersonalTrainer).', url: 'https://www.my-personaltrainer.it/farmaci/kanrenol.html', g: 'reg',
     en: 'EU status of potassium canrenoate (Italy); a secondary source, not an official register.', th: 'สถานะ potassium canrenoate ใน EU (อิตาลี) เป็นแหล่งรอง ไม่ใช่ทะเบียนทางการ' },
-  { cite: 'Aquaphoril (xipamide) tablets, Austria: patient leaflet, September 2020 (Medikamio).', url: 'https://medikamio.com/de-at/medikamente/aquaphoril-tabletten/pil',
+  { cite: 'Aquaphoril (xipamide) tablets, Austria: patient leaflet, September 2020 (Medikamio).', url: 'https://medikamio.com/de-at/medikamente/aquaphoril-tabletten/pil', g: 'label',
     en: 'Xipamide dosing, contraindications and electrolyte effects.', th: 'ขนาดยา ข้อห้ามใช้ และผลต่ออิเล็กโทรไลต์ของ xipamide' },
-  { cite: 'KEGG MEDICUS. Japanese prescription drug products (JAPIC) (accessed 4 November 2026).', url: 'https://www.kegg.jp/medicus/',
+  { cite: 'KEGG MEDICUS. Japanese prescription drug products (JAPIC) (accessed 4 November 2026).', url: 'https://www.kegg.jp/medicus/', g: 'reg',
     en: 'Japan status and Japanese brands.', th: 'สถานะและยี่ห้อในญี่ปุ่น' },
-  { cite: 'Pharmaceuticals and Medical Devices Agency (PMDA). Japanese package inserts: Fluitran (trichlormethiazide), Diart (azosemide), Soldactone (canrenoate), Minebro (esaxerenone).', url: 'https://www.pmda.go.jp/PmdaSearch/iyakuSearch/',
+  { cite: 'Pharmaceuticals and Medical Devices Agency (PMDA). Japanese package inserts: Fluitran (trichlormethiazide), Diart (azosemide), Soldactone (canrenoate), Minebro (esaxerenone).', url: 'https://www.pmda.go.jp/PmdaSearch/iyakuSearch/', g: 'label',
     en: 'Japan doses, contraindications and warnings for these four drugs.', th: 'ขนาดยา ข้อห้ามใช้ และคำเตือนของยา 4 ชนิดนี้ในญี่ปุ่น' },
-  { cite: 'Otsuka. Samsca (tolvaptan) prescribing information.', url: 'https://www.drugs.com/pro/samsca.html',
+  { cite: 'Otsuka. Samsca (tolvaptan) prescribing information.', url: 'https://www.drugs.com/pro/samsca.html', g: 'label',
     en: 'Tolvaptan contraindications and CYP3A4 interactions.', th: 'ข้อห้ามใช้และปฏิกิริยาระหว่างยา CYP3A4 ของ tolvaptan' },
-  { cite: 'Mullens W, Damman K, Harjola VP, et al. The use of diuretics in heart failure with congestion: a position statement from the Heart Failure Association of the ESC. Eur J Heart Fail. 2019;21(2):137–155.', url: 'https://doi.org/10.1002/ejhf.1369',
+  { cite: 'Mullens W, Damman K, Harjola VP, et al. The use of diuretics in heart failure with congestion: a position statement from the Heart Failure Association of the ESC. Eur J Heart Fail. 2019;21(2):137–155.', url: 'https://doi.org/10.1002/ejhf.1369', g: 'hf',
     en: 'Diuretic resistance, sequential nephron blockade, loop dose ceilings, monitoring.', th: 'ภาวะดื้อยาขับปัสสาวะ การปิดกั้นเนฟรอนตามลำดับ ขนาดยาลูปสูงสุด และการติดตาม' },
-  { cite: 'Mullens W, Dauw J, Martens P, et al. Acetazolamide in acute decompensated heart failure with volume overload. N Engl J Med. 2022;387(13):1185–1195.', url: 'https://doi.org/10.1056/NEJMoa2203094',
+  { cite: 'Mullens W, Dauw J, Martens P, et al. Acetazolamide in acute decompensated heart failure with volume overload. N Engl J Med. 2022;387(13):1185–1195.', url: 'https://doi.org/10.1056/NEJMoa2203094', g: 'hf',
     en: 'Acetazolamide added to a loop diuretic (ADVOR).', th: 'การเสริม acetazolamide ร่วมกับยาลูป (ADVOR)' },
-  { cite: 'Brater DC. Diuretic therapy. N Engl J Med. 1998;339(6):387–395.', url: 'https://doi.org/10.1056/NEJM199808063390607',
+  { cite: 'Brater DC. Diuretic therapy. N Engl J Med. 1998;339(6):387–395.', url: 'https://doi.org/10.1056/NEJM199808063390607', g: 'phys',
     en: 'Loop diuretic pharmacology, bioavailability and dose equivalence.', th: 'เภสัชวิทยาของยาลูป การดูดซึม และขนาดยาเทียบเท่า' },
-  { cite: 'Heidenreich PA, Bozkurt B, Aguilar D, et al. 2022 AHA/ACC/HFSA guideline for the management of heart failure. Circulation. 2022;145(18):e895–e1032.', url: 'https://doi.org/10.1161/CIR.0000000000001063',
+  { cite: 'Heidenreich PA, Bozkurt B, Aguilar D, et al. 2022 AHA/ACC/HFSA guideline for the management of heart failure. Circulation. 2022;145(18):e895–e1032.', url: 'https://doi.org/10.1161/CIR.0000000000001063', g: 'hf',
     en: 'MRA use by eGFR and potassium in heart failure.', th: 'การใช้ MRA ตาม eGFR และโพแทสเซียมในภาวะหัวใจล้มเหลว' },
-  { cite: 'Beckett NS, Peters R, Fletcher AE, et al. Treatment of hypertension in patients 80 years of age or older (HYVET). N Engl J Med. 2008;358(18):1887–1898.', url: 'https://doi.org/10.1056/NEJMoa0801369',
+  { cite: 'Beckett NS, Peters R, Fletcher AE, et al. Treatment of hypertension in patients 80 years of age or older (HYVET). N Engl J Med. 2008;358(18):1887–1898.', url: 'https://doi.org/10.1056/NEJMoa0801369', g: 'htn',
     en: 'Indapamide outcome trial in very old patients.', th: 'การศึกษาผลลัพธ์ของ indapamide ในผู้สูงอายุมาก' },
-  { cite: 'Patel A, ADVANCE Collaborative Group. Effects of a fixed combination of perindopril and indapamide on macrovascular and microvascular outcomes in patients with type 2 diabetes mellitus (ADVANCE). Lancet. 2007;370(9590):829–840.', url: 'https://doi.org/10.1016/S0140-6736(07)61303-8',
+  { cite: 'Patel A, ADVANCE Collaborative Group. Effects of a fixed combination of perindopril and indapamide on macrovascular and microvascular outcomes in patients with type 2 diabetes mellitus (ADVANCE). Lancet. 2007;370(9590):829–840.', url: 'https://doi.org/10.1016/S0140-6736(07)61303-8', g: 'htn',
     en: 'Indapamide combination outcome trial in type 2 diabetes.', th: 'การศึกษาผลลัพธ์ของ indapamide แบบรวมเม็ดในเบาหวานชนิดที่ 2' },
-  { cite: 'Mentz RJ, Anstrom KJ, Eisenstein EL, et al. Effect of torsemide vs furosemide after discharge on all-cause mortality in patients hospitalized with heart failure (TRANSFORM-HF). JAMA. 2023;329(3):214–223.', url: 'https://doi.org/10.1001/jama.2022.23924',
+  { cite: 'Mentz RJ, Anstrom KJ, Eisenstein EL, et al. Effect of torsemide vs furosemide after discharge on all-cause mortality in patients hospitalized with heart failure (TRANSFORM-HF). JAMA. 2023;329(3):214–223.', url: 'https://doi.org/10.1001/jama.2022.23924', g: 'hf',
     en: 'Torsemide vs furosemide mortality.', th: 'อัตราการเสียชีวิต torsemide เทียบ furosemide' },
-  { cite: 'Agarwal R, Sinha AD, Cramer AE, et al. Chlorthalidone for hypertension in advanced chronic kidney disease (CLICK). N Engl J Med. 2021;385(27):2507–2519.', url: 'https://doi.org/10.1056/NEJMoa2110730',
+  { cite: 'Agarwal R, Sinha AD, Cramer AE, et al. Chlorthalidone for hypertension in advanced chronic kidney disease (CLICK). N Engl J Med. 2021;385(27):2507–2519.', url: 'https://doi.org/10.1056/NEJMoa2110730', g: 'htn',
     en: 'Chlorthalidone in stage 4 CKD.', th: 'chlorthalidone ใน CKD ระยะ 4' },
-  { cite: 'ScienceDirect Topics. Nephron (Medicine and Dentistry).', url: 'https://www.sciencedirect.com/topics/medicine-and-dentistry/nephron',
+  { cite: 'ScienceDirect Topics. Nephron (Medicine and Dentistry).', url: 'https://www.sciencedirect.com/topics/medicine-and-dentistry/nephron', g: 'phys',
     en: 'Layout of the nephron diagram in the Mechanism guide (redrawn).', th: 'รูปแบบของแผนภาพเนฟรอนในหัวข้อกลไก (วาดใหม่)' },
 ];
+const REF_GROUPS = [
+  { k: 'th', t: ['Thai drug list and brands', 'บัญชียาและยี่ห้อในไทย'] },
+  { k: 'reg', t: ['Registration status and products by country', 'สถานะการขึ้นทะเบียนและผลิตภัณฑ์รายประเทศ'] },
+  { k: 'label', t: ['Product labels and leaflets', 'ฉลากและเอกสารกำกับยา'] },
+  { k: 'hf', t: ['Heart failure and diuretic resistance', 'ภาวะหัวใจล้มเหลวและภาวะดื้อยาขับปัสสาวะ'] },
+  { k: 'htn', t: ['Hypertension and kidney outcomes', 'ความดันโลหิตสูงและผลลัพธ์ด้านไต'] },
+  { k: 'phys', t: ['Diuretic pharmacology and nephron diagram', 'เภสัชวิทยาของยาขับปัสสาวะและแผนภาพเนฟรอน'] },
+];
+const REF_ORDER = REF_GROUPS.flatMap(g => REFS.filter(r => r.g === g.k));
 const REF_TXT = {
   title: ['References', 'เอกสารอ้างอิง'], used: ['Used for', 'ใช้สำหรับ'],
   note: ["Brand names: TH from MIMS Thailand, US from openFDA, UK from emc, EU from Spain AEMPS and national sources, JP from KEGG / JAPIC; N/A = none found or not checked. Trial summaries in each drug's detail view were checked against the PubMed abstracts (4 November 2026) and link to PubMed and the DOI. Author's content without an external reference: the “Filtered Na⁺ blocked” percentages are typical class values, and the diagram annotations follow standard renal physiology.", 'เนื้อหาของผู้จัดทำที่ไม่มีเอกสารอ้างอิงภายนอก: ค่าร้อยละ “Na⁺ ที่ถูกกั้น” เป็นค่าทั่วไปของแต่ละกลุ่มยา และคำอธิบายในแผนภาพเป็นไปตามสรีรวิทยาไตมาตรฐาน'],
@@ -937,18 +946,23 @@ const ReferencesSection = ({ lang }) => {
         </button>
       </h2>
       {open && <div id="refs-list" className="mt-3">
-        <ol className="flex flex-col gap-2.5">
-          {REFS.map((r, k) => (
-            <li key={k} className="flex gap-3 text-xs text-slate-600 dark:text-slate-300 leading-relaxed">
-              <span className="shrink-0 font-bold text-slate-400 tabular-nums w-5 text-right">{k + 1}.</span>
-              <span className="min-w-0">
-                {r.cite}{' '}
-                {r.url && <a href={r.url} target="_blank" rel="noopener noreferrer" className="text-indigo-600 dark:text-indigo-400 hover:underline break-all">{r.url}</a>}
-                <span className={'block text-[11px] mt-0.5 ' + MUTED}><span className="font-bold">{REF_TXT.used[i]}:</span> {i ? r.th : r.en}</span>
-              </span>
-            </li>
-          ))}
-        </ol>
+        {REF_GROUPS.map(g => (
+          <div key={g.k} className="mt-4 first:mt-0">
+            <h3 className={'mb-1.5 text-[11px] font-extrabold uppercase tracking-wide ' + MUTED}>{g.t[i]} <span className="font-bold normal-case tracking-normal text-slate-400">({REFS.filter(r => r.g === g.k).length})</span></h3>
+            <ol className="flex flex-col gap-2.5">
+              {REFS.filter(r => r.g === g.k).map(r => (
+                <li key={r.cite} className="flex gap-3 text-xs text-slate-600 dark:text-slate-300 leading-relaxed">
+                  <span className="shrink-0 font-bold text-slate-400 tabular-nums w-5 text-right">{REF_ORDER.indexOf(r) + 1}.</span>
+                  <span className="min-w-0">
+                    {r.cite}{' '}
+                    {r.url && <a href={r.url} target="_blank" rel="noopener noreferrer" className="text-indigo-600 dark:text-indigo-400 hover:underline break-all">{r.url}</a>}
+                    <span className={'block text-[11px] mt-0.5 ' + MUTED}><span className="font-bold">{REF_TXT.used[i]}:</span> {i ? r.th : r.en}</span>
+                  </span>
+                </li>
+              ))}
+            </ol>
+          </div>
+        ))}
         <p className={'mt-4 text-[11px] leading-relaxed ' + MUTED}>{REF_TXT.note[i]}</p>
       </div>}
     </section>
