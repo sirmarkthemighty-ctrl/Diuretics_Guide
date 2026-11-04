@@ -1,0 +1,25 @@
+/* Tailwind layers, generated at build time from the classes used in app.jsx */
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+html, body { margin: 0; background: #f1f5f9; }
+html.dark, html.dark body { background: #0b1220; color-scheme: dark; }
+
+.fixed.bottom-0 { bottom: var(--clip-bottom, 0px); }
+.fixed.inset-0 { top: var(--clip-top, 0px); bottom: var(--clip-bottom, 0px); }
+#main-app-container { padding-bottom: calc(8rem + var(--clip-pad, 0px)); }
+
+.hide-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
+.hide-scrollbar::-webkit-scrollbar { display: none; }
+
+@keyframes tw-enter {
+  from {
+    opacity: var(--tw-enter-opacity, 1);
+    transform: scale3d(var(--tw-enter-scale, 1), var(--tw-enter-scale, 1), 1);
+  }
+}
+.animate-in { animation: tw-enter 180ms cubic-bezier(0.16, 1, 0.3, 1) both; }
+.fade-in { --tw-enter-opacity: 0; }
+.zoom-in-95 { --tw-enter-scale: 0.95; }
+@media (prefers-reduced-motion: reduce) { .animate-in { animation: none; } }
