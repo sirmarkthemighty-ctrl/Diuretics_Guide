@@ -88,7 +88,8 @@ test('country filters', () => {
   assert.strictEqual(count(d => T.REG[d.id].us === 'current'), 18, 'US');
   assert.strictEqual(count(d => T.REG[d.id].uk === 'current'), 15, 'UK');
   assert.strictEqual(count(d => T.REG[d.id].eu === 'current'), 20, 'EU');
-  assert.strictEqual(count(d => T.REG[d.id].jp === 'current'), 15, 'JP');
+  assert.strictEqual(count(d => T.REG[d.id].jp === 'current'), 16, 'JP');
+  assert.strictEqual(T.REG.bumetanide.jp, 'past'); assert.strictEqual(T.REG.triamterene.jp, 'current'); assert.strictEqual(T.REG.chlorothiazide.jp, 'never');
   assert.strictEqual(T.REG.triamterene.uk, 'past');
 });
 test('electrolyte filter and its link to the mechanism diagram', () => {
