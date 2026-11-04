@@ -26,8 +26,8 @@ const LadderIcon = mk(<path d="M8 3v18M16 3v18M8 8h8M8 13h8M8 18h8" />);
 const VERSION = 'v1.2.0';
 const CHANGELOG = [
   { v: 'v1.2.0', date: '2026-11-04',
-    en: ['First release: 24 diuretics (18 core plus 6 sold in the UK, EU or Japan) with doses, electrolyte effects and side effects.', 'Tile, list and table views.', 'Mechanism button: highlights where selected drugs act on the nephron.', 'Diuretic resistance: sequential nephron blockade guide.', 'Mechanism diagram redrawn on the ScienceDirect Topics nephron layout (glomerulus, macula densa, cortex / medulla, osmolality gradient, water / salt / urea flow, ADH and aldosterone), with the source listed.', 'Kidney / liver dosing and key interactions on every drug (from labels and guidelines), and a loop dose conversion table.', 'Thai NLEM 2569 chip checked against the official list (5 Basic drugs, the rest Non-NLEM) and TH / US / UK / EU / JP availability filter (all five checked 2026-11-04: UK on emc, EU on Spain AEMPS, EMA lists and national sources, JP on KEGG / JAPIC). FDA status per country (current / past † / never ⊘) with a filter; US checked against openFDA. Doses and Thai brands checked against MIMS Thailand.'],
-    th: ['เปิดตัวครั้งแรก: ยาขับปัสสาวะ 24 ชนิด (หลัก 18 ชนิด และอีก 6 ชนิดที่มีใน UK, EU หรือญี่ปุ่น) พร้อมขนาดยา ผลต่ออิเล็กโทรไลต์ และผลข้างเคียง', 'มุมมองการ์ด รายการ และตาราง', 'ปุ่มกลไก: แสดงตำแหน่งที่ยาที่เลือกออกฤทธิ์บนเนฟรอน', 'ภาวะดื้อยาขับปัสสาวะ: แนวทางการปิดกั้นเนฟรอนตามลำดับ', 'แผนภาพกลไกวาดใหม่ตามผังเนฟรอนของ ScienceDirect Topics (โกลเมอรูลัส แมคูลาเดนซา เปลือก/ไขสันหลังไต ความเข้มข้นออสโมลาลิตี การเคลื่อนของน้ำ/เกลือ/ยูเรีย ADH และอัลโดสเตอโรน) พร้อมแหล่งอ้างอิง', 'ขนาดยาตามการทำงานของไต/ตับ และยาที่ต้องระวังเมื่อใช้ร่วมในทุกตัวยา (จากฉลากและแนวทางเวชปฏิบัติ) พร้อมตารางเทียบขนาดยาลูป', 'ป้าย NLEM 2569 ตรวจกับบัญชียาหลักฯ ฉบับจริง (หมวดพื้นฐาน 5 ชนิด ที่เหลือไม่อยู่ใน NLEM) และตัวกรองประเทศ TH / US / UK / EU / JP (ตรวจครบทั้งห้าเมื่อ 2026-11-04: UK ใน emc, EU ใน AEMPS สเปน รายการ EMA และแหล่งระดับประเทศ, JP ใน KEGG / JAPIC) สถานะ อย. รายประเทศ (ปัจจุบัน / เคยมี † / ไม่เคยมี ⊘) พร้อมตัวกรอง ตรวจสหรัฐฯ กับ openFDA ตรวจขนาดยาและยี่ห้อในไทยกับ MIMS Thailand'] },
+    en: ['First release: 24 diuretics (18 core plus 6 sold in the UK, EU or Japan) with doses, electrolyte effects and side effects.', 'Tile, list and table views.', 'Mechanism button: highlights where selected drugs act on the nephron.', 'Diuretic resistance: sequential nephron blockade guide.', 'References section at the bottom of the page (collapsible, as in the bronchodilator guide).', 'Mechanism diagram redrawn on the ScienceDirect Topics nephron layout (glomerulus, macula densa, cortex / medulla, osmolality gradient, water / salt / urea flow, ADH and aldosterone), with the source listed.', 'Kidney / liver dosing and key interactions on every drug (from labels and guidelines), and a loop dose conversion table.', 'Thai NLEM 2569 chip checked against the official list (5 Basic drugs, the rest Non-NLEM) and TH / US / UK / EU / JP availability filter (all five checked 2026-11-04: UK on emc, EU on Spain AEMPS, EMA lists and national sources, JP on KEGG / JAPIC). FDA status per country (current / past † / never ⊘) with a filter; US checked against openFDA. Doses and Thai brands checked against MIMS Thailand.'],
+    th: ['เปิดตัวครั้งแรก: ยาขับปัสสาวะ 24 ชนิด (หลัก 18 ชนิด และอีก 6 ชนิดที่มีใน UK, EU หรือญี่ปุ่น) พร้อมขนาดยา ผลต่ออิเล็กโทรไลต์ และผลข้างเคียง', 'มุมมองการ์ด รายการ และตาราง', 'ปุ่มกลไก: แสดงตำแหน่งที่ยาที่เลือกออกฤทธิ์บนเนฟรอน', 'ภาวะดื้อยาขับปัสสาวะ: แนวทางการปิดกั้นเนฟรอนตามลำดับ', 'ส่วนเอกสารอ้างอิงท้ายหน้า (พับ/เปิดได้ เหมือนแอปยาขยายหลอดลม)', 'แผนภาพกลไกวาดใหม่ตามผังเนฟรอนของ ScienceDirect Topics (โกลเมอรูลัส แมคูลาเดนซา เปลือก/ไขสันหลังไต ความเข้มข้นออสโมลาลิตี การเคลื่อนของน้ำ/เกลือ/ยูเรีย ADH และอัลโดสเตอโรน) พร้อมแหล่งอ้างอิง', 'ขนาดยาตามการทำงานของไต/ตับ และยาที่ต้องระวังเมื่อใช้ร่วมในทุกตัวยา (จากฉลากและแนวทางเวชปฏิบัติ) พร้อมตารางเทียบขนาดยาลูป', 'ป้าย NLEM 2569 ตรวจกับบัญชียาหลักฯ ฉบับจริง (หมวดพื้นฐาน 5 ชนิด ที่เหลือไม่อยู่ใน NLEM) และตัวกรองประเทศ TH / US / UK / EU / JP (ตรวจครบทั้งห้าเมื่อ 2026-11-04: UK ใน emc, EU ใน AEMPS สเปน รายการ EMA และแหล่งระดับประเทศ, JP ใน KEGG / JAPIC) สถานะ อย. รายประเทศ (ปัจจุบัน / เคยมี † / ไม่เคยมี ⊘) พร้อมตัวกรอง ตรวจสหรัฐฯ กับ openFDA ตรวจขนาดยาและยี่ห้อในไทยกับ MIMS Thailand'] },
 ];
 
 // Nephron segments, in flow order
@@ -348,7 +348,7 @@ function Modal({ title, onClose, children, lang }) {
 // the bottom, thick ascending limb back up to the macula densa, DCT over the top, collecting duct down the right); redrawn here.
 // geometry per segment: [path, stroke width] pieces; cortex ends at y = 222
 const GEO = {
-  pct: [['M62 88 C34 104 90 120 62 136 C34 152 90 168 62 184 L62 222', 16]],
+  pct: [['M62 76 L62 88 C34 104 90 120 62 136 C34 152 90 168 62 184 L62 222', 16]],
   dl: [['M62 222 L62 372 Q62 402 106 402 Q150 402 150 372', 8]],
   tal: [['M150 250 L150 122', 16]],
   dct: [['M150 122 C150 56 270 56 270 118', 14]],
@@ -359,11 +359,14 @@ const LABEL = {
   pct: { x: 84, y: 150, a: 'start', t: 'PCT' },
   dl: { x: 86, y: 270, a: 'start', t: 'Desc.', t2: 'limb' },
   tal: { x: 164, y: 196, a: 'start', t: 'TAL' },
-  dct: { x: 178, y: 40, a: 'start', t: 'DCT' },
+  dct: { x: 200, y: 40, a: 'start', t: 'DCT' },
   cd: { x: 256, y: 318, a: 'end', t: 'Collecting', t2: 'duct' },
 };
 const OSM = [[212, '300'], [244, '400'], [286, '600'], [326, '800'], [362, '1000'], [394, '1200']];
 
+const BOWMAN = ["Bowman's capsule", 'แคปซูลโบว์แมน'];
+const AFF = [['Afferent', 'arteriole'], ['หลอดเลือดแดง', 'ขาเข้า']];
+const EFF = [['Efferent', 'arteriole'], ['หลอดเลือดแดง', 'ขาออก']];
 function Nephron({ ids, lang }) {
   const ds = ids.map(i => DRUG[i]);
   const hit = {};
@@ -378,9 +381,22 @@ function Nephron({ ids, lang }) {
       <line x1="0" y1="222" x2="360" y2="222" strokeWidth="1.5" strokeDasharray="5 4" className="stroke-slate-400 dark:stroke-slate-500" />
       <text x="352" y="16" textAnchor="end" className="fill-slate-400 dark:fill-slate-500" fontSize="9" fontWeight="700">{TXT.cortex[th]}</text>
       <text x="352" y="238" textAnchor="end" className="fill-slate-400 dark:fill-slate-500" fontSize="9" fontWeight="700">{TXT.medulla[th]}</text>
-      <circle cx="62" cy="60" r="28" className="fill-white dark:fill-[#151f32] stroke-slate-300 dark:stroke-slate-600" strokeWidth="2" />
-      <circle cx="62" cy="60" r="14" className="fill-rose-300 dark:fill-rose-500/60" />
-      <text x="96" y="36" className={mut} fontSize="10">{TXT.glom[th]}</text>
+      <circle cx="84" cy="58" r="30" className="fill-amber-100 stroke-amber-300 dark:fill-amber-500/15 dark:stroke-amber-400/50" strokeWidth="2.5" />
+      <g fill="none" strokeLinecap="round" strokeLinejoin="round" strokeWidth="3.5" className="stroke-blue-600 dark:stroke-blue-400">
+        <path d="M4 50 L58 50" strokeWidth="5" />
+        <path d="M4 70 L60 70" strokeWidth="5" />
+        <path d="M58 50 C66 36 98 36 104 52 C110 66 94 78 80 74 C66 70 68 56 82 54 C94 52 100 62 90 68" />
+        <path d="M60 70 C70 62 78 66 86 62 C96 58 96 48 86 46 C76 44 70 52 74 58" />
+      </g>
+      <ellipse cx="114" cy="80" rx="7" ry="5" className="fill-green-200 stroke-green-600 dark:fill-green-500/30 dark:stroke-green-400" strokeWidth="1.5" />
+      <path d="M119 84 L144 120" fill="none" strokeWidth="1.5" strokeDasharray="3 3" className="stroke-green-600 dark:stroke-green-400" />
+      <g fontSize="8" className={mut}>
+        <text x="4" y="12">{BOWMAN[th]}</text>
+        <path d="M66 15 L74 29" strokeWidth="1" className="stroke-slate-400" />
+        <text x="4" y="34">{AFF[th][0]}<tspan x="4" dy="9">{AFF[th][1]}</tspan></text>
+        <text x="4" y="84">{EFF[th][0]}<tspan x="4" dy="9">{EFF[th][1]}</tspan></text>
+      </g>
+      <text x="124" y="28" className={mut} fontSize="10">{TXT.glom[th]}</text>
       <ellipse cx="150" cy="124" rx="9" ry="6" className="fill-green-200 stroke-green-600 dark:fill-green-500/30 dark:stroke-green-400" strokeWidth="1.5" />
       <text x="164" y="146" fontSize="9" fontWeight="700" className="fill-green-700 dark:fill-green-400">{TXT.macula[th]}</text>
       <path d={THIN_ASC} fill="none" strokeWidth="8" strokeLinecap="round" className="stroke-slate-300 dark:stroke-slate-600" opacity={any ? 0.3 : 1} />
@@ -709,6 +725,81 @@ function ChangelogModal({ onClose, lang }) {
   );
 }
 
+/* ---------- References (same collapsible section as the bronchodilator guide) ---------- */
+const REFS = [
+  { cite: 'คณะกรรมการพัฒนาระบบยาแห่งชาติ. ประกาศคณะกรรมการพัฒนาระบบยาแห่งชาติ เรื่อง บัญชียาหลักแห่งชาติ พ.ศ. 2569. ราชกิจจานุเบกษา (30 มีนาคม 2569).', url: 'https://ndp.fda.moph.go.th/nlem/69-1',
+    en: 'Thai NLEM 2569 status, category and forms (checked row by row against the official list).', th: 'สถานะ หมวด และรูปแบบยาในบัญชียาหลักแห่งชาติ 2569 (ตรวจทีละรายการกับบัญชีฉบับจริง)' },
+  { cite: 'MIMS Thailand. Drug monographs and brand listings (accessed 4 November 2026).', url: 'https://www.mims.com/thailand',
+    en: 'Thai brands and Thai dosing.', th: 'ยี่ห้อและขนาดยาในประเทศไทย' },
+  { cite: 'U.S. Food and Drug Administration. openFDA Drugs@FDA API (accessed 4 November 2026).', url: 'https://open.fda.gov/apis/drug/drugsfda/',
+    en: 'US status (current, past, never).', th: 'สถานะในสหรัฐฯ (ปัจจุบัน เคยมี ไม่เคยมี)' },
+  { cite: 'Electronic Medicines Compendium (emc). UK summaries of product characteristics (accessed 4 November 2026).', url: 'https://www.medicines.org.uk/emc',
+    en: 'UK status, UK dosing (bendroflumethiazide, indapamide, eplerenone) and SGLT2 inhibitor eGFR limits.', th: 'สถานะและขนาดยาใน UK (bendroflumethiazide, indapamide, eplerenone) และเกณฑ์ eGFR ของ SGLT2i' },
+  { cite: 'Agencia Española de Medicamentos y Productos Sanitarios (AEMPS). CIMA medicines database (accessed 4 November 2026).', url: 'https://cima.aemps.es',
+    en: 'EU status: marketed products in Spain.', th: 'สถานะใน EU: ยาที่จำหน่ายในสเปน' },
+  { cite: 'European Medicines Agency. Metolazone: list of nationally authorised medicinal products (PSUSA/00002037/202506).', url: 'https://www.ema.europa.eu/en/documents/psusa/metolazone-list-nationally-authorised-medicinal-products-psusa-00002037-202506_en.pdf',
+    en: 'EU status of metolazone (Denmark, Italy).', th: 'สถานะ metolazone ใน EU (เดนมาร์ก อิตาลี)' },
+  { cite: 'Läkemedelsverket (Swedish Medical Products Agency). Bendroflumetiazid Evolan 2.5 mg tablets: summary of product characteristics.', url: 'https://docetp.mpa.se/LMF/Bendroflumetiazid%20Evolan%20tablet%20ENG%20SmPC_09001bee807a0c7b.pdf',
+    en: 'EU status of bendroflumethiazide (Sweden).', th: 'สถานะ bendroflumethiazide ใน EU (สวีเดน)' },
+  { cite: 'Bioindustria L.I.M. Reomax (ethacrynic acid) 50 mg tablets, Italy: product information (Codifa).', url: 'https://www.codifa.it/farmaci/r/reomax-compresse-acido-etacrinico--acido-etacrinico-diuretici',
+    en: 'EU status of ethacrynic acid (Italy).', th: 'สถานะ ethacrynic acid ใน EU (อิตาลี)' },
+  { cite: 'Kanrenol (potassium canrenoate), Italy: product information (MyPersonalTrainer).', url: 'https://www.my-personaltrainer.it/farmaci/kanrenol.html',
+    en: 'EU status of potassium canrenoate (Italy); a secondary source, not an official register.', th: 'สถานะ potassium canrenoate ใน EU (อิตาลี) เป็นแหล่งรอง ไม่ใช่ทะเบียนทางการ' },
+  { cite: 'Aquaphoril (xipamide) tablets, Austria: patient leaflet, September 2020 (Medikamio).', url: 'https://medikamio.com/de-at/medikamente/aquaphoril-tabletten/pil',
+    en: 'Xipamide dosing, contraindications and electrolyte effects.', th: 'ขนาดยา ข้อห้ามใช้ และผลต่ออิเล็กโทรไลต์ของ xipamide' },
+  { cite: 'KEGG MEDICUS. Japanese prescription drug products (JAPIC) (accessed 4 November 2026).', url: 'https://www.kegg.jp/medicus/',
+    en: 'Japan status and Japanese brands.', th: 'สถานะและยี่ห้อในญี่ปุ่น' },
+  { cite: 'Pharmaceuticals and Medical Devices Agency (PMDA). Japanese package inserts: Fluitran (trichlormethiazide), Diart (azosemide), Soldactone (canrenoate), Minebro (esaxerenone).', url: 'https://www.pmda.go.jp/PmdaSearch/iyakuSearch/',
+    en: 'Japan doses, contraindications and warnings for these four drugs.', th: 'ขนาดยา ข้อห้ามใช้ และคำเตือนของยา 4 ชนิดนี้ในญี่ปุ่น' },
+  { cite: 'Otsuka. Samsca (tolvaptan) prescribing information.', url: 'https://www.drugs.com/pro/samsca.html',
+    en: 'Tolvaptan contraindications and CYP3A4 interactions.', th: 'ข้อห้ามใช้และปฏิกิริยาระหว่างยา CYP3A4 ของ tolvaptan' },
+  { cite: 'Mullens W, Damman K, Harjola VP, et al. The use of diuretics in heart failure with congestion: a position statement from the Heart Failure Association of the ESC. Eur J Heart Fail. 2019;21(2):137–155.', url: 'https://doi.org/10.1002/ejhf.1369',
+    en: 'Diuretic resistance, sequential nephron blockade, loop dose ceilings, monitoring.', th: 'ภาวะดื้อยาขับปัสสาวะ การปิดกั้นเนฟรอนตามลำดับ ขนาดยาลูปสูงสุด และการติดตาม' },
+  { cite: 'Mullens W, Dauw J, Martens P, et al. Acetazolamide in acute decompensated heart failure with volume overload. N Engl J Med. 2022;387(13):1185–1195.', url: 'https://doi.org/10.1056/NEJMoa2203094',
+    en: 'Acetazolamide added to a loop diuretic (ADVOR).', th: 'การเสริม acetazolamide ร่วมกับยาลูป (ADVOR)' },
+  { cite: 'Brater DC. Diuretic therapy. N Engl J Med. 1998;339(6):387–395.', url: 'https://doi.org/10.1056/NEJM199808063390607',
+    en: 'Loop diuretic pharmacology, bioavailability and dose equivalence.', th: 'เภสัชวิทยาของยาลูป การดูดซึม และขนาดยาเทียบเท่า' },
+  { cite: 'Heidenreich PA, Bozkurt B, Aguilar D, et al. 2022 AHA/ACC/HFSA guideline for the management of heart failure. Circulation. 2022;145(18):e895–e1032.', url: 'https://doi.org/10.1161/CIR.0000000000001063',
+    en: 'MRA use by eGFR and potassium in heart failure.', th: 'การใช้ MRA ตาม eGFR และโพแทสเซียมในภาวะหัวใจล้มเหลว' },
+  { cite: 'Agarwal R, Sinha AD, Cramer AE, et al. Chlorthalidone for hypertension in advanced chronic kidney disease (CLICK). N Engl J Med. 2021;385(27):2507–2519.', url: 'https://doi.org/10.1056/NEJMoa2110730',
+    en: 'Chlorthalidone in stage 4 CKD.', th: 'chlorthalidone ใน CKD ระยะ 4' },
+  { cite: 'ScienceDirect Topics. Nephron (Medicine and Dentistry).', url: 'https://www.sciencedirect.com/topics/medicine-and-dentistry/nephron',
+    en: 'Layout of the nephron diagram in the Mechanism guide (redrawn).', th: 'รูปแบบของแผนภาพเนฟรอนในหัวข้อกลไก (วาดใหม่)' },
+];
+const REF_TXT = {
+  title: ['References', 'เอกสารอ้างอิง'], used: ['Used for', 'ใช้สำหรับ'],
+  note: ["Author's content without an external reference: the “Filtered Na⁺ blocked” percentages are typical class values, and the diagram annotations follow standard renal physiology.", 'เนื้อหาของผู้จัดทำที่ไม่มีเอกสารอ้างอิงภายนอก: ค่าร้อยละ “Na⁺ ที่ถูกกั้น” เป็นค่าทั่วไปของแต่ละกลุ่มยา และคำอธิบายในแผนภาพเป็นไปตามสรีรวิทยาไตมาตรฐาน'],
+};
+const ReferencesSection = ({ lang }) => {
+  const [open, setOpen] = useState(false);
+  const i = lang === 'th' ? 1 : 0;
+  return (
+    <section className="mt-10 md:mt-14 pt-6 border-t border-slate-200 dark:border-[#263449] print:hidden" aria-labelledby="refs-heading">
+      <h2 id="refs-heading" className="text-sm font-extrabold text-slate-700 dark:text-slate-200 uppercase tracking-wider">
+        <button type="button" onClick={() => setOpen(o => !o)} aria-expanded={open} aria-controls="refs-list" className={'w-full flex items-center justify-between gap-3 rounded-xl border px-4 py-3 transition-colors ' + SURF + ' hover:bg-slate-50 dark:hover:bg-[#101a2b]'}>
+          <span className="uppercase tracking-wider">{REF_TXT.title[i]} <span className="text-slate-400 font-bold normal-case tracking-normal">({REFS.length})</span></span>
+          <span className={'text-slate-400 transition-transform ' + (open ? 'rotate-180' : '')} aria-hidden="true">▾</span>
+        </button>
+      </h2>
+      {open && <div id="refs-list" className="mt-3">
+        <ol className="flex flex-col gap-2.5">
+          {REFS.map((r, k) => (
+            <li key={k} className="flex gap-3 text-xs text-slate-600 dark:text-slate-300 leading-relaxed">
+              <span className="shrink-0 font-bold text-slate-400 tabular-nums w-5 text-right">{k + 1}.</span>
+              <span className="min-w-0">
+                {r.cite}{' '}
+                {r.url && <a href={r.url} target="_blank" rel="noopener noreferrer" className="text-indigo-600 dark:text-indigo-400 hover:underline break-all">{r.url}</a>}
+                <span className={'block text-[11px] mt-0.5 ' + MUTED}><span className="font-bold">{REF_TXT.used[i]}:</span> {i ? r.th : r.en}</span>
+              </span>
+            </li>
+          ))}
+        </ol>
+        <p className={'mt-4 text-[11px] leading-relaxed ' + MUTED}>{REF_TXT.note[i]}</p>
+      </div>}
+    </section>
+  );
+};
+
 /* ---------- Views ---------- */
 // Same pair of square icon buttons as the bronchodilator cards: Select (compare icon) and Details (info icon)
 const ICON_BTN = 'w-9 h-9 shrink-0 rounded-lg border flex items-center justify-center transition-colors ';
@@ -1024,6 +1115,7 @@ function App() {
           {view === 'tile' && <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-3">{rows.map(d => <Tile key={d.id} d={d} lang={lang} on={sel.has(d.id)} toggle={() => toggle(d.id)} open={() => open(d.id)} />)}</div>}
           {view === 'list' && <div className="space-y-2">{rows.map(d => <Row key={d.id} d={d} lang={lang} on={sel.has(d.id)} toggle={() => toggle(d.id)} open={() => open(d.id)} />)}</div>}
           {view === 'table' && rows.length > 0 && <TableView rows={rows} lang={lang} sel={sel} toggle={toggle} open={open} />}
+          <ReferencesSection lang={lang} />
         </main>
       </div>
 
