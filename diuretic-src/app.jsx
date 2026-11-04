@@ -18,15 +18,16 @@ const CompareIcon = mk(<><rect x="3" y="4" width="7" height="16" rx="1.5" /><rec
 const InfoIcon = mk(<><circle cx="12" cy="12" r="9.5" /><path d="M12 16v-4" /><path d="M12 8h.01" /></>);
 const PillIcon = mk(<><path d="M10.5 20.5a5 5 0 0 1-7-7l10-10a5 5 0 0 1 7 7z" /><path d="M8.5 8.5l7 7" /></>);
 const NephronIcon = mk(<><circle cx="6" cy="5" r="2.5" /><path d="M6 7.5c-2.5 1.5 2.5 3 0 4.5" /><path d="M6 12v8h6V9h3v6h3V4" /></>);
+const ConvertIcon = mk(<><polyline points="17 1 21 5 17 9" /><path d="M3 11V9a4 4 0 0 1 4-4h14" /><polyline points="7 23 3 19 7 15" /><path d="M21 13v2a4 4 0 0 1-4 4H3" /></>);
 const LadderIcon = mk(<path d="M8 3v18M16 3v18M8 8h8M8 13h8M8 18h8" />);
 
 
 /* ---------- Data ---------- */
-const VERSION = 'v1.1.0';
+const VERSION = 'v1.2.0';
 const CHANGELOG = [
-  { v: 'v1.1.0', date: '2026-11-04',
-    en: ['First release: 24 diuretics (18 core plus 6 sold in the UK, EU or Japan) with doses, electrolyte effects and side effects.', 'Tile, list and table views.', 'Mechanism button: highlights where selected drugs act on the nephron.', 'Diuretic resistance: sequential nephron blockade guide.', 'Thai NLEM 2569 chip checked against the official list (5 Basic drugs, the rest Non-NLEM) and TH / US / UK / EU / JP availability filter (all five checked 2026-11-04: UK on emc, EU on Spain AEMPS, EMA lists and national sources, JP on KEGG / JAPIC). FDA status per country (current / past † / never ⊘) with a filter; US checked against openFDA. Doses and Thai brands checked against MIMS Thailand.'],
-    th: ['เปิดตัวครั้งแรก: ยาขับปัสสาวะ 24 ชนิด (หลัก 18 ชนิด และอีก 6 ชนิดที่มีใน UK, EU หรือญี่ปุ่น) พร้อมขนาดยา ผลต่ออิเล็กโทรไลต์ และผลข้างเคียง', 'มุมมองการ์ด รายการ และตาราง', 'ปุ่มกลไก: แสดงตำแหน่งที่ยาที่เลือกออกฤทธิ์บนเนฟรอน', 'ภาวะดื้อยาขับปัสสาวะ: แนวทางการปิดกั้นเนฟรอนตามลำดับ', 'ป้าย NLEM 2569 ตรวจกับบัญชียาหลักฯ ฉบับจริง (หมวดพื้นฐาน 5 ชนิด ที่เหลือไม่อยู่ใน NLEM) และตัวกรองประเทศ TH / US / UK / EU / JP (ตรวจครบทั้งห้าเมื่อ 2026-11-04: UK ใน emc, EU ใน AEMPS สเปน รายการ EMA และแหล่งระดับประเทศ, JP ใน KEGG / JAPIC) สถานะ อย. รายประเทศ (ปัจจุบัน / เคยมี † / ไม่เคยมี ⊘) พร้อมตัวกรอง ตรวจสหรัฐฯ กับ openFDA ตรวจขนาดยาและยี่ห้อในไทยกับ MIMS Thailand'] },
+  { v: 'v1.2.0', date: '2026-11-04',
+    en: ['First release: 24 diuretics (18 core plus 6 sold in the UK, EU or Japan) with doses, electrolyte effects and side effects.', 'Tile, list and table views.', 'Mechanism button: highlights where selected drugs act on the nephron.', 'Diuretic resistance: sequential nephron blockade guide.', 'Mechanism diagram redrawn on the ScienceDirect Topics nephron layout (glomerulus, macula densa, cortex / medulla, osmolality gradient, water / salt / urea flow, ADH and aldosterone), with the source listed.', 'Kidney / liver dosing and key interactions on every drug (from labels and guidelines), and a loop dose conversion table.', 'Thai NLEM 2569 chip checked against the official list (5 Basic drugs, the rest Non-NLEM) and TH / US / UK / EU / JP availability filter (all five checked 2026-11-04: UK on emc, EU on Spain AEMPS, EMA lists and national sources, JP on KEGG / JAPIC). FDA status per country (current / past † / never ⊘) with a filter; US checked against openFDA. Doses and Thai brands checked against MIMS Thailand.'],
+    th: ['เปิดตัวครั้งแรก: ยาขับปัสสาวะ 24 ชนิด (หลัก 18 ชนิด และอีก 6 ชนิดที่มีใน UK, EU หรือญี่ปุ่น) พร้อมขนาดยา ผลต่ออิเล็กโทรไลต์ และผลข้างเคียง', 'มุมมองการ์ด รายการ และตาราง', 'ปุ่มกลไก: แสดงตำแหน่งที่ยาที่เลือกออกฤทธิ์บนเนฟรอน', 'ภาวะดื้อยาขับปัสสาวะ: แนวทางการปิดกั้นเนฟรอนตามลำดับ', 'แผนภาพกลไกวาดใหม่ตามผังเนฟรอนของ ScienceDirect Topics (โกลเมอรูลัส แมคูลาเดนซา เปลือก/ไขสันหลังไต ความเข้มข้นออสโมลาลิตี การเคลื่อนของน้ำ/เกลือ/ยูเรีย ADH และอัลโดสเตอโรน) พร้อมแหล่งอ้างอิง', 'ขนาดยาตามการทำงานของไต/ตับ และยาที่ต้องระวังเมื่อใช้ร่วมในทุกตัวยา (จากฉลากและแนวทางเวชปฏิบัติ) พร้อมตารางเทียบขนาดยาลูป', 'ป้าย NLEM 2569 ตรวจกับบัญชียาหลักฯ ฉบับจริง (หมวดพื้นฐาน 5 ชนิด ที่เหลือไม่อยู่ใน NLEM) และตัวกรองประเทศ TH / US / UK / EU / JP (ตรวจครบทั้งห้าเมื่อ 2026-11-04: UK ใน emc, EU ใน AEMPS สเปน รายการ EMA และแหล่งระดับประเทศ, JP ใน KEGG / JAPIC) สถานะ อย. รายประเทศ (ปัจจุบัน / เคยมี † / ไม่เคยมี ⊘) พร้อมตัวกรอง ตรวจสหรัฐฯ กับ openFDA ตรวจขนาดยาและยี่ห้อในไทยกับ MIMS Thailand'] },
 ];
 
 // Nephron segments, in flow order
@@ -233,7 +234,7 @@ const TXT = {
   made: ['Made with ❤️ by Wardom', 'สร้างด้วย ❤️ โดย Wardom'],
   disc: ['For clinician reference. Check local protocols and the patient before prescribing.', 'ใช้อ้างอิงสำหรับบุคลากรทางการแพทย์ ตรวจสอบแนวปฏิบัติของโรงพยาบาลและผู้ป่วยก่อนสั่งยา'],
   search: ['Search drug, class or target…', 'ค้นหายา กลุ่มยา หรือเป้าหมาย…'],
-  mech: ['Mechanism', 'กลไก'], resist: ['Diuretic resistance', 'ดื้อยาขับปัสสาวะ'], key: ['Key', 'คำอธิบาย'],
+  mech: ['Mechanism', 'กลไก'], conv: ['Dose conversion', 'เทียบขนาดยา'], renal: ['Kidney / liver dosing', 'ขนาดยาตามไต/ตับ'], ddi: ['Key interactions', 'ยาที่ต้องระวังเมื่อใช้ร่วม'], resist: ['Diuretic resistance', 'ดื้อยาขับปัสสาวะ'], key: ['Key', 'คำอธิบาย'],
   all: ['All', 'ทั้งหมด'], any: ['Any effect', 'ทุกผล'],
   tile: ['Tile', 'การ์ด'], list: ['List', 'รายการ'], table: ['Table', 'ตาราง'],
   sort: ['Sort', 'เรียง'], byClass: ['Class', 'กลุ่มยา'], byName: ['Name', 'ชื่อยา'], bySite: ['Site', 'ตำแหน่ง'],
@@ -248,7 +249,7 @@ const TXT = {
   mechHint: ['Tick drugs on the cards to highlight where they act. Nothing is selected yet.', 'ติ๊กเลือกยาในการ์ดเพื่อไฮไลต์ตำแหน่งที่ออกฤทธิ์ ตอนนี้ยังไม่ได้เลือกยา'],
   pickDrugs: ['Drugs (tap to add / remove)', 'ยา (แตะเพื่อเพิ่ม/ลบ)'],
   actsHere: ['Acts here', 'ออกฤทธิ์ที่นี่'],
-  glom: ['Glomerulus', 'โกลเมอรูลัส'], cortex: ['CORTEX', 'เปลือกไต'], medulla: ['MEDULLA', 'ไขสันหลังไต'],
+  glom: ['Glomerulus', 'โกลเมอรูลัส'], macula: ['Macula densa', 'แมคูลาเดนซา'], aldo: ['Aldosterone', 'อัลโดสเตอโรน'], urine: ['Urine', 'ปัสสาวะ'], osm: ['Interstitial osmolality, mOsm/kg', 'ความเข้มข้นออสโมลาลิตีของเนื้อเยื่อ mOsm/kg'], figSrc: ['Nephron layout redrawn from the ScienceDirect Topics figure "Nephron" (Medicine and Dentistry): sciencedirect.com/topics/medicine-and-dentistry/nephron', 'ผังเนฟรอนวาดใหม่ตามภาพ "Nephron" ของ ScienceDirect Topics (Medicine and Dentistry): sciencedirect.com/topics/medicine-and-dentistry/nephron'], cortex: ['CORTEX', 'เปลือกไต'], medulla: ['MEDULLA', 'ไขสันหลังไต'],
   source: ['Sources', 'แหล่งอ้างอิง'],
   details: ['Details', 'รายละเอียด'], searchOpen: ['Search', 'ค้นหา'], filters: ['Filters', 'ตัวกรอง'], countries: ['Countries', 'ประเทศ'], nlemOnly: ['NLEM only', 'เฉพาะ NLEM'], nlemTitle: ['Only drugs on the Thai NLEM 2569 list', 'เฉพาะยาในบัญชียาหลักแห่งชาติ 2569'],
   discLink: ['Decision support only: read the disclaimer', 'เป็นเครื่องมือช่วยตัดสินใจเท่านั้น: อ่านข้อจำกัด'], discBody: ['For adult clinicians only. This guide supports decisions and does not replace clinical judgement, the product label or your local protocol. Check doses, renal function and electrolytes for each patient before prescribing.', 'สำหรับบุคลากรทางการแพทย์ที่ดูแลผู้ใหญ่เท่านั้น คู่มือนี้ช่วยการตัดสินใจ ไม่ได้แทนวิจารณญาณทางคลินิก ฉลากยา หรือแนวปฏิบัติของโรงพยาบาล ตรวจขนาดยา การทำงานของไต และอิเล็กโทรไลต์ของผู้ป่วยทุกครั้งก่อนสั่งยา'],
@@ -343,36 +344,46 @@ function Modal({ title, onClose, children, lang }) {
 }
 
 /* ---------- Nephron diagram ---------- */
-// geometry per segment: [path, stroke width] pieces
+// Layout follows the ScienceDirect Topics "Nephron" figure (glomerulus top left, PCT and descending limb down the left, loop at
+// the bottom, thick ascending limb back up to the macula densa, DCT over the top, collecting duct down the right); redrawn here.
+// geometry per segment: [path, stroke width] pieces; cortex ends at y = 222
 const GEO = {
-  pct: [['M70 88 C36 106 104 124 70 144 C36 164 104 182 70 202', 16]],
-  dl: [['M70 202 L70 360 Q70 392 110 392 Q150 392 150 360 L150 312', 8]],
-  tal: [['M150 312 L150 214', 16]],
-  dct: [['M150 214 C150 180 214 206 214 166 C214 138 250 150 262 128', 14]],
-  cd: [['M262 118 L262 392', 18]],
+  pct: [['M62 88 C34 104 90 120 62 136 C34 152 90 168 62 184 L62 222', 16]],
+  dl: [['M62 222 L62 372 Q62 402 106 402 Q150 402 150 372', 8]],
+  tal: [['M150 250 L150 122', 16]],
+  dct: [['M150 122 C150 56 270 56 270 118', 14]],
+  cd: [['M270 118 L270 396', 18]],
 };
+const THIN_ASC = 'M150 372 L150 250'; // thin ascending limb: no diuretic acts here
 const LABEL = {
-  pct: { x: 106, y: 150, a: 'start', t: 'PCT' },
-  dl: { x: 82, y: 300, a: 'start', t: 'Desc.', t2: 'limb' },
-  tal: { x: 164, y: 268, a: 'start', t: 'TAL' },
-  dct: { x: 160, y: 168, a: 'start', t: 'DCT' },
-  cd: { x: 250, y: 330, a: 'end', t: 'Collecting', t2: 'duct' },
+  pct: { x: 84, y: 150, a: 'start', t: 'PCT' },
+  dl: { x: 86, y: 270, a: 'start', t: 'Desc.', t2: 'limb' },
+  tal: { x: 164, y: 196, a: 'start', t: 'TAL' },
+  dct: { x: 178, y: 40, a: 'start', t: 'DCT' },
+  cd: { x: 256, y: 318, a: 'end', t: 'Collecting', t2: 'duct' },
 };
+const OSM = [[212, '300'], [244, '400'], [286, '600'], [326, '800'], [362, '1000'], [394, '1200']];
 
 function Nephron({ ids, lang }) {
   const ds = ids.map(i => DRUG[i]);
   const hit = {};
   ds.forEach(d => d.sites.forEach(s => { (hit[s] = hit[s] || []).push(d); }));
   const any = ds.length > 0;
+  const th = lang === 'th' ? 1 : 0;
+  const mut = 'fill-slate-500 dark:fill-slate-400';
   return (
-    <svg viewBox="0 0 340 430" className="w-full max-w-sm mx-auto" role="img" aria-label="Nephron">
-      <rect x="0" y="0" width="340" height="236" rx="10" className="fill-rose-50 dark:fill-rose-950/30" />
-      <rect x="0" y="236" width="340" height="194" rx="10" className="fill-slate-100 dark:fill-slate-800/40" />
-      <text x="330" y="16" textAnchor="end" className="fill-slate-400 dark:fill-slate-500" fontSize="9" fontWeight="700">{TXT.cortex[lang === 'th' ? 1 : 0]}</text>
-      <text x="330" y="252" textAnchor="end" className="fill-slate-400 dark:fill-slate-500" fontSize="9" fontWeight="700">{TXT.medulla[lang === 'th' ? 1 : 0]}</text>
-      <circle cx="70" cy="62" r="28" className="fill-white dark:fill-[#151f32] stroke-slate-300 dark:stroke-slate-600" strokeWidth="2" />
-      <circle cx="70" cy="62" r="14" className="fill-rose-300 dark:fill-rose-500/60" />
-      <text x="104" y="58" className="fill-slate-500 dark:fill-slate-400" fontSize="10">{TXT.glom[lang === 'th' ? 1 : 0]}</text>
+    <svg viewBox="0 0 360 440" className="w-full max-w-sm mx-auto" role="img" aria-label="Nephron">
+      <rect x="0" y="0" width="360" height="222" rx="10" className="fill-rose-50 dark:fill-rose-950/30" />
+      <rect x="0" y="222" width="360" height="218" rx="10" className="fill-slate-100 dark:fill-slate-800/40" />
+      <line x1="0" y1="222" x2="360" y2="222" strokeWidth="1.5" strokeDasharray="5 4" className="stroke-slate-400 dark:stroke-slate-500" />
+      <text x="352" y="16" textAnchor="end" className="fill-slate-400 dark:fill-slate-500" fontSize="9" fontWeight="700">{TXT.cortex[th]}</text>
+      <text x="352" y="238" textAnchor="end" className="fill-slate-400 dark:fill-slate-500" fontSize="9" fontWeight="700">{TXT.medulla[th]}</text>
+      <circle cx="62" cy="60" r="28" className="fill-white dark:fill-[#151f32] stroke-slate-300 dark:stroke-slate-600" strokeWidth="2" />
+      <circle cx="62" cy="60" r="14" className="fill-rose-300 dark:fill-rose-500/60" />
+      <text x="96" y="36" className={mut} fontSize="10">{TXT.glom[th]}</text>
+      <ellipse cx="150" cy="124" rx="9" ry="6" className="fill-green-200 stroke-green-600 dark:fill-green-500/30 dark:stroke-green-400" strokeWidth="1.5" />
+      <text x="164" y="146" fontSize="9" fontWeight="700" className="fill-green-700 dark:fill-green-400">{TXT.macula[th]}</text>
+      <path d={THIN_ASC} fill="none" strokeWidth="8" strokeLinecap="round" className="stroke-slate-300 dark:stroke-slate-600" opacity={any ? 0.3 : 1} />
       {SEGS.map(s => {
         const hs = hit[s];
         const on = !!hs;
@@ -387,6 +398,18 @@ function Nephron({ ids, lang }) {
           </g>
         );
       })}
+      {OSM.map(([y, v]) => <text key={v} x="40" y={y} textAnchor="end" fontSize="9" className={mut}>{v}</text>)}
+      <text x="4" y="432" fontSize="8" className={mut}>{TXT.osm[th]}</text>
+      <g fontSize="9" fontWeight="700">
+        <text x="82" y="168" className="fill-sky-600 dark:fill-sky-400">→ H₂O</text>
+        <text x="76" y="352" className="fill-sky-600 dark:fill-sky-400">→ H₂O</text>
+        <text x="164" y="286" className="fill-red-500 dark:fill-red-400">→ Na⁺Cl⁻</text>
+        <text x="256" y="372" textAnchor="end" className="fill-sky-600 dark:fill-sky-400">H₂O ←</text>
+        <text x="256" y="390" textAnchor="end" className="fill-fuchsia-700 dark:fill-fuchsia-400">Urea ←</text>
+        <text x="284" y="196" className="fill-orange-600 dark:fill-orange-400">{TXT.aldo[th]}</text>
+        <text x="284" y="296" className="fill-rose-600 dark:fill-rose-400">ADH</text>
+        <text x="270" y="420" textAnchor="middle" className={mut}>{TXT.urine[th]} ↓</text>
+      </g>
       {SEGS.map(s => {
         const l = LABEL[s];
         return (
@@ -441,6 +464,115 @@ function MechanismModal({ sel, toggle, clear, onClose, lang }) {
             <span className="flex flex-wrap gap-1">{[...new Set(DRUGS.filter(d => d.sites.includes(s)).map(d => d.cls))].map(c => <ClassChip key={c} c={c} lang={lang} />)}</span></div>
         ))}
       </div>
+      <p className={'text-[10px] leading-snug ' + MUTED}><b>{t('source')}:</b> {t('figSrc')}</p>
+    </Modal>
+  );
+}
+
+/* ---------- Kidney / liver dosing and key interactions (labels and guidelines; verify against the local label) ---------- */
+// Per drug: what changes with kidney and liver function. Only items found on a label, SmPC or guideline are listed.
+const RENAL = {
+  acetazolamide: { en: 'Kidney: avoid in severe impairment (not if GFR < 10; with moderate–severe impairment halve the dose or give every 12 h); it loses effect and worsens acidosis. Liver: avoid in liver disease.', th: 'ไต: หลีกเลี่ยงในไตเสื่อมรุนแรง (ห้ามใช้เมื่อ GFR < 10; ไตเสื่อมปานกลาง–รุนแรง ลดขนาดครึ่งหนึ่งหรือให้ทุก 12 ชม.) ฤทธิ์ลดลงและกรดเมตาบอลิกแย่ลง ตับ: หลีกเลี่ยงในโรคตับ' },
+  mannitol: { en: 'Kidney: contraindicated in anuria or severe renal failure that does not respond to a test dose; stop if urine output falls or creatinine rises.', th: 'ไต: ห้ามใช้ในภาวะไม่มีปัสสาวะหรือไตวายรุนแรงที่ไม่ตอบสนองต่อ test dose หยุดเมื่อปัสสาวะลดลงหรือ creatinine สูงขึ้น' },
+  furosemide: { en: 'Kidney: no dose reduction, but a higher dose is needed as eGFR falls (IV bolus ceiling 80–160 mg in CKD, see the resistance guide); no effect in anuria. Liver: in cirrhosis start low and pair with spironolactone; hypokalemia or alkalosis can precipitate encephalopathy.', th: 'ไต: ไม่ต้องลดขนาด แต่ต้องใช้ขนาดสูงขึ้นเมื่อ eGFR ลดลง (ceiling IV bolus 80–160 mg ใน CKD ดูหัวข้อดื้อยา) ไม่ได้ผลเมื่อไม่มีปัสสาวะ ตับ: ตับแข็งเริ่มขนาดต่ำและให้คู่ spironolactone โพแทสเซียมต่ำหรือภาวะด่างอาจกระตุ้นสมองเสื่อมจากตับ' },
+  bumetanide: { en: 'Kidney: higher doses are needed as eGFR falls (1 mg ≈ furosemide 40 mg PO); no effect in anuria. Liver: avoid in hepatic coma; titrate carefully in cirrhosis.', th: 'ไต: ต้องใช้ขนาดสูงขึ้นเมื่อ eGFR ลดลง (1 mg ≈ furosemide 40 mg PO) ไม่ได้ผลเมื่อไม่มีปัสสาวะ ตับ: หลีกเลี่ยงในภาวะโคม่าจากตับ ตับแข็งปรับขนาดอย่างระมัดระวัง' },
+  torsemide: { en: 'Kidney: mostly cleared by the liver, so it does not accumulate in CKD; higher doses may still be needed at low eGFR. Liver: half-life is longer in cirrhosis; contraindicated in hepatic coma.', th: 'ไต: ส่วนใหญ่ถูกกำจัดทางตับ จึงไม่สะสมใน CKD แต่ eGFR ต่ำอาจต้องใช้ขนาดสูงขึ้น ตับ: ครึ่งชีวิตยาวขึ้นในตับแข็ง ห้ามใช้ในภาวะโคม่าจากตับ' },
+  ethacrynic: { en: 'Kidney: contraindicated in anuria; larger doses are needed as eGFR falls. Liver: use with caution in cirrhosis (electrolyte shifts can precipitate hepatic coma).', th: 'ไต: ห้ามใช้เมื่อไม่มีปัสสาวะ ต้องใช้ขนาดสูงขึ้นเมื่อ eGFR ลดลง ตับ: ระวังในตับแข็ง (อิเล็กโทรไลต์เปลี่ยนอาจกระตุ้นโคม่าจากตับ)' },
+  hctz: { en: 'Kidney: much less effective at eGFR < 30 (add or switch to a loop); contraindicated in anuria and severe renal impairment on most labels. Liver: in cirrhosis small fluid or electrolyte shifts can precipitate hepatic coma.', th: 'ไต: ได้ผลน้อยลงมากเมื่อ eGFR < 30 (เพิ่มหรือเปลี่ยนเป็นยาลูป) ห้ามใช้ในภาวะไม่มีปัสสาวะและไตเสื่อมรุนแรงตามฉลากส่วนใหญ่ ตับ: ในตับแข็ง การเปลี่ยนของน้ำหรืออิเล็กโทรไลต์เล็กน้อยอาจกระตุ้นโคม่าจากตับ' },
+  chlorthalidone: { en: 'Kidney: still lowers BP in stage 4 CKD (CLICK; watch K⁺ and creatinine). Liver: as for HCTZ, small electrolyte shifts can precipitate hepatic coma in cirrhosis.', th: 'ไต: ยังลดความดันได้ใน CKD ระยะ 4 (CLICK ติดตาม K⁺ และ creatinine) ตับ: เช่นเดียวกับ HCTZ อิเล็กโทรไลต์เปลี่ยนเล็กน้อยอาจกระตุ้นโคม่าจากตับในตับแข็ง' },
+  indapamide: { en: 'Kidney: contraindicated in severe renal failure (CrCl < 30 mL/min on the UK SmPC). Liver: contraindicated in hepatic encephalopathy or severe liver impairment.', th: 'ไต: ห้ามใช้ในไตวายรุนแรง (CrCl < 30 mL/min ตาม UK SmPC) ตับ: ห้ามใช้ในสมองเสื่อมจากตับหรือตับบกพร่องรุนแรง' },
+  metolazone: { en: 'Kidney: keeps working at low GFR, which is why it pairs with a loop; contraindicated in anuria; check K⁺, Na⁺ and creatinine daily. Liver: contraindicated in hepatic coma or pre-coma.', th: 'ไต: ยังออกฤทธิ์ได้เมื่อ GFR ต่ำ จึงใช้คู่กับยาลูป ห้ามใช้เมื่อไม่มีปัสสาวะ ตรวจ K⁺, Na⁺, creatinine ทุกวัน ตับ: ห้ามใช้ในภาวะโคม่าหรือก่อนโคม่าจากตับ' },
+  chlorothiazide: { en: 'Kidney: contraindicated in anuria; check electrolytes and creatinine daily when added to a loop. Liver: caution in cirrhosis (hepatic coma).', th: 'ไต: ห้ามใช้เมื่อไม่มีปัสสาวะ ตรวจอิเล็กโทรไลต์และ creatinine ทุกวันเมื่อเสริมยาลูป ตับ: ระวังในตับแข็ง (โคม่าจากตับ)' },
+  spironolactone: { en: 'Kidney: HF guidance: use only if eGFR > 30 and K⁺ < 5.0; at eGFR 30–49 start 12.5 mg daily or on alternate days. Liver: first-line for cirrhotic ascites (100–400 mg/day); check K⁺ and creatinine.', th: 'ไต: แนวทาง HF: ใช้เมื่อ eGFR > 30 และ K⁺ < 5.0 ถ้า eGFR 30–49 เริ่ม 12.5 mg ทุกวันหรือวันเว้นวัน ตับ: ยาเลือกแรกในท้องมานจากตับแข็ง (100–400 mg/วัน) ตรวจ K⁺ และ creatinine' },
+  eplerenone: { en: 'Kidney: contraindicated if eGFR < 30 or K⁺ > 5.0 at start (EU SmPC). Liver: contraindicated in severe impairment (Child-Pugh C).', th: 'ไต: ห้ามใช้ถ้า eGFR < 30 หรือ K⁺ > 5.0 ตอนเริ่ม (EU SmPC) ตับ: ห้ามใช้ในตับบกพร่องรุนแรง (Child-Pugh C)' },
+  amiloride: { en: 'Kidney: contraindicated in anuria, acute or severe progressive renal failure, diabetic nephropathy and hyperkalemia. Liver: not metabolised by the liver; may accumulate in hepatorenal syndrome.', th: 'ไต: ห้ามใช้ในภาวะไม่มีปัสสาวะ ไตวายเฉียบพลันหรือไตวายรุนแรงที่ลุกลาม โรคไตจากเบาหวาน และโพแทสเซียมสูง ตับ: ไม่ถูกเผาผลาญที่ตับ อาจสะสมใน hepatorenal syndrome' },
+  triamterene: { en: 'Kidney: contraindicated in anuria, severe or progressive kidney disease and hyperkalemia. Liver: caution in cirrhosis (folate antagonist effect).', th: 'ไต: ห้ามใช้ในภาวะไม่มีปัสสาวะ โรคไตรุนแรงหรือลุกลาม และโพแทสเซียมสูง ตับ: ระวังในตับแข็ง (ฤทธิ์ต้านโฟเลต)' },
+  tolvaptan: { en: 'Kidney: contraindicated in anuria; no benefit when there is no urine output. Liver: can cause serious liver injury: avoid with underlying liver disease and stop if ALT / AST rise. Start in hospital with Na⁺ checks.', th: 'ไต: ห้ามใช้เมื่อไม่มีปัสสาวะ ไม่ได้ประโยชน์เมื่อไม่มีปัสสาวะ ตับ: อาจทำให้ตับอักเสบรุนแรง หลีกเลี่ยงในโรคตับเดิมและหยุดเมื่อ ALT / AST สูงขึ้น เริ่มในโรงพยาบาลและตรวจ Na⁺' },
+  dapagliflozin: { en: 'Kidney: for HF / CKD it can be started at eGFR ≥ 15 (UK) and continued below that; the glucose-lowering effect falls at eGFR < 45. Liver: severe impairment: start 5 mg.', th: 'ไต: ใน HF / CKD เริ่มได้เมื่อ eGFR ≥ 15 (UK) และใช้ต่อได้แม้ต่ำกว่านั้น ฤทธิ์ลดน้ำตาลลดลงเมื่อ eGFR < 45 ตับ: ตับบกพร่องรุนแรง เริ่ม 5 mg' },
+  empagliflozin: { en: 'Kidney: for HF / CKD it can be started at eGFR ≥ 20 (UK) and continued below that; the glucose-lowering effect falls at low eGFR. Liver: no dose adjustment.', th: 'ไต: ใน HF / CKD เริ่มได้เมื่อ eGFR ≥ 20 (UK) และใช้ต่อได้แม้ต่ำกว่านั้น ฤทธิ์ลดน้ำตาลลดลงเมื่อ eGFR ต่ำ ตับ: ไม่ต้องปรับขนาด' },
+  bendroflumethiazide: { en: 'Kidney: contraindicated in severe renal insufficiency. Liver: contraindicated in severe hepatic insufficiency.', th: 'ไต: ห้ามใช้ในไตเสื่อมรุนแรง ตับ: ห้ามใช้ในตับบกพร่องรุนแรง' },
+  xipamide: { en: 'Kidney: the leaflet allows up to 60 mg/day in advanced kidney impairment; do not go higher. Liver: contraindicated in severe liver dysfunction; dose by severity in milder impairment.', th: 'ไต: เอกสารกำกับยาอนุญาตสูงสุด 60 mg/วันในไตเสื่อมระยะรุนแรง ไม่ควรสูงกว่านี้ ตับ: ห้ามใช้ในตับบกพร่องรุนแรง ในระดับเบากว่าให้ปรับตามความรุนแรง' },
+  canrenoate: { en: 'Kidney: do not give in renal failure (Japan label): K⁺ excretion is low and hyperkalemia worsens. Check K⁺ regularly.', th: 'ไต: ห้ามใช้ในไตวาย (ฉลากญี่ปุ่น) เพราะขับ K⁺ ได้น้อยและโพแทสเซียมสูงแย่ลง ตรวจ K⁺ สม่ำเสมอ' },
+  trichlormethiazide: { en: 'Kidney: contraindicated in anuria and acute renal failure; start low in older adults.', th: 'ไต: ห้ามใช้ในภาวะไม่มีปัสสาวะและไตวายเฉียบพลัน ผู้สูงอายุเริ่มขนาดต่ำ' },
+  azosemide: { en: 'Kidney: contraindicated in anuria. Liver: contraindicated in hepatic coma.', th: 'ไต: ห้ามใช้ในภาวะไม่มีปัสสาวะ ตับ: ห้ามใช้ในภาวะโคม่าจากตับ' },
+  esaxerenone: { en: 'Kidney: contraindicated at eGFR < 30 or K⁺ > 5.0 at start (Japan label); check K⁺ more often in diabetes with albuminuria.', th: 'ไต: ห้ามใช้เมื่อ eGFR < 30 หรือ K⁺ > 5.0 ตอนเริ่ม (ฉลากญี่ปุ่น) ตรวจ K⁺ ถี่ขึ้นในเบาหวานที่มีอัลบูมินในปัสสาวะ' },
+};
+const DDI_KS = [
+  ['ACEi / ARB / ARNI, potassium supplements, trimethoprim, heparin and other K-sparing drugs: hyperkalemia. Check K⁺ and creatinine after any change.', 'ACEi / ARB / ARNI, โพแทสเซียมเสริม, trimethoprim, heparin และยาประหยัดโพแทสเซียมอื่น: โพแทสเซียมสูง ตรวจ K⁺ และ creatinine หลังเปลี่ยนยา'],
+  ['NSAIDs: hyperkalemia and AKI.', 'NSAIDs: โพแทสเซียมสูงและ AKI'],
+  ['Lithium: levels can rise.', 'Lithium: ระดับยาอาจสูงขึ้น'],
+];
+// Key interactions by class, plus extras for single drugs
+const DDI = {
+  loop: [
+    ['NSAIDs blunt the diuretic effect and raise AKI risk, especially with an ACEi / ARB ("triple whammy").', 'NSAIDs ลดฤทธิ์ขับปัสสาวะและเพิ่มความเสี่ยง AKI โดยเฉพาะเมื่อใช้ร่วม ACEi / ARB ("triple whammy")'],
+    ['Aminoglycosides, cisplatin: additive ototoxicity and nephrotoxicity.', 'Aminoglycosides, cisplatin: พิษต่อหูและไตเสริมกัน'],
+    ['Digoxin, QT-prolonging drugs: hypokalemia and hypomagnesemia raise toxicity and arrhythmia risk.', 'Digoxin, ยาที่ยืด QT: K⁺ และ Mg²⁺ ต่ำเพิ่มความเสี่ยงพิษและหัวใจเต้นผิดจังหวะ'],
+    ['Lithium: levels can rise; monitor.', 'Lithium: ระดับยาอาจสูงขึ้น ควรติดตาม'],
+  ],
+  thz: [
+    ['Lithium: clearance falls and toxicity can follow; avoid or monitor levels.', 'Lithium: การขับออกลดลงและเกิดพิษได้ ควรหลีกเลี่ยงหรือติดตามระดับยา'],
+    ['NSAIDs blunt the diuretic and antihypertensive effect.', 'NSAIDs ลดฤทธิ์ขับปัสสาวะและลดความดัน'],
+    ['Digoxin, QT-prolonging drugs: hypokalemia and hypomagnesemia raise toxicity and arrhythmia risk.', 'Digoxin, ยาที่ยืด QT: K⁺ และ Mg²⁺ ต่ำเพิ่มความเสี่ยงพิษและหัวใจเต้นผิดจังหวะ'],
+    ['Calcium or vitamin D supplements: hypercalcemia.', 'แคลเซียมหรือวิตามินดีเสริม: แคลเซียมสูง'],
+    ['Glucose-lowering drugs: thiazides can raise glucose, so doses may need to go up.', 'ยาลดน้ำตาล: ไทอาไซด์อาจทำให้น้ำตาลสูงขึ้น อาจต้องเพิ่มขนาดยา'],
+  ],
+  mra: DDI_KS,
+  enac: DDI_KS,
+  cai: [
+    ['High-dose aspirin (salicylates): accumulation and toxicity, especially in renal impairment.', 'Aspirin ขนาดสูง (salicylates): ยาสะสมและเกิดพิษ โดยเฉพาะในไตเสื่อม'],
+    ['Other diuretics and corticosteroids: additive hypokalemia.', 'ยาขับปัสสาวะอื่นและคอร์ติโคสเตียรอยด์: โพแทสเซียมต่ำเสริมกัน'],
+  ],
+  v2: [
+    ['Strong CYP3A4 inhibitors (ketoconazole, itraconazole, clarithromycin) are contraindicated: ketoconazole raised exposure about 5-fold.', 'ยายับยั้ง CYP3A4 แรง (ketoconazole, itraconazole, clarithromycin) ห้ามใช้ร่วม: ketoconazole เพิ่มระดับยาราว 5 เท่า'],
+    ['CYP3A4 inducers (rifampin): weaker effect.', 'ตัวกระตุ้น CYP3A4 (rifampin): ฤทธิ์ลดลง'],
+    ['Avoid hypertonic saline; keep the Na⁺ rise ≤ 8–10 mmol/L per 24 h (ODS).', 'หลีกเลี่ยง hypertonic saline และคุมการเพิ่ม Na⁺ ≤ 8–10 mmol/L ต่อ 24 ชม. (ODS)'],
+  ],
+  sglt: [
+    ['Insulin and sulfonylureas: hypoglycemia; the dose may need to be lowered.', 'Insulin และ sulfonylureas: น้ำตาลต่ำ อาจต้องลดขนาดยา'],
+    ['Loop or thiazide diuretics: additive volume depletion and hypotension.', 'ยาลูปหรือไทอาไซด์: ขาดน้ำและความดันต่ำเสริมกัน'],
+  ],
+};
+const DDI_X = {
+  eplerenone: [['Contraindicated: strong CYP3A4 inhibitors (itraconazole, ketoconazole, ritonavir, clarithromycin) and other K-sparing diuretics or K⁺ supplements. With moderate inhibitors (amiodarone, diltiazem, verapamil) the dose is capped at 25 mg.', 'ห้ามใช้ร่วม: ยายับยั้ง CYP3A4 แรง (itraconazole, ketoconazole, ritonavir, clarithromycin) และยาขับปัสสาวะประหยัดโพแทสเซียมหรือโพแทสเซียมเสริม ถ้าใช้กับตัวยับยั้งปานกลาง (amiodarone, diltiazem, verapamil) จำกัดไม่เกิน 25 mg']],
+  canrenoate: [['Contraindicated with eplerenone and tacrolimus (Japan label).', 'ห้ามใช้ร่วมกับ eplerenone และ tacrolimus (ฉลากญี่ปุ่น)']],
+  esaxerenone: [['Contraindicated with eplerenone, K-sparing diuretics and K⁺ supplements (Japan label).', 'ห้ามใช้ร่วมกับ eplerenone ยาขับปัสสาวะประหยัดโพแทสเซียม และโพแทสเซียมเสริม (ฉลากญี่ปุ่น)']],
+};
+const ddiOf = (d) => [...(DDI[d.cls] || []), ...(DDI_X[d.id] || [])];
+
+/* ---------- Loop dose conversion ---------- */
+const CONV = {
+  head: [['Drug', 'ยา'], ['Equivalent dose', 'ขนาดเทียบเท่า'], ['Oral bioavailability', 'การดูดซึมทางปาก']],
+  rows: [
+    ['Furosemide PO', 'furosemide กิน', '40 mg', '≈ 50% (10–100%)'],
+    ['Furosemide IV', 'furosemide ฉีด', '20 mg', '—'],
+    ['Bumetanide PO / IV', 'bumetanide กิน / ฉีด', '1 mg', '80–100%'],
+    ['Torsemide PO / IV', 'torsemide กิน / ฉีด', '20 mg', '80–100%'],
+    ['Ethacrynic acid PO', 'ethacrynic acid กิน', '≈ 50 mg', 'N/A'],
+  ],
+  notes: [
+    ['Equivalence is for natriuretic potency at usual doses: start from the equivalent dose and titrate to urine output.', 'ขนาดเทียบเท่าคิดจากฤทธิ์ขับโซเดียมที่ขนาดปกติ ให้เริ่มจากขนาดเทียบเท่าแล้วปรับตามปริมาณปัสสาวะ'],
+    ['Furosemide IV : PO is about 1 : 2. Switch to bumetanide or torsemide when gut edema makes furosemide absorption unreliable.', 'furosemide IV : PO ประมาณ 1 : 2 เปลี่ยนเป็น bumetanide หรือ torsemide เมื่อลำไส้บวมทำให้การดูดซึม furosemide ไม่แน่นอน'],
+    ['Furosemide IV bolus ceiling: normal kidney 40 mg, CKD 80–160 mg, HF 40–160 mg; a higher dose then needs a shorter interval, not a larger bolus (see the resistance guide).', 'ceiling ของ furosemide IV bolus: ไตปกติ 40 mg, CKD 80–160 mg, HF 40–160 mg เกินนี้ให้ลดช่วงห่างระหว่างโดส ไม่ใช่เพิ่ม bolus (ดูหัวข้อดื้อยา)'],
+    ['Thiazide-type: chlorthalidone is roughly 1.5–2 times as potent per mg as HCTZ and acts 40–60 h (approximate).', 'ไทอาไซด์: chlorthalidone แรงกว่า HCTZ ต่อ mg ราว 1.5–2 เท่า และออกฤทธิ์ 40–60 ชม. (โดยประมาณ)'],
+  ],
+  src: 'Brater DC. NEJM 1998;339:387; Mullens W et al. Eur J Heart Fail 2019;21:137 (ESC HFA). Approximate values: check the local protocol.',
+};
+function ConvertModal({ onClose, lang }) {
+  const i = lang === 'th' ? 1 : 0;
+  return (
+    <Modal title={TXT.conv[i]} onClose={onClose} lang={lang}>
+      <div className="overflow-x-auto">
+        <table className="w-full text-[12px] border-collapse">
+          <thead><tr>{CONV.head.map((h, k) => <th key={k} className={'text-left py-1 pr-2 border-b border-slate-200 dark:border-[#263449] font-bold ' + MUTED}>{h[i]}</th>)}</tr></thead>
+          <tbody>{CONV.rows.map((r, k) => (
+            <tr key={k} className="border-b border-slate-100 dark:border-[#1c2a40]">
+              <td className="py-1.5 pr-2 font-semibold">{r[i]}</td><td className="py-1.5 pr-2 tabular-nums font-bold text-blue-700 dark:text-blue-300">{r[2]}</td><td className="py-1.5 tabular-nums">{r[3]}</td>
+            </tr>))}</tbody>
+        </table>
+      </div>
+      <ul className="list-disc pl-4 space-y-1 text-[12px]">{CONV.notes.map((n, k) => <li key={k}>{n[i]}</li>)}</ul>
+      <p className={'text-[10px] leading-snug ' + MUTED}><b>{TXT.source[i]}:</b> {CONV.src}</p>
     </Modal>
   );
 }
@@ -484,7 +616,7 @@ const R = {
     ['Daily: weight, intake / output, Na⁺, K⁺ (keep ≥ 4.0), Mg²⁺ (keep ≥ 2.0 mg/dL in HF), HCO₃⁻, creatinine.', 'ทุกวัน: น้ำหนัก, intake/output, Na⁺, K⁺ (คง ≥ 4.0), Mg²⁺ (คง ≥ 2.0 mg/dL ใน HF), HCO₃⁻, creatinine'],
     ['Stop or reduce the added drug for Na⁺ < 125 mmol/L, K⁺ < 3.0, symptomatic hypotension or a rapid creatinine rise.', 'หยุดหรือลดยาที่เพิ่ม เมื่อ Na⁺ < 125 mmol/L, K⁺ < 3.0, ความดันต่ำมีอาการ หรือ creatinine ขึ้นเร็ว'],
   ],
-  src: 'Mullens W et al. Eur J Heart Fail 2019;21:137 (ESC HFA position statement on diuretics); Mullens W et al. NEJM 2022;387:1185 (ADVOR); Brater DC. NEJM 1998;339:387. Doses are typical adult values; verify against your local protocol.',
+  src: 'Mullens W et al. Eur J Heart Fail 2019;21:137 (ESC HFA position statement on diuretics); Mullens W et al. NEJM 2022;387:1185 (ADVOR); Brater DC. NEJM 1998;339:387; ScienceDirect Topics, "Nephron" (Medicine and Dentistry), sciencedirect.com/topics/medicine-and-dentistry/nephron. Doses are typical adult values; verify against your local protocol.',
 };
 
 function ResistanceModal({ onClose, lang, showCombo }) {
@@ -524,6 +656,7 @@ function DetailModal({ d, onClose, lang, showOne }) {
       <Fold title={t('dose')} color="border-l-indigo-500">
         {d.dose.map((x, k) => <div key={k} className="py-0.5"><b>{x[0]}</b> {x[1]}</div>)}
       </Fold>
+      {RENAL[d.id] && <Fold title={t('renal')} color="border-l-teal-500"><p>{RENAL[d.id][lang]}</p></Fold>}
       <Fold title={t('site')} color="border-l-emerald-500">
         <div>{d.sites.map(s => SEG_NAME[s][lang]).join(', ')}</div>
         <div><b>{t('target')}:</b> {d.target}</div>
@@ -536,6 +669,7 @@ function DetailModal({ d, onClose, lang, showOne }) {
       <Fold title={t('se')} color="border-l-rose-500">
         <ul className="list-disc pl-4 space-y-0.5">{d.se.map(s => <li key={s}>{SE[s][i]}</li>)}</ul>
       </Fold>
+      {ddiOf(d).length > 0 && <Fold title={t('ddi')} color="border-l-fuchsia-500"><ul className="list-disc pl-4 space-y-1">{ddiOf(d).map((x, k) => <li key={k}>{x[i]}</li>)}</ul></Fold>}
       <Fold title={t('pearl')} color="border-l-amber-500"><p>{d.pearl[lang]}</p></Fold>
       <Fold title={t('avail')} color="border-l-slate-400">
         <div className="flex flex-wrap gap-1"><NlemChip d={d} lang={lang} /><CountryChips d={d} lang={lang} /></div>
@@ -746,6 +880,7 @@ function App() {
 
   const guides = [
     ['mech', t('mech'), 'bg-blue-50 hover:bg-blue-100 border-blue-200 text-blue-700 dark:bg-blue-500/10 dark:hover:bg-blue-500/20 dark:border-blue-400/30 dark:text-blue-300', NephronIcon, () => setModal({ t: 'mech' })],
+    ['conv', t('conv'), 'bg-teal-50 hover:bg-teal-100 border-teal-200 text-teal-700 dark:bg-teal-500/10 dark:hover:bg-teal-500/20 dark:border-teal-400/30 dark:text-teal-300', ConvertIcon, () => setModal({ t: 'conv' })],
     ['resist', t('resist'), 'bg-rose-50 hover:bg-rose-100 border-rose-200 text-rose-700 dark:bg-rose-500/10 dark:hover:bg-rose-500/20 dark:border-rose-400/30 dark:text-rose-300', LadderIcon, () => setModal({ t: 'resist' })],
   ];
   const views = [['tile', LayoutGrid], ['list', ListIcon], ['table', TableIcon]];
@@ -774,7 +909,7 @@ function App() {
         </header>
 
         <div ref={barRef} className="sticky top-0 z-30 pt-2 pb-2 md:pt-3 md:pb-2.5 -mt-2 md:-mt-3 bg-slate-100/95 dark:bg-[#0b1220]/95 backdrop-blur-md" data-search-bar>
-          <div className="grid grid-cols-2 gap-1 sm:flex sm:flex-row sm:flex-wrap sm:items-center sm:gap-2 w-full mb-2" data-guide-buttons>
+          <div className="grid grid-cols-3 gap-1 sm:flex sm:flex-row sm:flex-wrap sm:items-center sm:gap-2 w-full mb-2" data-guide-buttons>
             {guides.map(([k, label, tone, Icon, go]) => (
               <button key={k} type="button" onClick={go} data-guide={k} aria-label={label} title={label}
                 className={'flex flex-col sm:flex-row min-w-0 sm:flex-grow-0 items-center justify-center gap-0.5 sm:gap-1.5 md:gap-2 ' + tone + ' border px-0.5 py-1.5 sm:px-3 sm:py-2 md:px-4 md:py-2 rounded-lg font-bold shadow-sm transition-all active:scale-95 text-xs md:text-sm'}>
@@ -903,6 +1038,7 @@ function App() {
       {modal && modal.t === 'detail' && <DetailModal d={DRUG[modal.id]} lang={lang} onClose={() => setModal(null)} showOne={(id) => showSet([id])} />}
       {modal && modal.t === 'mech' && <MechanismModal sel={sel} toggle={toggle} clear={() => setSel(new Set())} lang={lang} onClose={() => setModal(null)} />}
       {modal && modal.t === 'resist' && <ResistanceModal lang={lang} onClose={() => setModal(null)} showCombo={showSet} />}
+      {modal && modal.t === 'conv' && <ConvertModal lang={lang} onClose={() => setModal(null)} />}
       {modal && modal.t === 'key' && <KeyModal lang={lang} onClose={() => setModal(null)} />}
       {modal && modal.t === 'log' && <ChangelogModal lang={lang} onClose={() => setModal(null)} />}
       {modal && modal.t === 'disc' && <DisclaimerModal lang={lang} onClose={() => setModal(null)} />}
