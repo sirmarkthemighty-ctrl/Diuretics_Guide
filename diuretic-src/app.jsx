@@ -27,8 +27,8 @@ const LadderIcon = mk(<path d="M8 3v18M16 3v18M8 8h8M8 13h8M8 18h8" />);
 const VERSION = 'v1.2.0';
 const CHANGELOG = [
   { v: 'v1.2.0', date: '2026-11-04',
-    en: ['First release: 24 diuretics (18 core plus 6 sold in the UK, EU or Japan) with doses, electrolyte effects and side effects.', 'Tile, list and table views.', 'Mechanism button: highlights where selected drugs act on the nephron.', 'Diuretic resistance: sequential nephron blockade guide.', 'Electrolyte filter in two rows (increased on top, decreased below, same electrolyte stacked): pick several electrolytes, one direction each; the other arrow switches it.', 'Warning triangle on serious side effects (hyperkalemia, ototoxicity, liver injury, ODS, DKA, blood-count drops, AKI, pulmonary edema) on cards, table and detail view; filters open with FDA status “Current” selected by default.', 'Key clinical trials in each drug’s detail view, summarised from the PubMed abstracts with PubMed and DOI links (drugs with no landmark outcome trial say so).', 'References section at the bottom of the page (collapsible, as in the bronchodilator guide).', 'Mechanism diagram redrawn on the ScienceDirect Topics nephron layout (glomerulus, macula densa, cortex / medulla, osmolality gradient, water / salt / urea flow, ADH and aldosterone), with the source listed.', 'Kidney / liver dosing and key interactions on every drug (from labels and guidelines), and a loop dose conversion table.', 'Thai NLEM 2569 chip checked against the official list (5 Basic drugs, the rest Non-NLEM) and TH / US / UK / EU / JP availability filter (all five checked 2026-11-04: UK on emc, EU on Spain AEMPS, EMA lists and national sources, JP on KEGG / JAPIC). FDA status per country (current / past † / never ⊘) with a filter; US checked against openFDA. Doses and Thai brands checked against MIMS Thailand.'],
-    th: ['เปิดตัวครั้งแรก: ยาขับปัสสาวะ 24 ชนิด (หลัก 18 ชนิด และอีก 6 ชนิดที่มีใน UK, EU หรือญี่ปุ่น) พร้อมขนาดยา ผลต่ออิเล็กโทรไลต์ และผลข้างเคียง', 'มุมมองการ์ด รายการ และตาราง', 'ปุ่มกลไก: แสดงตำแหน่งที่ยาที่เลือกออกฤทธิ์บนเนฟรอน', 'ภาวะดื้อยาขับปัสสาวะ: แนวทางการปิดกั้นเนฟรอนตามลำดับ', 'ตัวกรองอิเล็กโทรไลต์สองแถว (เพิ่มขึ้นแถวบน ลดลงแถวล่าง อิเล็กโทรไลต์เดียวกันซ้อนกัน) เลือกได้หลายตัว ตัวละหนึ่งทิศทาง กดลูกศรอีกด้านเพื่อสลับ', 'สัญลักษณ์เตือนรูปสามเหลี่ยมที่ผลข้างเคียงสำคัญ (โพแทสเซียมสูง พิษต่อหู ตับ ODS DKA เม็ดเลือดผิดปกติ AKI ปอดบวมน้ำ) ในการ์ด ตาราง และหน้ารายละเอียด ตัวกรองเปิดไว้และเลือกสถานะ อย. “ปัจจุบัน” เป็นค่าเริ่มต้น', 'การศึกษาทางคลินิกสำคัญในหน้ารายละเอียดของแต่ละยา (ตรวจกับบทคัดย่อใน PubMed พร้อมลิงก์ PubMed และ DOI)', 'ส่วนเอกสารอ้างอิงท้ายหน้า (พับ/เปิดได้ เหมือนแอปยาขยายหลอดลม)', 'แผนภาพกลไกวาดใหม่ตามผังเนฟรอนของ ScienceDirect Topics (โกลเมอรูลัส แมคูลาเดนซา เปลือก/ไขสันหลังไต ความเข้มข้นออสโมลาลิตี การเคลื่อนของน้ำ/เกลือ/ยูเรีย ADH และอัลโดสเตอโรน) พร้อมแหล่งอ้างอิง', 'ขนาดยาตามการทำงานของไต/ตับ และยาที่ต้องระวังเมื่อใช้ร่วมในทุกตัวยา (จากฉลากและแนวทางเวชปฏิบัติ) พร้อมตารางเทียบขนาดยาลูป', 'ป้าย NLEM 2569 ตรวจกับบัญชียาหลักฯ ฉบับจริง (หมวดพื้นฐาน 5 ชนิด ที่เหลือไม่อยู่ใน NLEM) และตัวกรองประเทศ TH / US / UK / EU / JP (ตรวจครบทั้งห้าเมื่อ 2026-11-04: UK ใน emc, EU ใน AEMPS สเปน รายการ EMA และแหล่งระดับประเทศ, JP ใน KEGG / JAPIC) สถานะ อย. รายประเทศ (ปัจจุบัน / เคยมี † / ไม่เคยมี ⊘) พร้อมตัวกรอง ตรวจสหรัฐฯ กับ openFDA ตรวจขนาดยาและยี่ห้อในไทยกับ MIMS Thailand'] },
+    en: ['First release: 24 diuretics (18 core plus 6 sold in the UK, EU or Japan) with doses, electrolyte effects and side effects.', 'Tile, list and table views.', 'Mechanism button: highlights where selected drugs act on the nephron.', 'Diuretic resistance: sequential nephron blockade guide.', 'Market (brand) names on every card, in a Brands column and by country in the detail view; search also finds brand names.', 'Electrolyte filter in two rows (increased on top, decreased below, same electrolyte stacked): pick several electrolytes, one direction each; the other arrow switches it.', 'Warning triangle on serious side effects (hyperkalemia, ototoxicity, liver injury, ODS, DKA, blood-count drops, AKI, pulmonary edema) on cards, table and detail view; filters open with FDA status “Current” selected by default.', 'Key clinical trials in each drug’s detail view, summarised from the PubMed abstracts with PubMed and DOI links (drugs with no landmark outcome trial say so).', 'References section at the bottom of the page (collapsible, as in the bronchodilator guide).', 'Mechanism diagram redrawn on the ScienceDirect Topics nephron layout (glomerulus, macula densa, cortex / medulla, osmolality gradient, water / salt / urea flow, ADH and aldosterone), with the source listed.', 'Kidney / liver dosing and key interactions on every drug (from labels and guidelines), and a loop dose conversion table.', 'Thai NLEM 2569 chip checked against the official list (5 Basic drugs, the rest Non-NLEM) and TH / US / UK / EU / JP availability filter (all five checked 2026-11-04: UK on emc, EU on Spain AEMPS, EMA lists and national sources, JP on KEGG / JAPIC). FDA status per country (current / past † / never ⊘) with a filter; US checked against openFDA. Doses and Thai brands checked against MIMS Thailand.'],
+    th: ['เปิดตัวครั้งแรก: ยาขับปัสสาวะ 24 ชนิด (หลัก 18 ชนิด และอีก 6 ชนิดที่มีใน UK, EU หรือญี่ปุ่น) พร้อมขนาดยา ผลต่ออิเล็กโทรไลต์ และผลข้างเคียง', 'มุมมองการ์ด รายการ และตาราง', 'ปุ่มกลไก: แสดงตำแหน่งที่ยาที่เลือกออกฤทธิ์บนเนฟรอน', 'ภาวะดื้อยาขับปัสสาวะ: แนวทางการปิดกั้นเนฟรอนตามลำดับ', 'ชื่อทางการค้าในทุกการ์ด คอลัมน์ชื่อการค้าในตาราง และแยกตามประเทศในหน้ารายละเอียด ค้นหาด้วยชื่อการค้าได้', 'ตัวกรองอิเล็กโทรไลต์สองแถว (เพิ่มขึ้นแถวบน ลดลงแถวล่าง อิเล็กโทรไลต์เดียวกันซ้อนกัน) เลือกได้หลายตัว ตัวละหนึ่งทิศทาง กดลูกศรอีกด้านเพื่อสลับ', 'สัญลักษณ์เตือนรูปสามเหลี่ยมที่ผลข้างเคียงสำคัญ (โพแทสเซียมสูง พิษต่อหู ตับ ODS DKA เม็ดเลือดผิดปกติ AKI ปอดบวมน้ำ) ในการ์ด ตาราง และหน้ารายละเอียด ตัวกรองเปิดไว้และเลือกสถานะ อย. “ปัจจุบัน” เป็นค่าเริ่มต้น', 'การศึกษาทางคลินิกสำคัญในหน้ารายละเอียดของแต่ละยา (ตรวจกับบทคัดย่อใน PubMed พร้อมลิงก์ PubMed และ DOI)', 'ส่วนเอกสารอ้างอิงท้ายหน้า (พับ/เปิดได้ เหมือนแอปยาขยายหลอดลม)', 'แผนภาพกลไกวาดใหม่ตามผังเนฟรอนของ ScienceDirect Topics (โกลเมอรูลัส แมคูลาเดนซา เปลือก/ไขสันหลังไต ความเข้มข้นออสโมลาลิตี การเคลื่อนของน้ำ/เกลือ/ยูเรีย ADH และอัลโดสเตอโรน) พร้อมแหล่งอ้างอิง', 'ขนาดยาตามการทำงานของไต/ตับ และยาที่ต้องระวังเมื่อใช้ร่วมในทุกตัวยา (จากฉลากและแนวทางเวชปฏิบัติ) พร้อมตารางเทียบขนาดยาลูป', 'ป้าย NLEM 2569 ตรวจกับบัญชียาหลักฯ ฉบับจริง (หมวดพื้นฐาน 5 ชนิด ที่เหลือไม่อยู่ใน NLEM) และตัวกรองประเทศ TH / US / UK / EU / JP (ตรวจครบทั้งห้าเมื่อ 2026-11-04: UK ใน emc, EU ใน AEMPS สเปน รายการ EMA และแหล่งระดับประเทศ, JP ใน KEGG / JAPIC) สถานะ อย. รายประเทศ (ปัจจุบัน / เคยมี † / ไม่เคยมี ⊘) พร้อมตัวกรอง ตรวจสหรัฐฯ กับ openFDA ตรวจขนาดยาและยี่ห้อในไทยกับ MIMS Thailand'] },
 ];
 
 // Nephron segments, in flow order
@@ -212,6 +212,24 @@ const REG_NOTE = {
 const MIMS_UNCHECKED = new Set(['dapagliflozin', 'bendroflumethiazide', 'xipamide', 'trichlormethiazide', 'azosemide', 'canrenoate', 'esaxerenone']);
 const TH_OK = new Set([...Object.keys(NLEM), ...Object.keys(BRANDS)]);
 const REG = Object.fromEntries(DRUGS.map(d => [d.id, { us: C, ...(TH_OK.has(d.id) ? { th: C } : {}), ...REG_X[d.id] }]));
+const MKT = {
+  us: { mannitol: 'Osmitrol', furosemide: 'Lasix ONYU, Furoscix', bumetanide: 'Bumex, Enbumyst', torsemide: 'Soaanz', ethacrynic: 'Edecrin', hctz: 'Microzide, Inzirqo',
+    chlorthalidone: 'Thalitone, Hemiclor', spironolactone: 'Aldactone, CaroSpir', eplerenone: 'Inspra', amiloride: 'Midamor', triamterene: 'Dyrenium',
+    tolvaptan: 'Samsca, Jynarque', dapagliflozin: 'Farxiga', empagliflozin: 'Jardiance' },
+  uk: { furosemide: 'Frusol', torsemide: 'Torem', chlorthalidone: 'Hylaton', indapamide: 'Natrilix SR (discontinued)', metolazone: 'Xaqua',
+    spironolactone: 'Aldactone, Qaialdo, Urospir', eplerenone: 'Inspra', tolvaptan: 'Jinarc, Samsca', acetazolamide: 'Diamox', dapagliflozin: 'Forxiga', empagliflozin: 'Jardiance' },
+  eu: { acetazolamide: 'Edemox (ES)', mannitol: 'Manitol Mein (ES)', furosemide: 'Seguril (ES)', bumetanide: 'Fordiuran (ES)', torsemide: 'Dilutol, Isodur, Sutril (ES)',
+    ethacrynic: 'Reomax (IT)', chlorthalidone: 'Higrotona (ES)', indapamide: 'Tertensif (ES)', metolazone: 'Zaroxolyn (IT)', spironolactone: 'Aldactone (ES)',
+    eplerenone: 'Elecor, Inspra (ES)', amiloride: 'Ameride, Diuzine (ES, with HCTZ)', triamterene: 'Salidur (ES, with HCTZ)', tolvaptan: 'Jinarc, Samsca',
+    dapagliflozin: 'Forxiga, Edistride (ES)', empagliflozin: 'Jardiance', bendroflumethiazide: 'Evolan (SE)', xipamide: 'Xipamid-ratiopharm (DE)', canrenoate: 'Kanrenol (IT)' },
+  jp: { acetazolamide: 'Diamox (ダイアモックス)', mannitol: 'Mannit-T (マンニットT), Mannitol-S (マンニットールS)', furosemide: 'Lasix (ラシックス)', torsemide: 'Lupirac (ルプラック)',
+    indapamide: 'Natrix (ナトリックス)', spironolactone: 'Aldactone-A (アルダクトンA)', eplerenone: 'Selara (セララ)', tolvaptan: 'Samsca (サムスカ)', dapagliflozin: 'Forxiga (フォシーガ)',
+    empagliflozin: 'Jardiance (ジャディアンス)', trichlormethiazide: 'Fluitran (フルイトラン)', azosemide: 'Diart (ダイアート)', canrenoate: 'Soldactone (ソルダクトン)', esaxerenone: 'Minebro (ミネブロ)' },
+};
+const brandsOf = (d, c) => (c === 'th' ? BRANDS[d.id] : MKT[c] && MKT[c][d.id]) || null;
+// first country with brand names (TH first), for the card line
+const marketLine = (d) => { for (const c of COUNTRIES) { const b = brandsOf(d, c); if (b) return { c, b }; } return null; };
+const shortBrands = (b) => { const a = b.split(', '); return a.slice(0, 4).join(', ') + (a.length > 4 ? ' +' + (a.length - 4) : ''); };
 const stOf = (d, c) => (REG[d.id] && REG[d.id][c]) || null;
 const COUNTRIES = ['th', 'us', 'uk', 'eu', 'jp'];
 const CTRY = {
@@ -233,7 +251,7 @@ const TXT = {
   made: ['Made with ❤️ by Wardom', 'สร้างด้วย ❤️ โดย Wardom'],
   disc: ['For clinician reference. Check local protocols and the patient before prescribing.', 'ใช้อ้างอิงสำหรับบุคลากรทางการแพทย์ ตรวจสอบแนวปฏิบัติของโรงพยาบาลและผู้ป่วยก่อนสั่งยา'],
   search: ['Search drug, class or target…', 'ค้นหายา กลุ่มยา หรือเป้าหมาย…'],
-  mech: ['Mechanism', 'กลไก'], incr: ['increased', 'เพิ่มขึ้น'], decr: ['decreased', 'ลดลง'], trials: ['Key clinical trials', 'การศึกษาทางคลินิกสำคัญ'], noTrial: ['No landmark outcome trial is included for this drug (N/A).', 'ไม่ได้รวมการศึกษาผลลัพธ์สำคัญของยานี้ (N/A)'], design: ['Design', 'รูปแบบ'], result: ['Result', 'ผล'], caution: ['Serious side effect: check before prescribing', 'ผลข้างเคียงที่สำคัญ: ตรวจก่อนสั่งยา'], conv: ['Dose conversion', 'เทียบขนาดยา'], renal: ['Kidney / liver dosing', 'ขนาดยาตามไต/ตับ'], ddi: ['Key interactions', 'ยาที่ต้องระวังเมื่อใช้ร่วม'], resist: ['Diuretic resistance', 'ดื้อยาขับปัสสาวะ'], key: ['Key', 'คำอธิบาย'],
+  mech: ['Mechanism', 'กลไก'], brandsH: ['Market names (brands)', 'ชื่อทางการค้า'], brandsCol: ['Brands', 'ชื่อการค้า'], incr: ['increased', 'เพิ่มขึ้น'], decr: ['decreased', 'ลดลง'], trials: ['Key clinical trials', 'การศึกษาทางคลินิกสำคัญ'], noTrial: ['No landmark outcome trial is included for this drug (N/A).', 'ไม่ได้รวมการศึกษาผลลัพธ์สำคัญของยานี้ (N/A)'], design: ['Design', 'รูปแบบ'], result: ['Result', 'ผล'], caution: ['Serious side effect: check before prescribing', 'ผลข้างเคียงที่สำคัญ: ตรวจก่อนสั่งยา'], conv: ['Dose conversion', 'เทียบขนาดยา'], renal: ['Kidney / liver dosing', 'ขนาดยาตามไต/ตับ'], ddi: ['Key interactions', 'ยาที่ต้องระวังเมื่อใช้ร่วม'], resist: ['Diuretic resistance', 'ดื้อยาขับปัสสาวะ'], key: ['Key', 'คำอธิบาย'],
   all: ['All', 'ทั้งหมด'], any: ['Any effect', 'ทุกผล'],
   tile: ['Tile', 'การ์ด'], list: ['List', 'รายการ'], table: ['Table', 'ตาราง'],
   sort: ['Sort', 'เรียง'], byClass: ['Class', 'กลุ่มยา'], byName: ['Name', 'ชื่อยา'], bySite: ['Site', 'ตำแหน่ง'],
@@ -814,6 +832,9 @@ function DetailModal({ d, onClose, lang, showOne }) {
       {ddiOf(d).length > 0 && <Fold title={t('ddi')} color="border-l-fuchsia-500"><ul className="list-disc pl-4 space-y-1">{ddiOf(d).map((x, k) => <li key={k}>{x[i]}</li>)}</ul></Fold>}
       <Fold title={t('pearl')} color="border-l-amber-500"><p>{d.pearl[lang]}</p></Fold>
       <Fold title={t('trials')} color="border-l-violet-500"><Trials d={d} lang={lang} /></Fold>
+      <Fold title={t('brandsH')} color="border-l-cyan-500">
+        {COUNTRIES.map(c => <div key={c} className="flex items-start gap-2 py-0.5"><span className={'shrink-0 w-7 text-center rounded border px-1 text-[10px] font-bold ' + CTRY[c].chip}>{c.toUpperCase()}</span><span className={brandsOf(d, c) ? 'font-semibold' : MUTED}>{brandsOf(d, c) || (c === 'th' && MIMS_UNCHECKED.has(d.id) ? t('brandUnchk') : 'N/A')}</span></div>)}
+      </Fold>
       <Fold title={t('avail')} color="border-l-slate-400">
         <div className="flex flex-wrap gap-1"><NlemChip d={d} lang={lang} /><CountryChips d={d} lang={lang} /></div>
         <p className={'mt-1.5 text-[11px] ' + MUTED}><b>{t('brandsT')}:</b> {BRANDS[d.id] || (MIMS_UNCHECKED.has(d.id) ? t('brandUnchk') : t('noBrand'))}<br />{NLEM[d.id] ? 'NLEM 2569: ' + NLEM[d.id].f + '.' : t('nlemNote')} {NLEM_EXTRA[d.id] && NLEM_EXTRA[d.id][lang]} {REG_NOTE[d.id] && REG_NOTE[d.id][lang]} {t('ctryNote')}</p>
@@ -902,7 +923,7 @@ const REFS = [
 ];
 const REF_TXT = {
   title: ['References', 'เอกสารอ้างอิง'], used: ['Used for', 'ใช้สำหรับ'],
-  note: ["Trial summaries in each drug's detail view were checked against the PubMed abstracts (4 November 2026) and link to PubMed and the DOI. Author's content without an external reference: the “Filtered Na⁺ blocked” percentages are typical class values, and the diagram annotations follow standard renal physiology.", 'เนื้อหาของผู้จัดทำที่ไม่มีเอกสารอ้างอิงภายนอก: ค่าร้อยละ “Na⁺ ที่ถูกกั้น” เป็นค่าทั่วไปของแต่ละกลุ่มยา และคำอธิบายในแผนภาพเป็นไปตามสรีรวิทยาไตมาตรฐาน'],
+  note: ["Brand names: TH from MIMS Thailand, US from openFDA, UK from emc, EU from Spain AEMPS and national sources, JP from KEGG / JAPIC; N/A = none found or not checked. Trial summaries in each drug's detail view were checked against the PubMed abstracts (4 November 2026) and link to PubMed and the DOI. Author's content without an external reference: the “Filtered Na⁺ blocked” percentages are typical class values, and the diagram annotations follow standard renal physiology.", 'เนื้อหาของผู้จัดทำที่ไม่มีเอกสารอ้างอิงภายนอก: ค่าร้อยละ “Na⁺ ที่ถูกกั้น” เป็นค่าทั่วไปของแต่ละกลุ่มยา และคำอธิบายในแผนภาพเป็นไปตามสรีรวิทยาไตมาตรฐาน'],
 };
 const ReferencesSection = ({ lang }) => {
   const [open, setOpen] = useState(false);
@@ -949,6 +970,12 @@ function CardButtons({ d, on, toggle, open, lang }) {
   );
 }
 
+function BrandLine({ d }) {
+  const m = marketLine(d);
+  if (!m) return null;
+  return <div className="mt-1 flex items-start gap-1.5 text-[11px]"><span className={'shrink-0 rounded border px-1 text-[10px] font-bold ' + CTRY[m.c].chip}>{m.c.toUpperCase()}</span><span className="font-semibold min-w-0">{shortBrands(m.b)}</span></div>;
+}
+
 function Tile({ d, lang, on, toggle, open }) {
   return (
     <div onClick={open} className={'rounded-xl md:rounded-2xl border shadow-sm p-3.5 md:p-5 cursor-pointer hover:shadow-md transition flex gap-3 ' + SURF + (on ? ' ring-2 ring-indigo-500' : '')}>
@@ -958,6 +985,7 @@ function Tile({ d, lang, on, toggle, open }) {
           <ClassChip c={d.cls} lang={lang} />
         </div>
         <div className={'text-[11px] ' + MUTED}>{d.th}</div>
+        <BrandLine d={d} />
         <div className="flex flex-wrap gap-1 mt-1.5"><SiteChips d={d} lang={lang} /><NlemChip d={d} lang={lang} /></div>
         <div className="mt-1.5 flex flex-wrap gap-1"><CountryChips d={d} lang={lang} /></div>
         <div className={'mt-2.5 rounded-lg border p-2 text-[12px] space-y-0.5 ' + INSET}>
@@ -978,6 +1006,7 @@ function Row({ d, lang, on, toggle, open }) {
       <div className="min-w-0 flex-1 sm:flex sm:items-center sm:gap-3">
         <div className="sm:w-56 shrink-0">
           <div className="flex flex-wrap items-center gap-1.5"><span className={'font-extrabold ' + CLS[d.cls].txt}>{d.name}</span><ClassChip c={d.cls} lang={lang} /></div>
+          <BrandLine d={d} />
           <div className="flex flex-wrap gap-1 mt-0.5"><SiteChips d={d} lang={lang} /><NlemChip d={d} lang={lang} /></div>
         </div>
         <div className="flex-1 min-w-0 text-[12px] mt-1.5 sm:mt-0">{doseLine(d)}<div className="flex flex-wrap gap-1 mt-1"><CountryChips d={d} lang={lang} /></div></div>
@@ -995,7 +1024,7 @@ function TableView({ rows, lang, sel, toggle, open }) {
     <div className={'rounded-xl border shadow-sm overflow-x-auto ' + SURF}>
       <table className="w-full text-[12px] border-collapse">
         <thead className={INSET}><tr>
-          <th className={th + ' sticky left-0 z-10 ' + INSET}>{TXT.drugs[i]}</th><th className={th}>{TXT.byClass[i]}</th><th className={th}>{TXT.bySite[i]}</th><th className={th + ' min-w-[200px]'}>{TXT.dose[i]}</th>
+          <th className={th + ' sticky left-0 z-10 ' + INSET}>{TXT.drugs[i]}</th><th className={th}>{TXT.byClass[i]}</th><th className={th}>{TXT.bySite[i]}</th><th className={th}>{TXT.brandsCol[i]}</th><th className={th + ' min-w-[200px]'}>{TXT.dose[i]}</th>
           {ELECTROLYTES.map(e => <th key={e.k} className={th}>{e.l}</th>)}<th className={th + ' min-w-[200px]'}>{TXT.se[i]}</th><th className={th}>{TXT.nlem[i]}</th><th className={th}>{TXT.avail[i]}</th><th className={th}></th>
         </tr></thead>
         <tbody>{rows.map(d => (
@@ -1003,6 +1032,7 @@ function TableView({ rows, lang, sel, toggle, open }) {
             <td className={'px-2 py-2 font-extrabold sticky left-0 z-10 whitespace-nowrap ' + SURF + ' ' + CLS[d.cls].txt}>{d.name}</td>
             <td className="px-2 py-2"><ClassChip c={d.cls} lang={lang} /></td>
             <td className="px-2 py-2"><div className="flex gap-1"><SiteChips d={d} lang={lang} /></div></td>
+            <td className="px-2 py-2 min-w-[120px]"><BrandLine d={d} /></td>
             <td className="px-2 py-2">{d.dose.map((x, k) => <div key={k}><b>{x[0]}</b> {x[1]}</div>)}</td>
             {ELECTROLYTES.map(e => <td key={e.k} className="px-2 py-2"><EffChip k={e.k} v={String(d.fx[e.k])} /></td>)}
             <td className="px-2 py-2"><div className="flex flex-wrap gap-x-2 gap-y-0.5">{d.se.map(x => CAUTION.has(x) ? <span key={x} title={TXT.caution[i]} className="inline-flex items-center gap-0.5 font-bold text-amber-700 dark:text-amber-300"><WarnIcon className="w-3 h-3 shrink-0" />{SE[x][i]}</span> : <span key={x}>{SE[x][i]}</span>)}</div></td>
@@ -1084,7 +1114,7 @@ function App() {
       && Object.entries(fx).every(([k, v]) => d.fx[k] === v)
       && (!nlemOnly || NLEM[d.id])
       && cs.every(c => stSel.length ? stSel.includes(stOf(d, c)) : stOf(d, c) === 'current')
-      && (!s || (d.name + ' ' + d.th + ' ' + CLS[d.cls].en + ' ' + d.target).toLowerCase().includes(s)));
+      && (!s || (d.name + ' ' + d.th + ' ' + CLS[d.cls].en + ' ' + d.target + ' ' + COUNTRIES.map(c => brandsOf(d, c) || '').join(' ')).toLowerCase().includes(s)));
     const key = { name: (d) => d.name, class: (d) => CLS_ORDER.indexOf(d.cls), site: (d) => SEGS.indexOf(d.sites[0]) }[sort];
     return [...r].sort((a, b) => (key(a) > key(b) ? 1 : key(a) < key(b) ? -1 : a.name.localeCompare(b.name)));
   }, [q, classes, fx, ctry, stSel, nlemOnly, sort]);
