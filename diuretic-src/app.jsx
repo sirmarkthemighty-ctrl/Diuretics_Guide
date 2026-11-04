@@ -27,8 +27,8 @@ const LadderIcon = mk(<path d="M8 3v18M16 3v18M8 8h8M8 13h8M8 18h8" />);
 const VERSION = 'v1.2.0';
 const CHANGELOG = [
   { v: 'v1.2.0', date: '2026-11-04',
-    en: ['First release: 24 diuretics (18 core plus 6 sold in the UK, EU or Japan) with doses, electrolyte effects and side effects.', 'Tile, list and table views.', 'Mechanism button: highlights where selected drugs act on the nephron.', 'Diuretic resistance: sequential nephron blockade guide.', 'Warning triangle on serious side effects (hyperkalemia, ototoxicity, liver injury, ODS, DKA, blood-count drops, AKI, pulmonary edema) on cards, table and detail view; filters open with FDA status “Current” selected by default.', 'Key clinical trials in each drug’s detail view, summarised from the PubMed abstracts with PubMed and DOI links (drugs with no landmark outcome trial say so).', 'References section at the bottom of the page (collapsible, as in the bronchodilator guide).', 'Mechanism diagram redrawn on the ScienceDirect Topics nephron layout (glomerulus, macula densa, cortex / medulla, osmolality gradient, water / salt / urea flow, ADH and aldosterone), with the source listed.', 'Kidney / liver dosing and key interactions on every drug (from labels and guidelines), and a loop dose conversion table.', 'Thai NLEM 2569 chip checked against the official list (5 Basic drugs, the rest Non-NLEM) and TH / US / UK / EU / JP availability filter (all five checked 2026-11-04: UK on emc, EU on Spain AEMPS, EMA lists and national sources, JP on KEGG / JAPIC). FDA status per country (current / past † / never ⊘) with a filter; US checked against openFDA. Doses and Thai brands checked against MIMS Thailand.'],
-    th: ['เปิดตัวครั้งแรก: ยาขับปัสสาวะ 24 ชนิด (หลัก 18 ชนิด และอีก 6 ชนิดที่มีใน UK, EU หรือญี่ปุ่น) พร้อมขนาดยา ผลต่ออิเล็กโทรไลต์ และผลข้างเคียง', 'มุมมองการ์ด รายการ และตาราง', 'ปุ่มกลไก: แสดงตำแหน่งที่ยาที่เลือกออกฤทธิ์บนเนฟรอน', 'ภาวะดื้อยาขับปัสสาวะ: แนวทางการปิดกั้นเนฟรอนตามลำดับ', 'สัญลักษณ์เตือนรูปสามเหลี่ยมที่ผลข้างเคียงสำคัญ (โพแทสเซียมสูง พิษต่อหู ตับ ODS DKA เม็ดเลือดผิดปกติ AKI ปอดบวมน้ำ) ในการ์ด ตาราง และหน้ารายละเอียด ตัวกรองเปิดไว้และเลือกสถานะ อย. “ปัจจุบัน” เป็นค่าเริ่มต้น', 'การศึกษาทางคลินิกสำคัญในหน้ารายละเอียดของแต่ละยา (ตรวจกับบทคัดย่อใน PubMed พร้อมลิงก์ PubMed และ DOI)', 'ส่วนเอกสารอ้างอิงท้ายหน้า (พับ/เปิดได้ เหมือนแอปยาขยายหลอดลม)', 'แผนภาพกลไกวาดใหม่ตามผังเนฟรอนของ ScienceDirect Topics (โกลเมอรูลัส แมคูลาเดนซา เปลือก/ไขสันหลังไต ความเข้มข้นออสโมลาลิตี การเคลื่อนของน้ำ/เกลือ/ยูเรีย ADH และอัลโดสเตอโรน) พร้อมแหล่งอ้างอิง', 'ขนาดยาตามการทำงานของไต/ตับ และยาที่ต้องระวังเมื่อใช้ร่วมในทุกตัวยา (จากฉลากและแนวทางเวชปฏิบัติ) พร้อมตารางเทียบขนาดยาลูป', 'ป้าย NLEM 2569 ตรวจกับบัญชียาหลักฯ ฉบับจริง (หมวดพื้นฐาน 5 ชนิด ที่เหลือไม่อยู่ใน NLEM) และตัวกรองประเทศ TH / US / UK / EU / JP (ตรวจครบทั้งห้าเมื่อ 2026-11-04: UK ใน emc, EU ใน AEMPS สเปน รายการ EMA และแหล่งระดับประเทศ, JP ใน KEGG / JAPIC) สถานะ อย. รายประเทศ (ปัจจุบัน / เคยมี † / ไม่เคยมี ⊘) พร้อมตัวกรอง ตรวจสหรัฐฯ กับ openFDA ตรวจขนาดยาและยี่ห้อในไทยกับ MIMS Thailand'] },
+    en: ['First release: 24 diuretics (18 core plus 6 sold in the UK, EU or Japan) with doses, electrolyte effects and side effects.', 'Tile, list and table views.', 'Mechanism button: highlights where selected drugs act on the nephron.', 'Diuretic resistance: sequential nephron blockade guide.', 'Electrolyte filter in two rows (increased on top, decreased below, same electrolyte stacked): pick several electrolytes, one direction each; the other arrow switches it.', 'Warning triangle on serious side effects (hyperkalemia, ototoxicity, liver injury, ODS, DKA, blood-count drops, AKI, pulmonary edema) on cards, table and detail view; filters open with FDA status “Current” selected by default.', 'Key clinical trials in each drug’s detail view, summarised from the PubMed abstracts with PubMed and DOI links (drugs with no landmark outcome trial say so).', 'References section at the bottom of the page (collapsible, as in the bronchodilator guide).', 'Mechanism diagram redrawn on the ScienceDirect Topics nephron layout (glomerulus, macula densa, cortex / medulla, osmolality gradient, water / salt / urea flow, ADH and aldosterone), with the source listed.', 'Kidney / liver dosing and key interactions on every drug (from labels and guidelines), and a loop dose conversion table.', 'Thai NLEM 2569 chip checked against the official list (5 Basic drugs, the rest Non-NLEM) and TH / US / UK / EU / JP availability filter (all five checked 2026-11-04: UK on emc, EU on Spain AEMPS, EMA lists and national sources, JP on KEGG / JAPIC). FDA status per country (current / past † / never ⊘) with a filter; US checked against openFDA. Doses and Thai brands checked against MIMS Thailand.'],
+    th: ['เปิดตัวครั้งแรก: ยาขับปัสสาวะ 24 ชนิด (หลัก 18 ชนิด และอีก 6 ชนิดที่มีใน UK, EU หรือญี่ปุ่น) พร้อมขนาดยา ผลต่ออิเล็กโทรไลต์ และผลข้างเคียง', 'มุมมองการ์ด รายการ และตาราง', 'ปุ่มกลไก: แสดงตำแหน่งที่ยาที่เลือกออกฤทธิ์บนเนฟรอน', 'ภาวะดื้อยาขับปัสสาวะ: แนวทางการปิดกั้นเนฟรอนตามลำดับ', 'ตัวกรองอิเล็กโทรไลต์สองแถว (เพิ่มขึ้นแถวบน ลดลงแถวล่าง อิเล็กโทรไลต์เดียวกันซ้อนกัน) เลือกได้หลายตัว ตัวละหนึ่งทิศทาง กดลูกศรอีกด้านเพื่อสลับ', 'สัญลักษณ์เตือนรูปสามเหลี่ยมที่ผลข้างเคียงสำคัญ (โพแทสเซียมสูง พิษต่อหู ตับ ODS DKA เม็ดเลือดผิดปกติ AKI ปอดบวมน้ำ) ในการ์ด ตาราง และหน้ารายละเอียด ตัวกรองเปิดไว้และเลือกสถานะ อย. “ปัจจุบัน” เป็นค่าเริ่มต้น', 'การศึกษาทางคลินิกสำคัญในหน้ารายละเอียดของแต่ละยา (ตรวจกับบทคัดย่อใน PubMed พร้อมลิงก์ PubMed และ DOI)', 'ส่วนเอกสารอ้างอิงท้ายหน้า (พับ/เปิดได้ เหมือนแอปยาขยายหลอดลม)', 'แผนภาพกลไกวาดใหม่ตามผังเนฟรอนของ ScienceDirect Topics (โกลเมอรูลัส แมคูลาเดนซา เปลือก/ไขสันหลังไต ความเข้มข้นออสโมลาลิตี การเคลื่อนของน้ำ/เกลือ/ยูเรีย ADH และอัลโดสเตอโรน) พร้อมแหล่งอ้างอิง', 'ขนาดยาตามการทำงานของไต/ตับ และยาที่ต้องระวังเมื่อใช้ร่วมในทุกตัวยา (จากฉลากและแนวทางเวชปฏิบัติ) พร้อมตารางเทียบขนาดยาลูป', 'ป้าย NLEM 2569 ตรวจกับบัญชียาหลักฯ ฉบับจริง (หมวดพื้นฐาน 5 ชนิด ที่เหลือไม่อยู่ใน NLEM) และตัวกรองประเทศ TH / US / UK / EU / JP (ตรวจครบทั้งห้าเมื่อ 2026-11-04: UK ใน emc, EU ใน AEMPS สเปน รายการ EMA และแหล่งระดับประเทศ, JP ใน KEGG / JAPIC) สถานะ อย. รายประเทศ (ปัจจุบัน / เคยมี † / ไม่เคยมี ⊘) พร้อมตัวกรอง ตรวจสหรัฐฯ กับ openFDA ตรวจขนาดยาและยี่ห้อในไทยกับ MIMS Thailand'] },
 ];
 
 // Nephron segments, in flow order
@@ -225,8 +225,6 @@ const CTRY = {
 const ELECTROLYTES = [
   { k: 'na', l: 'Na⁺' }, { k: 'k', l: 'K⁺' }, { k: 'mg', l: 'Mg²⁺' }, { k: 'ca', l: 'Ca²⁺' }, { k: 'hco3', l: 'HCO₃⁻' },
 ];
-// quick filter chips: [electrolyte, direction]
-const FX_FILTERS = [['k', -1], ['k', 1], ['na', -1], ['na', 1], ['mg', -1], ['ca', 1], ['ca', -1], ['hco3', 1], ['hco3', -1]];
 
 /* ---------- Strings ---------- */
 const TXT = {
@@ -235,7 +233,7 @@ const TXT = {
   made: ['Made with ❤️ by Wardom', 'สร้างด้วย ❤️ โดย Wardom'],
   disc: ['For clinician reference. Check local protocols and the patient before prescribing.', 'ใช้อ้างอิงสำหรับบุคลากรทางการแพทย์ ตรวจสอบแนวปฏิบัติของโรงพยาบาลและผู้ป่วยก่อนสั่งยา'],
   search: ['Search drug, class or target…', 'ค้นหายา กลุ่มยา หรือเป้าหมาย…'],
-  mech: ['Mechanism', 'กลไก'], trials: ['Key clinical trials', 'การศึกษาทางคลินิกสำคัญ'], noTrial: ['No landmark outcome trial is included for this drug (N/A).', 'ไม่ได้รวมการศึกษาผลลัพธ์สำคัญของยานี้ (N/A)'], design: ['Design', 'รูปแบบ'], result: ['Result', 'ผล'], caution: ['Serious side effect: check before prescribing', 'ผลข้างเคียงที่สำคัญ: ตรวจก่อนสั่งยา'], conv: ['Dose conversion', 'เทียบขนาดยา'], renal: ['Kidney / liver dosing', 'ขนาดยาตามไต/ตับ'], ddi: ['Key interactions', 'ยาที่ต้องระวังเมื่อใช้ร่วม'], resist: ['Diuretic resistance', 'ดื้อยาขับปัสสาวะ'], key: ['Key', 'คำอธิบาย'],
+  mech: ['Mechanism', 'กลไก'], incr: ['increased', 'เพิ่มขึ้น'], decr: ['decreased', 'ลดลง'], trials: ['Key clinical trials', 'การศึกษาทางคลินิกสำคัญ'], noTrial: ['No landmark outcome trial is included for this drug (N/A).', 'ไม่ได้รวมการศึกษาผลลัพธ์สำคัญของยานี้ (N/A)'], design: ['Design', 'รูปแบบ'], result: ['Result', 'ผล'], caution: ['Serious side effect: check before prescribing', 'ผลข้างเคียงที่สำคัญ: ตรวจก่อนสั่งยา'], conv: ['Dose conversion', 'เทียบขนาดยา'], renal: ['Kidney / liver dosing', 'ขนาดยาตามไต/ตับ'], ddi: ['Key interactions', 'ยาที่ต้องระวังเมื่อใช้ร่วม'], resist: ['Diuretic resistance', 'ดื้อยาขับปัสสาวะ'], key: ['Key', 'คำอธิบาย'],
   all: ['All', 'ทั้งหมด'], any: ['Any effect', 'ทุกผล'],
   tile: ['Tile', 'การ์ด'], list: ['List', 'รายการ'], table: ['Table', 'ตาราง'],
   sort: ['Sort', 'เรียง'], byClass: ['Class', 'กลุ่มยา'], byName: ['Name', 'ชื่อยา'], bySite: ['Site', 'ตำแหน่ง'],
@@ -1048,7 +1046,7 @@ function App() {
   const [q, setQ] = useState('');
   const [searchOpen, setSearchOpen] = useState(false);
   const [classes, setClasses] = useState([]);
-  const [fx, setFx] = useState(null);
+  const [fx, setFx] = useState({});
   const [ctry, setCtry] = useState([]);
   const [stSel, setStSel] = useState(['current']);
   const [nlemOnly, setNlemOnly] = useState(false);
@@ -1075,13 +1073,15 @@ function App() {
   }, []);
 
   const toggleIn = (setter) => (v) => setter(p => p.includes(v) ? p.filter(x => x !== v) : [...p, v]);
+  // electrolyte filter: click the same arrow again to clear it; the other arrow of the same electrolyte replaces it
+  const toggleFx = (k, v) => setFx(p => { const n = { ...p }; if (n[k] === v) delete n[k]; else n[k] = v; return n; });
   const toggleClass = toggleIn(setClasses), toggleCtry = toggleIn(setCtry), toggleSt = toggleIn(setStSel);
 
   const rows = useMemo(() => {
     const s = q.trim().toLowerCase();
     const cs = ctry.length ? ctry : (stSel.length ? ['th'] : []);
     const r = DRUGS.filter(d => (!classes.length || classes.includes(d.cls))
-      && (!fx || d.fx[fx[0]] === fx[1])
+      && Object.entries(fx).every(([k, v]) => d.fx[k] === v)
       && (!nlemOnly || NLEM[d.id])
       && cs.every(c => stSel.length ? stSel.includes(stOf(d, c)) : stOf(d, c) === 'current')
       && (!s || (d.name + ' ' + d.th + ' ' + CLS[d.cls].en + ' ' + d.target).toLowerCase().includes(s)));
@@ -1098,13 +1098,13 @@ function App() {
   // Active filters as removable chips (same pattern as the bronchodilator app)
   const chips = [
     ...classes.map(c => ({ key: 'c' + c, label: CLS[c].s[lang], off: () => toggleClass(c) })),
-    ...(fx ? [{ key: 'fx', label: fxLabel(fx), off: () => setFx(null) }] : []),
+    ...Object.entries(fx).map(([k, v]) => ({ key: 'fx' + k, label: fxLabel([k, v]), off: () => toggleFx(k, v) })),
     ...ctry.map(c => ({ key: 'k' + c, label: c.toUpperCase(), off: () => toggleCtry(c) })),
     ...stSel.map(k => ({ key: 's' + k, label: 'FDA: ' + stName(k), off: () => toggleSt(k) })),
     ...(nlemOnly ? [{ key: 'nl', label: t('nlemOnly'), off: () => setNlemOnly(false) }] : []),
     ...(q.trim() ? [{ key: 'q', label: '“' + q.trim() + '”', off: () => setQ('') }] : []),
   ];
-  const clearAll = () => { setClasses([]); setFx(null); setQ(''); setCtry([]); setStSel([]); setNlemOnly(false); };
+  const clearAll = () => { setClasses([]); setFx({}); setQ(''); setCtry([]); setStSel([]); setNlemOnly(false); };
 
   const guides = [
     ['mech', t('mech'), 'bg-blue-50 hover:bg-blue-100 border-blue-200 text-blue-700 dark:bg-blue-500/10 dark:hover:bg-blue-500/20 dark:border-blue-400/30 dark:text-blue-300', NephronIcon, () => setModal({ t: 'mech' })],
@@ -1211,9 +1211,15 @@ function App() {
               <div className={GICON}><PillIcon className="h-2.5 w-2.5 md:h-3 md:w-3" /></div>
               {CLS_ORDER.map(c => <button key={c} type="button" onClick={() => toggleClass(c)} aria-pressed={classes.includes(c)} title={CLS[c][lang]} className={GBTN + 'py-0.5 ' + (classes.includes(c) ? ON : CLS[c].txt + ' hover:bg-slate-50 dark:hover:bg-[#101a2b]')}>{CLS[c].s[lang]}</button>)}
             </div>
-            <div className={GBW} role="group" aria-label={t('elec')}>
-              <div className={GICON}><ActivityIcon className="h-2.5 w-2.5 md:h-3 md:w-3" /></div>
-              {FX_FILTERS.map(f => { const on = fx && fx[0] === f[0] && fx[1] === f[1]; return <button key={f.join()} type="button" onClick={() => setFx(on ? null : f)} aria-pressed={!!on} className={GBTN + (on ? ON : OFF)}>{fxLabel(f)}</button>; })}
+            <div className="flex bg-white dark:bg-[#151f32] rounded-md border border-slate-200 dark:border-[#263449] p-0.5 shadow-sm shrink-0 items-center gap-0.5 max-w-full" role="group" aria-label={t('elec')}>
+              <div className={GICON + ' self-stretch'}><ActivityIcon className="h-2.5 w-2.5 md:h-3 md:w-3" /></div>
+              <div className="grid grid-cols-5 grid-rows-2 gap-0.5">
+                {[1, -1].map(v => ELECTROLYTES.map(e => {
+                  const on = fx[e.k] === v;
+                  return <button key={e.k + v} type="button" onClick={() => toggleFx(e.k, v)} aria-pressed={on} aria-label={e.l + ' ' + (v > 0 ? t('incr') : t('decr'))} title={e.l + ' ' + (v > 0 ? t('incr') : t('decr'))}
+                    className={'h-[22px] px-1.5 md:px-2 rounded flex items-center justify-center text-[10px] font-bold transition-all whitespace-nowrap ' + (on ? ON : (v > 0 ? 'text-orange-700 dark:text-orange-300' : 'text-sky-700 dark:text-sky-300') + ' hover:bg-slate-50 dark:hover:bg-[#101a2b]')}>{fxLabel([e.k, v])}</button>;
+                }))}
+              </div>
             </div>
           </div>
         </div>
