@@ -22,11 +22,11 @@ const LadderIcon = mk(<path d="M8 3v18M16 3v18M8 8h8M8 13h8M8 18h8" />);
 
 
 /* ---------- Data ---------- */
-const VERSION = 'v1.0.0';
+const VERSION = 'v1.1.0';
 const CHANGELOG = [
-  { v: 'v1.0.0', date: '2026-11-04',
-    en: ['First release: 17 diuretics with doses, electrolyte effects and side effects.', 'Tile, list and table views.', 'Mechanism button: highlights where selected drugs act on the nephron.', 'Diuretic resistance: sequential nephron blockade guide.', 'Thai NLEM 2569 chip checked against the official list (5 Basic drugs, the rest Non-NLEM) and TH / US / UK / EU / JP availability filter (TH and US confirmed). FDA status per country (current / past † / never ⊘) with a filter; US checked against openFDA. Doses and Thai brands checked against MIMS Thailand.'],
-    th: ['เปิดตัวครั้งแรก: ยาขับปัสสาวะ 17 ชนิด พร้อมขนาดยา ผลต่ออิเล็กโทรไลต์ และผลข้างเคียง', 'มุมมองการ์ด รายการ และตาราง', 'ปุ่มกลไก: แสดงตำแหน่งที่ยาที่เลือกออกฤทธิ์บนเนฟรอน', 'ภาวะดื้อยาขับปัสสาวะ: แนวทางการปิดกั้นเนฟรอนตามลำดับ', 'ป้าย NLEM 2569 ตรวจกับบัญชียาหลักฯ ฉบับจริง (หมวดพื้นฐาน 5 ชนิด ที่เหลือไม่อยู่ใน NLEM) และตัวกรองประเทศ TH / US / UK / EU / JP (ยืนยันไทยและสหรัฐฯ) สถานะ อย. รายประเทศ (ปัจจุบัน / เคยมี † / ไม่เคยมี ⊘) พร้อมตัวกรอง ตรวจสหรัฐฯ กับ openFDA ตรวจขนาดยาและยี่ห้อในไทยกับ MIMS Thailand'] },
+  { v: 'v1.1.0', date: '2026-11-04',
+    en: ['First release: 24 diuretics (18 core plus 6 sold in the UK, EU or Japan) with doses, electrolyte effects and side effects.', 'Tile, list and table views.', 'Mechanism button: highlights where selected drugs act on the nephron.', 'Diuretic resistance: sequential nephron blockade guide.', 'Thai NLEM 2569 chip checked against the official list (5 Basic drugs, the rest Non-NLEM) and TH / US / UK / EU / JP availability filter (all five checked 2026-11-04: UK on emc, EU on Spain AEMPS, EMA lists and national sources, JP on KEGG / JAPIC). FDA status per country (current / past † / never ⊘) with a filter; US checked against openFDA. Doses and Thai brands checked against MIMS Thailand.'],
+    th: ['เปิดตัวครั้งแรก: ยาขับปัสสาวะ 24 ชนิด (หลัก 18 ชนิด และอีก 6 ชนิดที่มีใน UK, EU หรือญี่ปุ่น) พร้อมขนาดยา ผลต่ออิเล็กโทรไลต์ และผลข้างเคียง', 'มุมมองการ์ด รายการ และตาราง', 'ปุ่มกลไก: แสดงตำแหน่งที่ยาที่เลือกออกฤทธิ์บนเนฟรอน', 'ภาวะดื้อยาขับปัสสาวะ: แนวทางการปิดกั้นเนฟรอนตามลำดับ', 'ป้าย NLEM 2569 ตรวจกับบัญชียาหลักฯ ฉบับจริง (หมวดพื้นฐาน 5 ชนิด ที่เหลือไม่อยู่ใน NLEM) และตัวกรองประเทศ TH / US / UK / EU / JP (ตรวจครบทั้งห้าเมื่อ 2026-11-04: UK ใน emc, EU ใน AEMPS สเปน รายการ EMA และแหล่งระดับประเทศ, JP ใน KEGG / JAPIC) สถานะ อย. รายประเทศ (ปัจจุบัน / เคยมี † / ไม่เคยมี ⊘) พร้อมตัวกรอง ตรวจสหรัฐฯ กับ openFDA ตรวจขนาดยาและยี่ห้อในไทยกับ MIMS Thailand'] },
 ];
 
 // Nephron segments, in flow order
@@ -64,7 +64,7 @@ const SE = {
   stones: ['Kidney stones', 'นิ่วในไต'], liver: ['Liver injury', 'พิษต่อตับ'], thirst: ['Thirst', 'กระหายน้ำ'],
   ods: ['Overly fast Na correction (ODS)', 'แก้ Na เร็วเกิน (ODS)'], pulm: ['Fluid overload / pulmonary edema', 'น้ำเกิน/ปอดบวมน้ำ'],
   gu: ['Genital mycotic infection', 'ติดเชื้อราที่อวัยวะเพศ'], dka: ['Euglycemic DKA', 'ภาวะ DKA ชนิดน้ำตาลไม่สูง'],
-  gi: ['GI upset', 'ระบบทางเดินอาหารผิดปกติ'], blood: ['Megaloblastic anemia / folate antagonism', 'โลหิตจางชนิดเมกะโลบลาสติก'], rash: ['Rash / photosensitivity', 'ผื่น/ไวต่อแสง'],
+  gi: ['GI upset', 'ระบบทางเดินอาหารผิดปกติ'], blood: ['Megaloblastic anemia / folate antagonism', 'โลหิตจางชนิดเมกะโลบลาสติก'], rash: ['Rash / photosensitivity', 'ผื่น/ไวต่อแสง'], wbc: ['Agranulocytosis / leukopenia (rare)', 'เม็ดเลือดขาวต่ำ/แอกรานูโลไซโทซิส (พบน้อย)'],
 };
 
 // fx: effect on serum level. 1 = raises, -1 = lowers, 0 = no major effect, 'v' = variable
@@ -134,10 +134,38 @@ const DRUGS = [
     [['PO', 'Hyponatremia: start 15 mg OD, titrate to 30–60 mg']],
     { na: 1, k: 0, mg: 0, ca: 0, hco3: 0 }, ['ods', 'thirst', 'liver', 'hypoV'],
     { en: 'Start in hospital and check Na⁺ every 6–8 h; keep the rise ≤ 8–10 mmol/L per 24 h. Do not restrict fluids. Avoid > 30 days in non-ADPKD use (liver injury).', th: 'เริ่มในโรงพยาบาล เจาะ Na⁺ ทุก 6–8 ชม. ให้ Na⁺ เพิ่มไม่เกิน 8–10 mmol/L ใน 24 ชม. ไม่ต้องจำกัดน้ำ ไม่ควรใช้เกิน 30 วันในข้อบ่งชี้อื่นที่ไม่ใช่ ADPKD (พิษต่อตับ)' }),
-  D('sglt2i', 'Dapagliflozin / empagliflozin', 'ดาพากลิโฟลซิน / เอมพากลิโฟลซิน', 'sglt', ['pct'], 'SGLT2 (Na⁺-glucose)', 'Mild natriuresis',
-    [['PO', 'Dapagliflozin 10 mg OD; empagliflozin 10 mg OD']],
+  D('dapagliflozin', 'Dapagliflozin', 'ดาพากลิโฟลซิน', 'sglt', ['pct'], 'SGLT2 (Na⁺-glucose)', 'Mild natriuresis',
+    [['PO', 'HF / CKD 10 mg OD']],
     { na: 0, k: 0, mg: 0, ca: 0, hco3: 0 }, ['gu', 'dka', 'hypoV'],
     { en: 'Used for HF / CKD outcomes; the diuretic effect is mild but additive. Hold when acutely ill, fasting or before surgery (DKA).', th: 'ใช้เพื่อผลลัพธ์ในโรคหัวใจล้มเหลว/โรคไต ฤทธิ์ขับปัสสาวะไม่มากแต่เสริมกัน งดเมื่อป่วยหนัก อดอาหาร หรือก่อนผ่าตัด (DKA)' }),
+  D('empagliflozin', 'Empagliflozin', 'เอมพากลิโฟลซิน', 'sglt', ['pct'], 'SGLT2 (Na⁺-glucose)', 'Mild natriuresis',
+    [['PO', 'HF / CKD 10 mg OD']],
+    { na: 0, k: 0, mg: 0, ca: 0, hco3: 0 }, ['gu', 'dka', 'hypoV'],
+    { en: 'Used for HF / CKD outcomes; the diuretic effect is mild but additive. Hold when acutely ill, fasting or before surgery (DKA).', th: 'ใช้เพื่อผลลัพธ์ในโรคหัวใจล้มเหลว/โรคไต ฤทธิ์ขับปัสสาวะไม่มากแต่เสริมกัน งดเมื่อป่วยหนัก อดอาหาร หรือก่อนผ่าตัด (DKA)' }),
+  D('bendroflumethiazide', 'Bendroflumethiazide', 'เบนโดรฟลูเมไทอาไซด์', 'thz', ['dct'], 'NCC (Na⁺-Cl⁻)', '≈5–8%',
+    [['PO', 'HTN 2.5 mg every morning (more is rarely needed); edema 5–10 mg every morning at first, then 2.5–5 mg on 2–3 days a week']],
+    { na: -1, k: -1, mg: -1, ca: 1, hco3: 1 }, ['hypoNa', 'hypoK', 'hypoMg', 'hyperCa', 'uric', 'gluc', 'rash'],
+    { en: 'Long-standing UK thiazide. NICE NG136 now prefers a thiazide-like drug (indapamide, chlortalidone) for new hypertension. Contraindicated in Addison disease, hypercalcemia, hyponatremia and refractory hypokalemia.', th: 'ไทอาไซด์ที่ใช้มานานในสหราชอาณาจักร ปัจจุบัน NICE NG136 แนะนำยาคล้ายไทอาไซด์ (indapamide, chlortalidone) สำหรับความดันสูงรายใหม่ ห้ามใช้ในโรค Addison แคลเซียมสูง โซเดียมต่ำ และโพแทสเซียมต่ำที่แก้ไม่ได้' }),
+  D('xipamide', 'Xipamide', 'ไซพาไมด์', 'thz', ['dct'], 'NCC (Na⁺-Cl⁻)', '≈5–8%',
+    [['PO', 'HTN 20 mg OD; edema 20 mg OD, up to 40 mg; up to 60 mg/day in advanced kidney impairment (German leaflet)']],
+    { na: -1, k: -1, mg: -1, ca: 1, hco3: 1 }, ['hypoK', 'hypoNa', 'hypoMg', 'hyperCa', 'uric', 'sulfa'],
+    { en: 'Thiazide-like sulfonamide sold in Germany (generics). Hypokalemia is very common. Contraindicated in gout / high uric acid, refractory hypokalemia, hypercalcemia, severe liver disease and pregnancy.', th: 'ยาซัลฟาคล้ายไทอาไซด์ มีจำหน่ายในเยอรมนี (ยาสามัญ) โพแทสเซียมต่ำพบบ่อยมาก ห้ามใช้ในเก๊าท์/ยูริกสูง โพแทสเซียมต่ำที่แก้ไม่ได้ แคลเซียมสูง โรคตับรุนแรง และการตั้งครรภ์' }),
+  D('trichlormethiazide', 'Trichlormethiazide', 'ไตรคลอร์เมไทอาไซด์', 'thz', ['dct'], 'NCC (Na⁺-Cl⁻)', '≈5–8%',
+    [['PO', '2–8 mg/day in 1–2 doses (Japan label); start low in older adults']],
+    { na: -1, k: -1, mg: -1, ca: 1, hco3: 1 }, ['hypoNa', 'hypoK', 'hypoMg', 'uric', 'gluc'],
+    { en: 'Thiazide used in Japan (Fluitran, generics) for hypertension and edema. Contraindicated in anuria and acute renal failure.', th: 'ไทอาไซด์ที่ใช้ในญี่ปุ่น (Fluitran และยาสามัญ) สำหรับความดันสูงและบวม ห้ามใช้ในภาวะไม่มีปัสสาวะและไตวายเฉียบพลัน' }),
+  D('azosemide', 'Azosemide', 'อะโซเซไมด์', 'loop', ['tal'], 'NKCC2 (Na⁺-K⁺-2Cl⁻)', '≈20–25%',
+    [['PO', '60 mg OD (Japan label); adjust to age and symptoms']],
+    { na: -1, k: -1, mg: -1, ca: -1, hco3: 1 }, ['hypoK', 'metAlk', 'hypoV', 'wbc'],
+    { en: 'Long-acting loop diuretic used in Japan (Diart) for cardiac, renal and hepatic edema. The label warns of electrolyte abnormalities and of agranulocytosis / leukopenia; contraindicated in anuria and hepatic coma.', th: 'ยาลูปออกฤทธิ์นานที่ใช้ในญี่ปุ่น (Diart) สำหรับบวมจากหัวใจ ไต และตับ ฉลากเตือนเรื่องอิเล็กโทรไลต์ผิดปกติและเม็ดเลือดขาวต่ำ/แอกรานูโลไซโทซิส ห้ามใช้ในภาวะไม่มีปัสสาวะและโคม่าจากตับ' }),
+  D('canrenoate', 'Potassium canrenoate', 'โพแทสเซียมแคนรีโนเอต', 'mra', ['cd'], 'Mineralocorticoid receptor', '≈2%',
+    [['IV', '100–200 mg slowly IV 1–2 times/day (Japan label); max 600 mg/day, usually ≤ 2 weeks']],
+    { na: -1, k: 1, mg: 0, ca: 0, hco3: -1 }, ['hyperK', 'gyn', 'aki'],
+    { en: 'IV mineralocorticoid antagonist (prodrug of canrenone) sold in Japan, Italy and Germany. Contraindicated in renal failure, risk of hyperkalemia, Addison disease and with eplerenone. Check K⁺ regularly.', th: 'ยาต้านมิเนอรัลโลคอร์ติคอยด์ชนิดฉีด (prodrug ของ canrenone) มีจำหน่ายในญี่ปุ่น อิตาลี และเยอรมนี ห้ามใช้ในไตวาย เสี่ยงโพแทสเซียมสูง โรค Addison และร่วมกับ eplerenone ตรวจ K⁺ สม่ำเสมอ' }),
+  D('esaxerenone', 'Esaxerenone', 'เอซาเซเรโนน', 'mra', ['cd'], 'Mineralocorticoid receptor', 'Minimal',
+    [['PO', 'HTN 2.5 mg OD; may increase to 5 mg (Japan label)']],
+    { na: 0, k: 1, mg: 0, ca: 0, hco3: 0 }, ['hyperK'],
+    { en: 'Non-steroidal MRA approved in Japan (Minebro) for hypertension, not a diuretic. Do not start if K⁺ > 5.0 mEq/L or eGFR < 30. Check K⁺ before, within 2 weeks of starting or changing the dose, and at about 1 month. Contraindicated with eplerenone, K-sparing diuretics and K supplements.', th: 'MRA ชนิดไม่ใช่สเตียรอยด์ อนุมัติในญี่ปุ่น (Minebro) สำหรับความดันสูง ไม่ใช่ยาขับปัสสาวะ ห้ามเริ่มถ้า K⁺ > 5.0 mEq/L หรือ eGFR < 30 ตรวจ K⁺ ก่อนเริ่ม ภายใน 2 สัปดาห์หลังเริ่มหรือปรับขนาด และที่ราว 1 เดือน ห้ามใช้ร่วมกับ eplerenone ยาขับปัสสาวะประหยัดโพแทสเซียม และโพแทสเซียมเสริม' }),
 ];
 const DRUG = Object.fromEntries(DRUGS.map(d => [d.id, d]));
 
@@ -155,13 +183,33 @@ const BRANDS = {
   furosemide: 'Dirine, Femide, Furetic, Furide, Furosemide Injection T P', acetazolamide: 'Diamox, Medene',
   hctz: 'Dichlotride, Diric, Diuret-P, Dragotab, Hychlozide, Hydrozide, Urazide, GPO, T.O., Union Drug', mannitol: 'Mannitol Thai Otsuka, Unitol 20%',
   spironolactone: 'Hyles', chlorthalidone: 'Chotalin', indapamide: 'Natrilix SR', tolvaptan: 'Jinarc, Samsca, Saptan 15',
-  sglt2i: 'Empagliflozin: Jardiance, Emdiance, Emflodiaz, Empabit, Emze, Goempa',
+  empagliflozin: 'Jardiance, Emdiance, Emflodiaz, Empabit, Emze, Goempa',
 };
-// Registration status per country: 'current' | 'past' (was registered, now withdrawn) | 'never'; missing = unknown (N/A).
-// TH: current when NLEM-listed or a MIMS Thailand brand exists. US: openFDA drugsfda (2026-11-04): every drug has at
-// least one product with marketing status Prescription, so all 17 are current. UK / EU / JP are not verified.
+// Registration status per country: 'current' | 'past' (was registered, now withdrawn) | 'never'; missing = N/A (not found
+// in the source below, or not checked). Sources, all checked 2026-11-04: TH = NLEM 2569 or a MIMS Thailand brand;
+// US = openFDA drugsfda (the original 18 all have a Prescription product; Discontinued only = past; no FDA record = never);
+// UK = emc (medicines.org.uk); EU = Spain AEMPS CIMA, the EMA lists of nationally authorised products and German / Italian /
+// Swedish sources (EU current = marketed in at least one member state); JP = KEGG MEDICUS (JAPIC prescription products).
+// A drug with no UK / EU / JP entry was not found there; it may have been withdrawn.
+const C = 'current', ALL = { uk: C, eu: C, jp: C };
+const REG_X = {
+  acetazolamide: ALL, mannitol: ALL, furosemide: ALL, torsemide: ALL, indapamide: ALL, spironolactone: ALL, eplerenone: ALL, tolvaptan: ALL, dapagliflozin: ALL, empagliflozin: ALL,
+  bumetanide: { uk: C, eu: C }, ethacrynic: { eu: C }, hctz: { eu: C, jp: C }, chlorthalidone: { uk: C, eu: C }, metolazone: { uk: C, eu: C },
+  amiloride: { uk: C, eu: C }, triamterene: { eu: C },
+  bendroflumethiazide: { us: 'past', uk: C, eu: C }, xipamide: { us: 'never', eu: C }, canrenoate: { us: 'never', eu: C, jp: C },
+  trichlormethiazide: { us: 'past', jp: C }, azosemide: { us: 'never', jp: C }, esaxerenone: { us: 'never', jp: C },
+};
+// Extra caveats per drug (shown under Availability)
+const REG_NOTE = {
+  amiloride: { en: 'EU: sold as a combination with HCTZ (Spain). UK: single-ingredient tablet and oral solution too.', th: 'EU: จำหน่ายเป็นยาผสมกับ HCTZ (สเปน) UK: มีทั้งยาเดี่ยวชนิดเม็ดและน้ำ' },
+  triamterene: { en: 'EU: combination with HCTZ only (Spain, Germany). Not found on emc (UK).', th: 'EU: มีเฉพาะยาผสมกับ HCTZ (สเปน เยอรมนี) ไม่พบใน emc (UK)' },
+  hctz: { en: 'UK: only combinations on emc; no licensed single-ingredient tablet was found.', th: 'UK: พบเฉพาะยาผสมใน emc ไม่พบยาเดี่ยวที่ขึ้นทะเบียน' },
+  canrenoate: { en: 'IV only. EU evidence is Italy (Kanrenol) and Germany; not found on emc (UK).', th: 'ชนิดฉีดเท่านั้น หลักฐาน EU คืออิตาลี (Kanrenol) และเยอรมนี ไม่พบใน emc (UK)' },
+};
+// MIMS Thailand not searched (the 6 drugs added from UK / EU / JP sources) or unusable page (dapagliflozin): Thai status is N/A.
+const MIMS_UNCHECKED = new Set(['dapagliflozin', 'bendroflumethiazide', 'xipamide', 'trichlormethiazide', 'azosemide', 'canrenoate', 'esaxerenone']);
 const TH_OK = new Set([...Object.keys(NLEM), ...Object.keys(BRANDS)]);
-const REG = Object.fromEntries(DRUGS.map(d => [d.id, { us: 'current', ...(TH_OK.has(d.id) ? { th: 'current' } : {}) }]));
+const REG = Object.fromEntries(DRUGS.map(d => [d.id, { us: C, ...(TH_OK.has(d.id) ? { th: C } : {}), ...REG_X[d.id] }]));
 const stOf = (d, c) => (REG[d.id] && REG[d.id][c]) || null;
 const COUNTRIES = ['th', 'us', 'uk', 'eu', 'jp'];
 const CTRY = {
@@ -206,10 +254,10 @@ const TXT = {
   discLink: ['Decision support only: read the disclaimer', 'เป็นเครื่องมือช่วยตัดสินใจเท่านั้น: อ่านข้อจำกัด'], discBody: ['For adult clinicians only. This guide supports decisions and does not replace clinical judgement, the product label or your local protocol. Check doses, renal function and electrolytes for each patient before prescribing.', 'สำหรับบุคลากรทางการแพทย์ที่ดูแลผู้ใหญ่เท่านั้น คู่มือนี้ช่วยการตัดสินใจ ไม่ได้แทนวิจารณญาณทางคลินิก ฉลากยา หรือแนวปฏิบัติของโรงพยาบาล ตรวจขนาดยา การทำงานของไต และอิเล็กโทรไลต์ของผู้ป่วยทุกครั้งก่อนสั่งยา'],
   keyTitle: ['Explains every chip, mark and colour', 'อธิบายป้าย สัญลักษณ์ และสี'], inDb: ['in database', 'ในฐานข้อมูล'],
   nlem: ['NLEM', 'บัญชียาหลักฯ'], avail: ['Availability', 'การจดทะเบียน/มีจำหน่าย'],
-  ctryNote: ['Status is confirmed for Thailand (NLEM-listed or a MIMS brand) and the US (openFDA). UK, EU and JP are not yet verified (N/A).', 'ยืนยันสถานะไทย (อยู่ในบัญชียาหลักฯ หรือมียี่ห้อใน MIMS) และสหรัฐฯ (openFDA) UK, EU, JP ยังไม่ได้ตรวจสอบ (N/A)'],
+  ctryNote: ['Checked 2026-11-04: Thailand (NLEM or MIMS brand), US (openFDA), UK (emc), EU (Spain AEMPS, EMA lists, national sources), JP (KEGG / JAPIC). N/A = not found there or not checked; it may have been withdrawn.', 'ตรวจเมื่อ 2026-11-04: ไทย (NLEM หรือยี่ห้อ MIMS) สหรัฐฯ (openFDA) UK (emc) EU (สเปน AEMPS รายการ EMA และแหล่งระดับประเทศ) ญี่ปุ่น (KEGG / JAPIC) N/A = ไม่พบหรือยังไม่ได้ตรวจ อาจถูกถอนทะเบียนแล้ว'],
   st_current: ['Registered now', 'ขึ้นทะเบียนอยู่'], st_past: ['Previously registered', 'เคยขึ้นทะเบียน'], st_never: ['Never registered', 'ไม่เคยขึ้นทะเบียน'], st_unk: ['Not verified (N/A)', 'ยังไม่ตรวจสอบ (N/A)'],
   fdaStatus: ['FDA status', 'สถานะ อย.'], fCur: ['Current', 'ปัจจุบัน'], fPast: ['Past †', 'เคยมี †'], fNever: ['Never ⊘', 'ไม่เคยมี ⊘'],
-  brandsT: ['Thai brands (MIMS Thailand)', 'ยี่ห้อในประเทศไทย (MIMS Thailand)'], noBrand: ['No Thai brand listed in MIMS Thailand.', 'MIMS Thailand ไม่มียี่ห้อในไทยที่ระบุ'],
+  brandsT: ['Thai brands (MIMS Thailand)', 'ยี่ห้อในประเทศไทย (MIMS Thailand)'], brandUnchk: ['Not checked.', 'ยังไม่ได้ตรวจ'], noBrand: ['No Thai brand listed in MIMS Thailand.', 'MIMS Thailand ไม่มียี่ห้อในไทยที่ระบุ'],
   nlemNote: ['Thai NLEM 2569 (2026): the drug is not on the list.', 'บัญชียาหลักแห่งชาติ 2569: ไม่มียานี้ในบัญชี'],
 };
 const KEY_ROWS = [
@@ -491,7 +539,7 @@ function DetailModal({ d, onClose, lang, showOne }) {
       <Fold title={t('pearl')} color="border-l-amber-500"><p>{d.pearl[lang]}</p></Fold>
       <Fold title={t('avail')} color="border-l-slate-400">
         <div className="flex flex-wrap gap-1"><NlemChip d={d} lang={lang} /><CountryChips d={d} lang={lang} /></div>
-        <p className={'mt-1.5 text-[11px] ' + MUTED}><b>{t('brandsT')}:</b> {BRANDS[d.id] || t('noBrand')}<br />{NLEM[d.id] ? 'NLEM 2569: ' + NLEM[d.id].f + '.' : t('nlemNote')} {NLEM_EXTRA[d.id] && NLEM_EXTRA[d.id][lang]} {t('ctryNote')}</p>
+        <p className={'mt-1.5 text-[11px] ' + MUTED}><b>{t('brandsT')}:</b> {BRANDS[d.id] || (MIMS_UNCHECKED.has(d.id) ? t('brandUnchk') : t('noBrand'))}<br />{NLEM[d.id] ? 'NLEM 2569: ' + NLEM[d.id].f + '.' : t('nlemNote')} {NLEM_EXTRA[d.id] && NLEM_EXTRA[d.id][lang]} {REG_NOTE[d.id] && REG_NOTE[d.id][lang]} {t('ctryNote')}</p>
       </Fold>
     </Modal>
   );
