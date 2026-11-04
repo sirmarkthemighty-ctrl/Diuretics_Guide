@@ -27,8 +27,8 @@ const LadderIcon = mk(<path d="M8 3v18M16 3v18M8 8h8M8 13h8M8 18h8" />);
 const VERSION = 'v1.2.0';
 const CHANGELOG = [
   { v: 'v1.2.0', date: '2026-11-04',
-    en: ['First release: 24 diuretics (18 core plus 6 sold in the UK, EU or Japan) with doses, electrolyte effects and side effects.', 'Tile, list and table views.', 'Mechanism button: highlights where selected drugs act on the nephron.', 'Diuretic resistance: sequential nephron blockade guide.', 'References grouped by topic (Thai lists, country registration, labels, heart failure, hypertension and kidney, pharmacology).', 'Market (brand) names on every card, in a Brands column and by country in the detail view; search also finds brand names.', 'Electrolyte filter in two rows (increased on top, decreased below, same electrolyte stacked): pick several electrolytes, one direction each; the other arrow switches it.', 'Warning triangle on serious side effects (hyperkalemia, ototoxicity, liver injury, ODS, DKA, blood-count drops, AKI, pulmonary edema) on cards, table and detail view; filters open with FDA status “Current” selected by default.', 'Key clinical trials in each drug’s detail view, summarised from the PubMed abstracts with PubMed and DOI links (drugs with no landmark outcome trial say so).', 'References section at the bottom of the page (collapsible, as in the bronchodilator guide).', 'Mechanism diagram redrawn on the ScienceDirect Topics nephron layout (glomerulus, macula densa, cortex / medulla, osmolality gradient, water / salt / urea flow, ADH and aldosterone), with the source listed.', 'Kidney / liver dosing and key interactions on every drug (from labels and guidelines), and a loop dose conversion table.', 'Thai NLEM 2569 chip checked against the official list (5 Basic drugs, the rest Non-NLEM) and TH / US / UK / EU / JP availability filter (all five checked 2026-11-04: UK on emc, EU on Spain AEMPS, EMA lists and national sources, JP on KEGG / JAPIC). FDA status per country (current / past † / never ⊘) with a filter; US checked against openFDA. Doses and Thai brands checked against MIMS Thailand.'],
-    th: ['เปิดตัวครั้งแรก: ยาขับปัสสาวะ 24 ชนิด (หลัก 18 ชนิด และอีก 6 ชนิดที่มีใน UK, EU หรือญี่ปุ่น) พร้อมขนาดยา ผลต่ออิเล็กโทรไลต์ และผลข้างเคียง', 'มุมมองการ์ด รายการ และตาราง', 'ปุ่มกลไก: แสดงตำแหน่งที่ยาที่เลือกออกฤทธิ์บนเนฟรอน', 'ภาวะดื้อยาขับปัสสาวะ: แนวทางการปิดกั้นเนฟรอนตามลำดับ', 'เอกสารอ้างอิงจัดกลุ่มตามหัวข้อ (บัญชียาไทย การขึ้นทะเบียนรายประเทศ ฉลากยา หัวใจล้มเหลว ความดันและไต เภสัชวิทยา)', 'ชื่อทางการค้าในทุกการ์ด คอลัมน์ชื่อการค้าในตาราง และแยกตามประเทศในหน้ารายละเอียด ค้นหาด้วยชื่อการค้าได้', 'ตัวกรองอิเล็กโทรไลต์สองแถว (เพิ่มขึ้นแถวบน ลดลงแถวล่าง อิเล็กโทรไลต์เดียวกันซ้อนกัน) เลือกได้หลายตัว ตัวละหนึ่งทิศทาง กดลูกศรอีกด้านเพื่อสลับ', 'สัญลักษณ์เตือนรูปสามเหลี่ยมที่ผลข้างเคียงสำคัญ (โพแทสเซียมสูง พิษต่อหู ตับ ODS DKA เม็ดเลือดผิดปกติ AKI ปอดบวมน้ำ) ในการ์ด ตาราง และหน้ารายละเอียด ตัวกรองเปิดไว้และเลือกสถานะ อย. “ปัจจุบัน” เป็นค่าเริ่มต้น', 'การศึกษาทางคลินิกสำคัญในหน้ารายละเอียดของแต่ละยา (ตรวจกับบทคัดย่อใน PubMed พร้อมลิงก์ PubMed และ DOI)', 'ส่วนเอกสารอ้างอิงท้ายหน้า (พับ/เปิดได้ เหมือนแอปยาขยายหลอดลม)', 'แผนภาพกลไกวาดใหม่ตามผังเนฟรอนของ ScienceDirect Topics (โกลเมอรูลัส แมคูลาเดนซา เปลือก/ไขสันหลังไต ความเข้มข้นออสโมลาลิตี การเคลื่อนของน้ำ/เกลือ/ยูเรีย ADH และอัลโดสเตอโรน) พร้อมแหล่งอ้างอิง', 'ขนาดยาตามการทำงานของไต/ตับ และยาที่ต้องระวังเมื่อใช้ร่วมในทุกตัวยา (จากฉลากและแนวทางเวชปฏิบัติ) พร้อมตารางเทียบขนาดยาลูป', 'ป้าย NLEM 2569 ตรวจกับบัญชียาหลักฯ ฉบับจริง (หมวดพื้นฐาน 5 ชนิด ที่เหลือไม่อยู่ใน NLEM) และตัวกรองประเทศ TH / US / UK / EU / JP (ตรวจครบทั้งห้าเมื่อ 2026-11-04: UK ใน emc, EU ใน AEMPS สเปน รายการ EMA และแหล่งระดับประเทศ, JP ใน KEGG / JAPIC) สถานะ อย. รายประเทศ (ปัจจุบัน / เคยมี † / ไม่เคยมี ⊘) พร้อมตัวกรอง ตรวจสหรัฐฯ กับ openFDA ตรวจขนาดยาและยี่ห้อในไทยกับ MIMS Thailand'] },
+    en: ['First release: 24 diuretics (18 core plus 6 sold in the UK, EU or Japan) with doses, electrolyte effects and side effects.', 'Tile, list and table views.', 'Mechanism button: highlights where selected drugs act on the nephron.', 'Diuretic resistance: sequential nephron blockade guide.', 'References grouped by topic (Thai lists, country registration, labels, heart failure, hypertension and kidney, pharmacology).', 'New tools: Kidney check (eGFR, K⁺ and liver sort the drugs into avoid / caution / no restriction), Interactions (pick the patient’s other drugs), Compare (select 2 or more drugs), and a next-step helper in the resistance guide.', 'Thai brands checked in MIMS for every drug (dapagliflozin has three; the six added drugs have none); two more PubMed trials (DAPA-RESIST, chlorthalidone / HCTZ / amiloride).', 'Market (brand) names on every card, in a Brands column and by country in the detail view; search also finds brand names.', 'Electrolyte filter in two rows (increased on top, decreased below, same electrolyte stacked): pick several electrolytes, one direction each; the other arrow switches it.', 'Warning triangle on serious side effects (hyperkalemia, ototoxicity, liver injury, ODS, DKA, blood-count drops, AKI, pulmonary edema) on cards, table and detail view; filters open with FDA status “Current” selected by default.', 'Key clinical trials in each drug’s detail view, summarised from the PubMed abstracts with PubMed and DOI links (drugs with no landmark outcome trial say so).', 'References section at the bottom of the page (collapsible, as in the bronchodilator guide).', 'Mechanism diagram redrawn on the ScienceDirect Topics nephron layout (glomerulus, macula densa, cortex / medulla, osmolality gradient, water / salt / urea flow, ADH and aldosterone), with the source listed.', 'Kidney / liver dosing and key interactions on every drug (from labels and guidelines), and a loop dose conversion table.', 'Thai NLEM 2569 chip checked against the official list (5 Basic drugs, the rest Non-NLEM) and TH / US / UK / EU / JP availability filter (all five checked 2026-11-04: UK on emc, EU on Spain AEMPS, EMA lists and national sources, JP on KEGG / JAPIC). FDA status per country (current / past † / never ⊘) with a filter; US checked against openFDA. Doses and Thai brands checked against MIMS Thailand.'],
+    th: ['เปิดตัวครั้งแรก: ยาขับปัสสาวะ 24 ชนิด (หลัก 18 ชนิด และอีก 6 ชนิดที่มีใน UK, EU หรือญี่ปุ่น) พร้อมขนาดยา ผลต่ออิเล็กโทรไลต์ และผลข้างเคียง', 'มุมมองการ์ด รายการ และตาราง', 'ปุ่มกลไก: แสดงตำแหน่งที่ยาที่เลือกออกฤทธิ์บนเนฟรอน', 'ภาวะดื้อยาขับปัสสาวะ: แนวทางการปิดกั้นเนฟรอนตามลำดับ', 'เอกสารอ้างอิงจัดกลุ่มตามหัวข้อ (บัญชียาไทย การขึ้นทะเบียนรายประเทศ ฉลากยา หัวใจล้มเหลว ความดันและไต เภสัชวิทยา)', 'เครื่องมือใหม่: ตรวจไต/ตับ (eGFR, K⁺ และโรคตับ แบ่งยาเป็นหลีกเลี่ยง/ระวัง/ไม่พบข้อจำกัด) ปฏิกิริยายา (เลือกยาอื่นของผู้ป่วย) เปรียบเทียบ (เลือก 2 ตัวยาขึ้นไป) และตัวช่วยเลือกขั้นถัดไปในหัวข้อดื้อยา', 'ตรวจยี่ห้อในไทยกับ MIMS ครบทุกตัวยา (dapagliflozin มี 3 ยี่ห้อ ยา 6 ตัวที่เพิ่มไม่มียี่ห้อในไทย) เพิ่มการศึกษาจาก PubMed อีก 2 รายการ (DAPA-RESIST, chlorthalidone / HCTZ / amiloride)', 'ชื่อทางการค้าในทุกการ์ด คอลัมน์ชื่อการค้าในตาราง และแยกตามประเทศในหน้ารายละเอียด ค้นหาด้วยชื่อการค้าได้', 'ตัวกรองอิเล็กโทรไลต์สองแถว (เพิ่มขึ้นแถวบน ลดลงแถวล่าง อิเล็กโทรไลต์เดียวกันซ้อนกัน) เลือกได้หลายตัว ตัวละหนึ่งทิศทาง กดลูกศรอีกด้านเพื่อสลับ', 'สัญลักษณ์เตือนรูปสามเหลี่ยมที่ผลข้างเคียงสำคัญ (โพแทสเซียมสูง พิษต่อหู ตับ ODS DKA เม็ดเลือดผิดปกติ AKI ปอดบวมน้ำ) ในการ์ด ตาราง และหน้ารายละเอียด ตัวกรองเปิดไว้และเลือกสถานะ อย. “ปัจจุบัน” เป็นค่าเริ่มต้น', 'การศึกษาทางคลินิกสำคัญในหน้ารายละเอียดของแต่ละยา (ตรวจกับบทคัดย่อใน PubMed พร้อมลิงก์ PubMed และ DOI)', 'ส่วนเอกสารอ้างอิงท้ายหน้า (พับ/เปิดได้ เหมือนแอปยาขยายหลอดลม)', 'แผนภาพกลไกวาดใหม่ตามผังเนฟรอนของ ScienceDirect Topics (โกลเมอรูลัส แมคูลาเดนซา เปลือก/ไขสันหลังไต ความเข้มข้นออสโมลาลิตี การเคลื่อนของน้ำ/เกลือ/ยูเรีย ADH และอัลโดสเตอโรน) พร้อมแหล่งอ้างอิง', 'ขนาดยาตามการทำงานของไต/ตับ และยาที่ต้องระวังเมื่อใช้ร่วมในทุกตัวยา (จากฉลากและแนวทางเวชปฏิบัติ) พร้อมตารางเทียบขนาดยาลูป', 'ป้าย NLEM 2569 ตรวจกับบัญชียาหลักฯ ฉบับจริง (หมวดพื้นฐาน 5 ชนิด ที่เหลือไม่อยู่ใน NLEM) และตัวกรองประเทศ TH / US / UK / EU / JP (ตรวจครบทั้งห้าเมื่อ 2026-11-04: UK ใน emc, EU ใน AEMPS สเปน รายการ EMA และแหล่งระดับประเทศ, JP ใน KEGG / JAPIC) สถานะ อย. รายประเทศ (ปัจจุบัน / เคยมี † / ไม่เคยมี ⊘) พร้อมตัวกรอง ตรวจสหรัฐฯ กับ openFDA ตรวจขนาดยาและยี่ห้อในไทยกับ MIMS Thailand'] },
 ];
 
 // Nephron segments, in flow order
@@ -185,6 +185,7 @@ const BRANDS = {
   furosemide: 'Dirine, Femide, Furetic, Furide, Furosemide Injection T P', acetazolamide: 'Diamox, Medene',
   hctz: 'Dichlotride, Diric, Diuret-P, Dragotab, Hychlozide, Hydrozide, Urazide, GPO, T.O., Union Drug', mannitol: 'Mannitol Thai Otsuka, Unitol 20%',
   spironolactone: 'Hyles', chlorthalidone: 'Chotalin', indapamide: 'Natrilix SR', tolvaptan: 'Jinarc, Samsca, Saptan 15',
+  dapagliflozin: 'Forxiga, Edistride, Dflozin-10',
   empagliflozin: 'Jardiance, Emdiance, Emflodiaz, Empabit, Emze, Goempa',
 };
 // Registration status per country: 'current' | 'past' (was registered, now withdrawn) | 'never'; missing = N/A (not found
@@ -208,8 +209,6 @@ const REG_NOTE = {
   hctz: { en: 'UK: only combinations on emc; no licensed single-ingredient tablet was found.', th: 'UK: พบเฉพาะยาผสมใน emc ไม่พบยาเดี่ยวที่ขึ้นทะเบียน' },
   canrenoate: { en: 'IV only. EU evidence is Italy (Kanrenol) and Germany; not found on emc (UK).', th: 'ชนิดฉีดเท่านั้น หลักฐาน EU คืออิตาลี (Kanrenol) และเยอรมนี ไม่พบใน emc (UK)' },
 };
-// MIMS Thailand not searched (the 6 drugs added from UK / EU / JP sources) or unusable page (dapagliflozin): Thai status is N/A.
-const MIMS_UNCHECKED = new Set(['dapagliflozin', 'bendroflumethiazide', 'xipamide', 'trichlormethiazide', 'azosemide', 'canrenoate', 'esaxerenone']);
 const TH_OK = new Set([...Object.keys(NLEM), ...Object.keys(BRANDS)]);
 const REG = Object.fromEntries(DRUGS.map(d => [d.id, { us: C, ...(TH_OK.has(d.id) ? { th: C } : {}), ...REG_X[d.id] }]));
 const MKT = {
@@ -251,7 +250,14 @@ const TXT = {
   made: ['Made with ❤️ by Wardom', 'สร้างด้วย ❤️ โดย Wardom'],
   disc: ['For clinician reference. Check local protocols and the patient before prescribing.', 'ใช้อ้างอิงสำหรับบุคลากรทางการแพทย์ ตรวจสอบแนวปฏิบัติของโรงพยาบาลและผู้ป่วยก่อนสั่งยา'],
   search: ['Search drug, class or target…', 'ค้นหายา กลุ่มยา หรือเป้าหมาย…'],
-  mech: ['Mechanism', 'กลไก'], brandsH: ['Market names (brands)', 'ชื่อทางการค้า'], brandsCol: ['Brands', 'ชื่อการค้า'], incr: ['increased', 'เพิ่มขึ้น'], decr: ['decreased', 'ลดลง'], trials: ['Key clinical trials', 'การศึกษาทางคลินิกสำคัญ'], noTrial: ['No landmark outcome trial is included for this drug (N/A).', 'ไม่ได้รวมการศึกษาผลลัพธ์สำคัญของยานี้ (N/A)'], design: ['Design', 'รูปแบบ'], result: ['Result', 'ผล'], caution: ['Serious side effect: check before prescribing', 'ผลข้างเคียงที่สำคัญ: ตรวจก่อนสั่งยา'], conv: ['Dose conversion', 'เทียบขนาดยา'], renal: ['Kidney / liver dosing', 'ขนาดยาตามไต/ตับ'], ddi: ['Key interactions', 'ยาที่ต้องระวังเมื่อใช้ร่วม'], resist: ['Diuretic resistance', 'ดื้อยาขับปัสสาวะ'], key: ['Key', 'คำอธิบาย'],
+  mech: ['Mechanism', 'กลไก'], kid: ['Kidney check', 'ตรวจไต/ตับ'], inter: ['Interactions', 'ปฏิกิริยายา'], cmp: ['Compare', 'เปรียบเทียบ'],
+  kidneyT: ['Kidney / liver check', 'ตรวจไต/ตับก่อนเลือกยา'], liverSev: ['Severe liver disease', 'โรคตับรุนแรง'],
+  kidneyHint: ['Enter an eGFR, or tick a condition, to sort the drugs into avoid, caution and no restriction found.', 'ใส่ eGFR หรือเลือกภาวะ เพื่อแบ่งยาเป็น หลีกเลี่ยง ระวัง และไม่พบข้อจำกัด'],
+  kidneyNote: ['A screen built from the labels and guidelines in each drug’s Kidney / liver dosing section. Tap a drug for the wording. It does not replace the label or clinical judgement.', 'เป็นตัวคัดกรองจากฉลากและแนวทางในหัวข้อขนาดยาตามไต/ตับของแต่ละตัวยา แตะชื่อยาเพื่อดูรายละเอียด ไม่ใช่ทดแทนฉลากยาหรือดุลยพินิจทางคลินิก'],
+  interT: ['Interactions with other drugs', 'ปฏิกิริยากับยาอื่น'], interPick: ['Patient also takes (tap to add / remove)', 'ผู้ป่วยใช้ยาอื่นด้วย (แตะเพื่อเพิ่ม/ลบ)'],
+  interHint: ['Pick the other drugs the patient takes to see which diuretics are flagged.', 'เลือกยาอื่นที่ผู้ป่วยใช้ เพื่อดูว่ายาขับปัสสาวะตัวใดต้องระวัง'],
+  interAvoid: ['Avoid (contraindicated or not recommended)', 'หลีกเลี่ยง (ห้ามหรือไม่แนะนำให้ใช้ร่วม)'], interCaution: ['Caution', 'ระวัง'], interNone: ['No interaction found in the sources checked', 'ไม่พบปฏิกิริยาในแหล่งที่ตรวจ'],
+  interNote: ['Covers the main interactions summarised in each drug’s Key interactions section, not every possible pair. Check the label for the full list.', 'ครอบคลุมปฏิกิริยาหลักที่สรุปไว้ในแต่ละตัวยา ไม่ครบทุกคู่ ตรวจรายการเต็มจากฉลากยา'], brandsH: ['Market names (brands)', 'ชื่อทางการค้า'], brandsCol: ['Brands', 'ชื่อการค้า'], incr: ['increased', 'เพิ่มขึ้น'], decr: ['decreased', 'ลดลง'], trials: ['Key clinical trials', 'การศึกษาทางคลินิกสำคัญ'], noTrial: ['No landmark outcome trial is included for this drug (N/A).', 'ไม่ได้รวมการศึกษาผลลัพธ์สำคัญของยานี้ (N/A)'], design: ['Design', 'รูปแบบ'], result: ['Result', 'ผล'], caution: ['Serious side effect: check before prescribing', 'ผลข้างเคียงที่สำคัญ: ตรวจก่อนสั่งยา'], conv: ['Dose conversion', 'เทียบขนาดยา'], renal: ['Kidney / liver dosing', 'ขนาดยาตามไต/ตับ'], ddi: ['Key interactions', 'ยาที่ต้องระวังเมื่อใช้ร่วม'], resist: ['Diuretic resistance', 'ดื้อยาขับปัสสาวะ'], key: ['Key', 'คำอธิบาย'],
   all: ['All', 'ทั้งหมด'], any: ['Any effect', 'ทุกผล'],
   tile: ['Tile', 'การ์ด'], list: ['List', 'รายการ'], table: ['Table', 'ตาราง'],
   sort: ['Sort', 'เรียง'], byClass: ['Class', 'กลุ่มยา'], byName: ['Name', 'ชื่อยา'], bySite: ['Site', 'ตำแหน่ง'],
@@ -275,7 +281,7 @@ const TXT = {
   ctryNote: ['Checked 2026-11-04: Thailand (NLEM or MIMS brand), US (openFDA), UK (emc), EU (Spain AEMPS, EMA lists, national sources), JP (KEGG / JAPIC). N/A = not found there or not checked; it may have been withdrawn.', 'ตรวจเมื่อ 2026-11-04: ไทย (NLEM หรือยี่ห้อ MIMS) สหรัฐฯ (openFDA) UK (emc) EU (สเปน AEMPS รายการ EMA และแหล่งระดับประเทศ) ญี่ปุ่น (KEGG / JAPIC) N/A = ไม่พบหรือยังไม่ได้ตรวจ อาจถูกถอนทะเบียนแล้ว'],
   st_current: ['Registered now', 'ขึ้นทะเบียนอยู่'], st_past: ['Previously registered', 'เคยขึ้นทะเบียน'], st_never: ['Never registered', 'ไม่เคยขึ้นทะเบียน'], st_unk: ['Not verified (N/A)', 'ยังไม่ตรวจสอบ (N/A)'],
   fdaStatus: ['FDA status', 'สถานะ อย.'], fCur: ['Current', 'ปัจจุบัน'], fPast: ['Past †', 'เคยมี †'], fNever: ['Never ⊘', 'ไม่เคยมี ⊘'],
-  brandsT: ['Thai brands (MIMS Thailand)', 'ยี่ห้อในประเทศไทย (MIMS Thailand)'], brandUnchk: ['Not checked.', 'ยังไม่ได้ตรวจ'], noBrand: ['No Thai brand listed in MIMS Thailand.', 'MIMS Thailand ไม่มียี่ห้อในไทยที่ระบุ'],
+  brandsT: ['Thai brands (MIMS Thailand)', 'ยี่ห้อในประเทศไทย (MIMS Thailand)'], noBrand: ['No Thai brand listed in MIMS Thailand.', 'MIMS Thailand ไม่มียี่ห้อในไทยที่ระบุ'],
   nlemNote: ['Thai NLEM 2569 (2026): the drug is not on the list.', 'บัญชียาหลักแห่งชาติ 2569: ไม่มียานี้ในบัญชี'],
 };
 const KEY_ROWS = [
@@ -666,6 +672,7 @@ function ResistanceModal({ onClose, lang, showCombo }) {
   return (
     <Modal title={TXT.resist[i]} onClose={onClose} lang={lang}>
       <p className="text-[12px] leading-relaxed">{R.def[0][i]}</p>
+      <Fold title={i ? 'ตัวช่วยเลือกขั้นถัดไป' : 'Next-step helper'} color="border-l-indigo-500" open={false}><ResistanceHelper lang={lang} /></Fold>
       <Fold title={i ? 'ตรวจสอบก่อนเพิ่มยา' : 'Check first'} color="border-l-amber-500">
         <ul className="list-disc pl-4 space-y-1">{R.check.map((x, k) => <li key={k}>{x[i]}</li>)}</ul>
       </Fold>
@@ -689,6 +696,12 @@ function ResistanceModal({ onClose, lang, showCombo }) {
 // T(name, citation, PMID, DOI, design [en, th], result [en, th])
 const T = (n, cite, pm, doi, d, r) => ({ n, cite, pm, doi, d, r });
 const TR = {
+  dapaResist: T('DAPA-RESIST', 'Yeoh SE, et al. Eur Heart J 2023;44:2966', '37210742', '10.1093/eurheartj/ehad341',
+    ['61 patients hospitalised for HF and resistant to IV furosemide: dapagliflozin 10 mg vs metolazone 5–10 mg once daily for 3 days (open-label).', '61 ราย นอนโรงพยาบาลจาก HF และดื้อต่อ furosemide IV: dapagliflozin 10 mg เทียบ metolazone 5–10 mg วันละครั้ง 3 วัน (open-label)'],
+    ['Weight loss at 96 h 3.0 vs 3.6 kg (difference 0.65 kg, 95% CI −0.12 to 1.41; P = 0.11): dapagliflozin was not more effective. Smaller falls in Na⁺ and K⁺ and smaller rises in urea and creatinine with dapagliflozin; serious adverse events similar.', 'น้ำหนักลดที่ 96 ชม. 3.0 เทียบ 3.6 กก. (ต่างกัน 0.65 กก., 95% CI −0.12 ถึง 1.41; P = 0.11) dapagliflozin ไม่ได้ผลดีกว่า Na⁺ และ K⁺ ลดน้อยกว่า ยูเรียและ creatinine ขึ้นน้อยกว่าด้วย dapagliflozin เหตุการณ์ไม่พึงประสงค์รุนแรงใกล้เคียงกัน']),
+  bottino: T('Chlorthalidone vs HCTZ; amiloride doses', 'Bottino LG, et al. J Am Heart Assoc 2026;15:e047583', '42669885', '10.1161/JAHA.125.047583',
+    ['Factorial randomised trial, 12 weeks: chlorthalidone 25 mg vs HCTZ 50 mg, and amiloride 5 mg vs 10 mg, on office and ambulatory BP and laboratory values.', 'การทดลองแบบ factorial 12 สัปดาห์: chlorthalidone 25 mg เทียบ HCTZ 50 mg และ amiloride 5 mg เทียบ 10 mg ต่อความดันที่คลินิกและแบบ ambulatory และค่าตรวจเลือด'],
+    ['Chlorthalidone 25 mg and HCTZ 50 mg (1:2) lowered BP and changed laboratory values similarly (24-h systolic difference −1.1 mm Hg, 95% CI −8.0 to 5.9). Amiloride 5 and 10 mg had similar BP effects; serum Na⁺ fell more with 10 mg; no clear dose-response.', 'chlorthalidone 25 mg และ HCTZ 50 mg (1:2) ลดความดันและเปลี่ยนค่าตรวจเลือดใกล้เคียงกัน (ต่างกันของความดันตัวบน 24 ชม. −1.1 mm Hg, 95% CI −8.0 ถึง 5.9) amiloride 5 และ 10 mg ลดความดันใกล้เคียงกัน Na⁺ ลดมากกว่าที่ 10 mg ไม่เห็น dose-response ชัดเจน']),
   dose: T('DOSE', 'Felker GM, et al. N Engl J Med 2011;364:797', '21366472', '10.1056/NEJMoa1005419',
     ['308 patients with acute decompensated HF: IV furosemide as bolus every 12 h vs continuous infusion, and low vs high dose (2.5 × the oral dose).', '308 รายที่หัวใจล้มเหลวเฉียบพลัน: furosemide IV แบบ bolus ทุก 12 ชม. เทียบกับหยดต่อเนื่อง และขนาดต่ำเทียบขนาดสูง (2.5 เท่าของขนาดกินเดิม)'],
     ['No significant difference in symptoms or creatinine change for bolus vs infusion, or high vs low dose. High dose: trend to better symptom score (P = 0.06) and more diuresis, but transient worsening of renal function.', 'ไม่ต่างกันอย่างมีนัยสำคัญด้านอาการหรือการเปลี่ยนแปลง creatinine ระหว่าง bolus กับหยดต่อเนื่อง หรือขนาดสูงกับขนาดต่ำ ขนาดสูงมีแนวโน้มอาการดีกว่า (P = 0.06) ขับปัสสาวะมากกว่า แต่ไตเสื่อมชั่วคราว']),
@@ -776,9 +789,9 @@ const TR = {
 };
 // Trials per drug; a drug with no entry shows "no landmark trial included" (N/A)
 const TRIALS_OF = {
-  acetazolamide: ['advor'], furosemide: ['dose', 'transform'], torsemide: ['transform'], hctz: ['dcp', 'clorotic'],
-  chlorthalidone: ['click', 'dcp', 'allhat'], indapamide: ['hyvet', 'progress', 'advance'], spironolactone: ['rales', 'topcat', 'athena', 'pathway2'],
-  eplerenone: ['ephesus', 'emphasis'], tolvaptan: ['salt', 'tempo', 'everest'], dapagliflozin: ['dapahf', 'dapackd', 'deliver'],
+  acetazolamide: ['advor'], metolazone: ['dapaResist'], amiloride: ['bottino'], furosemide: ['dose', 'transform'], torsemide: ['transform'], hctz: ['dcp', 'clorotic', 'bottino'],
+  chlorthalidone: ['click', 'dcp', 'allhat', 'bottino'], indapamide: ['hyvet', 'progress', 'advance'], spironolactone: ['rales', 'topcat', 'athena', 'pathway2'],
+  eplerenone: ['ephesus', 'emphasis'], tolvaptan: ['salt', 'tempo', 'everest'], dapagliflozin: ['dapahf', 'dapackd', 'deliver', 'dapaResist'],
   empagliflozin: ['emperorr', 'emperorp', 'empakidney'], bendroflumethiazide: ['mrc'], esaxerenone: ['esaxhtn', 'esaxdn'],
 };
 function Trials({ d, lang }) {
@@ -799,6 +812,204 @@ function Trials({ d, lang }) {
           </div>
         </div>
       ))}
+    </div>
+  );
+}
+
+/* ---------- Kidney / liver / potassium check ---------- */
+// Per drug: [avoid below eGFR, caution below eGFR, liver ('a' avoid | 'c' caution | ''), avoid if K⁺ > 5.0]. Values come from the labels and guidelines
+// summarised in each drug's "Kidney / liver dosing" section; 0 means no threshold. It is a screen: open the drug for the label wording.
+const SCREEN = {
+  acetazolamide: [10, 30, 'a', 0], mannitol: [0, 15, '', 0], furosemide: [0, 30, 'c', 0], bumetanide: [0, 30, 'a', 0], torsemide: [0, 30, 'a', 0], ethacrynic: [0, 30, 'c', 0],
+  hctz: [0, 30, 'c', 0], chlorthalidone: [0, 30, 'c', 0], indapamide: [30, 30, 'a', 0], metolazone: [0, 30, 'a', 0], chlorothiazide: [0, 30, 'c', 0],
+  spironolactone: [30, 50, 'c', 1], eplerenone: [30, 0, 'a', 1], amiloride: [30, 50, 'c', 1], triamterene: [30, 60, 'c', 1], tolvaptan: [0, 0, 'a', 0],
+  dapagliflozin: [0, 15, '', 0], empagliflozin: [0, 20, '', 0], bendroflumethiazide: [30, 0, 'a', 0], xipamide: [0, 30, 'a', 0], canrenoate: [30, 60, '', 1],
+  trichlormethiazide: [0, 0, '', 0], azosemide: [0, 30, 'a', 0], esaxerenone: [30, 0, '', 1],
+};
+const screenOf = (d, egfr, liver, hyperK) => {
+  const [av, ca, lv, kk] = SCREEN[d.id];
+  const why = [];
+  let lvl = 0;
+  const add = (l, en, th) => { lvl = Math.max(lvl, l); why.push([en, th]); };
+  if (egfr != null) { if (av && egfr < av) add(2, 'eGFR < ' + av, 'eGFR < ' + av); else if (ca && egfr < ca) add(1, 'eGFR < ' + ca, 'eGFR < ' + ca); }
+  if (liver && lv) add(lv === 'a' ? 2 : 1, 'Severe liver disease', 'โรคตับรุนแรง');
+  if (hyperK && kk) add(2, 'K⁺ > 5.0 mmol/L', 'K⁺ > 5.0 mmol/L');
+  return { lvl, why };
+};
+const LVL_STYLE = {
+  2: 'border-l-rose-500', 1: 'border-l-amber-500', 0: 'border-l-emerald-500',
+};
+const INPUT = 'w-full rounded-lg border px-2 py-1.5 text-sm bg-white dark:bg-[#151f32] border-slate-200 dark:border-[#263449]';
+const STAGES = [['≥ 60', 75], ['45–59', 52], ['30–44', 37], ['15–29', 22], ['< 15', 10]];
+
+function KidneyModal({ onClose, lang, open, st, setSt }) {
+  const i = lang === 'th' ? 1 : 0;
+  const egfr = st.eg === '' ? null : Number(st.eg);
+  const any = egfr != null || st.liver || st.hk;
+  const rows = DRUGS.map(d => ({ d, ...screenOf(d, egfr, st.liver, st.hk) }));
+  const groups = [
+    [2, ['Avoid: contraindicated or not recommended', 'หลีกเลี่ยง: ห้ามใช้หรือไม่แนะนำ']],
+    [1, ['Caution: weaker effect or closer monitoring', 'ระวัง: ฤทธิ์ลดลงหรือต้องติดตามใกล้ชิด']],
+    [0, ['No restriction found in the sources checked', 'ไม่พบข้อจำกัดในแหล่งที่ตรวจ']],
+  ];
+  const tog = (k) => setSt(p => ({ ...p, [k]: !p[k] }));
+  return (
+    <Modal title={TXT.kidneyT[i]} onClose={onClose} lang={lang}>
+      <div className="space-y-2">
+        <label className="block text-[11px] font-bold">{i ? 'eGFR (mL/min/1.73 m²)' : 'eGFR (mL/min/1.73 m²)'}
+          <input type="number" min="0" max="150" inputMode="decimal" value={st.eg} onChange={(e) => setSt(p => ({ ...p, eg: e.target.value }))} className={INPUT + ' mt-1'} placeholder={i ? 'ใส่ค่า eGFR' : 'Enter eGFR'} />
+        </label>
+        <div className="flex flex-wrap gap-1">{STAGES.map(([l, v]) => <button key={l} type="button" onClick={() => setSt(p => ({ ...p, eg: String(v) }))} aria-pressed={st.eg === String(v)} className={'rounded border px-1.5 py-0.5 text-[10px] font-bold ' + (st.eg === String(v) ? BTN_ON : BTN_OFF)}>{l}</button>)}</div>
+        <div className="flex flex-wrap gap-1.5">
+          <button type="button" onClick={() => tog('hk')} aria-pressed={st.hk} className={'rounded-lg border px-2 py-1 text-[11px] font-bold ' + (st.hk ? BTN_ON : BTN_OFF)}>K⁺ &gt; 5.0 mmol/L</button>
+          <button type="button" onClick={() => tog('liver')} aria-pressed={st.liver} className={'rounded-lg border px-2 py-1 text-[11px] font-bold ' + (st.liver ? BTN_ON : BTN_OFF)}>{TXT.liverSev[i]}</button>
+          {any && <button type="button" onClick={() => setSt({ eg: '', liver: false, hk: false })} className={'rounded-lg border px-2 py-1 text-[11px] font-bold ' + BTN_OFF}>{TXT.clear[i]}</button>}
+        </div>
+      </div>
+      {!any && <p className={'text-[12px] ' + MUTED}>{TXT.kidneyHint[i]}</p>}
+      {any && groups.map(([lvl, title]) => {
+        const list = rows.filter(r => r.lvl === lvl);
+        if (!list.length) return null;
+        return (
+          <div key={lvl} className={'rounded-xl border border-l-4 p-2.5 ' + SURF + ' ' + LVL_STYLE[lvl]}>
+            <div className="text-[12px] font-extrabold mb-1">{title[i]} <span className="text-slate-400 font-bold">({list.length})</span></div>
+            <div className="flex flex-col gap-1">
+              {list.map(r => (
+                <button key={r.d.id} type="button" onClick={() => open(r.d.id)} className="text-left rounded-lg px-1.5 py-1 hover:bg-slate-50 dark:hover:bg-[#101a2b] flex flex-wrap items-center gap-1.5">
+                  <span className={'font-bold text-[12px] ' + CLS[r.d.cls].txt}>{i ? r.d.th : r.d.name}</span>
+                  {r.why.map((w, k) => <span key={k} className={'rounded border px-1 text-[10px] font-bold ' + (lvl === 2 ? 'bg-rose-50 text-rose-700 border-rose-200 dark:bg-rose-500/10 dark:text-rose-300 dark:border-rose-400/30' : WARN_CHIP)}>{w[i]}</span>)}
+                </button>
+              ))}
+            </div>
+          </div>
+        );
+      })}
+      <p className={'text-[10px] leading-snug ' + MUTED}>{TXT.kidneyNote[i]}</p>
+    </Modal>
+  );
+}
+
+/* ---------- Interaction checker ---------- */
+// Each co-medication lists what it does to a drug or a whole class: [drug id or class id, severity (2 = contraindicated, 1 = caution), reason]
+const CO_MEDS = [
+  { k: 'nsaid', n: ['NSAIDs / COX-2 inhibitors', 'NSAIDs / COX-2 inhibitors'], hits: [['loop', 1, 'Blunts diuresis; AKI risk', 'ลดการขับปัสสาวะ เสี่ยง AKI'], ['thz', 1, 'Blunts the diuretic and BP effect', 'ลดฤทธิ์ขับปัสสาวะและลดความดัน'], ['mra', 1, 'Hyperkalemia and AKI', 'โพแทสเซียมสูงและ AKI'], ['enac', 1, 'Hyperkalemia and AKI', 'โพแทสเซียมสูงและ AKI']] },
+  { k: 'li', n: ['Lithium', 'Lithium'], hits: [['thz', 2, 'Lithium clearance falls: toxicity; avoid or monitor levels', 'ขับ lithium ลดลง เกิดพิษได้ หลีกเลี่ยงหรือติดตามระดับยา'], ['loop', 1, 'Lithium level can rise', 'ระดับ lithium อาจสูงขึ้น'], ['mra', 1, 'Lithium level can rise', 'ระดับ lithium อาจสูงขึ้น'], ['enac', 1, 'Lithium level can rise', 'ระดับ lithium อาจสูงขึ้น']] },
+  { k: 'dig', n: ['Digoxin', 'Digoxin'], hits: [['loop', 1, 'Low K⁺ / Mg²⁺ raise digoxin toxicity', 'K⁺ / Mg²⁺ ต่ำเพิ่มพิษ digoxin'], ['thz', 1, 'Low K⁺ / Mg²⁺ raise digoxin toxicity', 'K⁺ / Mg²⁺ ต่ำเพิ่มพิษ digoxin']] },
+  { k: 'qt', n: ['QT-prolonging drugs', 'ยาที่ยืด QT'], hits: [['loop', 1, 'Low K⁺ / Mg²⁺: arrhythmia risk', 'K⁺ / Mg²⁺ ต่ำ เสี่ยงหัวใจเต้นผิดจังหวะ'], ['thz', 1, 'Low K⁺ / Mg²⁺: arrhythmia risk', 'K⁺ / Mg²⁺ ต่ำ เสี่ยงหัวใจเต้นผิดจังหวะ']] },
+  { k: 'raas', n: ['ACEi / ARB / ARNI', 'ACEi / ARB / ARNI'], hits: [['mra', 1, 'Hyperkalemia: check K⁺ and creatinine', 'โพแทสเซียมสูง ตรวจ K⁺ และ creatinine'], ['enac', 1, 'Hyperkalemia: check K⁺ and creatinine', 'โพแทสเซียมสูง ตรวจ K⁺ และ creatinine']] },
+  { k: 'ksup', n: ['K⁺ supplements, trimethoprim, heparin', 'โพแทสเซียมเสริม, trimethoprim, heparin'], hits: [['eplerenone', 2, 'Contraindicated with K⁺ supplements', 'ห้ามใช้ร่วมกับโพแทสเซียมเสริม'], ['esaxerenone', 2, 'Contraindicated with K⁺ supplements (Japan label)', 'ห้ามใช้ร่วมกับโพแทสเซียมเสริม (ฉลากญี่ปุ่น)'], ['mra', 1, 'Hyperkalemia', 'โพแทสเซียมสูง'], ['enac', 1, 'Hyperkalemia', 'โพแทสเซียมสูง']] },
+  { k: 'ksp', n: ['Another K-sparing diuretic or MRA', 'ยาขับปัสสาวะประหยัดโพแทสเซียมหรือ MRA อีกตัว'], hits: [['eplerenone', 2, 'Contraindicated with other K-sparing diuretics', 'ห้ามใช้ร่วมกับยาขับปัสสาวะประหยัดโพแทสเซียมอื่น'], ['esaxerenone', 2, 'Contraindicated with K-sparing diuretics (Japan label)', 'ห้ามใช้ร่วมกับยาขับปัสสาวะประหยัดโพแทสเซียม (ฉลากญี่ปุ่น)'], ['mra', 1, 'Hyperkalemia', 'โพแทสเซียมสูง'], ['enac', 1, 'Hyperkalemia', 'โพแทสเซียมสูง']] },
+  { k: 'aminog', n: ['Aminoglycosides, cisplatin', 'Aminoglycosides, cisplatin'], hits: [['loop', 1, 'Additive ototoxicity and nephrotoxicity', 'พิษต่อหูและไตเสริมกัน']] },
+  { k: 'dm', n: ['Insulin / sulfonylureas', 'Insulin / sulfonylureas'], hits: [['sglt', 1, 'Hypoglycemia: the dose may need lowering', 'น้ำตาลต่ำ อาจต้องลดขนาดยา'], ['thz', 1, 'Glucose can rise: the dose may need raising', 'น้ำตาลอาจสูงขึ้น อาจต้องเพิ่มขนาดยา']] },
+  { k: 'cavd', n: ['Calcium or vitamin D supplements', 'แคลเซียมหรือวิตามินดีเสริม'], hits: [['thz', 1, 'Hypercalcemia', 'แคลเซียมสูง']] },
+  { k: 'asa', n: ['High-dose aspirin', 'Aspirin ขนาดสูง'], hits: [['cai', 1, 'Accumulation and toxicity, especially in renal impairment', 'ยาสะสมและเกิดพิษ โดยเฉพาะในไตเสื่อม']] },
+  { k: 'cyp', n: ['Strong CYP3A4 inhibitors (ketoconazole, itraconazole, clarithromycin, ritonavir)', 'ยายับยั้ง CYP3A4 แรง (ketoconazole, itraconazole, clarithromycin, ritonavir)'], hits: [['v2', 2, 'Contraindicated: exposure rose about 5-fold with ketoconazole', 'ห้ามใช้ร่วม: ระดับยาเพิ่มราว 5 เท่าเมื่อใช้ ketoconazole'], ['eplerenone', 2, 'Contraindicated', 'ห้ามใช้ร่วม']] },
+  { k: 'tac', n: ['Tacrolimus', 'Tacrolimus'], hits: [['canrenoate', 2, 'Contraindicated (Japan label)', 'ห้ามใช้ร่วม (ฉลากญี่ปุ่น)']] },
+];
+
+function InteractionModal({ onClose, lang, open, meds, setMeds }) {
+  const i = lang === 'th' ? 1 : 0;
+  const pick = CO_MEDS.filter(m => meds.has(m.k));
+  const rows = DRUGS.map(d => {
+    const hits = [];
+    pick.forEach(m => m.hits.forEach(h => { if (h[0] === d.id || h[0] === d.cls) hits.push({ m, sev: h[1], r: h[2 + i] }); }));
+    // a drug-level hit replaces a class-level hit of the same co-medication
+    const best = new Map();
+    hits.forEach(h => { const o = best.get(h.m.k); if (!o || h.sev > o.sev) best.set(h.m.k, h); });
+    const list = [...best.values()];
+    return { d, list, sev: list.reduce((a, h) => Math.max(a, h.sev), 0) };
+  });
+  const flagged = rows.filter(r => r.sev > 0).sort((a, b) => b.sev - a.sev);
+  const clear = rows.filter(r => r.sev === 0);
+  const toggle = (k) => setMeds(p => { const n = new Set(p); n.has(k) ? n.delete(k) : n.add(k); return n; });
+  return (
+    <Modal title={TXT.interT[i]} onClose={onClose} lang={lang}>
+      <div className={'text-[10px] font-bold uppercase tracking-wide ' + MUTED}>{TXT.interPick[i]}</div>
+      <div className="flex flex-wrap gap-1">
+        {CO_MEDS.map(m => <button key={m.k} type="button" onClick={() => toggle(m.k)} aria-pressed={meds.has(m.k)} className={'rounded border px-1.5 py-0.5 text-[10px] font-bold ' + (meds.has(m.k) ? BTN_ON : BTN_OFF)}>{m.n[i]}</button>)}
+        {meds.size > 0 && <button type="button" onClick={() => setMeds(new Set())} className={'rounded border px-1.5 py-0.5 text-[10px] font-bold ' + BTN_OFF}>{TXT.clear[i]}</button>}
+      </div>
+      {meds.size === 0 && <p className={'text-[12px] ' + MUTED}>{TXT.interHint[i]}</p>}
+      {meds.size > 0 && (
+        <>
+          {flagged.length > 0 && <div className="flex flex-col gap-1.5">{flagged.map(r => (
+            <button key={r.d.id} type="button" onClick={() => open(r.d.id)} className={'text-left rounded-xl border border-l-4 p-2 ' + SURF + ' ' + (r.sev === 2 ? 'border-l-rose-500' : 'border-l-amber-500')}>
+              <div className="flex flex-wrap items-center gap-1.5"><span className={'font-extrabold text-[12px] ' + CLS[r.d.cls].txt}>{i ? r.d.th : r.d.name}</span>
+                <span className={'rounded border px-1 text-[10px] font-bold ' + (r.sev === 2 ? 'bg-rose-50 text-rose-700 border-rose-200 dark:bg-rose-500/10 dark:text-rose-300 dark:border-rose-400/30' : WARN_CHIP)}>{r.sev === 2 ? TXT.interAvoid[i] : TXT.interCaution[i]}</span></div>
+              <ul className="mt-1 text-[11px] space-y-0.5">{r.list.map(h => <li key={h.m.k}><b>{h.m.n[i]}:</b> {h.r}</li>)}</ul>
+            </button>))}</div>}
+          <div className={'rounded-xl border border-l-4 border-l-emerald-500 p-2.5 ' + SURF}>
+            <div className="text-[12px] font-extrabold mb-1">{TXT.interNone[i]} <span className="text-slate-400 font-bold">({clear.length})</span></div>
+            <div className={'text-[11px] ' + MUTED}>{clear.map(r => (i ? r.d.th : r.d.name.split(' ')[0])).join(' · ')}</div>
+          </div>
+        </>
+      )}
+      <p className={'text-[10px] leading-snug ' + MUTED}>{TXT.interNote[i]}</p>
+    </Modal>
+  );
+}
+
+/* ---------- Compare selected drugs ---------- */
+function CompareModal({ ids, onClose, lang }) {
+  const i = lang === 'th' ? 1 : 0;
+  const ds = ids.map(id => DRUG[id]);
+  const rows = [
+    [TXT.byClass[i], d => <ClassChip c={d.cls} lang={lang} />],
+    [TXT.bySite[i], d => <div className="flex flex-wrap gap-1"><SiteChips d={d} lang={lang} /></div>],
+    [TXT.dose[i], d => d.dose.map((x, k) => <div key={k}><b>{x[0]}</b> {x[1]}</div>)],
+    [TXT.elec[i], d => <Effects d={d} showZero />],
+    [TXT.se[i], d => <><Cautions d={d} lang={lang} /><div className={'mt-1 ' + MUTED}>{d.se.filter(x => !CAUTION.has(x)).map(x => SE[x][i]).join(' · ')}</div></>],
+    [TXT.renal[i], d => (RENAL[d.id] ? RENAL[d.id][lang] : 'N/A')],
+    [TXT.ddi[i], d => <ul className="list-disc pl-3.5 space-y-0.5">{ddiOf(d).map((x, k) => <li key={k}>{x[i]}</li>)}</ul>],
+    [TXT.brandsCol[i], d => { const m = marketLine(d); return m ? m.c.toUpperCase() + ': ' + m.b : 'N/A'; }],
+    [TXT.trials[i], d => ((TRIALS_OF[d.id] || []).map(k => TR[k].n).join(', ') || 'N/A')],
+    [TXT.nlem[i], d => <NlemChip d={d} lang={lang} />],
+  ];
+  return (
+    <Modal title={TXT.cmp[i] + ' · ' + ds.length} onClose={onClose} lang={lang}>
+      <div className="overflow-x-auto -mx-1">
+        <table className="text-[11px] border-collapse" style={{ minWidth: 110 + ds.length * 190 }}>
+          <thead><tr><th className={'sticky left-0 z-10 w-[100px] ' + SURF}></th>{ds.map(d => <th key={d.id} className={'text-left align-bottom px-2 py-1.5 min-w-[190px] text-[13px] font-extrabold ' + CLS[d.cls].txt}>{i ? d.th : d.name}</th>)}</tr></thead>
+          <tbody>{rows.map(([label, fn]) => (
+            <tr key={label} className="border-t border-slate-200 dark:border-[#263449] align-top">
+              <td className={'sticky left-0 z-10 px-2 py-1.5 font-bold ' + SURF + ' ' + MUTED}>{label}</td>
+              {ds.map(d => <td key={d.id} className="px-2 py-1.5">{fn(d)}</td>)}
+            </tr>))}</tbody>
+        </table>
+      </div>
+    </Modal>
+  );
+}
+
+/* ---------- Resistance next-step helper ---------- */
+const FURO_CEIL = 160; // IV furosemide bolus ceiling in HF / CKD (mg)
+function ResistanceHelper({ lang }) {
+  const i = lang === 'th' ? 1 : 0;
+  const [v, setV] = useState({ dose: '', na: '', uo: '' });
+  const set = (k) => (e) => setV(p => ({ ...p, [k]: e.target.value }));
+  const dose = Number(v.dose);
+  const na = v.na === '' ? null : Number(v.na);
+  const uo = v.uo === '' ? null : Number(v.uo);
+  let out = null;
+  if (na != null || uo != null) {
+    const poor = (na != null && na < 50) || (uo != null && uo < 100);
+    const border = !poor && ((na != null && na < 70) || (uo != null && uo < 150));
+    const w = poor ? ['Inadequate', 'ไม่เพียงพอ'] : ['Borderline', 'กึ่งเพียงพอ'];
+    if (!poor && !border) out = [0, ['Response adequate: keep the same dose and reassess urine output and weight each day.', 'ตอบสนองเพียงพอ: คงขนาดเดิมและประเมินปริมาณปัสสาวะกับน้ำหนักทุกวัน']];
+    else if (!(dose > 0)) out = [1, [w[0] + ' response: double the IV loop dose. Enter the current dose to see the number.', 'ตอบสนอง' + w[1] + ': เพิ่มขนาดยาลูป IV เป็น 2 เท่า ใส่ขนาดปัจจุบันเพื่อดูตัวเลข']];
+    else if (dose < FURO_CEIL) out = [1, [w[0] + ' response: double the IV furosemide dose to ' + Math.min(dose * 2, FURO_CEIL) + ' mg (ceiling ' + FURO_CEIL + ' mg), twice daily or a bolus then 10–20 mg/h. Reassess urine Na⁺ at 2 h and output at 6 h.', 'ตอบสนอง' + w[1] + ': เพิ่ม furosemide IV เป็น ' + Math.min(dose * 2, FURO_CEIL) + ' mg (ceiling ' + FURO_CEIL + ' mg) วันละ 2 ครั้ง หรือ bolus แล้วหยด 10–20 mg/ชม. ประเมิน Na⁺ ปัสสาวะที่ 2 ชม. และปริมาณปัสสาวะที่ 6 ชม.']];
+    else out = [2, [w[0] + ' response at or above the ' + FURO_CEIL + ' mg ceiling: go to Step 2 and add a thiazide-type drug (metolazone 2.5–10 mg PO, 30 min before the loop), then acetazolamide (Step 3) and an MRA (Step 4).', 'ตอบสนอง' + w[1] + 'ทั้งที่ถึง ceiling ' + FURO_CEIL + ' mg: ไปขั้น 2 เพิ่มไทอาไซด์ (metolazone 2.5–10 mg PO ก่อนยาลูป 30 นาที) แล้ว acetazolamide (ขั้น 3) และ MRA (ขั้น 4)']];
+  }
+  const f = (k, label, ph) => <label className="block text-[11px] font-bold">{label}<input type="number" min="0" inputMode="decimal" value={v[k]} onChange={set(k)} className={INPUT + ' mt-1'} placeholder={ph} /></label>;
+  return (
+    <div className="space-y-2">
+      <div className="grid grid-cols-3 gap-2">
+        {f('dose', i ? 'furosemide IV (mg)' : 'IV furosemide (mg)', 'mg')}
+        {f('na', i ? 'Na⁺ ปัสสาวะ 2 ชม.' : 'Urine Na⁺ at 2 h', 'mmol/L')}
+        {f('uo', i ? 'ปัสสาวะ 6 ชม.' : 'Urine output, 6 h', 'mL/h')}
+      </div>
+      {out ? <div className={'rounded-lg border border-l-4 p-2 ' + SURF + ' ' + (out[0] === 0 ? 'border-l-emerald-500' : out[0] === 1 ? 'border-l-amber-500' : 'border-l-rose-500')}>{out[1][i]}</div> : <p className={MUTED}>{i ? 'ใส่ Na⁺ ในปัสสาวะที่ 2 ชม. หรือปริมาณปัสสาวะที่ 6 ชม. อย่างน้อยหนึ่งค่า' : 'Enter urine Na⁺ at 2 h or urine output at 6 h (at least one).'}</p>}
+      <p className={'text-[10px] leading-snug ' + MUTED}>{i ? 'เกณฑ์: Na⁺ ปัสสาวะ < 50 ชัดเจนว่าไม่เพียงพอ 50–70 กึ่งเพียงพอ ปัสสาวะ < 100 mL/ชม. ไม่เพียงพอ 100–150 กึ่งเพียงพอ (ESC HFA 2019) ใช้ช่วยตัดสินใจ ไม่ใช่คำสั่งการรักษา' : 'Thresholds: urine Na⁺ < 50 clearly inadequate, 50–70 borderline; output < 100 mL/h inadequate, 100–150 borderline (ESC HFA 2019). A decision aid, not an order.'}</p>
     </div>
   );
 }
@@ -833,11 +1044,11 @@ function DetailModal({ d, onClose, lang, showOne }) {
       <Fold title={t('pearl')} color="border-l-amber-500"><p>{d.pearl[lang]}</p></Fold>
       <Fold title={t('trials')} color="border-l-violet-500"><Trials d={d} lang={lang} /></Fold>
       <Fold title={t('brandsH')} color="border-l-cyan-500">
-        {COUNTRIES.map(c => <div key={c} className="flex items-start gap-2 py-0.5"><span className={'shrink-0 w-7 text-center rounded border px-1 text-[10px] font-bold ' + CTRY[c].chip}>{c.toUpperCase()}</span><span className={brandsOf(d, c) ? 'font-semibold' : MUTED}>{brandsOf(d, c) || (c === 'th' && MIMS_UNCHECKED.has(d.id) ? t('brandUnchk') : 'N/A')}</span></div>)}
+        {COUNTRIES.map(c => <div key={c} className="flex items-start gap-2 py-0.5"><span className={'shrink-0 w-7 text-center rounded border px-1 text-[10px] font-bold ' + CTRY[c].chip}>{c.toUpperCase()}</span><span className={brandsOf(d, c) ? 'font-semibold' : MUTED}>{brandsOf(d, c) || 'N/A'}</span></div>)}
       </Fold>
       <Fold title={t('avail')} color="border-l-slate-400">
         <div className="flex flex-wrap gap-1"><NlemChip d={d} lang={lang} /><CountryChips d={d} lang={lang} /></div>
-        <p className={'mt-1.5 text-[11px] ' + MUTED}><b>{t('brandsT')}:</b> {BRANDS[d.id] || (MIMS_UNCHECKED.has(d.id) ? t('brandUnchk') : t('noBrand'))}<br />{NLEM[d.id] ? 'NLEM 2569: ' + NLEM[d.id].f + '.' : t('nlemNote')} {NLEM_EXTRA[d.id] && NLEM_EXTRA[d.id][lang]} {REG_NOTE[d.id] && REG_NOTE[d.id][lang]} {t('ctryNote')}</p>
+        <p className={'mt-1.5 text-[11px] ' + MUTED}><b>{t('brandsT')}:</b> {BRANDS[d.id] || t('noBrand')}<br />{NLEM[d.id] ? 'NLEM 2569: ' + NLEM[d.id].f + '.' : t('nlemNote')} {NLEM_EXTRA[d.id] && NLEM_EXTRA[d.id][lang]} {REG_NOTE[d.id] && REG_NOTE[d.id][lang]} {t('ctryNote')}</p>
       </Fold>
     </Modal>
   );
@@ -1091,6 +1302,8 @@ function App() {
   const [searchOpen, setSearchOpen] = useState(false);
   const [classes, setClasses] = useState([]);
   const [fx, setFx] = useState({});
+  const [kid, setKid] = useState({ eg: '', liver: false, hk: false });
+  const [meds, setMeds] = useState(() => new Set());
   const [ctry, setCtry] = useState([]);
   const [stSel, setStSel] = useState(['current']);
   const [nlemOnly, setNlemOnly] = useState(false);
@@ -1153,6 +1366,8 @@ function App() {
   const guides = [
     ['mech', t('mech'), 'bg-blue-50 hover:bg-blue-100 border-blue-200 text-blue-700 dark:bg-blue-500/10 dark:hover:bg-blue-500/20 dark:border-blue-400/30 dark:text-blue-300', NephronIcon, () => setModal({ t: 'mech' })],
     ['conv', t('conv'), 'bg-teal-50 hover:bg-teal-100 border-teal-200 text-teal-700 dark:bg-teal-500/10 dark:hover:bg-teal-500/20 dark:border-teal-400/30 dark:text-teal-300', ConvertIcon, () => setModal({ t: 'conv' })],
+    ['kid', t('kid'), 'bg-amber-50 hover:bg-amber-100 border-amber-200 text-amber-700 dark:bg-amber-500/10 dark:hover:bg-amber-500/20 dark:border-amber-400/30 dark:text-amber-300', ActivityIcon, () => setModal({ t: 'kid' })],
+    ['inter', t('inter'), 'bg-fuchsia-50 hover:bg-fuchsia-100 border-fuchsia-200 text-fuchsia-700 dark:bg-fuchsia-500/10 dark:hover:bg-fuchsia-500/20 dark:border-fuchsia-400/30 dark:text-fuchsia-300', WarnIcon, () => setModal({ t: 'inter' })],
     ['resist', t('resist'), 'bg-rose-50 hover:bg-rose-100 border-rose-200 text-rose-700 dark:bg-rose-500/10 dark:hover:bg-rose-500/20 dark:border-rose-400/30 dark:text-rose-300', LadderIcon, () => setModal({ t: 'resist' })],
   ];
   const views = [['tile', LayoutGrid], ['list', ListIcon], ['table', TableIcon]];
@@ -1310,6 +1525,7 @@ function App() {
         <div className={'fixed bottom-0 left-0 right-0 z-40 border-t px-3 py-2 flex items-center justify-center gap-2 shadow-lg ' + SURF}>
           <span className="text-xs font-bold">{sel.size} {t('nsel')}</span>
           <button type="button" onClick={() => setModal({ t: 'mech' })} className="rounded-lg border px-3 py-1.5 text-xs font-bold bg-indigo-600 text-white border-indigo-600 inline-flex items-center gap-1.5"><NephronIcon className="w-3.5 h-3.5" />{t('mech')}</button>
+          {sel.size > 1 && <button type="button" onClick={() => setModal({ t: 'cmp' })} className="rounded-lg border px-3 py-1.5 text-xs font-bold bg-indigo-600 text-white border-indigo-600 inline-flex items-center gap-1.5"><CompareIcon className="w-3.5 h-3.5" />{t('cmp')}</button>}
           <button type="button" onClick={() => setSel(new Set())} className={'rounded-lg border px-3 py-1.5 text-xs font-bold ' + BTN_OFF}>{t('clear')}</button>
         </div>
       )}
@@ -1317,6 +1533,9 @@ function App() {
       {modal && modal.t === 'detail' && <DetailModal d={DRUG[modal.id]} lang={lang} onClose={() => setModal(null)} showOne={(id) => showSet([id])} />}
       {modal && modal.t === 'mech' && <MechanismModal sel={sel} toggle={toggle} clear={() => setSel(new Set())} lang={lang} onClose={() => setModal(null)} />}
       {modal && modal.t === 'resist' && <ResistanceModal lang={lang} onClose={() => setModal(null)} showCombo={showSet} />}
+      {modal && modal.t === 'kid' && <KidneyModal lang={lang} onClose={() => setModal(null)} open={open} st={kid} setSt={setKid} />}
+      {modal && modal.t === 'inter' && <InteractionModal lang={lang} onClose={() => setModal(null)} open={open} meds={meds} setMeds={setMeds} />}
+      {modal && modal.t === 'cmp' && <CompareModal ids={[...sel]} lang={lang} onClose={() => setModal(null)} />}
       {modal && modal.t === 'conv' && <ConvertModal lang={lang} onClose={() => setModal(null)} />}
       {modal && modal.t === 'key' && <KeyModal lang={lang} onClose={() => setModal(null)} />}
       {modal && modal.t === 'log' && <ChangelogModal lang={lang} onClose={() => setModal(null)} />}
