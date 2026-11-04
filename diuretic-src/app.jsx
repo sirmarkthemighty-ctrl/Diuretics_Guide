@@ -19,6 +19,7 @@ const InfoIcon = mk(<><circle cx="12" cy="12" r="9.5" /><path d="M12 16v-4" /><p
 const PillIcon = mk(<><path d="M10.5 20.5a5 5 0 0 1-7-7l10-10a5 5 0 0 1 7 7z" /><path d="M8.5 8.5l7 7" /></>);
 const NephronIcon = mk(<><circle cx="6" cy="5" r="2.5" /><path d="M6 7.5c-2.5 1.5 2.5 3 0 4.5" /><path d="M6 12v8h6V9h3v6h3V4" /></>);
 const ConvertIcon = mk(<><polyline points="17 1 21 5 17 9" /><path d="M3 11V9a4 4 0 0 1 4-4h14" /><polyline points="7 23 3 19 7 15" /><path d="M21 13v2a4 4 0 0 1-4 4H3" /></>);
+const WarnIcon = mk(<><path d="M10.3 3.9 1.8 18a2 2 0 0 0 1.7 3h17a2 2 0 0 0 1.7-3L13.7 3.9a2 2 0 0 0-3.4 0z" /><line x1="12" y1="9" x2="12" y2="13" /><line x1="12" y1="17" x2="12.01" y2="17" /></>, 2.2);
 const LadderIcon = mk(<path d="M8 3v18M16 3v18M8 8h8M8 13h8M8 18h8" />);
 
 
@@ -26,8 +27,8 @@ const LadderIcon = mk(<path d="M8 3v18M16 3v18M8 8h8M8 13h8M8 18h8" />);
 const VERSION = 'v1.2.0';
 const CHANGELOG = [
   { v: 'v1.2.0', date: '2026-11-04',
-    en: ['First release: 24 diuretics (18 core plus 6 sold in the UK, EU or Japan) with doses, electrolyte effects and side effects.', 'Tile, list and table views.', 'Mechanism button: highlights where selected drugs act on the nephron.', 'Diuretic resistance: sequential nephron blockade guide.', 'References section at the bottom of the page (collapsible, as in the bronchodilator guide).', 'Mechanism diagram redrawn on the ScienceDirect Topics nephron layout (glomerulus, macula densa, cortex / medulla, osmolality gradient, water / salt / urea flow, ADH and aldosterone), with the source listed.', 'Kidney / liver dosing and key interactions on every drug (from labels and guidelines), and a loop dose conversion table.', 'Thai NLEM 2569 chip checked against the official list (5 Basic drugs, the rest Non-NLEM) and TH / US / UK / EU / JP availability filter (all five checked 2026-11-04: UK on emc, EU on Spain AEMPS, EMA lists and national sources, JP on KEGG / JAPIC). FDA status per country (current / past † / never ⊘) with a filter; US checked against openFDA. Doses and Thai brands checked against MIMS Thailand.'],
-    th: ['เปิดตัวครั้งแรก: ยาขับปัสสาวะ 24 ชนิด (หลัก 18 ชนิด และอีก 6 ชนิดที่มีใน UK, EU หรือญี่ปุ่น) พร้อมขนาดยา ผลต่ออิเล็กโทรไลต์ และผลข้างเคียง', 'มุมมองการ์ด รายการ และตาราง', 'ปุ่มกลไก: แสดงตำแหน่งที่ยาที่เลือกออกฤทธิ์บนเนฟรอน', 'ภาวะดื้อยาขับปัสสาวะ: แนวทางการปิดกั้นเนฟรอนตามลำดับ', 'ส่วนเอกสารอ้างอิงท้ายหน้า (พับ/เปิดได้ เหมือนแอปยาขยายหลอดลม)', 'แผนภาพกลไกวาดใหม่ตามผังเนฟรอนของ ScienceDirect Topics (โกลเมอรูลัส แมคูลาเดนซา เปลือก/ไขสันหลังไต ความเข้มข้นออสโมลาลิตี การเคลื่อนของน้ำ/เกลือ/ยูเรีย ADH และอัลโดสเตอโรน) พร้อมแหล่งอ้างอิง', 'ขนาดยาตามการทำงานของไต/ตับ และยาที่ต้องระวังเมื่อใช้ร่วมในทุกตัวยา (จากฉลากและแนวทางเวชปฏิบัติ) พร้อมตารางเทียบขนาดยาลูป', 'ป้าย NLEM 2569 ตรวจกับบัญชียาหลักฯ ฉบับจริง (หมวดพื้นฐาน 5 ชนิด ที่เหลือไม่อยู่ใน NLEM) และตัวกรองประเทศ TH / US / UK / EU / JP (ตรวจครบทั้งห้าเมื่อ 2026-11-04: UK ใน emc, EU ใน AEMPS สเปน รายการ EMA และแหล่งระดับประเทศ, JP ใน KEGG / JAPIC) สถานะ อย. รายประเทศ (ปัจจุบัน / เคยมี † / ไม่เคยมี ⊘) พร้อมตัวกรอง ตรวจสหรัฐฯ กับ openFDA ตรวจขนาดยาและยี่ห้อในไทยกับ MIMS Thailand'] },
+    en: ['First release: 24 diuretics (18 core plus 6 sold in the UK, EU or Japan) with doses, electrolyte effects and side effects.', 'Tile, list and table views.', 'Mechanism button: highlights where selected drugs act on the nephron.', 'Diuretic resistance: sequential nephron blockade guide.', 'Warning triangle on serious side effects (hyperkalemia, ototoxicity, liver injury, ODS, DKA, blood-count drops, AKI, pulmonary edema) on cards, table and detail view; filters open with FDA status “Current” selected by default.', 'Key clinical trials in each drug’s detail view, summarised from the PubMed abstracts with PubMed and DOI links (drugs with no landmark outcome trial say so).', 'References section at the bottom of the page (collapsible, as in the bronchodilator guide).', 'Mechanism diagram redrawn on the ScienceDirect Topics nephron layout (glomerulus, macula densa, cortex / medulla, osmolality gradient, water / salt / urea flow, ADH and aldosterone), with the source listed.', 'Kidney / liver dosing and key interactions on every drug (from labels and guidelines), and a loop dose conversion table.', 'Thai NLEM 2569 chip checked against the official list (5 Basic drugs, the rest Non-NLEM) and TH / US / UK / EU / JP availability filter (all five checked 2026-11-04: UK on emc, EU on Spain AEMPS, EMA lists and national sources, JP on KEGG / JAPIC). FDA status per country (current / past † / never ⊘) with a filter; US checked against openFDA. Doses and Thai brands checked against MIMS Thailand.'],
+    th: ['เปิดตัวครั้งแรก: ยาขับปัสสาวะ 24 ชนิด (หลัก 18 ชนิด และอีก 6 ชนิดที่มีใน UK, EU หรือญี่ปุ่น) พร้อมขนาดยา ผลต่ออิเล็กโทรไลต์ และผลข้างเคียง', 'มุมมองการ์ด รายการ และตาราง', 'ปุ่มกลไก: แสดงตำแหน่งที่ยาที่เลือกออกฤทธิ์บนเนฟรอน', 'ภาวะดื้อยาขับปัสสาวะ: แนวทางการปิดกั้นเนฟรอนตามลำดับ', 'สัญลักษณ์เตือนรูปสามเหลี่ยมที่ผลข้างเคียงสำคัญ (โพแทสเซียมสูง พิษต่อหู ตับ ODS DKA เม็ดเลือดผิดปกติ AKI ปอดบวมน้ำ) ในการ์ด ตาราง และหน้ารายละเอียด ตัวกรองเปิดไว้และเลือกสถานะ อย. “ปัจจุบัน” เป็นค่าเริ่มต้น', 'การศึกษาทางคลินิกสำคัญในหน้ารายละเอียดของแต่ละยา (ตรวจกับบทคัดย่อใน PubMed พร้อมลิงก์ PubMed และ DOI)', 'ส่วนเอกสารอ้างอิงท้ายหน้า (พับ/เปิดได้ เหมือนแอปยาขยายหลอดลม)', 'แผนภาพกลไกวาดใหม่ตามผังเนฟรอนของ ScienceDirect Topics (โกลเมอรูลัส แมคูลาเดนซา เปลือก/ไขสันหลังไต ความเข้มข้นออสโมลาลิตี การเคลื่อนของน้ำ/เกลือ/ยูเรีย ADH และอัลโดสเตอโรน) พร้อมแหล่งอ้างอิง', 'ขนาดยาตามการทำงานของไต/ตับ และยาที่ต้องระวังเมื่อใช้ร่วมในทุกตัวยา (จากฉลากและแนวทางเวชปฏิบัติ) พร้อมตารางเทียบขนาดยาลูป', 'ป้าย NLEM 2569 ตรวจกับบัญชียาหลักฯ ฉบับจริง (หมวดพื้นฐาน 5 ชนิด ที่เหลือไม่อยู่ใน NLEM) และตัวกรองประเทศ TH / US / UK / EU / JP (ตรวจครบทั้งห้าเมื่อ 2026-11-04: UK ใน emc, EU ใน AEMPS สเปน รายการ EMA และแหล่งระดับประเทศ, JP ใน KEGG / JAPIC) สถานะ อย. รายประเทศ (ปัจจุบัน / เคยมี † / ไม่เคยมี ⊘) พร้อมตัวกรอง ตรวจสหรัฐฯ กับ openFDA ตรวจขนาดยาและยี่ห้อในไทยกับ MIMS Thailand'] },
 ];
 
 // Nephron segments, in flow order
@@ -234,7 +235,7 @@ const TXT = {
   made: ['Made with ❤️ by Wardom', 'สร้างด้วย ❤️ โดย Wardom'],
   disc: ['For clinician reference. Check local protocols and the patient before prescribing.', 'ใช้อ้างอิงสำหรับบุคลากรทางการแพทย์ ตรวจสอบแนวปฏิบัติของโรงพยาบาลและผู้ป่วยก่อนสั่งยา'],
   search: ['Search drug, class or target…', 'ค้นหายา กลุ่มยา หรือเป้าหมาย…'],
-  mech: ['Mechanism', 'กลไก'], conv: ['Dose conversion', 'เทียบขนาดยา'], renal: ['Kidney / liver dosing', 'ขนาดยาตามไต/ตับ'], ddi: ['Key interactions', 'ยาที่ต้องระวังเมื่อใช้ร่วม'], resist: ['Diuretic resistance', 'ดื้อยาขับปัสสาวะ'], key: ['Key', 'คำอธิบาย'],
+  mech: ['Mechanism', 'กลไก'], trials: ['Key clinical trials', 'การศึกษาทางคลินิกสำคัญ'], noTrial: ['No landmark outcome trial is included for this drug (N/A).', 'ไม่ได้รวมการศึกษาผลลัพธ์สำคัญของยานี้ (N/A)'], design: ['Design', 'รูปแบบ'], result: ['Result', 'ผล'], caution: ['Serious side effect: check before prescribing', 'ผลข้างเคียงที่สำคัญ: ตรวจก่อนสั่งยา'], conv: ['Dose conversion', 'เทียบขนาดยา'], renal: ['Kidney / liver dosing', 'ขนาดยาตามไต/ตับ'], ddi: ['Key interactions', 'ยาที่ต้องระวังเมื่อใช้ร่วม'], resist: ['Diuretic resistance', 'ดื้อยาขับปัสสาวะ'], key: ['Key', 'คำอธิบาย'],
   all: ['All', 'ทั้งหมด'], any: ['Any effect', 'ทุกผล'],
   tile: ['Tile', 'การ์ด'], list: ['List', 'รายการ'], table: ['Table', 'ตาราง'],
   sort: ['Sort', 'เรียง'], byClass: ['Class', 'กลุ่มยา'], byName: ['Name', 'ชื่อยา'], bySite: ['Site', 'ตำแหน่ง'],
@@ -302,6 +303,15 @@ function CountryChips({ d, lang }) {
     const cls = st === 'current' ? CTRY[c].chip : st === 'past' ? 'border-amber-300 bg-amber-50 text-amber-800 dark:border-amber-400/30 dark:bg-amber-500/10 dark:text-amber-300' : 'border-slate-200 text-slate-400 dark:border-[#263449] dark:text-slate-500';
     return <span key={c} title={CTRY[c].name[lang === 'th' ? 1 : 0] + ': ' + TXT['st_' + (st || 'unk')][lang === 'th' ? 1 : 0]} className={'text-[10px] font-bold rounded border px-1 py-px leading-none whitespace-nowrap ' + cls}>{c.toUpperCase()}{st === 'past' ? ' †' : st === 'never' ? ' ⊘' : st ? '' : ' ?'}</span>;
   })}</>;
+}
+// Side effects that can be serious: shown with a warning triangle on cards, the table and the detail view
+const CAUTION = new Set(['hyperK', 'ototox', 'liver', 'ods', 'dka', 'wbc', 'aki', 'pulm']);
+const WARN_CHIP = 'bg-amber-50 text-amber-800 border-amber-300 dark:bg-amber-500/10 dark:text-amber-300 dark:border-amber-400/40';
+function Cautions({ d, lang }) {
+  const i = lang === 'th' ? 1 : 0;
+  const list = d.se.filter(x => CAUTION.has(x));
+  if (!list.length) return null;
+  return <div className="flex flex-wrap gap-1">{list.map(x => <span key={x} title={TXT.caution[i]} className={'inline-flex items-center gap-1 rounded border px-1.5 py-px text-[10px] font-bold ' + WARN_CHIP}><WarnIcon className="w-3 h-3 shrink-0" />{SE[x][i]}</span>)}</div>;
 }
 function Effects({ d, showZero }) {
   const items = ELECTROLYTES.filter(e => showZero || d.fx[e.k] !== 0);
@@ -659,6 +669,124 @@ function ResistanceModal({ onClose, lang, showCombo }) {
   );
 }
 
+/* ---------- Key clinical trials per drug (abstracts checked on PubMed, 2026-11-04) ---------- */
+// T(name, citation, PMID, DOI, design [en, th], result [en, th])
+const T = (n, cite, pm, doi, d, r) => ({ n, cite, pm, doi, d, r });
+const TR = {
+  dose: T('DOSE', 'Felker GM, et al. N Engl J Med 2011;364:797', '21366472', '10.1056/NEJMoa1005419',
+    ['308 patients with acute decompensated HF: IV furosemide as bolus every 12 h vs continuous infusion, and low vs high dose (2.5 × the oral dose).', '308 รายที่หัวใจล้มเหลวเฉียบพลัน: furosemide IV แบบ bolus ทุก 12 ชม. เทียบกับหยดต่อเนื่อง และขนาดต่ำเทียบขนาดสูง (2.5 เท่าของขนาดกินเดิม)'],
+    ['No significant difference in symptoms or creatinine change for bolus vs infusion, or high vs low dose. High dose: trend to better symptom score (P = 0.06) and more diuresis, but transient worsening of renal function.', 'ไม่ต่างกันอย่างมีนัยสำคัญด้านอาการหรือการเปลี่ยนแปลง creatinine ระหว่าง bolus กับหยดต่อเนื่อง หรือขนาดสูงกับขนาดต่ำ ขนาดสูงมีแนวโน้มอาการดีกว่า (P = 0.06) ขับปัสสาวะมากกว่า แต่ไตเสื่อมชั่วคราว']),
+  transform: T('TRANSFORM-HF', 'Mentz RJ, et al. JAMA 2023;329:214', '36648467', '10.1001/jama.2022.23924',
+    ['2,859 patients discharged after a heart failure hospitalisation: torsemide vs furosemide, 12 months.', '2,859 รายหลังออกจากโรงพยาบาลจากหัวใจล้มเหลว: torsemide เทียบกับ furosemide ติดตาม 12 เดือน'],
+    ['All-cause death 26.1% vs 26.2% (HR 1.02, 95% CI 0.89–1.18). Death or hospitalisation 47.3% vs 49.3% (HR 0.92, 0.83–1.02). Limited by loss to follow-up and crossover.', 'เสียชีวิตจากทุกสาเหตุ 26.1% เทียบ 26.2% (HR 1.02, 95% CI 0.89–1.18) เสียชีวิตหรือนอนโรงพยาบาล 47.3% เทียบ 49.3% (HR 0.92, 0.83–1.02) ข้อจำกัด: ผู้ป่วยติดตามไม่ครบและมีการเปลี่ยนกลุ่มยา']),
+  dcp: T('Diuretic Comparison Project', 'Ishani A, et al. N Engl J Med 2022;387:2401', '36516076', '10.1056/NEJMoa2212270',
+    ['13,523 veterans aged ≥ 65 taking HCTZ 25–50 mg: continue HCTZ or switch to chlorthalidone 12.5–25 mg (pragmatic trial).', 'ทหารผ่านศึก 13,523 ราย อายุ ≥ 65 ปี ที่ใช้ HCTZ 25–50 mg: ใช้ HCTZ ต่อหรือเปลี่ยนเป็น chlorthalidone 12.5–25 mg (pragmatic trial)'],
+    ['Primary outcome (MI, stroke, HF hospitalisation, urgent revascularisation, non-cancer death) 10.4% vs 10.0% (HR 1.04, 0.94–1.16): no difference. Hypokalemia 6.0% vs 4.4% (chlorthalidone vs HCTZ).', 'ผลลัพธ์หลัก (MI, stroke, นอนโรงพยาบาลจาก HF, revascularisation เร่งด่วน, เสียชีวิตที่ไม่ใช่มะเร็ง) 10.4% เทียบ 10.0% (HR 1.04, 0.94–1.16) ไม่ต่างกัน โพแทสเซียมต่ำ 6.0% เทียบ 4.4% (chlorthalidone เทียบ HCTZ)']),
+  clorotic: T('CLOROTIC', 'Trullàs JC, et al. Eur Heart J 2023;44:411', '36423214', '10.1093/eurheartj/ehac689',
+    ['230 patients (mean age 83) with acute HF: HCTZ or placebo added to IV furosemide.', '230 ราย (อายุเฉลี่ย 83 ปี) หัวใจล้มเหลวเฉียบพลัน: เพิ่ม HCTZ หรือยาหลอกร่วมกับ furosemide IV'],
+    ['Weight loss at 72 h 2.3 vs 1.5 kg (P = 0.002) and more 24-h diuresis; no difference in dyspnea score. Worse renal function more often with HCTZ (46.5% vs 17.2%). No difference in mortality or rehospitalisation.', 'น้ำหนักลดที่ 72 ชม. 2.3 เทียบ 1.5 กก. (P = 0.002) ปัสสาวะ 24 ชม. มากกว่า คะแนนเหนื่อยไม่ต่างกัน ไตเสื่อมพบบ่อยกว่าในกลุ่ม HCTZ (46.5% เทียบ 17.2%) การเสียชีวิตและการนอนโรงพยาบาลซ้ำไม่ต่างกัน']),
+  click: T('CLICK', 'Agarwal R, et al. N Engl J Med 2021;385:2507', '34739197', '10.1056/NEJMoa2110730',
+    ['Stage 4 CKD with poorly controlled hypertension: chlorthalidone (12.5 mg, up to 50 mg) vs placebo for 12 weeks.', 'CKD ระยะ 4 ที่ความดันคุมไม่ดี: chlorthalidone (เริ่ม 12.5 mg สูงสุด 50 mg) เทียบกับยาหลอก 12 สัปดาห์'],
+    ['24-h systolic BP −10.5 mm Hg vs placebo (95% CI −14.6 to −6.4). Albumin-to-creatinine ratio 50 percentage points lower. More hypokalemia, reversible creatinine rise, hyperglycemia and hyperuricemia.', 'ความดันตัวบน 24 ชม. ลดลงมากกว่ายาหลอก 10.5 mm Hg (95% CI −14.6 ถึง −6.4) อัตราส่วนอัลบูมิน/ครีเอตินินลดลงมากกว่า 50 จุดร้อยละ พบโพแทสเซียมต่ำ creatinine ขึ้นชั่วคราว น้ำตาลสูง และยูริกสูงบ่อยกว่า']),
+  allhat: T('ALLHAT', 'ALLHAT Collaborative Research Group. JAMA 2002;288:2981', '12479763', '10.1001/jama.288.23.2981',
+    ['33,357 high-risk hypertensive patients aged ≥ 55: chlorthalidone vs amlodipine vs lisinopril.', 'ผู้ป่วยความดันสูงเสี่ยงสูง 33,357 ราย อายุ ≥ 55 ปี: chlorthalidone เทียบ amlodipine เทียบ lisinopril'],
+    ['Fatal CHD or non-fatal MI: amlodipine RR 0.98 (0.90–1.07) and lisinopril RR 0.99 (0.91–1.08) vs chlorthalidone. Heart failure was higher with amlodipine (RR 1.38) and lisinopril (RR 1.19).', 'โรคหลอดเลือดหัวใจเสียชีวิตหรือ MI ไม่เสียชีวิต: amlodipine RR 0.98 (0.90–1.07) และ lisinopril RR 0.99 (0.91–1.08) เทียบกับ chlorthalidone หัวใจล้มเหลวพบมากกว่าด้วย amlodipine (RR 1.38) และ lisinopril (RR 1.19)']),
+  hyvet: T('HYVET', 'Beckett NS, et al. N Engl J Med 2008;358:1887', '18378519', '10.1056/NEJMoa0801369',
+    ['3,845 patients aged ≥ 80 with systolic BP ≥ 160 mm Hg: indapamide SR 1.5 mg (perindopril added if needed) vs placebo.', '3,845 ราย อายุ ≥ 80 ปี ความดันตัวบน ≥ 160 mm Hg: indapamide SR 1.5 mg (เพิ่ม perindopril ถ้าจำเป็น) เทียบกับยาหลอก'],
+    ['BP 15.0/6.1 mm Hg lower. Stroke −30% (P = 0.06), all-cause death −21% (P = 0.02), heart failure −64% (P < 0.001). Fewer serious adverse events.', 'ความดันลดลง 15.0/6.1 mm Hg stroke ลด 30% (P = 0.06) เสียชีวิตทุกสาเหตุลด 21% (P = 0.02) หัวใจล้มเหลวลด 64% (P < 0.001) เหตุการณ์ไม่พึงประสงค์รุนแรงน้อยกว่า']),
+  progress: T('PROGRESS', 'PROGRESS Collaborative Group. Lancet 2001;358:1033', '11589932', '10.1016/S0140-6736(01)06178-5',
+    ['6,105 patients with previous stroke or TIA: perindopril-based regimen (indapamide added at the physician’s discretion) vs placebo.', '6,105 ราย เคยเป็น stroke หรือ TIA: สูตรที่ใช้ perindopril เป็นหลัก (เพิ่ม indapamide ตามดุลยพินิจแพทย์) เทียบกับยาหลอก'],
+    ['Stroke reduced 28% (95% CI 17–38). Perindopril + indapamide: BP −12/5 mm Hg and stroke −43%; perindopril alone: no clear stroke reduction.', 'stroke ลด 28% (95% CI 17–38) perindopril + indapamide: ความดันลด 12/5 mm Hg และ stroke ลด 43% perindopril เดี่ยว: ไม่เห็นการลด stroke ชัดเจน']),
+  advance: T('ADVANCE', 'Patel A, et al. Lancet 2007;370:829', '17765963', '10.1016/S0140-6736(07)61303-8',
+    ['11,140 patients with type 2 diabetes: fixed perindopril–indapamide vs placebo on top of usual therapy.', '11,140 ราย เบาหวานชนิดที่ 2: perindopril–indapamide แบบรวมเม็ดเทียบกับยาหลอก เสริมจากการรักษาเดิม'],
+    ['Major macro- or microvascular event HR 0.91 (0.83–1.00); CV death HR 0.82 (0.68–0.98); all-cause death HR 0.86 (0.75–0.98).', 'หลอดเลือดขนาดใหญ่หรือเล็กผิดปกติรุนแรง HR 0.91 (0.83–1.00) เสียชีวิตจากหัวใจและหลอดเลือด HR 0.82 (0.68–0.98) เสียชีวิตทุกสาเหตุ HR 0.86 (0.75–0.98)']),
+  rales: T('RALES', 'Pitt B, et al. N Engl J Med 1999;341:709', '10471456', '10.1056/NEJM199909023411001',
+    ['1,663 patients with severe HF (LVEF ≤ 35%) on an ACE inhibitor and a loop diuretic: spironolactone 25 mg vs placebo.', '1,663 ราย หัวใจล้มเหลวรุนแรง (LVEF ≤ 35%) ที่ได้ ACEi และยาลูป: spironolactone 25 mg เทียบกับยาหลอก'],
+    ['Death 35% vs 46% (RR 0.70, 0.60–0.82). Stopped early after a mean of 24 months.', 'เสียชีวิต 35% เทียบ 46% (RR 0.70, 0.60–0.82) หยุดการศึกษาก่อนกำหนดที่เฉลี่ย 24 เดือน']),
+  topcat: T('TOPCAT', 'Pitt B, et al. N Engl J Med 2014;370:1383', '24716680', '10.1056/NEJMoa1313731',
+    ['3,445 patients with HF and LVEF ≥ 45%: spironolactone 15–45 mg vs placebo, mean 3.3 years.', '3,445 ราย หัวใจล้มเหลวที่ LVEF ≥ 45%: spironolactone 15–45 mg เทียบกับยาหลอก เฉลี่ย 3.3 ปี'],
+    ['CV death, aborted cardiac arrest or HF hospitalisation 18.6% vs 20.4% (HR 0.89, 0.77–1.04, P = 0.14): not significant.', 'เสียชีวิตจากหัวใจ หัวใจหยุดเต้นที่กู้ได้ หรือนอนโรงพยาบาลจาก HF 18.6% เทียบ 20.4% (HR 0.89, 0.77–1.04, P = 0.14) ไม่มีนัยสำคัญ']),
+  athena: T('ATHENA-HF', 'Butler J, et al. JAMA Cardiol 2017', '28700781', '10.1001/jamacardio.2017.2198',
+    ['360 patients with acute HF: high-dose spironolactone for 96 h vs usual care.', '360 ราย หัวใจล้มเหลวเฉียบพลัน: spironolactone ขนาดสูง 96 ชม. เทียบกับการรักษาปกติ'],
+    ['NT-proBNP fall did not differ (−0.55 vs −0.49 log units, P = 0.57); no difference in day-30 death or HF hospitalisation. Well tolerated, similar potassium and eGFR changes.', 'NT-proBNP ลดลงไม่ต่างกัน (−0.55 เทียบ −0.49 log, P = 0.57) การเสียชีวิตหรือนอนโรงพยาบาลจาก HF ที่ 30 วันไม่ต่างกัน ทนยาได้ดี โพแทสเซียมและ eGFR เปลี่ยนใกล้เคียงกัน']),
+  pathway2: T('PATHWAY-2', 'Williams B, et al. Lancet 2015;386:2059', '26414968', '10.1016/S0140-6736(15)00257-3',
+    ['Resistant hypertension despite 3 drugs: crossover of spironolactone 25–50 mg, bisoprolol, doxazosin and placebo, 12 weeks each.', 'ความดันสูงดื้อยาแม้ได้ยา 3 ชนิด: crossover spironolactone 25–50 mg, bisoprolol, doxazosin และยาหลอก ชนิดละ 12 สัปดาห์'],
+    ['Home systolic BP −8.70 mm Hg vs placebo (95% CI −9.72 to −7.69), superior to the mean of the other two active drugs.', 'ความดันตัวบนที่บ้านลด 8.70 mm Hg เทียบกับยาหลอก (95% CI −9.72 ถึง −7.69) ดีกว่าค่าเฉลี่ยของยาออกฤทธิ์อีกสองชนิด']),
+  ephesus: T('EPHESUS', 'Pitt B, et al. N Engl J Med 2003;348:1309', '12668699', '10.1056/NEJMoa030207',
+    ['6,632 patients with MI complicated by LV dysfunction and HF: eplerenone 25–50 mg vs placebo.', '6,632 ราย MI ที่มี LV dysfunction และ HF: eplerenone 25–50 mg เทียบกับยาหลอก'],
+    ['Deaths 478 vs 554 over a mean of 16 months. CV death or CV hospitalisation RR 0.87 (0.79–0.95); sudden cardiac death RR 0.79 (0.64–0.97). Serious hyperkalemia 5.5% vs 3.9%.', 'เสียชีวิต 478 เทียบ 554 ราย ที่เฉลี่ย 16 เดือน เสียชีวิตจากหัวใจหรือนอนโรงพยาบาลจากหัวใจ RR 0.87 (0.79–0.95) เสียชีวิตเฉียบพลันจากหัวใจ RR 0.79 (0.64–0.97) โพแทสเซียมสูงรุนแรง 5.5% เทียบ 3.9%']),
+  emphasis: T('EMPHASIS-HF', 'Zannad F, et al. N Engl J Med 2011;364:11', '21073363', '10.1056/NEJMoa1009492',
+    ['2,737 patients with NYHA II HFrEF (LVEF ≤ 35%): eplerenone up to 50 mg vs placebo.', '2,737 ราย HFrEF NYHA II (LVEF ≤ 35%): eplerenone สูงสุด 50 mg เทียบกับยาหลอก'],
+    ['CV death or HF hospitalisation 18.3% vs 25.9% (HR 0.63). Stopped early after a median of 21 months.', 'เสียชีวิตจากหัวใจหรือนอนโรงพยาบาลจาก HF 18.3% เทียบ 25.9% (HR 0.63) หยุดการศึกษาก่อนกำหนดที่มัธยฐาน 21 เดือน']),
+  salt: T('SALT-1 / SALT-2', 'Schrier RW, et al. N Engl J Med 2006;355:2099', '17105757', '10.1056/NEJMoa065181',
+    ['Euvolemic or hypervolemic hyponatremia (including HF and cirrhosis): tolvaptan vs placebo for 30 days.', 'โซเดียมต่ำชนิด euvolemic หรือ hypervolemic (รวม HF และตับแข็ง): tolvaptan เทียบกับยาหลอก 30 วัน'],
+    ['Serum Na⁺ rose more than with placebo at day 4 and day 30 (P < 0.001); hyponatremia recurred after stopping. Thirst, dry mouth and urination were the common effects.', 'Na⁺ ในเลือดสูงขึ้นมากกว่ายาหลอกที่วันที่ 4 และ 30 (P < 0.001) โซเดียมต่ำกลับมาเมื่อหยุดยา ผลข้างเคียงที่พบบ่อยคือกระหายน้ำ ปากแห้ง ปัสสาวะบ่อย']),
+  tempo: T('TEMPO 3:4', 'Torres VE, et al. N Engl J Med 2012;367:2407', '23121377', '10.1056/NEJMoa1205511',
+    ['1,445 patients aged 18–50 with ADPKD: tolvaptan vs placebo for 3 years.', '1,445 ราย อายุ 18–50 ปี โรค ADPKD: tolvaptan เทียบกับยาหลอก 3 ปี'],
+    ['Slower rise in total kidney volume and slower fall in kidney function (−2.61 vs −3.81 per year, P < 0.001). More aquaresis and liver adverse events; discontinuation 23% vs 14%.', 'ปริมาตรไตรวมเพิ่มช้าลงและการทำงานของไตลดช้าลง (−2.61 เทียบ −3.81 ต่อปี, P < 0.001) พบ aquaresis และผลต่อตับมากกว่า หยุดยา 23% เทียบ 14%']),
+  everest: T('EVEREST', 'Konstam MA, et al. JAMA 2007;297:1319', '17384437', '10.1001/jama.297.12.1319',
+    ['Patients hospitalised for worsening HF: tolvaptan vs placebo added to standard care (median follow-up 9.9 months).', 'ผู้ป่วยนอนโรงพยาบาลจาก HF กำเริบ: tolvaptan เทียบกับยาหลอก เสริมการรักษามาตรฐาน (ติดตามมัธยฐาน 9.9 เดือน)'],
+    ['All-cause death 25.9% vs 26.3% (HR 0.98); CV death or HF hospitalisation HR 1.04 (0.95–1.14). Early benefit for dyspnea, weight and edema, but no long-term benefit.', 'เสียชีวิตทุกสาเหตุ 25.9% เทียบ 26.3% (HR 0.98) เสียชีวิตจากหัวใจหรือนอนโรงพยาบาลจาก HF HR 1.04 (0.95–1.14) อาการเหนื่อย น้ำหนัก และบวมดีขึ้นช่วงแรก แต่ไม่มีประโยชน์ระยะยาว']),
+  advor: T('ADVOR', 'Mullens W, et al. N Engl J Med 2022;387:1185', '36027559', '10.1056/NEJMoa2203094',
+    ['519 patients with acute decompensated HF and volume overload: IV acetazolamide 500 mg added to a loop diuretic vs placebo.', '519 ราย หัวใจล้มเหลวเฉียบพลันที่มีน้ำเกิน: acetazolamide IV 500 mg เสริมยาลูปเทียบกับยาหลอก'],
+    ['Successful decongestion 42.2% vs 30.5% (risk ratio 1.46, 1.17–1.82). Death or HF rehospitalisation 29.7% vs 27.8% (HR 1.07, 0.78–1.48). Worsening kidney function, hypokalemia and hypotension were similar.', 'ลดบวมสำเร็จ 42.2% เทียบ 30.5% (risk ratio 1.46, 1.17–1.82) เสียชีวิตหรือนอนโรงพยาบาลซ้ำจาก HF 29.7% เทียบ 27.8% (HR 1.07, 0.78–1.48) ไตเสื่อม โพแทสเซียมต่ำ และความดันต่ำไม่ต่างกัน']),
+  dapahf: T('DAPA-HF', 'McMurray JJV, et al. N Engl J Med 2019;381:1995', '31535829', '10.1056/NEJMoa1911303',
+    ['4,744 patients with HFrEF: dapagliflozin 10 mg vs placebo, median 18.2 months.', '4,744 ราย HFrEF: dapagliflozin 10 mg เทียบกับยาหลอก มัธยฐาน 18.2 เดือน'],
+    ['Worsening HF or CV death 16.3% vs 21.2% (HR 0.74, P < 0.001); CV death HR 0.82.', 'HF กำเริบหรือเสียชีวิตจากหัวใจ 16.3% เทียบ 21.2% (HR 0.74, P < 0.001) เสียชีวิตจากหัวใจ HR 0.82']),
+  dapackd: T('DAPA-CKD', 'Heerspink HJL, et al. N Engl J Med 2020;383:1436', '32970396', '10.1056/NEJMoa2024816',
+    ['4,304 patients with CKD, with or without diabetes: dapagliflozin 10 mg vs placebo, median 2.4 years.', '4,304 ราย CKD ทั้งมีและไม่มีเบาหวาน: dapagliflozin 10 mg เทียบกับยาหลอก มัธยฐาน 2.4 ปี'],
+    ['Primary kidney composite 9.2% vs 14.5% (HR 0.61, P < 0.001); sustained ≥ 50% eGFR decline, end-stage kidney disease or renal death HR 0.56 (0.45–0.68).', 'ผลลัพธ์รวมด้านไต 9.2% เทียบ 14.5% (HR 0.61, P < 0.001) eGFR ลด ≥ 50% ต่อเนื่อง ไตวายระยะสุดท้าย หรือเสียชีวิตจากไต HR 0.56 (0.45–0.68)']),
+  deliver: T('DELIVER', 'Solomon SD, et al. N Engl J Med 2022;387:1089', '36027570', '10.1056/NEJMoa2206286',
+    ['6,263 patients with HF and LVEF > 40%: dapagliflozin vs placebo, median 2.3 years.', '6,263 ราย HF ที่ LVEF > 40%: dapagliflozin เทียบกับยาหลอก มัธยฐาน 2.3 ปี'],
+    ['Worsening HF or CV death 16.4% vs 19.5% (HR 0.82, P < 0.001).', 'HF กำเริบหรือเสียชีวิตจากหัวใจ 16.4% เทียบ 19.5% (HR 0.82, P < 0.001)']),
+  emperorr: T('EMPEROR-Reduced', 'Packer M, et al. N Engl J Med 2020;383:1413', '32865377', '10.1056/NEJMoa2022190',
+    ['3,730 patients with HFrEF: empagliflozin 10 mg vs placebo, median 16 months.', '3,730 ราย HFrEF: empagliflozin 10 mg เทียบกับยาหลอก มัธยฐาน 16 เดือน'],
+    ['CV death or HF hospitalisation 19.4% vs 24.7% (HR 0.75, P < 0.001); slower decline in eGFR.', 'เสียชีวิตจากหัวใจหรือนอนโรงพยาบาลจาก HF 19.4% เทียบ 24.7% (HR 0.75, P < 0.001) eGFR ลดช้าลง']),
+  emperorp: T('EMPEROR-Preserved', 'Anker SD, et al. N Engl J Med 2021;385:1451', '34449189', '10.1056/NEJMoa2107038',
+    ['5,988 patients with HF and LVEF > 40%: empagliflozin vs placebo, median 26.2 months.', '5,988 ราย HF ที่ LVEF > 40%: empagliflozin เทียบกับยาหลอก มัธยฐาน 26.2 เดือน'],
+    ['CV death or HF hospitalisation 13.8% vs 17.1% (HR 0.79, P < 0.001).', 'เสียชีวิตจากหัวใจหรือนอนโรงพยาบาลจาก HF 13.8% เทียบ 17.1% (HR 0.79, P < 0.001)']),
+  empakidney: T('EMPA-KIDNEY', 'Herrington WG, et al. N Engl J Med 2023;388:117', '36331190', '10.1056/NEJMoa2204233',
+    ['6,609 patients with CKD (eGFR 20–45, or 45–90 with urinary ACR ≥ 200): empagliflozin 10 mg vs placebo, median 2.0 years.', '6,609 ราย CKD (eGFR 20–45 หรือ 45–90 ที่ ACR ปัสสาวะ ≥ 200): empagliflozin 10 mg เทียบกับยาหลอก มัธยฐาน 2.0 ปี'],
+    ['Kidney disease progression or CV death 13.1% vs 16.9% (HR 0.72, P < 0.001); fewer hospitalisations for any cause.', 'ไตเสื่อมลงหรือเสียชีวิตจากหัวใจ 13.1% เทียบ 16.9% (HR 0.72, P < 0.001) นอนโรงพยาบาลจากทุกสาเหตุน้อยกว่า']),
+  mrc: T('MRC mild hypertension trial', 'MRC Working Party. Br Med J 1985;291:97', '2861880', '10.1136/bmj.291.6488.97',
+    ['Mild hypertension (diastolic 90–109 mm Hg), ages 35–64: bendroflumethiazide vs propranolol vs placebo.', 'ความดันสูงเล็กน้อย (diastolic 90–109 mm Hg) อายุ 35–64 ปี: bendroflumethiazide เทียบ propranolol เทียบยาหลอก'],
+    ['Treatment reduced stroke; the reduction in stroke on bendroflumethiazide was greater than on propranolol (P = 0.002).', 'การรักษาลด stroke ได้ การลด stroke ด้วย bendroflumethiazide มากกว่า propranolol (P = 0.002)']),
+  esaxhtn: T('ESAX-HTN', 'Ito S, et al. Hypertension 2020 (esaxerenone vs eplerenone)', '31786983', '10.1161/HYPERTENSIONAHA.119.13569',
+    ['Japanese patients with essential hypertension: esaxerenone 2.5 or 5 mg vs eplerenone 50 mg, double-blind phase 3.', 'ผู้ป่วยญี่ปุ่นที่ความดันสูงไม่ทราบสาเหตุ: esaxerenone 2.5 หรือ 5 mg เทียบ eplerenone 50 mg แบบ double-blind phase 3'],
+    ['Target BP (< 140/90 mm Hg) reached by 31.5% (2.5 mg) and 41.2% (5 mg) vs 27.5% with eplerenone 50 mg.', 'ความดันถึงเป้า (< 140/90 mm Hg) ใน 31.5% (2.5 mg) และ 41.2% (5 mg) เทียบ 27.5% ด้วย eplerenone 50 mg']),
+  esaxdn: T('ESAX-DN', 'Ito S, et al. Clin J Am Soc Nephrol 2020;15:1715', '33239409', '10.2215/CJN.06870520',
+    ['Type 2 diabetes with microalbuminuria: esaxerenone vs placebo.', 'เบาหวานชนิดที่ 2 ที่มีอัลบูมินในปัสสาวะเล็กน้อย: esaxerenone เทียบกับยาหลอก'],
+    ['Albuminuria remission HR 5.13 (3.27–8.04); progression to ACR ≥ 300 mg/g HR 0.23. Serum K⁺ ≥ 5.5 mEq/L on two consecutive measurements in 9% vs 2% with placebo.', 'อัลบูมินในปัสสาวะหายไป HR 5.13 (3.27–8.04) ก้าวไป ACR ≥ 300 mg/g HR 0.23 K⁺ ≥ 5.5 mEq/L สองครั้งติดกัน 9% เทียบ 2% ในกลุ่มยาหลอก']),
+};
+// Trials per drug; a drug with no entry shows "no landmark trial included" (N/A)
+const TRIALS_OF = {
+  acetazolamide: ['advor'], furosemide: ['dose', 'transform'], torsemide: ['transform'], hctz: ['dcp', 'clorotic'],
+  chlorthalidone: ['click', 'dcp', 'allhat'], indapamide: ['hyvet', 'progress', 'advance'], spironolactone: ['rales', 'topcat', 'athena', 'pathway2'],
+  eplerenone: ['ephesus', 'emphasis'], tolvaptan: ['salt', 'tempo', 'everest'], dapagliflozin: ['dapahf', 'dapackd', 'deliver'],
+  empagliflozin: ['emperorr', 'emperorp', 'empakidney'], bendroflumethiazide: ['mrc'], esaxerenone: ['esaxhtn', 'esaxdn'],
+};
+function Trials({ d, lang }) {
+  const i = lang === 'th' ? 1 : 0;
+  const list = (TRIALS_OF[d.id] || []).map(k => TR[k]);
+  if (!list.length) return <p className={MUTED}>{TXT.noTrial[i]}</p>;
+  return (
+    <div className="space-y-2.5">
+      {list.map(x => (
+        <div key={x.n} className={'rounded-lg border p-2 ' + INSET}>
+          <div className="font-extrabold">{x.n}</div>
+          <div className={'text-[10px] ' + MUTED}>{x.cite}</div>
+          <p className="mt-1"><b>{TXT.design[i]}:</b> {x.d[i]}</p>
+          <p className="mt-0.5"><b>{TXT.result[i]}:</b> {x.r[i]}</p>
+          <div className="mt-1 flex gap-3 text-[10px]">
+            <a href={'https://pubmed.ncbi.nlm.nih.gov/' + x.pm + '/'} target="_blank" rel="noopener noreferrer" className="text-indigo-600 dark:text-indigo-400 hover:underline">PubMed {x.pm}</a>
+            <a href={'https://doi.org/' + x.doi} target="_blank" rel="noopener noreferrer" className="text-indigo-600 dark:text-indigo-400 hover:underline break-all">DOI</a>
+          </div>
+        </div>
+      ))}
+    </div>
+  );
+}
+
 /* ---------- Detail, Key, Changelog ---------- */
 function DetailModal({ d, onClose, lang, showOne }) {
   const i = lang === 'th' ? 1 : 0;
@@ -683,10 +811,11 @@ function DetailModal({ d, onClose, lang, showOne }) {
         <Effects d={d} showZero />
       </Fold>
       <Fold title={t('se')} color="border-l-rose-500">
-        <ul className="list-disc pl-4 space-y-0.5">{d.se.map(s => <li key={s}>{SE[s][i]}</li>)}</ul>
+        <ul className="space-y-0.5">{d.se.map(x => <li key={x} className="flex items-start gap-1.5">{CAUTION.has(x) ? <WarnIcon className="w-3.5 h-3.5 mt-0.5 shrink-0 text-amber-600 dark:text-amber-400" /> : <span className="w-3.5 shrink-0 text-center text-slate-400">•</span>}<span className={CAUTION.has(x) ? 'font-bold' : ''}>{SE[x][i]}</span></li>)}</ul>
       </Fold>
       {ddiOf(d).length > 0 && <Fold title={t('ddi')} color="border-l-fuchsia-500"><ul className="list-disc pl-4 space-y-1">{ddiOf(d).map((x, k) => <li key={k}>{x[i]}</li>)}</ul></Fold>}
       <Fold title={t('pearl')} color="border-l-amber-500"><p>{d.pearl[lang]}</p></Fold>
+      <Fold title={t('trials')} color="border-l-violet-500"><Trials d={d} lang={lang} /></Fold>
       <Fold title={t('avail')} color="border-l-slate-400">
         <div className="flex flex-wrap gap-1"><NlemChip d={d} lang={lang} /><CountryChips d={d} lang={lang} /></div>
         <p className={'mt-1.5 text-[11px] ' + MUTED}><b>{t('brandsT')}:</b> {BRANDS[d.id] || (MIMS_UNCHECKED.has(d.id) ? t('brandUnchk') : t('noBrand'))}<br />{NLEM[d.id] ? 'NLEM 2569: ' + NLEM[d.id].f + '.' : t('nlemNote')} {NLEM_EXTRA[d.id] && NLEM_EXTRA[d.id][lang]} {REG_NOTE[d.id] && REG_NOTE[d.id][lang]} {t('ctryNote')}</p>
@@ -702,6 +831,7 @@ function KeyModal({ onClose, lang }) {
       <div className="space-y-1.5">
         {KEY_ROWS.map(r => <div key={r[0]} className="flex items-center gap-2 text-[12px]"><span className={'rounded border px-1 py-px text-[10px] font-bold ' + (r[2] === 'sky' ? FX_STYLE['-1'] : r[2] === 'orange' ? FX_STYLE['1'] : r[2] === 'violet' ? FX_STYLE.v : FX_STYLE['0'])}>{r[0]}</span>{r[1][lang]}</div>)}
         <div className="flex items-center gap-2 text-[12px]"><span className={'rounded border px-1 py-px text-[10px] font-bold ' + CTRY.th.chip}>TH</span><span className="rounded border px-1 py-px text-[10px] font-bold border-slate-200 text-slate-400 dark:border-[#263449]">US ?</span>{i ? 'สีเต็ม = ขึ้นทะเบียนอยู่, † = เคยมี, ⊘ = ไม่เคยมี, "?" = ยังไม่ตรวจสอบ (N/A)' : 'Coloured = registered now; † = previously registered; ⊘ = never; "?" = not verified (N/A)'}</div>
+        <div className="flex items-center gap-2 text-[12px]"><span className={'inline-flex items-center gap-1 rounded border px-1.5 py-px text-[10px] font-bold ' + WARN_CHIP}><WarnIcon className="w-3 h-3" />{SE.hyperK[i]}</span>{TXT.caution[i]}</div>
         <div className="flex items-center gap-2 text-[12px]"><NlemChip d={DRUG.furosemide} lang={lang} />{i ? 'หมวดบัญชียาหลักแห่งชาติ' : 'Thai NLEM category'}</div>
         <div className="flex items-center gap-2 text-[12px]"><span className="rounded border px-1 py-px text-[10px] font-bold bg-indigo-50 text-indigo-700 border-indigo-200 dark:bg-indigo-500/10 dark:text-indigo-300 dark:border-indigo-400/30">TAL</span>{i ? 'ตำแหน่งออกฤทธิ์บนเนฟรอน' : 'Nephron segment where the drug acts'}</div>
       </div>
@@ -761,6 +891,12 @@ const REFS = [
     en: 'Loop diuretic pharmacology, bioavailability and dose equivalence.', th: 'เภสัชวิทยาของยาลูป การดูดซึม และขนาดยาเทียบเท่า' },
   { cite: 'Heidenreich PA, Bozkurt B, Aguilar D, et al. 2022 AHA/ACC/HFSA guideline for the management of heart failure. Circulation. 2022;145(18):e895–e1032.', url: 'https://doi.org/10.1161/CIR.0000000000001063',
     en: 'MRA use by eGFR and potassium in heart failure.', th: 'การใช้ MRA ตาม eGFR และโพแทสเซียมในภาวะหัวใจล้มเหลว' },
+  { cite: 'Beckett NS, Peters R, Fletcher AE, et al. Treatment of hypertension in patients 80 years of age or older (HYVET). N Engl J Med. 2008;358(18):1887–1898.', url: 'https://doi.org/10.1056/NEJMoa0801369',
+    en: 'Indapamide outcome trial in very old patients.', th: 'การศึกษาผลลัพธ์ของ indapamide ในผู้สูงอายุมาก' },
+  { cite: 'Patel A, ADVANCE Collaborative Group. Effects of a fixed combination of perindopril and indapamide on macrovascular and microvascular outcomes in patients with type 2 diabetes mellitus (ADVANCE). Lancet. 2007;370(9590):829–840.', url: 'https://doi.org/10.1016/S0140-6736(07)61303-8',
+    en: 'Indapamide combination outcome trial in type 2 diabetes.', th: 'การศึกษาผลลัพธ์ของ indapamide แบบรวมเม็ดในเบาหวานชนิดที่ 2' },
+  { cite: 'Mentz RJ, Anstrom KJ, Eisenstein EL, et al. Effect of torsemide vs furosemide after discharge on all-cause mortality in patients hospitalized with heart failure (TRANSFORM-HF). JAMA. 2023;329(3):214–223.', url: 'https://doi.org/10.1001/jama.2022.23924',
+    en: 'Torsemide vs furosemide mortality.', th: 'อัตราการเสียชีวิต torsemide เทียบ furosemide' },
   { cite: 'Agarwal R, Sinha AD, Cramer AE, et al. Chlorthalidone for hypertension in advanced chronic kidney disease (CLICK). N Engl J Med. 2021;385(27):2507–2519.', url: 'https://doi.org/10.1056/NEJMoa2110730',
     en: 'Chlorthalidone in stage 4 CKD.', th: 'chlorthalidone ใน CKD ระยะ 4' },
   { cite: 'ScienceDirect Topics. Nephron (Medicine and Dentistry).', url: 'https://www.sciencedirect.com/topics/medicine-and-dentistry/nephron',
@@ -768,7 +904,7 @@ const REFS = [
 ];
 const REF_TXT = {
   title: ['References', 'เอกสารอ้างอิง'], used: ['Used for', 'ใช้สำหรับ'],
-  note: ["Author's content without an external reference: the “Filtered Na⁺ blocked” percentages are typical class values, and the diagram annotations follow standard renal physiology.", 'เนื้อหาของผู้จัดทำที่ไม่มีเอกสารอ้างอิงภายนอก: ค่าร้อยละ “Na⁺ ที่ถูกกั้น” เป็นค่าทั่วไปของแต่ละกลุ่มยา และคำอธิบายในแผนภาพเป็นไปตามสรีรวิทยาไตมาตรฐาน'],
+  note: ["Trial summaries in each drug's detail view were checked against the PubMed abstracts (4 November 2026) and link to PubMed and the DOI. Author's content without an external reference: the “Filtered Na⁺ blocked” percentages are typical class values, and the diagram annotations follow standard renal physiology.", 'เนื้อหาของผู้จัดทำที่ไม่มีเอกสารอ้างอิงภายนอก: ค่าร้อยละ “Na⁺ ที่ถูกกั้น” เป็นค่าทั่วไปของแต่ละกลุ่มยา และคำอธิบายในแผนภาพเป็นไปตามสรีรวิทยาไตมาตรฐาน'],
 };
 const ReferencesSection = ({ lang }) => {
   const [open, setOpen] = useState(false);
@@ -830,7 +966,8 @@ function Tile({ d, lang, on, toggle, open }) {
           {d.dose.map((x, k) => <div key={k}><b>{x[0]}</b> {x[1]}</div>)}
         </div>
         <div className="mt-2"><Effects d={d} /></div>
-        <div className={'mt-2 text-[11px] ' + MUTED}>{d.se.slice(0, 3).map(s => SE[s][lang === 'th' ? 1 : 0]).join(' · ')}</div>
+        <div className="mt-2"><Cautions d={d} lang={lang} /></div>
+        <div className={'mt-1.5 text-[11px] ' + MUTED}>{d.se.filter(x => !CAUTION.has(x)).slice(0, 3).map(x => SE[x][lang === 'th' ? 1 : 0]).join(' · ')}</div>
       </div>
       <CardButtons d={d} on={on} toggle={toggle} open={open} lang={lang} />
     </div>
@@ -846,7 +983,7 @@ function Row({ d, lang, on, toggle, open }) {
           <div className="flex flex-wrap gap-1 mt-0.5"><SiteChips d={d} lang={lang} /><NlemChip d={d} lang={lang} /></div>
         </div>
         <div className="flex-1 min-w-0 text-[12px] mt-1.5 sm:mt-0">{doseLine(d)}<div className="flex flex-wrap gap-1 mt-1"><CountryChips d={d} lang={lang} /></div></div>
-        <div className="sm:w-52 mt-1.5 sm:mt-0"><Effects d={d} /></div>
+        <div className="sm:w-52 mt-1.5 sm:mt-0"><Effects d={d} /><div className="mt-1"><Cautions d={d} lang={lang} /></div></div>
       </div>
       <CardButtons d={d} on={on} toggle={toggle} open={open} lang={lang} />
     </div>
@@ -870,7 +1007,7 @@ function TableView({ rows, lang, sel, toggle, open }) {
             <td className="px-2 py-2"><div className="flex gap-1"><SiteChips d={d} lang={lang} /></div></td>
             <td className="px-2 py-2">{d.dose.map((x, k) => <div key={k}><b>{x[0]}</b> {x[1]}</div>)}</td>
             {ELECTROLYTES.map(e => <td key={e.k} className="px-2 py-2"><EffChip k={e.k} v={String(d.fx[e.k])} /></td>)}
-            <td className="px-2 py-2">{d.se.slice(0, 4).map(s => SE[s][i]).join(', ')}</td>
+            <td className="px-2 py-2"><div className="flex flex-wrap gap-x-2 gap-y-0.5">{d.se.map(x => CAUTION.has(x) ? <span key={x} title={TXT.caution[i]} className="inline-flex items-center gap-0.5 font-bold text-amber-700 dark:text-amber-300"><WarnIcon className="w-3 h-3 shrink-0" />{SE[x][i]}</span> : <span key={x}>{SE[x][i]}</span>)}</div></td>
             <td className="px-2 py-2"><NlemChip d={d} lang={lang} /></td>
             <td className="px-2 py-2"><div className="flex gap-1"><CountryChips d={d} lang={lang} /></div></td>
             <td className="px-2 py-2"><CardButtons d={d} on={sel.has(d.id)} toggle={() => toggle(d.id)} open={() => open(d.id)} lang={lang} /></td>
@@ -913,12 +1050,12 @@ function App() {
   const [classes, setClasses] = useState([]);
   const [fx, setFx] = useState(null);
   const [ctry, setCtry] = useState([]);
-  const [stSel, setStSel] = useState([]);
+  const [stSel, setStSel] = useState(['current']);
   const [nlemOnly, setNlemOnly] = useState(false);
   const [sort, setSort] = useState('class');
   const [sel, setSel] = useState(new Set());
   const [modal, setModal] = useState(null);
-  const [filtersOpen, setFiltersOpen] = useState(() => window.innerWidth >= 640);
+  const [filtersOpen, setFiltersOpen] = useState(true);
   const [barH, setBarH] = useState(0);
   const barRef = React.useRef(null);
   const i = lang === 'th' ? 1 : 0;

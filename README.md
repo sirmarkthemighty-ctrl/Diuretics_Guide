@@ -10,7 +10,7 @@ Decision support for healthcare professionals, not a substitute for the product 
 ## What it contains
 - Doses, site of action, electrolyte effects, side effects and pearls for each drug; tile, list and table views; compare.
 - Mechanism: highlights the selected drugs' sites on a nephron diagram (layout redrawn from the ScienceDirect Topics "Nephron" figure).
-- Kidney / liver dosing, key interactions and a loop dose conversion table.
+- Kidney / liver dosing, key interactions, a loop dose conversion table and key clinical trials (checked against PubMed) in each drug's detail view; warning triangles on serious side effects.
 - Diuretic resistance: sequential nephron blockade ladder.
 - Filters: country (TH, US, UK, EU, JP), FDA status, Thai NLEM 2569, class, electrolyte effect.
   UK, EU and JP status were checked on 2026-11-04 (emc, Spain AEMPS and EMA lists, KEGG/JAPIC); "?" means not found there or not checked.
