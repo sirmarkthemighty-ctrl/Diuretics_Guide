@@ -20,6 +20,7 @@ const PillIcon = mk(<><path d="M10.5 20.5a5 5 0 0 1-7-7l10-10a5 5 0 0 1 7 7z" />
 const NephronIcon = mk(<><circle cx="6" cy="5" r="2.5" /><path d="M6 7.5c-2.5 1.5 2.5 3 0 4.5" /><path d="M6 12v8h6V9h3v6h3V4" /></>);
 const ConvertIcon = mk(<><polyline points="17 1 21 5 17 9" /><path d="M3 11V9a4 4 0 0 1 4-4h14" /><polyline points="7 23 3 19 7 15" /><path d="M21 13v2a4 4 0 0 1-4 4H3" /></>);
 const WarnIcon = mk(<><path d="M10.3 3.9 1.8 18a2 2 0 0 0 1.7 3h17a2 2 0 0 0 1.7-3L13.7 3.9a2 2 0 0 0-3.4 0z" /><line x1="12" y1="9" x2="12" y2="13" /><line x1="12" y1="17" x2="12.01" y2="17" /></>, 2.2);
+const ClipboardIcon = mk(<><rect x="8" y="2" width="8" height="4" rx="1" /><path d="M16 4h2a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h2" /></>);
 const LadderIcon = mk(<path d="M8 3v18M16 3v18M8 8h8M8 13h8M8 18h8" />);
 
 
@@ -27,8 +28,8 @@ const LadderIcon = mk(<path d="M8 3v18M16 3v18M8 8h8M8 13h8M8 18h8" />);
 const VERSION = 'v1.2.0';
 const CHANGELOG = [
   { v: 'v1.2.0', date: '2026-11-04',
-    en: ['First release: 24 diuretics (18 core plus 6 sold in the UK, EU or Japan) with doses, electrolyte effects and side effects.', 'Tile, list and table views.', 'Mechanism button: highlights where selected drugs act on the nephron.', 'Diuretic resistance: sequential nephron blockade guide.', 'References grouped by topic (Thai lists, country registration, labels, heart failure, hypertension and kidney, pharmacology).', 'New tools: Kidney check (eGFR, K⁺ and liver sort the drugs into avoid / caution / no restriction), Interactions (pick the patient’s other drugs), Compare (select 2 or more drugs), and a next-step helper in the resistance guide.', 'Thai brands checked in MIMS for every drug (dapagliflozin has three; the six added drugs have none); two more PubMed trials (DAPA-RESIST, chlorthalidone / HCTZ / amiloride).', 'Market (brand) names on every card, in a Brands column and by country in the detail view; search also finds brand names.', 'Electrolyte filter in two rows (increased on top, decreased below, same electrolyte stacked): pick several electrolytes, one direction each; the other arrow switches it.', 'Warning triangle on serious side effects (hyperkalemia, ototoxicity, liver injury, ODS, DKA, blood-count drops, AKI, pulmonary edema) on cards, table and detail view; filters open with FDA status “Current” selected by default.', 'Key clinical trials in each drug’s detail view, summarised from the PubMed abstracts with PubMed and DOI links (drugs with no landmark outcome trial say so).', 'References section at the bottom of the page (collapsible, as in the bronchodilator guide).', 'Mechanism diagram redrawn on the ScienceDirect Topics nephron layout (glomerulus, macula densa, cortex / medulla, osmolality gradient, water / salt / urea flow, ADH and aldosterone), with the source listed.', 'Kidney / liver dosing and key interactions on every drug (from labels and guidelines), and a loop dose conversion table.', 'Thai NLEM 2569 chip checked against the official list (5 Basic drugs, the rest Non-NLEM) and TH / US / UK / EU / JP availability filter (all five checked 2026-11-04: UK on emc, EU on Spain AEMPS, EMA lists and national sources, JP on KEGG / JAPIC). FDA status per country (current / past † / never ⊘) with a filter; US checked against openFDA. Doses and Thai brands checked against MIMS Thailand.'],
-    th: ['เปิดตัวครั้งแรก: ยาขับปัสสาวะ 24 ชนิด (หลัก 18 ชนิด และอีก 6 ชนิดที่มีใน UK, EU หรือญี่ปุ่น) พร้อมขนาดยา ผลต่ออิเล็กโทรไลต์ และผลข้างเคียง', 'มุมมองการ์ด รายการ และตาราง', 'ปุ่มกลไก: แสดงตำแหน่งที่ยาที่เลือกออกฤทธิ์บนเนฟรอน', 'ภาวะดื้อยาขับปัสสาวะ: แนวทางการปิดกั้นเนฟรอนตามลำดับ', 'เอกสารอ้างอิงจัดกลุ่มตามหัวข้อ (บัญชียาไทย การขึ้นทะเบียนรายประเทศ ฉลากยา หัวใจล้มเหลว ความดันและไต เภสัชวิทยา)', 'เครื่องมือใหม่: ตรวจไต/ตับ (eGFR, K⁺ และโรคตับ แบ่งยาเป็นหลีกเลี่ยง/ระวัง/ไม่พบข้อจำกัด) ปฏิกิริยายา (เลือกยาอื่นของผู้ป่วย) เปรียบเทียบ (เลือก 2 ตัวยาขึ้นไป) และตัวช่วยเลือกขั้นถัดไปในหัวข้อดื้อยา', 'ตรวจยี่ห้อในไทยกับ MIMS ครบทุกตัวยา (dapagliflozin มี 3 ยี่ห้อ ยา 6 ตัวที่เพิ่มไม่มียี่ห้อในไทย) เพิ่มการศึกษาจาก PubMed อีก 2 รายการ (DAPA-RESIST, chlorthalidone / HCTZ / amiloride)', 'ชื่อทางการค้าในทุกการ์ด คอลัมน์ชื่อการค้าในตาราง และแยกตามประเทศในหน้ารายละเอียด ค้นหาด้วยชื่อการค้าได้', 'ตัวกรองอิเล็กโทรไลต์สองแถว (เพิ่มขึ้นแถวบน ลดลงแถวล่าง อิเล็กโทรไลต์เดียวกันซ้อนกัน) เลือกได้หลายตัว ตัวละหนึ่งทิศทาง กดลูกศรอีกด้านเพื่อสลับ', 'สัญลักษณ์เตือนรูปสามเหลี่ยมที่ผลข้างเคียงสำคัญ (โพแทสเซียมสูง พิษต่อหู ตับ ODS DKA เม็ดเลือดผิดปกติ AKI ปอดบวมน้ำ) ในการ์ด ตาราง และหน้ารายละเอียด ตัวกรองเปิดไว้และเลือกสถานะ อย. “ปัจจุบัน” เป็นค่าเริ่มต้น', 'การศึกษาทางคลินิกสำคัญในหน้ารายละเอียดของแต่ละยา (ตรวจกับบทคัดย่อใน PubMed พร้อมลิงก์ PubMed และ DOI)', 'ส่วนเอกสารอ้างอิงท้ายหน้า (พับ/เปิดได้ เหมือนแอปยาขยายหลอดลม)', 'แผนภาพกลไกวาดใหม่ตามผังเนฟรอนของ ScienceDirect Topics (โกลเมอรูลัส แมคูลาเดนซา เปลือก/ไขสันหลังไต ความเข้มข้นออสโมลาลิตี การเคลื่อนของน้ำ/เกลือ/ยูเรีย ADH และอัลโดสเตอโรน) พร้อมแหล่งอ้างอิง', 'ขนาดยาตามการทำงานของไต/ตับ และยาที่ต้องระวังเมื่อใช้ร่วมในทุกตัวยา (จากฉลากและแนวทางเวชปฏิบัติ) พร้อมตารางเทียบขนาดยาลูป', 'ป้าย NLEM 2569 ตรวจกับบัญชียาหลักฯ ฉบับจริง (หมวดพื้นฐาน 5 ชนิด ที่เหลือไม่อยู่ใน NLEM) และตัวกรองประเทศ TH / US / UK / EU / JP (ตรวจครบทั้งห้าเมื่อ 2026-11-04: UK ใน emc, EU ใน AEMPS สเปน รายการ EMA และแหล่งระดับประเทศ, JP ใน KEGG / JAPIC) สถานะ อย. รายประเทศ (ปัจจุบัน / เคยมี † / ไม่เคยมี ⊘) พร้อมตัวกรอง ตรวจสหรัฐฯ กับ openFDA ตรวจขนาดยาและยี่ห้อในไทยกับ MIMS Thailand'] },
+    en: ['First release: 24 diuretics (18 core plus 6 sold in the UK, EU or Japan) with doses, electrolyte effects and side effects.', 'Tile, list and table views.', 'Mechanism button: highlights where selected drugs act on the nephron.', 'Diuretic resistance: sequential nephron blockade guide.', 'References grouped by topic (Thai lists, country registration, labels, heart failure, hypertension and kidney, pharmacology).', 'Filters are remembered between visits; Copy summary button in each drug’s detail view; disclaimer now covers the new tools.', 'Four more PubMed trials (azosemide, ethacrynic acid, torasemide vs azosemide, esaxerenone vs trichlormethiazide); UK status of triamterene is now “past” (Dytac discontinued).', 'Thai drug names removed (drugs are shown by their international names). Evidence level: each trial is tagged by design, endpoint and result, and each card shows the best trial evidence. The Mechanism diagram now shares the electrolyte filter: pick K⁺↓ (or any effect) and the sites of every matching drug light up.', 'New tools: Kidney check (eGFR, K⁺ and liver sort the drugs into avoid / caution / no restriction), Interactions (pick the patient’s other drugs), Compare (select 2 or more drugs), and a next-step helper in the resistance guide.', 'Thai brands checked in MIMS for every drug (dapagliflozin has three; the six added drugs have none); two more PubMed trials (DAPA-RESIST, chlorthalidone / HCTZ / amiloride).', 'Market (brand) names on every card, in a Brands column and by country in the detail view; search also finds brand names.', 'Electrolyte filter in two rows (increased on top, decreased below, same electrolyte stacked): pick several electrolytes, one direction each; the other arrow switches it.', 'Warning triangle on serious side effects (hyperkalemia, ototoxicity, liver injury, ODS, DKA, blood-count drops, AKI, pulmonary edema) on cards, table and detail view; filters open with FDA status “Current” selected by default.', 'Key clinical trials in each drug’s detail view, summarised from the PubMed abstracts with PubMed and DOI links (drugs with no landmark outcome trial say so).', 'References section at the bottom of the page (collapsible, as in the bronchodilator guide).', 'Mechanism diagram redrawn on the ScienceDirect Topics nephron layout (glomerulus, macula densa, cortex / medulla, osmolality gradient, water / salt / urea flow, ADH and aldosterone), with the source listed.', 'Kidney / liver dosing and key interactions on every drug (from labels and guidelines), and a loop dose conversion table.', 'Thai NLEM 2569 chip checked against the official list (5 Basic drugs, the rest Non-NLEM) and TH / US / UK / EU / JP availability filter (all five checked 2026-11-04: UK on emc, EU on Spain AEMPS, EMA lists and national sources, JP on KEGG / JAPIC). FDA status per country (current / past † / never ⊘) with a filter; US checked against openFDA. Doses and Thai brands checked against MIMS Thailand.'],
+    th: ['เปิดตัวครั้งแรก: ยาขับปัสสาวะ 24 ชนิด (หลัก 18 ชนิด และอีก 6 ชนิดที่มีใน UK, EU หรือญี่ปุ่น) พร้อมขนาดยา ผลต่ออิเล็กโทรไลต์ และผลข้างเคียง', 'มุมมองการ์ด รายการ และตาราง', 'ปุ่มกลไก: แสดงตำแหน่งที่ยาที่เลือกออกฤทธิ์บนเนฟรอน', 'ภาวะดื้อยาขับปัสสาวะ: แนวทางการปิดกั้นเนฟรอนตามลำดับ', 'เอกสารอ้างอิงจัดกลุ่มตามหัวข้อ (บัญชียาไทย การขึ้นทะเบียนรายประเทศ ฉลากยา หัวใจล้มเหลว ความดันและไต เภสัชวิทยา)', 'จำค่าตัวกรองไว้ระหว่างการใช้งาน ปุ่มคัดลอกสรุปในหน้ารายละเอียดของแต่ละยา และข้อจำกัดครอบคลุมเครื่องมือใหม่', 'เพิ่มการศึกษาจาก PubMed อีก 4 รายการ (azosemide, ethacrynic acid, torasemide เทียบ azosemide, esaxerenone เทียบ trichlormethiazide) สถานะ triamterene ใน UK เป็น “เคยมี” (Dytac เลิกจำหน่าย)', 'เอาชื่อยาภาษาไทยออก (แสดงชื่อสากล) ระดับหลักฐาน: แต่ละการศึกษามีป้ายรูปแบบ ตัวชี้วัด และผลหลัก และการ์ดแสดงหลักฐานที่ดีที่สุด แผนภาพกลไกใช้ตัวกรองอิเล็กโทรไลต์ร่วมกัน เลือก K⁺↓ (หรือผลอื่น) แล้วตำแหน่งออกฤทธิ์ของยาที่ตรงกันทั้งหมดจะสว่าง', 'เครื่องมือใหม่: ตรวจไต/ตับ (eGFR, K⁺ และโรคตับ แบ่งยาเป็นหลีกเลี่ยง/ระวัง/ไม่พบข้อจำกัด) ปฏิกิริยายา (เลือกยาอื่นของผู้ป่วย) เปรียบเทียบ (เลือก 2 ตัวยาขึ้นไป) และตัวช่วยเลือกขั้นถัดไปในหัวข้อดื้อยา', 'ตรวจยี่ห้อในไทยกับ MIMS ครบทุกตัวยา (dapagliflozin มี 3 ยี่ห้อ ยา 6 ตัวที่เพิ่มไม่มียี่ห้อในไทย) เพิ่มการศึกษาจาก PubMed อีก 2 รายการ (DAPA-RESIST, chlorthalidone / HCTZ / amiloride)', 'ชื่อทางการค้าในทุกการ์ด คอลัมน์ชื่อการค้าในตาราง และแยกตามประเทศในหน้ารายละเอียด ค้นหาด้วยชื่อการค้าได้', 'ตัวกรองอิเล็กโทรไลต์สองแถว (เพิ่มขึ้นแถวบน ลดลงแถวล่าง อิเล็กโทรไลต์เดียวกันซ้อนกัน) เลือกได้หลายตัว ตัวละหนึ่งทิศทาง กดลูกศรอีกด้านเพื่อสลับ', 'สัญลักษณ์เตือนรูปสามเหลี่ยมที่ผลข้างเคียงสำคัญ (โพแทสเซียมสูง พิษต่อหู ตับ ODS DKA เม็ดเลือดผิดปกติ AKI ปอดบวมน้ำ) ในการ์ด ตาราง และหน้ารายละเอียด ตัวกรองเปิดไว้และเลือกสถานะ อย. “ปัจจุบัน” เป็นค่าเริ่มต้น', 'การศึกษาทางคลินิกสำคัญในหน้ารายละเอียดของแต่ละยา (ตรวจกับบทคัดย่อใน PubMed พร้อมลิงก์ PubMed และ DOI)', 'ส่วนเอกสารอ้างอิงท้ายหน้า (พับ/เปิดได้ เหมือนแอปยาขยายหลอดลม)', 'แผนภาพกลไกวาดใหม่ตามผังเนฟรอนของ ScienceDirect Topics (โกลเมอรูลัส แมคูลาเดนซา เปลือก/ไขสันหลังไต ความเข้มข้นออสโมลาลิตี การเคลื่อนของน้ำ/เกลือ/ยูเรีย ADH และอัลโดสเตอโรน) พร้อมแหล่งอ้างอิง', 'ขนาดยาตามการทำงานของไต/ตับ และยาที่ต้องระวังเมื่อใช้ร่วมในทุกตัวยา (จากฉลากและแนวทางเวชปฏิบัติ) พร้อมตารางเทียบขนาดยาลูป', 'ป้าย NLEM 2569 ตรวจกับบัญชียาหลักฯ ฉบับจริง (หมวดพื้นฐาน 5 ชนิด ที่เหลือไม่อยู่ใน NLEM) และตัวกรองประเทศ TH / US / UK / EU / JP (ตรวจครบทั้งห้าเมื่อ 2026-11-04: UK ใน emc, EU ใน AEMPS สเปน รายการ EMA และแหล่งระดับประเทศ, JP ใน KEGG / JAPIC) สถานะ อย. รายประเทศ (ปัจจุบัน / เคยมี † / ไม่เคยมี ⊘) พร้อมตัวกรอง ตรวจสหรัฐฯ กับ openFDA ตรวจขนาดยาและยี่ห้อในไทยกับ MIMS Thailand'] },
 ];
 
 // Nephron segments, in flow order
@@ -70,101 +71,101 @@ const SE = {
 };
 
 // fx: effect on serum level. 1 = raises, -1 = lowers, 0 = no major effect, 'v' = variable
-const D = (id, name, th, cls, sites, target, fena, dose, fx, se, pearl) => ({ id, name, th, cls, sites, target, fena, dose, fx, se, pearl });
+const D = (id, name, cls, sites, target, fena, dose, fx, se, pearl) => ({ id, name, cls, sites, target, fena, dose, fx, se, pearl });
 const DRUGS = [
-  D('acetazolamide', 'Acetazolamide', 'อะเซตาโซลาไมด์', 'cai', ['pct'], 'Carbonic anhydrase', '≈3–5%',
+  D('acetazolamide', 'Acetazolamide', 'cai', ['pct'], 'Carbonic anhydrase', '≈3–5%',
     [['PO/IV', 'Edema 250–375 mg OD or alternate days; glaucoma 250–1,000 mg/day divided'], ['Resistance', '250–500 mg IV/PO OD × 1–3 days']],
     { na: 0, k: -1, mg: 0, ca: 0, hco3: -1 }, ['metAcid', 'hypoK', 'paresth', 'stones', 'sulfa'],
     { en: 'Self-limiting: bicarbonate loss stops the effect in 2–3 days. Useful when HCO₃⁻ is high from loop therapy (ADVOR: 500 mg IV daily added to loop).', th: 'ออกฤทธิ์จำกัดตัวเอง เพราะเสีย HCO₃⁻ แล้วฤทธิ์ลดลงใน 2–3 วัน ใช้ได้ดีเมื่อ HCO₃⁻ สูงจากยาลูป (ADVOR: 500 mg IV วันละครั้งเสริมยาลูป)' }),
-  D('mannitol', 'Mannitol', 'แมนนิทอล', 'osm', ['pct', 'dl'], 'Osmotic force (not a transporter)', 'Variable',
+  D('mannitol', 'Mannitol', 'osm', ['pct', 'dl'], 'Osmotic force (not a transporter)', 'Variable',
     [['IV', '0.25–2 g/kg over 30–60 min (10–20% solution); may repeat q6–8 h']],
     { na: 'v', k: -1, mg: 0, ca: 0, hco3: 0 }, ['pulm', 'hypoNa', 'hyperNa', 'aki', 'hypoK'],
     { en: 'Used for raised ICP / ICP crises, not for routine edema. Avoid in anuria and in pulmonary edema; early dilutional hyponatremia then water loss.', th: 'ใช้ลดความดันในกะโหลกศีรษะ ไม่ใช้รักษาบวมทั่วไป หลีกเลี่ยงในภาวะไม่มีปัสสาวะและปอดบวมน้ำ' }),
-  D('furosemide', 'Furosemide', 'ฟูโรซีไมด์', 'loop', ['tal'], 'NKCC2 (Na⁺-K⁺-2Cl⁻)', '≈20–25%',
+  D('furosemide', 'Furosemide', 'loop', ['tal'], 'NKCC2 (Na⁺-K⁺-2Cl⁻)', '≈20–25%',
     [['PO', '20–80 mg OD–BID (max ≈ 600 mg/day)'], ['IV', '20–50 mg slow IV (label max 1,500 mg/day); infusion 5–40 mg/h']],
     { na: -1, k: -1, mg: -1, ca: -1, hco3: 1 }, ['hypoK', 'hypoMg', 'metAlk', 'hypoV', 'ototox', 'uric', 'sulfa'],
     { en: 'Oral bioavailability ≈ 50% (10–100%, lower with gut edema): 40 mg PO ≈ 20 mg IV. Short action (≈ 6 h) → post-diuretic Na retention; give BID.', th: 'การดูดซึมทางปากประมาณ 50% (10–100% ลดลงเมื่อลำไส้บวม): 40 mg PO ≈ 20 mg IV ออกฤทธิ์สั้น (~6 ชม.) จึงเกิด Na retention หลังยาหมด ควรให้วันละ 2 ครั้ง' }),
-  D('bumetanide', 'Bumetanide', 'บูเมทานิด', 'loop', ['tal'], 'NKCC2 (Na⁺-K⁺-2Cl⁻)', '≈20–25%',
+  D('bumetanide', 'Bumetanide', 'loop', ['tal'], 'NKCC2 (Na⁺-K⁺-2Cl⁻)', '≈20–25%',
     [['PO/IV', '0.5–2 mg OD–BID (max ≈ 10 mg/day)']],
     { na: -1, k: -1, mg: -1, ca: -1, hco3: 1 }, ['hypoK', 'hypoMg', 'metAlk', 'hypoV', 'ototox', 'sulfa'],
     { en: '1 mg ≈ 40 mg PO furosemide. Bioavailability 80–100%, so it is more predictable than furosemide in gut edema.', th: '1 mg ≈ furosemide 40 mg PO การดูดซึม 80–100% คาดเดาผลได้ดีกว่า furosemide เมื่อลำไส้บวม' }),
-  D('torsemide', 'Torsemide (torasemide)', 'ทอร์ซีไมด์', 'loop', ['tal'], 'NKCC2 (Na⁺-K⁺-2Cl⁻)', '≈20–25%',
+  D('torsemide', 'Torsemide (torasemide)', 'loop', ['tal'], 'NKCC2 (Na⁺-K⁺-2Cl⁻)', '≈20–25%',
     [['PO/IV', '10–20 mg OD (up to 100–200 mg in resistance)']],
     { na: -1, k: -1, mg: -1, ca: -1, hco3: 1 }, ['hypoK', 'hypoMg', 'metAlk', 'hypoV', 'ototox', 'sulfa'],
     { en: '20 mg ≈ 40 mg PO furosemide. Bioavailability 80–100%, half-life 3–4 h, once-daily. TRANSFORM-HF: no mortality difference vs furosemide.', th: '20 mg ≈ furosemide 40 mg PO การดูดซึม 80–100% ครึ่งชีวิต 3–4 ชม. วันละครั้ง TRANSFORM-HF: อัตราตายไม่ต่างจาก furosemide' }),
-  D('ethacrynic', 'Ethacrynic acid', 'เอทาครินิกแอซิด', 'loop', ['tal'], 'NKCC2 (Na⁺-K⁺-2Cl⁻)', '≈20–25%',
+  D('ethacrynic', 'Ethacrynic acid', 'loop', ['tal'], 'NKCC2 (Na⁺-K⁺-2Cl⁻)', '≈20–25%',
     [['PO', '25–50 mg OD–BID'], ['IV', '50 mg (or 0.5–1 mg/kg)']],
     { na: -1, k: -1, mg: -1, ca: -1, hco3: 1 }, ['hypoK', 'hypoMg', 'metAlk', 'hypoV', 'ototox'],
     { en: 'The only non-sulfonamide loop diuretic: option for true sulfa allergy. Highest ototoxicity of the loops.', th: 'เป็นยาลูปตัวเดียวที่ไม่ใช่ซัลฟา ใช้ได้เมื่อแพ้ซัลฟาจริง มีพิษต่อหูสูงสุดในกลุ่มลูป' }),
-  D('hctz', 'Hydrochlorothiazide', 'ไฮโดรคลอโรไทอาไซด์', 'thz', ['dct'], 'NCC (Na⁺-Cl⁻)', '≈5–8%',
+  D('hctz', 'Hydrochlorothiazide', 'thz', ['dct'], 'NCC (Na⁺-Cl⁻)', '≈5–8%',
     [['PO', 'HTN 12.5–50 mg OD; edema 25–100 mg OD–BID']],
     { na: -1, k: -1, mg: -1, ca: 1, hco3: 1 }, ['hypoNa', 'hypoK', 'hypoMg', 'hyperCa', 'uric', 'gluc', 'lipid', 'rash'],
     { en: 'Thiazide hyponatremia can be severe in older adults. Less effective at low eGFR (classically < 30). Raises serum Ca: useful in calcium stones.', th: 'โซเดียมต่ำจากไทอาไซด์อาจรุนแรงในผู้สูงอายุ ได้ผลน้อยลงเมื่อ eGFR ต่ำ (< 30) ทำให้แคลเซียมในเลือดสูง ใช้ประโยชน์ในนิ่วแคลเซียม' }),
-  D('chlorthalidone', 'Chlorthalidone', 'คลอร์ธาลิโดน', 'thz', ['dct'], 'NCC (Na⁺-Cl⁻)', '≈5–8%',
+  D('chlorthalidone', 'Chlorthalidone', 'thz', ['dct'], 'NCC (Na⁺-Cl⁻)', '≈5–8%',
     [['PO', 'HTN 12.5–25 mg OD; edema 25–50 mg OD, up to 100–200 mg in severe cases']],
     { na: -1, k: -1, mg: -1, ca: 1, hco3: 1 }, ['hypoNa', 'hypoK', 'hypoMg', 'hyperCa', 'uric', 'gluc'],
     { en: 'Half-life 40–60 h; more potent per mg than HCTZ. CLICK trial: lowers BP in stage 4 CKD.', th: 'ครึ่งชีวิต 40–60 ชม. แรงกว่า HCTZ ต่อ mg การศึกษา CLICK: ลดความดันได้ใน CKD ระยะ 4' }),
-  D('indapamide', 'Indapamide', 'อินดาพาไมด์', 'thz', ['dct'], 'NCC (Na⁺-Cl⁻)', '≈5–8%',
+  D('indapamide', 'Indapamide', 'thz', ['dct'], 'NCC (Na⁺-Cl⁻)', '≈5–8%',
     [['PO', 'HTN 1.25–2.5 mg OD (SR 1.5 mg OD); CHF edema 2.5–5 mg OD']],
     { na: -1, k: -1, mg: -1, ca: 1, hco3: 1 }, ['hypoNa', 'hypoK', 'hypoMg', 'uric'],
     { en: 'Thiazide-like with a vasodilating effect; proven outcome benefit in HYVET and ADVANCE. Less glucose / lipid effect.', th: 'คล้ายไทอาไซด์ มีฤทธิ์ขยายหลอดเลือด มีหลักฐานผลลัพธ์ใน HYVET และ ADVANCE ผลต่อน้ำตาลและไขมันน้อยกว่า' }),
-  D('metolazone', 'Metolazone', 'เมโทลาโซน', 'thz', ['dct'], 'NCC (Na⁺-Cl⁻)', '≈5–8%',
+  D('metolazone', 'Metolazone', 'thz', ['dct'], 'NCC (Na⁺-Cl⁻)', '≈5–8%',
     [['PO', '2.5–10 mg OD, 30 min before the loop dose']],
     { na: -1, k: -1, mg: -1, ca: 1, hco3: 1 }, ['hypoK', 'hypoNa', 'hypoMg', 'hypoV', 'aki'],
     { en: 'Keeps working at low GFR. Add to a loop for sequential blockade for 1–3 days only; check K⁺, Mg²⁺, Na⁺ and creatinine daily.', th: 'ยังออกฤทธิ์ได้เมื่อ GFR ต่ำ ใช้เสริมยาลูปเพื่อปิดกั้นต่อเนื่อง 1–3 วัน ตรวจ K⁺, Mg²⁺, Na⁺, creatinine ทุกวัน' }),
-  D('chlorothiazide', 'Chlorothiazide IV', 'คลอโรไทอาไซด์ (IV)', 'thz', ['dct'], 'NCC (Na⁺-Cl⁻)', '≈5–8%',
+  D('chlorothiazide', 'Chlorothiazide IV', 'thz', ['dct'], 'NCC (Na⁺-Cl⁻)', '≈5–8%',
     [['IV', '500–1000 mg OD–BID, 30 min before the loop dose']],
     { na: -1, k: -1, mg: -1, ca: 1, hco3: 1 }, ['hypoK', 'hypoNa', 'hypoMg', 'hypoV', 'aki'],
     { en: 'The IV option for sequential blockade when gut absorption is poor. Often not stocked: HCTZ or metolazone PO is the usual substitute.', th: 'ทางเลือกแบบฉีดสำหรับการปิดกั้นต่อเนื่องเมื่อการดูดซึมทางลำไส้ไม่ดี มักไม่มีในโรงพยาบาล ใช้ HCTZ หรือ metolazone ชนิดกินแทนได้' }),
-  D('spironolactone', 'Spironolactone', 'สไปโรโนแลกโทน', 'mra', ['cd'], 'Mineralocorticoid receptor', '≈2%',
+  D('spironolactone', 'Spironolactone', 'mra', ['cd'], 'Mineralocorticoid receptor', '≈2%',
     [['PO', 'HF (guideline) 12.5–50 mg OD; edema 25–200 mg/day; cirrhotic ascites 100–400 mg/day']],
     { na: -1, k: 1, mg: 0, ca: 0, hco3: -1 }, ['hyperK', 'gyn', 'metAcid', 'aki'],
     { en: 'Slow onset (days). Cirrhotic ascites: start 100 mg, usually with furosemide 40 mg (100:40). Check K⁺ and creatinine at 1 and 4 weeks.', th: 'ออกฤทธิ์ช้า (เป็นวัน) ท้องมานจากตับแข็ง: เริ่ม 100 mg มักให้คู่กับ furosemide 40 mg (100:40) ตรวจ K⁺ และ creatinine ที่ 1 และ 4 สัปดาห์' }),
-  D('eplerenone', 'Eplerenone', 'เอพเลรีโนน', 'mra', ['cd'], 'Mineralocorticoid receptor', '≈2%',
+  D('eplerenone', 'Eplerenone', 'mra', ['cd'], 'Mineralocorticoid receptor', '≈2%',
     [['PO', '25–50 mg OD']],
     { na: -1, k: 1, mg: 0, ca: 0, hco3: -1 }, ['hyperK', 'aki'],
     { en: 'Selective MRA: no gynecomastia. Avoid with strong CYP3A4 inhibitors.', th: 'MRA แบบจำเพาะ ไม่ทำให้เต้านมโต หลีกเลี่ยงร่วมกับยายับยั้ง CYP3A4 ที่แรง' }),
-  D('amiloride', 'Amiloride', 'อะมิโลไรด์', 'enac', ['cd'], 'ENaC (Na⁺ channel)', '≈2%',
+  D('amiloride', 'Amiloride', 'enac', ['cd'], 'ENaC (Na⁺ channel)', '≈2%',
     [['PO', '5–10 mg OD (max 20 mg)']],
     { na: -1, k: 1, mg: 0, ca: 0, hco3: -1 }, ['hyperK', 'metAcid', 'gi'],
     { en: 'Also treats lithium-induced nephrogenic diabetes insipidus (enters through ENaC). Do not combine with MRA / ACEi / ARB without K⁺ monitoring.', th: 'ใช้รักษา nephrogenic DI จากลิเทียมได้ (ลิเทียมเข้าเซลล์ผ่าน ENaC) ห้ามใช้ร่วม MRA / ACEi / ARB โดยไม่ติดตามค่า K⁺' }),
-  D('triamterene', 'Triamterene', 'ไตรแอมเทอรีน', 'enac', ['cd'], 'ENaC (Na⁺ channel)', '≈2%',
+  D('triamterene', 'Triamterene', 'enac', ['cd'], 'ENaC (Na⁺ channel)', '≈2%',
     [['PO', '150–250 mg/day in 2 doses (max 300 mg/day); alternate days for maintenance']],
     { na: -1, k: 1, mg: 0, ca: 0, hco3: -1 }, ['hyperK', 'stones', 'blood', 'aki'],
     { en: 'Usually combined with HCTZ to offset hypokalemia. Can form kidney stones and a weak folate antagonist effect.', th: 'มักให้คู่กับ HCTZ เพื่อลดโพแทสเซียมต่ำ อาจทำให้เกิดนิ่วและต้านโฟเลตเล็กน้อย' }),
-  D('tolvaptan', 'Tolvaptan', 'โทลวาปแทน', 'v2', ['cd'], 'Vasopressin V2 receptor (aquaporin-2)', 'Water only (aquaresis)',
+  D('tolvaptan', 'Tolvaptan', 'v2', ['cd'], 'Vasopressin V2 receptor (aquaporin-2)', 'Water only (aquaresis)',
     [['PO', 'Hyponatremia: start 15 mg OD, titrate to 30–60 mg']],
     { na: 1, k: 0, mg: 0, ca: 0, hco3: 0 }, ['ods', 'thirst', 'liver', 'hypoV'],
     { en: 'Start in hospital and check Na⁺ every 6–8 h; keep the rise ≤ 8–10 mmol/L per 24 h. Do not restrict fluids. Avoid > 30 days in non-ADPKD use (liver injury).', th: 'เริ่มในโรงพยาบาล เจาะ Na⁺ ทุก 6–8 ชม. ให้ Na⁺ เพิ่มไม่เกิน 8–10 mmol/L ใน 24 ชม. ไม่ต้องจำกัดน้ำ ไม่ควรใช้เกิน 30 วันในข้อบ่งชี้อื่นที่ไม่ใช่ ADPKD (พิษต่อตับ)' }),
-  D('dapagliflozin', 'Dapagliflozin', 'ดาพากลิโฟลซิน', 'sglt', ['pct'], 'SGLT2 (Na⁺-glucose)', 'Mild natriuresis',
+  D('dapagliflozin', 'Dapagliflozin', 'sglt', ['pct'], 'SGLT2 (Na⁺-glucose)', 'Mild natriuresis',
     [['PO', 'HF / CKD 10 mg OD']],
     { na: 0, k: 0, mg: 0, ca: 0, hco3: 0 }, ['gu', 'dka', 'hypoV'],
     { en: 'Used for HF / CKD outcomes; the diuretic effect is mild but additive. Hold when acutely ill, fasting or before surgery (DKA).', th: 'ใช้เพื่อผลลัพธ์ในโรคหัวใจล้มเหลว/โรคไต ฤทธิ์ขับปัสสาวะไม่มากแต่เสริมกัน งดเมื่อป่วยหนัก อดอาหาร หรือก่อนผ่าตัด (DKA)' }),
-  D('empagliflozin', 'Empagliflozin', 'เอมพากลิโฟลซิน', 'sglt', ['pct'], 'SGLT2 (Na⁺-glucose)', 'Mild natriuresis',
+  D('empagliflozin', 'Empagliflozin', 'sglt', ['pct'], 'SGLT2 (Na⁺-glucose)', 'Mild natriuresis',
     [['PO', 'HF / CKD 10 mg OD']],
     { na: 0, k: 0, mg: 0, ca: 0, hco3: 0 }, ['gu', 'dka', 'hypoV'],
     { en: 'Used for HF / CKD outcomes; the diuretic effect is mild but additive. Hold when acutely ill, fasting or before surgery (DKA).', th: 'ใช้เพื่อผลลัพธ์ในโรคหัวใจล้มเหลว/โรคไต ฤทธิ์ขับปัสสาวะไม่มากแต่เสริมกัน งดเมื่อป่วยหนัก อดอาหาร หรือก่อนผ่าตัด (DKA)' }),
-  D('bendroflumethiazide', 'Bendroflumethiazide', 'เบนโดรฟลูเมไทอาไซด์', 'thz', ['dct'], 'NCC (Na⁺-Cl⁻)', '≈5–8%',
+  D('bendroflumethiazide', 'Bendroflumethiazide', 'thz', ['dct'], 'NCC (Na⁺-Cl⁻)', '≈5–8%',
     [['PO', 'HTN 2.5 mg every morning (more is rarely needed); edema 5–10 mg every morning at first, then 2.5–5 mg on 2–3 days a week']],
     { na: -1, k: -1, mg: -1, ca: 1, hco3: 1 }, ['hypoNa', 'hypoK', 'hypoMg', 'hyperCa', 'uric', 'gluc', 'rash'],
     { en: 'Long-standing UK thiazide. NICE NG136 now prefers a thiazide-like drug (indapamide, chlortalidone) for new hypertension. Contraindicated in Addison disease, hypercalcemia, hyponatremia and refractory hypokalemia.', th: 'ไทอาไซด์ที่ใช้มานานในสหราชอาณาจักร ปัจจุบัน NICE NG136 แนะนำยาคล้ายไทอาไซด์ (indapamide, chlortalidone) สำหรับความดันสูงรายใหม่ ห้ามใช้ในโรค Addison แคลเซียมสูง โซเดียมต่ำ และโพแทสเซียมต่ำที่แก้ไม่ได้' }),
-  D('xipamide', 'Xipamide', 'ไซพาไมด์', 'thz', ['dct'], 'NCC (Na⁺-Cl⁻)', '≈5–8%',
+  D('xipamide', 'Xipamide', 'thz', ['dct'], 'NCC (Na⁺-Cl⁻)', '≈5–8%',
     [['PO', 'HTN 20 mg OD; edema 20 mg OD, up to 40 mg; up to 60 mg/day in advanced kidney impairment (German leaflet)']],
     { na: -1, k: -1, mg: -1, ca: 1, hco3: 1 }, ['hypoK', 'hypoNa', 'hypoMg', 'hyperCa', 'uric', 'sulfa'],
     { en: 'Thiazide-like sulfonamide sold in Germany (generics). Hypokalemia is very common. Contraindicated in gout / high uric acid, refractory hypokalemia, hypercalcemia, severe liver disease and pregnancy.', th: 'ยาซัลฟาคล้ายไทอาไซด์ มีจำหน่ายในเยอรมนี (ยาสามัญ) โพแทสเซียมต่ำพบบ่อยมาก ห้ามใช้ในเก๊าท์/ยูริกสูง โพแทสเซียมต่ำที่แก้ไม่ได้ แคลเซียมสูง โรคตับรุนแรง และการตั้งครรภ์' }),
-  D('trichlormethiazide', 'Trichlormethiazide', 'ไตรคลอร์เมไทอาไซด์', 'thz', ['dct'], 'NCC (Na⁺-Cl⁻)', '≈5–8%',
+  D('trichlormethiazide', 'Trichlormethiazide', 'thz', ['dct'], 'NCC (Na⁺-Cl⁻)', '≈5–8%',
     [['PO', '2–8 mg/day in 1–2 doses (Japan label); start low in older adults']],
     { na: -1, k: -1, mg: -1, ca: 1, hco3: 1 }, ['hypoNa', 'hypoK', 'hypoMg', 'uric', 'gluc'],
     { en: 'Thiazide used in Japan (Fluitran, generics) for hypertension and edema. Contraindicated in anuria and acute renal failure.', th: 'ไทอาไซด์ที่ใช้ในญี่ปุ่น (Fluitran และยาสามัญ) สำหรับความดันสูงและบวม ห้ามใช้ในภาวะไม่มีปัสสาวะและไตวายเฉียบพลัน' }),
-  D('azosemide', 'Azosemide', 'อะโซเซไมด์', 'loop', ['tal'], 'NKCC2 (Na⁺-K⁺-2Cl⁻)', '≈20–25%',
+  D('azosemide', 'Azosemide', 'loop', ['tal'], 'NKCC2 (Na⁺-K⁺-2Cl⁻)', '≈20–25%',
     [['PO', '60 mg OD (Japan label); adjust to age and symptoms']],
     { na: -1, k: -1, mg: -1, ca: -1, hco3: 1 }, ['hypoK', 'metAlk', 'hypoV', 'wbc'],
     { en: 'Long-acting loop diuretic used in Japan (Diart) for cardiac, renal and hepatic edema. The label warns of electrolyte abnormalities and of agranulocytosis / leukopenia; contraindicated in anuria and hepatic coma.', th: 'ยาลูปออกฤทธิ์นานที่ใช้ในญี่ปุ่น (Diart) สำหรับบวมจากหัวใจ ไต และตับ ฉลากเตือนเรื่องอิเล็กโทรไลต์ผิดปกติและเม็ดเลือดขาวต่ำ/แอกรานูโลไซโทซิส ห้ามใช้ในภาวะไม่มีปัสสาวะและโคม่าจากตับ' }),
-  D('canrenoate', 'Potassium canrenoate', 'โพแทสเซียมแคนรีโนเอต', 'mra', ['cd'], 'Mineralocorticoid receptor', '≈2%',
+  D('canrenoate', 'Potassium canrenoate', 'mra', ['cd'], 'Mineralocorticoid receptor', '≈2%',
     [['IV', '100–200 mg slowly IV 1–2 times/day (Japan label); max 600 mg/day, usually ≤ 2 weeks']],
     { na: -1, k: 1, mg: 0, ca: 0, hco3: -1 }, ['hyperK', 'gyn', 'aki'],
     { en: 'IV mineralocorticoid antagonist (prodrug of canrenone) sold in Japan, Italy and Germany. Contraindicated in renal failure, risk of hyperkalemia, Addison disease and with eplerenone. Check K⁺ regularly.', th: 'ยาต้านมิเนอรัลโลคอร์ติคอยด์ชนิดฉีด (prodrug ของ canrenone) มีจำหน่ายในญี่ปุ่น อิตาลี และเยอรมนี ห้ามใช้ในไตวาย เสี่ยงโพแทสเซียมสูง โรค Addison และร่วมกับ eplerenone ตรวจ K⁺ สม่ำเสมอ' }),
-  D('esaxerenone', 'Esaxerenone', 'เอซาเซเรโนน', 'mra', ['cd'], 'Mineralocorticoid receptor', 'Minimal',
+  D('esaxerenone', 'Esaxerenone', 'mra', ['cd'], 'Mineralocorticoid receptor', 'Minimal',
     [['PO', 'HTN 2.5 mg OD; may increase to 5 mg (Japan label)']],
     { na: 0, k: 1, mg: 0, ca: 0, hco3: 0 }, ['hyperK'],
     { en: 'Non-steroidal MRA approved in Japan (Minebro) for hypertension, not a diuretic. Do not start if K⁺ > 5.0 mEq/L or eGFR < 30. Check K⁺ before, within 2 weeks of starting or changing the dose, and at about 1 month. Contraindicated with eplerenone, K-sparing diuretics and K supplements.', th: 'MRA ชนิดไม่ใช่สเตียรอยด์ อนุมัติในญี่ปุ่น (Minebro) สำหรับความดันสูง ไม่ใช่ยาขับปัสสาวะ ห้ามเริ่มถ้า K⁺ > 5.0 mEq/L หรือ eGFR < 30 ตรวจ K⁺ ก่อนเริ่ม ภายใน 2 สัปดาห์หลังเริ่มหรือปรับขนาด และที่ราว 1 เดือน ห้ามใช้ร่วมกับ eplerenone ยาขับปัสสาวะประหยัดโพแทสเซียม และโพแทสเซียมเสริม' }),
@@ -198,14 +199,14 @@ const C = 'current', ALL = { uk: C, eu: C, jp: C };
 const REG_X = {
   acetazolamide: ALL, mannitol: ALL, furosemide: ALL, torsemide: ALL, indapamide: ALL, spironolactone: ALL, eplerenone: ALL, tolvaptan: ALL, dapagliflozin: ALL, empagliflozin: ALL,
   bumetanide: { uk: C, eu: C }, ethacrynic: { eu: C }, hctz: { eu: C, jp: C }, chlorthalidone: { uk: C, eu: C }, metolazone: { uk: C, eu: C },
-  amiloride: { uk: C, eu: C }, triamterene: { eu: C },
+  amiloride: { uk: C, eu: C }, triamterene: { uk: 'past', eu: C },
   bendroflumethiazide: { us: 'past', uk: C, eu: C }, xipamide: { us: 'never', eu: C }, canrenoate: { us: 'never', eu: C, jp: C },
   trichlormethiazide: { us: 'past', jp: C }, azosemide: { us: 'never', jp: C }, esaxerenone: { us: 'never', jp: C },
 };
 // Extra caveats per drug (shown under Availability)
 const REG_NOTE = {
   amiloride: { en: 'EU: sold as a combination with HCTZ (Spain). UK: single-ingredient tablet and oral solution too.', th: 'EU: จำหน่ายเป็นยาผสมกับ HCTZ (สเปน) UK: มีทั้งยาเดี่ยวชนิดเม็ดและน้ำ' },
-  triamterene: { en: 'EU: combination with HCTZ only (Spain, Germany). Not found on emc (UK).', th: 'EU: มีเฉพาะยาผสมกับ HCTZ (สเปน เยอรมนี) ไม่พบใน emc (UK)' },
+  triamterene: { en: 'EU: combination with HCTZ only (Spain, Germany). UK: Dytac capsules were discontinued (NHS dm+d, 2014); no single-ingredient product is listed now.', th: 'EU: มีเฉพาะยาผสมกับ HCTZ (สเปน เยอรมนี) UK: แคปซูล Dytac เลิกจำหน่ายแล้ว (NHS dm+d ปี 2014) ปัจจุบันไม่มียาเดี่ยว' },
   hctz: { en: 'UK: only combinations on emc; no licensed single-ingredient tablet was found.', th: 'UK: พบเฉพาะยาผสมใน emc ไม่พบยาเดี่ยวที่ขึ้นทะเบียน' },
   canrenoate: { en: 'IV only. EU evidence is Italy (Kanrenol) and Germany; not found on emc (UK).', th: 'ชนิดฉีดเท่านั้น หลักฐาน EU คืออิตาลี (Kanrenol) และเยอรมนี ไม่พบใน emc (UK)' },
 };
@@ -250,7 +251,7 @@ const TXT = {
   made: ['Made with ❤️ by Wardom', 'สร้างด้วย ❤️ โดย Wardom'],
   disc: ['For clinician reference. Check local protocols and the patient before prescribing.', 'ใช้อ้างอิงสำหรับบุคลากรทางการแพทย์ ตรวจสอบแนวปฏิบัติของโรงพยาบาลและผู้ป่วยก่อนสั่งยา'],
   search: ['Search drug, class or target…', 'ค้นหายา กลุ่มยา หรือเป้าหมาย…'],
-  mech: ['Mechanism', 'กลไก'], kid: ['Kidney check', 'ตรวจไต/ตับ'], inter: ['Interactions', 'ปฏิกิริยายา'], cmp: ['Compare', 'เปรียบเทียบ'],
+  mech: ['Mechanism', 'กลไก'], copy: ['Copy summary', 'คัดลอกสรุป'], copied: ['Copied', 'คัดลอกแล้ว'], fxLinkT: ['Show drugs by electrolyte effect', 'แสดงยาตามผลต่ออิเล็กโทรไลต์'], fxLink: ['Lit on the nephron: drugs with this effect. Tap one to select it.', 'ยาที่มีผลนี้จะสว่างบนเนฟรอน แตะเพื่อเลือกยา'], evTitle: ['Best trial evidence listed for this drug', 'หลักฐานจากการศึกษาที่ดีที่สุดที่แสดงไว้สำหรับยานี้'], kid: ['Kidney check', 'ตรวจไต/ตับ'], inter: ['Interactions', 'ปฏิกิริยายา'], cmp: ['Compare', 'เปรียบเทียบ'],
   kidneyT: ['Kidney / liver check', 'ตรวจไต/ตับก่อนเลือกยา'], liverSev: ['Severe liver disease', 'โรคตับรุนแรง'],
   kidneyHint: ['Enter an eGFR, or tick a condition, to sort the drugs into avoid, caution and no restriction found.', 'ใส่ eGFR หรือเลือกภาวะ เพื่อแบ่งยาเป็น หลีกเลี่ยง ระวัง และไม่พบข้อจำกัด'],
   kidneyNote: ['A screen built from the labels and guidelines in each drug’s Kidney / liver dosing section. Tap a drug for the wording. It does not replace the label or clinical judgement.', 'เป็นตัวคัดกรองจากฉลากและแนวทางในหัวข้อขนาดยาตามไต/ตับของแต่ละตัวยา แตะชื่อยาเพื่อดูรายละเอียด ไม่ใช่ทดแทนฉลากยาหรือดุลยพินิจทางคลินิก'],
@@ -275,7 +276,7 @@ const TXT = {
   glom: ['Glomerulus', 'โกลเมอรูลัส'], macula: ['Macula densa', 'แมคูลาเดนซา'], aldo: ['Aldosterone', 'อัลโดสเตอโรน'], urine: ['Urine', 'ปัสสาวะ'], osm: ['Interstitial osmolality, mOsm/kg', 'ความเข้มข้นออสโมลาลิตีของเนื้อเยื่อ mOsm/kg'], figSrc: ['Nephron layout redrawn from the ScienceDirect Topics figure "Nephron" (Medicine and Dentistry): sciencedirect.com/topics/medicine-and-dentistry/nephron', 'ผังเนฟรอนวาดใหม่ตามภาพ "Nephron" ของ ScienceDirect Topics (Medicine and Dentistry): sciencedirect.com/topics/medicine-and-dentistry/nephron'], cortex: ['CORTEX', 'เปลือกไต'], medulla: ['MEDULLA', 'ไขสันหลังไต'],
   source: ['Sources', 'แหล่งอ้างอิง'],
   details: ['Details', 'รายละเอียด'], searchOpen: ['Search', 'ค้นหา'], filters: ['Filters', 'ตัวกรอง'], countries: ['Countries', 'ประเทศ'], nlemOnly: ['NLEM only', 'เฉพาะ NLEM'], nlemTitle: ['Only drugs on the Thai NLEM 2569 list', 'เฉพาะยาในบัญชียาหลักแห่งชาติ 2569'],
-  discLink: ['Decision support only: read the disclaimer', 'เป็นเครื่องมือช่วยตัดสินใจเท่านั้น: อ่านข้อจำกัด'], discBody: ['For adult clinicians only. This guide supports decisions and does not replace clinical judgement, the product label or your local protocol. Check doses, renal function and electrolytes for each patient before prescribing.', 'สำหรับบุคลากรทางการแพทย์ที่ดูแลผู้ใหญ่เท่านั้น คู่มือนี้ช่วยการตัดสินใจ ไม่ได้แทนวิจารณญาณทางคลินิก ฉลากยา หรือแนวปฏิบัติของโรงพยาบาล ตรวจขนาดยา การทำงานของไต และอิเล็กโทรไลต์ของผู้ป่วยทุกครั้งก่อนสั่งยา'],
+  discLink: ['Decision support only: read the disclaimer', 'เป็นเครื่องมือช่วยตัดสินใจเท่านั้น: อ่านข้อจำกัด'], discBody: ['For adult clinicians only. This guide supports decisions and does not replace clinical judgement, the product label or your local protocol. Check doses, renal function and electrolytes for each patient before prescribing. The Kidney check, Interactions and Next-step helper are screening aids built from labels and guidelines and do not cover every case. Trial summaries are brief: read the source paper before applying a result.', 'สำหรับบุคลากรทางการแพทย์ที่ดูแลผู้ใหญ่เท่านั้น คู่มือนี้ช่วยการตัดสินใจ ไม่ได้แทนวิจารณญาณทางคลินิก ฉลากยา หรือแนวปฏิบัติของโรงพยาบาล ตรวจขนาดยา การทำงานของไต และอิเล็กโทรไลต์ของผู้ป่วยทุกครั้งก่อนสั่งยา ตัวตรวจไต/ตับ ปฏิกิริยายา และตัวช่วยเลือกขั้นถัดไปเป็นเครื่องมือคัดกรองจากฉลากยาและแนวทางเวชปฏิบัติ ไม่ครอบคลุมทุกกรณี สรุปการศึกษามีเนื้อหาสั้น ควรอ่านบทความต้นฉบับก่อนนำผลไปใช้'],
   keyTitle: ['Explains every chip, mark and colour', 'อธิบายป้าย สัญลักษณ์ และสี'], inDb: ['in database', 'ในฐานข้อมูล'],
   nlem: ['NLEM', 'บัญชียาหลักฯ'], avail: ['Availability', 'การจดทะเบียน/มีจำหน่าย'],
   ctryNote: ['Checked 2026-11-04: Thailand (NLEM or MIMS brand), US (openFDA), UK (emc), EU (Spain AEMPS, EMA lists, national sources), JP (KEGG / JAPIC). N/A = not found there or not checked; it may have been withdrawn.', 'ตรวจเมื่อ 2026-11-04: ไทย (NLEM หรือยี่ห้อ MIMS) สหรัฐฯ (openFDA) UK (emc) EU (สเปน AEMPS รายการ EMA และแหล่งระดับประเทศ) ญี่ปุ่น (KEGG / JAPIC) N/A = ไม่พบหรือยังไม่ได้ตรวจ อาจถูกถอนทะเบียนแล้ว'],
@@ -475,20 +476,28 @@ function Nephron({ ids, lang }) {
   );
 }
 
-function MechanismModal({ sel, toggle, clear, onClose, lang }) {
+function MechanismModal({ sel, toggle, clear, onClose, lang, fx, toggleFx }) {
   const t = (k) => TXT[k][lang === 'th' ? 1 : 0];
   const ids = [...sel];
+  const matched = fxMatch(fx);
+  const shown = [...new Set([...ids, ...matched.map(d => d.id)])];
   return (
     <Modal title={t('mech')} onClose={onClose} lang={lang}>
       <div className="grid md:grid-cols-2 gap-4 items-start">
-        <Nephron ids={ids} lang={lang} />
+        <Nephron ids={shown} lang={lang} />
         <div className="space-y-3">
-          {ids.length === 0 && <p className={'text-[12px] ' + MUTED}>{t('mechHint')}</p>}
+          <div>
+            <div className={'text-[10px] font-bold uppercase tracking-wide mb-1 ' + MUTED}>{t('fxLinkT')}</div>
+            <FxGrid fx={fx} toggleFx={toggleFx} t={t} />
+            {matched.length > 0 && <div className="mt-1.5"><p className={'text-[11px] ' + MUTED}>{t('fxLink')} ({matched.length})</p>
+              <div className="mt-1 flex flex-wrap gap-1">{matched.map(d => <button key={d.id} type="button" onClick={() => toggle(d.id)} aria-pressed={sel.has(d.id)} className={'rounded border px-1.5 py-0.5 text-[10px] font-bold ' + (sel.has(d.id) ? BTN_ON : BTN_OFF)}>{d.name.split(' ')[0]}</button>)}</div></div>}
+          </div>
+          {ids.length === 0 && matched.length === 0 && <p className={'text-[12px] ' + MUTED}>{t('mechHint')}</p>}
           {ids.map(id => {
             const d = DRUG[id];
             return (
               <div key={id} className={'rounded-xl border p-2.5 ' + INSET} style={{ borderLeft: '4px solid ' + CLS[d.cls].hex }}>
-                <div className="flex items-center gap-1.5 flex-wrap"><span className="font-extrabold text-sm">{lang === 'th' ? d.th : d.name}</span><ClassChip c={d.cls} lang={lang} /></div>
+                <div className="flex items-center gap-1.5 flex-wrap"><span className="font-extrabold text-sm">{d.name}</span><ClassChip c={d.cls} lang={lang} /></div>
                 <div className="text-[11px] mt-1"><b>{t('site')}:</b> {d.sites.map(s => SEG_NAME[s][lang]).join(', ')}</div>
                 <div className="text-[11px]"><b>{t('target')}:</b> {d.target}</div>
                 <div className="text-[11px]"><b>{t('fena')}:</b> {d.fena}</div>
@@ -696,6 +705,18 @@ function ResistanceModal({ onClose, lang, showCombo }) {
 // T(name, citation, PMID, DOI, design [en, th], result [en, th])
 const T = (n, cite, pm, doi, d, r) => ({ n, cite, pm, doi, d, r });
 const TR = {
+  azoRct: T('Azosemide vs furosemide (edema)', 'Zhang Y, et al. Zhejiang Da Xue Xue Bao Yi Xue Ban 2005;34:459', '16216060', '10.3785/j.issn.1008-9292.2005.05.016',
+    ['223 patients with cardiac, hepatic or renal edema: azosemide 30–60 mg/day vs furosemide 20–40 mg/day for 2 weeks (multicentre, randomised, double-blind).', '223 ราย บวมจากหัวใจ ตับ หรือไต: azosemide 30–60 mg/วัน เทียบ furosemide 20–40 mg/วัน 2 สัปดาห์ (หลายศูนย์ randomised double-blind)'],
+    ['Weight loss 2.87 vs 2.81 kg; edema response 89.2% vs 89.8%; adverse events 23.0% vs 21.0% (hypokalemia, hyperuricemia, hypertriglyceridemia, thirst): similar efficacy.', 'น้ำหนักลด 2.87 เทียบ 2.81 กก. ตอบสนองต่อบวม 89.2% เทียบ 89.8% เหตุการณ์ไม่พึงประสงค์ 23.0% เทียบ 21.0% (โพแทสเซียมต่ำ ยูริกสูง ไตรกลีเซอไรด์สูง กระหายน้ำ) ประสิทธิผลใกล้เคียงกัน']),
+  harada: T('Torasemide vs azosemide (chronic HF)', 'Harada K, et al. J Cardiovasc Pharmacol 2009;53:468', '19430310', '10.1097/FJC.0b013e3181a717f7',
+    ['30 patients with chronic HF (asymptomatic or mildly symptomatic), crossover: torasemide 8 mg/day vs azosemide 60 mg/day, 3 months each.', '30 ราย หัวใจล้มเหลวเรื้อรัง (ไม่มีอาการหรืออาการน้อย) crossover: torasemide 8 mg/วัน เทียบ azosemide 60 mg/วัน ชนิดละ 3 เดือน'],
+    ['Torasemide lowered LV systolic wall stress (259 to 232 kdyn/cm²) and plasma aldosterone (133 to 95 pg/mL) with no change in norepinephrine; with azosemide norepinephrine rose (370 to 481 pg/mL) and wall stress did not change.', 'torasemide ลดความเครียดผนังหัวใจห้องล่างซ้ายช่วงซิสโทลี (259 เป็น 232 kdyn/cm²) และอัลโดสเตอโรน (133 เป็น 95 pg/mL) โดย norepinephrine ไม่เปลี่ยน ส่วน azosemide ทำให้ norepinephrine เพิ่ม (370 เป็น 481 pg/mL) และความเครียดผนังหัวใจไม่เปลี่ยน']),
+  ricci: T('Furosemide vs ethacrynic acid (infants)', 'Ricci Z, et al. Crit Care 2015;19:2', '25563826', '10.1186/s13054-014-0724-5',
+    ['74 infants after surgery for congenital heart disease: continuous infusion of furosemide vs ethacrynic acid (0.2 mg/kg/h, up to 0.8), double-blind.', '74 ราย ทารกหลังผ่าตัดหัวใจพิการแต่กำเนิด: furosemide เทียบ ethacrynic acid หยดต่อเนื่อง (0.2 mg/kg/ชม. สูงสุด 0.8) double-blind'],
+    ['Urine output on day 0 6.9 vs 4.6 mL/kg/h in favour of ethacrynic acid (P = 0.002) with a smaller dose; kidney-injury markers and AKI did not differ; metabolic alkalosis was more intense with ethacrynic acid.', 'ปัสสาวะวันที่ 0 6.9 เทียบ 4.6 mL/kg/ชม. เป็นผลดีต่อ ethacrynic acid (P = 0.002) ด้วยขนาดยาน้อยกว่า ตัวชี้วัดไตบาดเจ็บและ AKI ไม่ต่างกัน ภาวะด่างเมตาบอลิกรุนแรงกว่าด้วย ethacrynic acid']),
+  excite: T('EXCITE-HT (T2DM subanalysis)', 'Ohishi M, et al. Hypertens Res 2026;49:444', '41436637', '10.1038/s41440-025-02437-z',
+    ['Subanalysis of the open-label randomised EXCITE-HT study in Japanese patients with type 2 diabetes and uncontrolled hypertension: esaxerenone vs trichlormethiazide.', 'การวิเคราะห์กลุ่มย่อยของ EXCITE-HT (open-label randomised) ในผู้ป่วยญี่ปุ่นที่เป็นเบาหวานชนิดที่ 2 และความดันคุมไม่ได้: esaxerenone เทียบ trichlormethiazide'],
+    ['Morning home SBP/DBP difference −2.5 (−4.8 to −0.2) / −0.7 (−2.0 to 0.6) mm Hg: similar BP lowering. Urinary ACR fell. Serum K⁺ ≥ 5.5 mEq/L in 2.5% vs 0.9%, none ≥ 6.0.', 'ผลต่างความดันตัวบน/ตัวล่างที่บ้านตอนเช้า −2.5 (−4.8 ถึง −0.2) / −0.7 (−2.0 ถึง 0.6) mm Hg ลดความดันใกล้เคียงกัน ACR ปัสสาวะลดลง K⁺ ≥ 5.5 mEq/L 2.5% เทียบ 0.9% ไม่มีรายใด ≥ 6.0']),
   dapaResist: T('DAPA-RESIST', 'Yeoh SE, et al. Eur Heart J 2023;44:2966', '37210742', '10.1093/eurheartj/ehad341',
     ['61 patients hospitalised for HF and resistant to IV furosemide: dapagliflozin 10 mg vs metolazone 5–10 mg once daily for 3 days (open-label).', '61 ราย นอนโรงพยาบาลจาก HF และดื้อต่อ furosemide IV: dapagliflozin 10 mg เทียบ metolazone 5–10 mg วันละครั้ง 3 วัน (open-label)'],
     ['Weight loss at 96 h 3.0 vs 3.6 kg (difference 0.65 kg, 95% CI −0.12 to 1.41; P = 0.11): dapagliflozin was not more effective. Smaller falls in Na⁺ and K⁺ and smaller rises in urea and creatinine with dapagliflozin; serious adverse events similar.', 'น้ำหนักลดที่ 96 ชม. 3.0 เทียบ 3.6 กก. (ต่างกัน 0.65 กก., 95% CI −0.12 ถึง 1.41; P = 0.11) dapagliflozin ไม่ได้ผลดีกว่า Na⁺ และ K⁺ ลดน้อยกว่า ยูเรียและ creatinine ขึ้นน้อยกว่าด้วย dapagliflozin เหตุการณ์ไม่พึงประสงค์รุนแรงใกล้เคียงกัน']),
@@ -787,16 +808,43 @@ const TR = {
     ['Type 2 diabetes with microalbuminuria: esaxerenone vs placebo.', 'เบาหวานชนิดที่ 2 ที่มีอัลบูมินในปัสสาวะเล็กน้อย: esaxerenone เทียบกับยาหลอก'],
     ['Albuminuria remission HR 5.13 (3.27–8.04); progression to ACR ≥ 300 mg/g HR 0.23. Serum K⁺ ≥ 5.5 mEq/L on two consecutive measurements in 9% vs 2% with placebo.', 'อัลบูมินในปัสสาวะหายไป HR 5.13 (3.27–8.04) ก้าวไป ACR ≥ 300 mg/g HR 0.23 K⁺ ≥ 5.5 mEq/L สองครั้งติดกัน 9% เทียบ 2% ในกลุ่มยาหลอก']),
 };
+const EV = {
+  dose: ['dbrct', 'sur', 'neu'], transform: ['rct', 'out', 'neu'], dcp: ['prag', 'out', 'neu'], clorotic: ['rct', 'sur', 'mix'], click: ['rct', 'sur', 'pos'],
+  allhat: ['dbrct', 'out', 'neu'], hyvet: ['rct', 'out', 'mix'], progress: ['rct', 'out', 'pos'], advance: ['rct', 'out', 'pos'], rales: ['dbrct', 'out', 'pos'],
+  topcat: ['dbrct', 'out', 'neu'], athena: ['rct', 'sur', 'neu'], pathway2: ['xover', 'sur', 'pos'], ephesus: ['dbrct', 'out', 'pos'], emphasis: ['dbrct', 'out', 'pos'],
+  salt: ['rct', 'sur', 'pos'], tempo: ['dbrct', 'sur', 'pos'], everest: ['rct', 'out', 'neu'], advor: ['rct', 'sur', 'pos'], dapahf: ['rct', 'out', 'pos'],
+  dapackd: ['rct', 'out', 'pos'], deliver: ['rct', 'out', 'pos'], emperorr: ['rct', 'out', 'pos'], emperorp: ['rct', 'out', 'pos'], empakidney: ['rct', 'out', 'pos'],
+  dapaResist: ['open', 'sur', 'neu'], azoRct: ['dbrct', 'sur', 'neu'], harada: ['xover', 'sur', 'pos'], ricci: ['dbrct', 'sur', 'pos'], excite: ['open', 'sur', 'neu'], bottino: ['fact', 'sur', 'neu'], mrc: ['rct', 'out', 'pos'], esaxhtn: ['dbrct', 'sur', 'pos'], esaxdn: ['rct', 'sur', 'pos'],
+};
+const EV_TXT = {
+  dbrct: ['Double-blind RCT', 'RCT แบบ double-blind'], rct: ['RCT', 'RCT'], open: ['Open-label RCT', 'RCT แบบ open-label'], prag: ['Pragmatic RCT', 'RCT แบบ pragmatic'],
+  xover: ['Crossover RCT', 'RCT แบบ crossover'], fact: ['Factorial RCT', 'RCT แบบ factorial'],
+  out: ['Clinical outcome', 'ผลลัพธ์ทางคลินิก'], sur: ['Surrogate endpoint', 'ตัวชี้วัดทดแทน'],
+  pos: ['Primary result positive', 'ผลหลักเป็นบวก'], neu: ['Primary result neutral', 'ผลหลักไม่ต่างกัน'], mix: ['Mixed result', 'ผลผสม'],
+};
+const EV_STYLE = {
+  dbrct: 'bg-slate-100 text-slate-700 border-slate-300 dark:bg-slate-500/10 dark:text-slate-300 dark:border-slate-400/30', out: 'bg-emerald-50 text-emerald-700 border-emerald-200 dark:bg-emerald-500/10 dark:text-emerald-300 dark:border-emerald-400/30',
+  sur: 'bg-sky-50 text-sky-700 border-sky-200 dark:bg-sky-500/10 dark:text-sky-300 dark:border-sky-400/30', pos: 'bg-indigo-50 text-indigo-700 border-indigo-200 dark:bg-indigo-500/10 dark:text-indigo-300 dark:border-indigo-400/30',
+  neu: 'bg-slate-100 text-slate-700 border-slate-300 dark:bg-slate-500/10 dark:text-slate-300 dark:border-slate-400/30', mix: 'bg-amber-50 text-amber-800 border-amber-300 dark:bg-amber-500/10 dark:text-amber-300 dark:border-amber-400/40',
+};
 // Trials per drug; a drug with no entry shows "no landmark trial included" (N/A)
 const TRIALS_OF = {
-  acetazolamide: ['advor'], metolazone: ['dapaResist'], amiloride: ['bottino'], furosemide: ['dose', 'transform'], torsemide: ['transform'], hctz: ['dcp', 'clorotic', 'bottino'],
+  acetazolamide: ['advor'], azosemide: ['azoRct'], ethacrynic: ['ricci'], trichlormethiazide: ['excite'], metolazone: ['dapaResist'], amiloride: ['bottino'], furosemide: ['dose', 'transform'], torsemide: ['transform', 'harada'], hctz: ['dcp', 'clorotic', 'bottino'],
   chlorthalidone: ['click', 'dcp', 'allhat', 'bottino'], indapamide: ['hyvet', 'progress', 'advance'], spironolactone: ['rales', 'topcat', 'athena', 'pathway2'],
   eplerenone: ['ephesus', 'emphasis'], tolvaptan: ['salt', 'tempo', 'everest'], dapagliflozin: ['dapahf', 'dapackd', 'deliver', 'dapaResist'],
-  empagliflozin: ['emperorr', 'emperorp', 'empakidney'], bendroflumethiazide: ['mrc'], esaxerenone: ['esaxhtn', 'esaxdn'],
+  empagliflozin: ['emperorr', 'emperorp', 'empakidney'], bendroflumethiazide: ['mrc'], esaxerenone: ['esaxhtn', 'esaxdn', 'excite'],
 };
+// Best evidence level for a drug: 'out' (a clinical-outcome RCT), 'sur' (surrogate-endpoint RCTs only) or null
+const evOf = (d) => { const l = (TRIALS_OF[d.id] || []).map(k => EV[k][1]); return l.includes('out') ? 'out' : l.length ? 'sur' : null; };
+function EvChip({ d, lang }) {
+  const i = lang === 'th' ? 1 : 0;
+  const e = evOf(d);
+  const lbl = { out: ['Outcome RCT', 'RCT ผลลัพธ์ทางคลินิก'], sur: ['Surrogate RCT', 'RCT ตัวชี้วัดทดแทน'] }[e] || ['No trial listed', 'ไม่มีการศึกษาในแอป'];
+  return <span title={TXT.evTitle[i]} className={'inline-flex items-center rounded border px-1.5 py-px text-[10px] font-bold ' + (e ? EV_STYLE[e] : 'border-slate-200 text-slate-400 dark:border-[#263449]')}>{lbl[i]}</span>;
+}
 function Trials({ d, lang }) {
   const i = lang === 'th' ? 1 : 0;
-  const list = (TRIALS_OF[d.id] || []).map(k => TR[k]);
+  const list = (TRIALS_OF[d.id] || []).map(k => ({ ...TR[k], k }));
   if (!list.length) return <p className={MUTED}>{TXT.noTrial[i]}</p>;
   return (
     <div className="space-y-2.5">
@@ -804,6 +852,7 @@ function Trials({ d, lang }) {
         <div key={x.n} className={'rounded-lg border p-2 ' + INSET}>
           <div className="font-extrabold">{x.n}</div>
           <div className={'text-[10px] ' + MUTED}>{x.cite}</div>
+          <div className="mt-1 flex flex-wrap gap-1">{[EV[x.k][0], EV[x.k][1], EV[x.k][2]].map((e, j) => <span key={e} className={'rounded border px-1.5 py-px text-[10px] font-bold ' + (EV_STYLE[e] || EV_STYLE.dbrct)}>{EV_TXT[e][i]}</span>)}</div>
           <p className="mt-1"><b>{TXT.design[i]}:</b> {x.d[i]}</p>
           <p className="mt-0.5"><b>{TXT.result[i]}:</b> {x.r[i]}</p>
           <div className="mt-1 flex gap-3 text-[10px]">
@@ -876,7 +925,7 @@ function KidneyModal({ onClose, lang, open, st, setSt }) {
             <div className="flex flex-col gap-1">
               {list.map(r => (
                 <button key={r.d.id} type="button" onClick={() => open(r.d.id)} className="text-left rounded-lg px-1.5 py-1 hover:bg-slate-50 dark:hover:bg-[#101a2b] flex flex-wrap items-center gap-1.5">
-                  <span className={'font-bold text-[12px] ' + CLS[r.d.cls].txt}>{i ? r.d.th : r.d.name}</span>
+                  <span className={'font-bold text-[12px] ' + CLS[r.d.cls].txt}>{r.d.name}</span>
                   {r.why.map((w, k) => <span key={k} className={'rounded border px-1 text-[10px] font-bold ' + (lvl === 2 ? 'bg-rose-50 text-rose-700 border-rose-200 dark:bg-rose-500/10 dark:text-rose-300 dark:border-rose-400/30' : WARN_CHIP)}>{w[i]}</span>)}
                 </button>
               ))}
@@ -934,13 +983,13 @@ function InteractionModal({ onClose, lang, open, meds, setMeds }) {
         <>
           {flagged.length > 0 && <div className="flex flex-col gap-1.5">{flagged.map(r => (
             <button key={r.d.id} type="button" onClick={() => open(r.d.id)} className={'text-left rounded-xl border border-l-4 p-2 ' + SURF + ' ' + (r.sev === 2 ? 'border-l-rose-500' : 'border-l-amber-500')}>
-              <div className="flex flex-wrap items-center gap-1.5"><span className={'font-extrabold text-[12px] ' + CLS[r.d.cls].txt}>{i ? r.d.th : r.d.name}</span>
+              <div className="flex flex-wrap items-center gap-1.5"><span className={'font-extrabold text-[12px] ' + CLS[r.d.cls].txt}>{r.d.name}</span>
                 <span className={'rounded border px-1 text-[10px] font-bold ' + (r.sev === 2 ? 'bg-rose-50 text-rose-700 border-rose-200 dark:bg-rose-500/10 dark:text-rose-300 dark:border-rose-400/30' : WARN_CHIP)}>{r.sev === 2 ? TXT.interAvoid[i] : TXT.interCaution[i]}</span></div>
               <ul className="mt-1 text-[11px] space-y-0.5">{r.list.map(h => <li key={h.m.k}><b>{h.m.n[i]}:</b> {h.r}</li>)}</ul>
             </button>))}</div>}
           <div className={'rounded-xl border border-l-4 border-l-emerald-500 p-2.5 ' + SURF}>
             <div className="text-[12px] font-extrabold mb-1">{TXT.interNone[i]} <span className="text-slate-400 font-bold">({clear.length})</span></div>
-            <div className={'text-[11px] ' + MUTED}>{clear.map(r => (i ? r.d.th : r.d.name.split(' ')[0])).join(' · ')}</div>
+            <div className={'text-[11px] ' + MUTED}>{clear.map(r => r.d.name.split(' ')[0]).join(' · ')}</div>
           </div>
         </>
       )}
@@ -962,14 +1011,14 @@ function CompareModal({ ids, onClose, lang }) {
     [TXT.renal[i], d => (RENAL[d.id] ? RENAL[d.id][lang] : 'N/A')],
     [TXT.ddi[i], d => <ul className="list-disc pl-3.5 space-y-0.5">{ddiOf(d).map((x, k) => <li key={k}>{x[i]}</li>)}</ul>],
     [TXT.brandsCol[i], d => { const m = marketLine(d); return m ? m.c.toUpperCase() + ': ' + m.b : 'N/A'; }],
-    [TXT.trials[i], d => ((TRIALS_OF[d.id] || []).map(k => TR[k].n).join(', ') || 'N/A')],
+    [TXT.trials[i], d => <><EvChip d={d} lang={lang} /><div className="mt-1">{(TRIALS_OF[d.id] || []).map(k => TR[k].n).join(', ')}</div></>],
     [TXT.nlem[i], d => <NlemChip d={d} lang={lang} />],
   ];
   return (
     <Modal title={TXT.cmp[i] + ' · ' + ds.length} onClose={onClose} lang={lang}>
       <div className="overflow-x-auto -mx-1">
         <table className="text-[11px] border-collapse" style={{ minWidth: 110 + ds.length * 190 }}>
-          <thead><tr><th className={'sticky left-0 z-10 w-[100px] ' + SURF}></th>{ds.map(d => <th key={d.id} className={'text-left align-bottom px-2 py-1.5 min-w-[190px] text-[13px] font-extrabold ' + CLS[d.cls].txt}>{i ? d.th : d.name}</th>)}</tr></thead>
+          <thead><tr><th className={'sticky left-0 z-10 w-[100px] ' + SURF}></th>{ds.map(d => <th key={d.id} className={'text-left align-bottom px-2 py-1.5 min-w-[190px] text-[13px] font-extrabold ' + CLS[d.cls].txt}>{d.name}</th>)}</tr></thead>
           <tbody>{rows.map(([label, fn]) => (
             <tr key={label} className="border-t border-slate-200 dark:border-[#263449] align-top">
               <td className={'sticky left-0 z-10 px-2 py-1.5 font-bold ' + SURF + ' ' + MUTED}>{label}</td>
@@ -1015,14 +1064,37 @@ function ResistanceHelper({ lang }) {
 }
 
 /* ---------- Detail, Key, Changelog ---------- */
+// Plain-text summary of one drug for pasting into notes or a message
+const summaryText = (d, lang) => {
+  const i = lang === 'th' ? 1 : 0;
+  const el = ELECTROLYTES.filter(e => d.fx[e.k] !== 0).map(e => e.l + ARROW[String(d.fx[e.k])]).join(' ');
+  const L = [d.name + ' (' + CLS[d.cls][lang] + ')'];
+  d.dose.forEach(x => L.push(x[0] + ': ' + x[1]));
+  L.push(TXT.site[i] + ': ' + d.sites.map(x => SEG_NAME[x][lang]).join(', ') + ' · ' + d.target);
+  if (el) L.push(TXT.elec[i] + ': ' + el);
+  L.push(TXT.se[i] + ': ' + d.se.map(x => (CAUTION.has(x) ? '⚠ ' : '') + SE[x][i]).join(', '));
+  if (RENAL[d.id]) L.push(RENAL[d.id][lang]);
+  const di = ddiOf(d); if (di.length) L.push(TXT.ddi[i] + ': ' + di.map(x => x[i]).join(' | '));
+  const m = marketLine(d); if (m) L.push(TXT.brandsCol[i] + ' (' + m.c.toUpperCase() + '): ' + m.b);
+  L.push('Diuretics Guide ' + VERSION + ' · ' + TXT.discLink[i]);
+  return L.join('\n');
+};
 function DetailModal({ d, onClose, lang, showOne }) {
   const i = lang === 'th' ? 1 : 0;
   const t = (k) => TXT[k][i];
+  const [copied, setCopied] = useState(false);
+  const copy = () => {
+    const txt = summaryText(d, lang);
+    const done = () => { setCopied(true); setTimeout(() => setCopied(false), 1800); };
+    try { navigator.clipboard.writeText(txt).then(done, () => {}); } catch (e) {
+      try { const a = document.createElement('textarea'); a.value = txt; document.body.appendChild(a); a.select(); document.execCommand('copy'); a.remove(); done(); } catch (e2) {}
+    }
+  };
   return (
-    <Modal title={i ? d.th : d.name} onClose={onClose} lang={lang}>
+    <Modal title={d.name} onClose={onClose} lang={lang}>
       <div className="flex flex-wrap items-center gap-1.5">
         <ClassChip c={d.cls} lang={lang} /><SiteChips d={d} lang={lang} />
-        <span className={'text-[11px] ' + MUTED}>{i ? d.name : d.th}</span>
+        <button type="button" onClick={copy} className={'ml-auto inline-flex items-center gap-1 rounded-lg border px-2 py-1 text-[11px] font-bold ' + BTN_OFF}><ClipboardIcon className="w-3.5 h-3.5" />{copied ? t('copied') : t('copy')}</button>
       </div>
       <Fold title={t('dose')} color="border-l-indigo-500">
         {d.dose.map((x, k) => <div key={k} className="py-0.5"><b>{x[0]}</b> {x[1]}</div>)}
@@ -1054,6 +1126,24 @@ function DetailModal({ d, onClose, lang, showOne }) {
   );
 }
 
+const fxLabel = (f) => ELECTROLYTES.find(e => e.k === f[0]).l + ARROW[String(f[1])];
+const fxMatch = (fx) => (Object.keys(fx).length ? DRUGS.filter(d => Object.entries(fx).every(([k, v]) => d.fx[k] === v)) : []);
+// Electrolyte filter: two rows (increased on top, decreased below), the same electrolyte stacked; one direction per electrolyte
+function FxGrid({ fx, toggleFx, t }) {
+  return (
+    <div className="flex bg-white dark:bg-[#151f32] rounded-md border border-slate-200 dark:border-[#263449] p-0.5 shadow-sm shrink-0 items-center gap-0.5 max-w-full" role="group" aria-label={t('elec')}>
+      <div className={GICON + ' self-stretch'}><ActivityIcon className="h-2.5 w-2.5 md:h-3 md:w-3" /></div>
+      <div className="grid grid-cols-5 grid-rows-2 gap-0.5">
+        {[1, -1].map(v => ELECTROLYTES.map(e => {
+          const on = fx[e.k] === v;
+          return <button key={e.k + v} type="button" onClick={() => toggleFx(e.k, v)} aria-pressed={on} aria-label={e.l + ' ' + (v > 0 ? t('incr') : t('decr'))} title={e.l + ' ' + (v > 0 ? t('incr') : t('decr'))}
+            className={'h-[22px] px-1.5 md:px-2 rounded flex items-center justify-center text-[10px] font-bold transition-all whitespace-nowrap ' + (on ? ON : (v > 0 ? 'text-orange-700 dark:text-orange-300' : 'text-sky-700 dark:text-sky-300') + ' hover:bg-slate-50 dark:hover:bg-[#101a2b]')}>{fxLabel([e.k, v])}</button>;
+        }))}
+      </div>
+    </div>
+  );
+}
+
 function KeyModal({ onClose, lang }) {
   const i = lang === 'th' ? 1 : 0;
   return (
@@ -1062,6 +1152,7 @@ function KeyModal({ onClose, lang }) {
         {KEY_ROWS.map(r => <div key={r[0]} className="flex items-center gap-2 text-[12px]"><span className={'rounded border px-1 py-px text-[10px] font-bold ' + (r[2] === 'sky' ? FX_STYLE['-1'] : r[2] === 'orange' ? FX_STYLE['1'] : r[2] === 'violet' ? FX_STYLE.v : FX_STYLE['0'])}>{r[0]}</span>{r[1][lang]}</div>)}
         <div className="flex items-center gap-2 text-[12px]"><span className={'rounded border px-1 py-px text-[10px] font-bold ' + CTRY.th.chip}>TH</span><span className="rounded border px-1 py-px text-[10px] font-bold border-slate-200 text-slate-400 dark:border-[#263449]">US ?</span>{i ? 'สีเต็ม = ขึ้นทะเบียนอยู่, † = เคยมี, ⊘ = ไม่เคยมี, "?" = ยังไม่ตรวจสอบ (N/A)' : 'Coloured = registered now; † = previously registered; ⊘ = never; "?" = not verified (N/A)'}</div>
         <div className="flex items-center gap-2 text-[12px]"><span className={'inline-flex items-center gap-1 rounded border px-1.5 py-px text-[10px] font-bold ' + WARN_CHIP}><WarnIcon className="w-3 h-3" />{SE.hyperK[i]}</span>{TXT.caution[i]}</div>
+        <div className="flex items-center gap-2 text-[12px]"><EvChip d={DRUG.spironolactone} lang={lang} />{i ? 'หลักฐานที่ดีที่สุดที่แสดงไว้: RCT ผลลัพธ์ทางคลินิก หรือ RCT ตัวชี้วัดทดแทน (หน้ารายละเอียดมีรายการ)' : 'Best trial evidence listed: outcome RCT or surrogate-endpoint RCT (the detail view lists each trial)'}</div>
         <div className="flex items-center gap-2 text-[12px]"><NlemChip d={DRUG.furosemide} lang={lang} />{i ? 'หมวดบัญชียาหลักแห่งชาติ' : 'Thai NLEM category'}</div>
         <div className="flex items-center gap-2 text-[12px]"><span className="rounded border px-1 py-px text-[10px] font-bold bg-indigo-50 text-indigo-700 border-indigo-200 dark:bg-indigo-500/10 dark:text-indigo-300 dark:border-indigo-400/30">TAL</span>{i ? 'ตำแหน่งออกฤทธิ์บนเนฟรอน' : 'Nephron segment where the drug acts'}</div>
       </div>
@@ -1143,7 +1234,7 @@ const REF_GROUPS = [
 const REF_ORDER = REF_GROUPS.flatMap(g => REFS.filter(r => r.g === g.k));
 const REF_TXT = {
   title: ['References', 'เอกสารอ้างอิง'], used: ['Used for', 'ใช้สำหรับ'],
-  note: ["Brand names: TH from MIMS Thailand, US from openFDA, UK from emc, EU from Spain AEMPS and national sources, JP from KEGG / JAPIC; N/A = none found or not checked. Trial summaries in each drug's detail view were checked against the PubMed abstracts (4 November 2026) and link to PubMed and the DOI. Author's content without an external reference: the “Filtered Na⁺ blocked” percentages are typical class values, and the diagram annotations follow standard renal physiology.", 'เนื้อหาของผู้จัดทำที่ไม่มีเอกสารอ้างอิงภายนอก: ค่าร้อยละ “Na⁺ ที่ถูกกั้น” เป็นค่าทั่วไปของแต่ละกลุ่มยา และคำอธิบายในแผนภาพเป็นไปตามสรีรวิทยาไตมาตรฐาน'],
+  note: ["Brand names: TH from MIMS Thailand, US from openFDA, UK from emc, EU from Spain AEMPS and national sources, JP from KEGG / JAPIC; N/A = none found or not checked. Trial summaries in each drug's detail view were checked against the PubMed abstracts (4 November 2026) and link to PubMed and the DOI. Author's content without an external reference: the “Filtered Na⁺ blocked” percentages are typical class values, and the diagram annotations follow standard renal physiology.", 'ชื่อทางการค้า: ไทยจาก MIMS สหรัฐฯ จาก openFDA UK จาก emc EU จาก AEMPS สเปนและแหล่งระดับประเทศ ญี่ปุ่นจาก KEGG / JAPIC N/A = ไม่พบหรือยังไม่ได้ตรวจ สรุปการศึกษาในหน้ารายละเอียดของแต่ละยาตรวจกับบทคัดย่อใน PubMed (4 พฤศจิกายน 2569) พร้อมลิงก์ PubMed และ DOI เนื้อหาของผู้จัดทำที่ไม่มีเอกสารอ้างอิงภายนอก: ค่าร้อยละ “Na⁺ ที่ถูกกั้น” เป็นค่าทั่วไปของแต่ละกลุ่มยา และคำอธิบายในแผนภาพเป็นไปตามสรีรวิทยาไตมาตรฐาน'],
 };
 const ReferencesSection = ({ lang }) => {
   const [open, setOpen] = useState(false);
@@ -1209,9 +1300,8 @@ function Tile({ d, lang, on, toggle, open }) {
           <h3 className={'text-lg font-extrabold leading-tight ' + CLS[d.cls].txt}>{d.name}</h3>
           <ClassChip c={d.cls} lang={lang} />
         </div>
-        <div className={'text-[11px] ' + MUTED}>{d.th}</div>
         <BrandLine d={d} />
-        <div className="flex flex-wrap gap-1 mt-1.5"><SiteChips d={d} lang={lang} /><NlemChip d={d} lang={lang} /></div>
+        <div className="flex flex-wrap gap-1 mt-1.5"><SiteChips d={d} lang={lang} /><NlemChip d={d} lang={lang} /><EvChip d={d} lang={lang} /></div>
         <div className="mt-1.5 flex flex-wrap gap-1"><CountryChips d={d} lang={lang} /></div>
         <div className={'mt-2.5 rounded-lg border p-2 text-[12px] space-y-0.5 ' + INSET}>
           {d.dose.map((x, k) => <div key={k}><b>{x[0]}</b> {x[1]}</div>)}
@@ -1232,7 +1322,7 @@ function Row({ d, lang, on, toggle, open }) {
         <div className="sm:w-56 shrink-0">
           <div className="flex flex-wrap items-center gap-1.5"><span className={'font-extrabold ' + CLS[d.cls].txt}>{d.name}</span><ClassChip c={d.cls} lang={lang} /></div>
           <BrandLine d={d} />
-          <div className="flex flex-wrap gap-1 mt-0.5"><SiteChips d={d} lang={lang} /><NlemChip d={d} lang={lang} /></div>
+          <div className="flex flex-wrap gap-1 mt-0.5"><SiteChips d={d} lang={lang} /><NlemChip d={d} lang={lang} /><EvChip d={d} lang={lang} /></div>
         </div>
         <div className="flex-1 min-w-0 text-[12px] mt-1.5 sm:mt-0">{doseLine(d)}<div className="flex flex-wrap gap-1 mt-1"><CountryChips d={d} lang={lang} /></div></div>
         <div className="sm:w-52 mt-1.5 sm:mt-0"><Effects d={d} /><div className="mt-1"><Cautions d={d} lang={lang} /></div></div>
@@ -1294,20 +1384,25 @@ const OFF = 'text-slate-600 dark:text-slate-300 hover:bg-slate-50 dark:hover:bg-
 const GICON = 'pl-1 pr-1 md:pl-1.5 md:pr-1.5 flex items-center pointer-events-none text-slate-400 border-r border-slate-100 dark:border-[#263449] mr-0.5';
 const TOP_PILL = 'text-[10px] md:text-xs font-bold text-slate-600 dark:text-slate-300 bg-white dark:bg-[#151f32] shadow-sm px-2.5 py-1.5 rounded-full border border-slate-200 dark:border-[#263449] flex items-center gap-1.5 hover:bg-slate-50 dark:hover:bg-[#101a2b] transition-all cursor-pointer';
 
+// Filters are remembered between visits (guarded: storage can be blocked, and saved values are checked before use)
+const SAVED = (() => { try { return JSON.parse(store.get('dg-filters', '{}')) || {}; } catch (e) { return {}; } })();
+const savedList = (k, allowed, d) => (Array.isArray(SAVED[k]) ? SAVED[k].filter(x => allowed.includes(x)) : d);
+const SAVED_FX = (() => { const o = {}; if (SAVED.fx && typeof SAVED.fx === 'object') ELECTROLYTES.forEach(e => { if (SAVED.fx[e.k] === 1 || SAVED.fx[e.k] === -1) o[e.k] = SAVED.fx[e.k]; }); return o; })();
+
 function App() {
   const [lang, setLang] = useState(() => store.get('dg-lang', 'en'));
   const [dark, setDark] = useState(() => document.documentElement.classList.contains('dark'));
   const [view, setView] = useState(() => store.get('dg-view', 'tile'));
   const [q, setQ] = useState('');
   const [searchOpen, setSearchOpen] = useState(false);
-  const [classes, setClasses] = useState([]);
-  const [fx, setFx] = useState({});
+  const [classes, setClasses] = useState(() => savedList('classes', CLS_ORDER, []));
+  const [fx, setFx] = useState(SAVED_FX);
   const [kid, setKid] = useState({ eg: '', liver: false, hk: false });
   const [meds, setMeds] = useState(() => new Set());
-  const [ctry, setCtry] = useState([]);
-  const [stSel, setStSel] = useState(['current']);
-  const [nlemOnly, setNlemOnly] = useState(false);
-  const [sort, setSort] = useState('class');
+  const [ctry, setCtry] = useState(() => savedList('ctry', COUNTRIES, []));
+  const [stSel, setStSel] = useState(() => savedList('st', ['current', 'past', 'never'], ['current']));
+  const [nlemOnly, setNlemOnly] = useState(SAVED.nlem === true);
+  const [sort, setSort] = useState(['name', 'class', 'site'].includes(SAVED.sort) ? SAVED.sort : 'class');
   const [sel, setSel] = useState(new Set());
   const [modal, setModal] = useState(null);
   const [filtersOpen, setFiltersOpen] = useState(true);
@@ -1319,6 +1414,7 @@ function App() {
   useEffect(() => { document.documentElement.classList.toggle('dark', dark); store.set('dg-theme', dark ? 'dark' : 'light'); }, [dark]);
   useEffect(() => { store.set('dg-lang', lang); document.documentElement.lang = lang; document.title = t('title'); }, [lang]);
   useEffect(() => { store.set('dg-view', view); }, [view]);
+  useEffect(() => { store.set('dg-filters', JSON.stringify({ classes, fx, ctry, st: stSel, nlem: nlemOnly, sort })); }, [classes, fx, ctry, stSel, nlemOnly, sort]);
   useEffect(() => {
     const el = barRef.current; if (!el) return;
     const f = () => setBarH(el.offsetHeight);
@@ -1341,13 +1437,12 @@ function App() {
       && Object.entries(fx).every(([k, v]) => d.fx[k] === v)
       && (!nlemOnly || NLEM[d.id])
       && cs.every(c => stSel.length ? stSel.includes(stOf(d, c)) : stOf(d, c) === 'current')
-      && (!s || (d.name + ' ' + d.th + ' ' + CLS[d.cls].en + ' ' + d.target + ' ' + COUNTRIES.map(c => brandsOf(d, c) || '').join(' ')).toLowerCase().includes(s)));
+      && (!s || (d.name + ' ' + CLS[d.cls].en + ' ' + d.target + ' ' + COUNTRIES.map(c => brandsOf(d, c) || '').join(' ')).toLowerCase().includes(s)));
     const key = { name: (d) => d.name, class: (d) => CLS_ORDER.indexOf(d.cls), site: (d) => SEGS.indexOf(d.sites[0]) }[sort];
     return [...r].sort((a, b) => (key(a) > key(b) ? 1 : key(a) < key(b) ? -1 : a.name.localeCompare(b.name)));
   }, [q, classes, fx, ctry, stSel, nlemOnly, sort]);
 
   const toggle = (id) => setSel(p => { const n = new Set(p); n.has(id) ? n.delete(id) : n.add(id); return n; });
-  const fxLabel = (f) => ELECTROLYTES.find(e => e.k === f[0]).l + ARROW[String(f[1])];
   const showSet = (ids) => { setSel(new Set(ids)); setModal({ t: 'mech' }); };
   const open = (id) => setModal({ t: 'detail', id });
   const stName = (k) => (k === 'current' ? t('fCur') : k === 'past' ? t('fPast') : t('fNever'));
@@ -1470,16 +1565,7 @@ function App() {
               <div className={GICON}><PillIcon className="h-2.5 w-2.5 md:h-3 md:w-3" /></div>
               {CLS_ORDER.map(c => <button key={c} type="button" onClick={() => toggleClass(c)} aria-pressed={classes.includes(c)} title={CLS[c][lang]} className={GBTN + 'py-0.5 ' + (classes.includes(c) ? ON : CLS[c].txt + ' hover:bg-slate-50 dark:hover:bg-[#101a2b]')}>{CLS[c].s[lang]}</button>)}
             </div>
-            <div className="flex bg-white dark:bg-[#151f32] rounded-md border border-slate-200 dark:border-[#263449] p-0.5 shadow-sm shrink-0 items-center gap-0.5 max-w-full" role="group" aria-label={t('elec')}>
-              <div className={GICON + ' self-stretch'}><ActivityIcon className="h-2.5 w-2.5 md:h-3 md:w-3" /></div>
-              <div className="grid grid-cols-5 grid-rows-2 gap-0.5">
-                {[1, -1].map(v => ELECTROLYTES.map(e => {
-                  const on = fx[e.k] === v;
-                  return <button key={e.k + v} type="button" onClick={() => toggleFx(e.k, v)} aria-pressed={on} aria-label={e.l + ' ' + (v > 0 ? t('incr') : t('decr'))} title={e.l + ' ' + (v > 0 ? t('incr') : t('decr'))}
-                    className={'h-[22px] px-1.5 md:px-2 rounded flex items-center justify-center text-[10px] font-bold transition-all whitespace-nowrap ' + (on ? ON : (v > 0 ? 'text-orange-700 dark:text-orange-300' : 'text-sky-700 dark:text-sky-300') + ' hover:bg-slate-50 dark:hover:bg-[#101a2b]')}>{fxLabel([e.k, v])}</button>;
-                }))}
-              </div>
-            </div>
+            <FxGrid fx={fx} toggleFx={toggleFx} t={t} />
           </div>
         </div>
 
@@ -1531,7 +1617,7 @@ function App() {
       )}
 
       {modal && modal.t === 'detail' && <DetailModal d={DRUG[modal.id]} lang={lang} onClose={() => setModal(null)} showOne={(id) => showSet([id])} />}
-      {modal && modal.t === 'mech' && <MechanismModal sel={sel} toggle={toggle} clear={() => setSel(new Set())} lang={lang} onClose={() => setModal(null)} />}
+      {modal && modal.t === 'mech' && <MechanismModal sel={sel} toggle={toggle} clear={() => setSel(new Set())} lang={lang} fx={fx} toggleFx={toggleFx} onClose={() => setModal(null)} />}
       {modal && modal.t === 'resist' && <ResistanceModal lang={lang} onClose={() => setModal(null)} showCombo={showSet} />}
       {modal && modal.t === 'kid' && <KidneyModal lang={lang} onClose={() => setModal(null)} open={open} st={kid} setSt={setKid} />}
       {modal && modal.t === 'inter' && <InteractionModal lang={lang} onClose={() => setModal(null)} open={open} meds={meds} setMeds={setMeds} />}

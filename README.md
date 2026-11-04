@@ -8,7 +8,7 @@ Decision support for healthcare professionals, not a substitute for the product 
 **Open it:** https://sirmarkthemighty-ctrl.github.io/Diuretics_Guide/
 
 ## What it contains
-- Doses, site of action, electrolyte effects, side effects and pearls for each drug; tile, list and table views; compare.
+- 24 drugs by international name: doses, site of action, electrolyte effects, side effects, evidence level, brands by country; tile, list and table views.
 - Mechanism: highlights the selected drugs' sites on a nephron diagram (layout redrawn from the ScienceDirect Topics "Nephron" figure).
 - Tools: Kidney check (eGFR, K⁺ and liver disease sort the drugs into avoid / caution), Interactions (pick the patient's other drugs), Compare (select 2 or more drugs) and a next-step helper in the resistance guide.
 - Kidney / liver dosing, key interactions, a loop dose conversion table and key clinical trials (checked against PubMed) in each drug's detail view; warning triangles on serious side effects.
@@ -17,5 +17,5 @@ Decision support for healthcare professionals, not a substitute for the product 
   UK, EU and JP status were checked on 2026-11-04 (emc, Spain AEMPS and EMA lists, KEGG/JAPIC); "?" means not found there or not checked.
 
 ## Source and build
-`diuretic-guide.html` is generated; edit `diuretic-src/` and run `node build-diuretic.js` (needs the build tools in
+`diuretic-guide.html` is generated; edit `diuretic-src/`, run `node build-diuretic.js`, then `node test-diuretic.js` (checks the data, filters and screening rules) (needs the build tools in
 `%LOCALAPPDATA%\med-apps-build`). Licence: CC BY-NC-SA 4.0 (see `NOTICE`).
