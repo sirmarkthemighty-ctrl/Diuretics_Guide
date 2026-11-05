@@ -50,7 +50,7 @@ test('every drug has kidney/liver text, a screen rule and a status entry', () =>
   assert.ok(T.REG[d.id] && T.REG[d.id].us, d.id + ' REG');
 }));
 test('status values and countries are valid', () => Object.entries(T.REG).forEach(([id, r]) => Object.entries(r).forEach(([c, v]) => {
-  assert.ok(T.COUNTRIES.includes(c), id + ' country ' + c); assert.ok(['current', 'past', 'never'].includes(v), id + ' ' + c + '=' + v);
+  assert.ok(T.COUNTRIES.includes(c), id + ' country ' + c); assert.ok(['current', 'past', 'never', 'nf'].includes(v), id + ' ' + c + '=' + v);
 })));
 test('brand maps only name known drugs', () => { [T.BRANDS, ...Object.values(T.MKT)].forEach(m => Object.keys(m).forEach(k => assert.ok(ids.includes(k), 'unknown drug ' + k))); });
 test('a current-status country has a brand or is flagged N/A in the data', () => assert.ok(Object.keys(T.MKT).length === 4));
@@ -89,7 +89,7 @@ test('country filters', () => {
   assert.strictEqual(count(d => T.REG[d.id].uk === 'current'), 16, 'UK');
   assert.strictEqual(count(d => T.REG[d.id].eu === 'current'), 20, 'EU');
   assert.strictEqual(count(d => T.REG[d.id].jp === 'current'), 16, 'JP');
-  assert.strictEqual(T.REG.bumetanide.th, 'past'); assert.strictEqual(T.REG.ethacrynic.th, 'never'); assert.strictEqual(count(d => T.REG[d.id].th === 'current'), 10, 'TH current'); assert.strictEqual(T.REG.bumetanide.jp, 'past'); assert.strictEqual(T.REG.triamterene.jp, 'current'); assert.strictEqual(T.REG.chlorothiazide.jp, 'never');
+  assert.strictEqual(T.REG.bumetanide.th, 'past'); assert.strictEqual(T.REG.ethacrynic.th, 'never'); assert.strictEqual(count(d => T.REG[d.id].th === 'current'), 10, 'TH current'); assert.strictEqual(T.REG.bumetanide.jp, 'past'); assert.strictEqual(T.REG.triamterene.jp, 'current'); assert.strictEqual(T.REG.chlorothiazide.jp, 'nf'); assert.strictEqual(T.REG.chlorothiazide.th, 'never');
   assert.strictEqual(T.REG.triamterene.uk, 'past');
 });
 test('electrolyte filter and its link to the mechanism diagram', () => {
