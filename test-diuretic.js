@@ -14,7 +14,7 @@ const Babel = require(path.join(TOOLS, 'node_modules', '@babel', 'standalone'));
 
 const src = fs.readFileSync(path.join(ROOT, 'diuretic-src', 'app.jsx'), 'utf8');
 let code = Babel.transform(src, { presets: ['react'], filename: 'app.jsx' }).code;
-code += `\n;globalThis.__T = { DRUGS, DRUG, SE, SCREEN, RENAL, TR, TRIALS_OF, EV, EV_TXT, REFS, REF_GROUPS, REG, REG_X, MKT, BRANDS, NLEM, TXT, CHANGELOG, DDI, DDI_X, CO_MEDS, CO_GROUPS, CLS, COUNTRIES, ELECTROLYTES, SEGS, ddiOf, screenOf, evOf, fxMatch, summaryText, VERSION };`;
+code += `\n;globalThis.__T = { DRUGS, DRUG, SE, SCREEN, RENAL, TR, TRIALS_OF, EV, EV_TXT, REFS, REF_GROUPS, REG, REG_X, MKT, BRANDS, NLEM, TXT, CHANGELOG, DDI, DDI_X, CO_MEDS, CO_GROUPS, CLS, COUNTRIES, ELECTROLYTES, SEGS, ddiOf, routeOf, screenOf, evOf, fxMatch, summaryText, VERSION };`;
 const noop = () => null;
 const React = { createElement: noop, useState: (v) => [typeof v === 'function' ? v() : v, noop], useMemo: (f) => f(), useEffect: noop, useRef: () => ({ current: null }) };
 const ctx = {
@@ -85,6 +85,11 @@ test('every co-medication is in exactly one group', () => {
   const ks = T.CO_GROUPS.flatMap(g => g.ks).sort(); assert.strictEqual(JSON.stringify(ks), JSON.stringify(T.CO_MEDS.map(m => m.k).sort()));
   T.CO_GROUPS.forEach(g => assert.ok(isPair(g.n), 'group name'));
 });
+
+test('every dose line names a route or is a resistance line', () => T.DRUGS.forEach(d => d.dose.forEach(x => {
+  assert.ok(T.routeOf(x[0]).length > 0 || /^Resist/.test(x[0]), d.id + ' dose label ' + x[0]);
+})));
+test('route icons: PO/IV gives both, IV gives one', () => { assert.strictEqual(T.routeOf('PO/IV').join(), 'PO,IV'); assert.strictEqual(T.routeOf('IV').join(), 'IV'); assert.strictEqual(T.routeOf('Resistance').length, 0); });
 
 // Filters: same rules as the app (country status, electrolyte direction)
 const count = (f) => T.DRUGS.filter(f).length;
