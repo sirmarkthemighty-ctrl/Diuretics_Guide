@@ -14,7 +14,7 @@ const Babel = require(path.join(TOOLS, 'node_modules', '@babel', 'standalone'));
 
 const src = fs.readFileSync(path.join(ROOT, 'diuretic-src', 'app.jsx'), 'utf8');
 let code = Babel.transform(src, { presets: ['react'], filename: 'app.jsx' }).code;
-code += `\n;globalThis.__T = { DRUGS, DRUG, SE, SCREEN, RENAL, TR, TRIALS_OF, EV, EV_TXT, REFS, REF_GROUPS, REG, REG_X, MKT, BRANDS, NLEM, TXT, CHANGELOG, DDI, DDI_X, CO_MEDS, CLS, COUNTRIES, ELECTROLYTES, SEGS, ddiOf, screenOf, evOf, fxMatch, summaryText, VERSION };`;
+code += `\n;globalThis.__T = { DRUGS, DRUG, SE, SCREEN, RENAL, TR, TRIALS_OF, EV, EV_TXT, REFS, REF_GROUPS, REG, REG_X, MKT, BRANDS, NLEM, TXT, CHANGELOG, DDI, DDI_X, CO_MEDS, CO_GROUPS, CLS, COUNTRIES, ELECTROLYTES, SEGS, ddiOf, screenOf, evOf, fxMatch, summaryText, VERSION };`;
 const noop = () => null;
 const React = { createElement: noop, useState: (v) => [typeof v === 'function' ? v() : v, noop], useMemo: (f) => f(), useEffect: noop, useRef: () => ({ current: null }) };
 const ctx = {
@@ -79,6 +79,11 @@ test('interaction data points at real drugs or classes, with both languages', ()
   const targets = new Set([...ids, ...Object.keys(T.CLS)]);
   T.CO_MEDS.forEach(m => { assert.ok(isPair(m.n), m.k); m.hits.forEach(h => { assert.ok(targets.has(h[0]), m.k + ' -> ' + h[0]); assert.ok([1, 2].includes(h[1]) && isText(h[2]) && isText(h[3]), m.k); }); });
   Object.values(T.DDI).flat().forEach(p => assert.ok(isPair(p))); Object.values(T.DDI_X).flat().forEach(p => assert.ok(isPair(p)));
+});
+
+test('every co-medication is in exactly one group', () => {
+  const ks = T.CO_GROUPS.flatMap(g => g.ks).sort(); assert.strictEqual(JSON.stringify(ks), JSON.stringify(T.CO_MEDS.map(m => m.k).sort()));
+  T.CO_GROUPS.forEach(g => assert.ok(isPair(g.n), 'group name'));
 });
 
 // Filters: same rules as the app (country status, electrolyte direction)
