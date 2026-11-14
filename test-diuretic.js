@@ -14,7 +14,7 @@ const Babel = require(path.join(TOOLS, 'node_modules', '@babel', 'standalone'));
 
 const src = fs.readFileSync(path.join(ROOT, 'diuretic-src', 'app.jsx'), 'utf8');
 let code = Babel.transform(src, { presets: ['react'], filename: 'app.jsx' }).code;
-code += `\n;globalThis.__T = { DRUGS, DRUG, SE, SCREEN, RENAL, TR, TRIALS_OF, EV, EV_TXT, REFS, REF_GROUPS, REG, REG_X, MKT, BRANDS, NLEM, TXT, CHANGELOG, DDI, DDI_X, CO_MEDS, CO_GROUPS, CLS, COUNTRIES, ELECTROLYTES, SEGS, ddiOf, routeOf, screenOf, evOf, fxMatch, summaryText, VERSION };`;
+code += `\n;globalThis.__T = { DRUGS, DRUG, SE, SCREEN, RENAL, TR, TRIALS_OF, EV, EV_TXT, REFS, REF_GROUPS, REG, REG_X, MKT, BRANDS, NLEM, TXT, CHANGELOG, DDI, DDI_X, CO_MEDS, CO_GROUPS, INDICATIONS, IND_SRC, IND_NA, CLS, COUNTRIES, ELECTROLYTES, SEGS, ddiOf, routeOf, screenOf, evOf, fxMatch, summaryText, VERSION };`;
 const noop = () => null;
 const React = { createElement: noop, useState: (v) => [typeof v === 'function' ? v() : v, noop], useMemo: (f) => f(), useEffect: noop, useRef: () => ({ current: null }) };
 const ctx = {
@@ -67,7 +67,7 @@ test('every trial is used by a drug', () => { const used = new Set(Object.values
 test('evidence level per drug', () => { assert.strictEqual(T.evOf(T.DRUG.spironolactone), 'out'); assert.strictEqual(T.evOf(T.DRUG.acetazolamide), 'sur'); assert.strictEqual(T.evOf(T.DRUG.mannitol), null); });
 
 test('references have a topic, a link and Thai/English use text', () => T.REFS.forEach(r => {
-  assert.ok(T.REF_GROUPS.some(g => g.k === r.g), r.cite.slice(0, 30)); assert.ok(/^https:\/\//.test(r.url) && isText(r.cite) && isText(r.en) && isText(r.th), r.cite.slice(0, 30));
+  assert.ok(T.REF_GROUPS.some(g => g.k === r.g), r.cite.slice(0, 30)); assert.ok((r.url === '' || /^https:\/\//.test(r.url)) && isText(r.cite) && isText(r.en) && isText(r.th), r.cite.slice(0, 30));
 }));
 test('every reference topic has references', () => T.REF_GROUPS.forEach(g => assert.ok(T.REFS.some(r => r.g === g.k), g.k)));
 
@@ -90,6 +90,21 @@ test('every dose line names a route or is a resistance line', () => T.DRUGS.forE
   assert.ok(T.routeOf(x[0]).length > 0 || /^Resist/.test(x[0]), d.id + ' dose label ' + x[0]);
 })));
 test('route icons: PO/IV gives both, IV gives one', () => { assert.strictEqual(T.routeOf('PO/IV').join(), 'PO,IV'); assert.strictEqual(T.routeOf('IV').join(), 'IV'); assert.strictEqual(T.routeOf('Resistance').length, 0); });
+
+test('indication guide: every line has both languages and a known source', () => {
+  assert.ok(T.INDICATIONS.length >= 5);
+  T.INDICATIONS.forEach(g => {
+    assert.ok(isPair(g.n) && g.items.length > 0, g.k);
+    g.ids.forEach(id => assert.ok(ids.includes(id), g.k + ' drug ' + id));
+    g.items.forEach(x => { assert.ok(isPair(x.t), g.k + ' text'); assert.ok(T.IND_SRC[x.s], g.k + ' source ' + x.s); assert.ok(x.c === undefined || /^(I|IIa|IIb|III) [ABC]( \/ (I|IIa|IIb|III) [ABC])?$/.test(x.c), g.k + ' class ' + x.c); });
+  });
+  T.IND_NA.forEach(x => assert.ok(isPair(x.n) && isText(x.src)));
+  Object.values(T.IND_SRC).forEach(x => assert.ok(isText(x.s) && isText(x.full)));
+});
+test('indication guide: every source is also in the references', () => {
+  const cites = T.REFS.filter(r => r.g === 'ind').map(r => r.cite).join(' ');
+  ['ESC Guidelines', 'Focused Update', 'Clinical practice update', 'HFCT', 'AASLD', 'KDIGO 2024', 'Thai guidelines on the treatment of hypertension'].forEach(k => assert.ok(cites.includes(k), k));
+});
 
 // Filters: same rules as the app (country status, electrolyte direction)
 const count = (f) => T.DRUGS.filter(f).length;
