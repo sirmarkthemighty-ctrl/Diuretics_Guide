@@ -28,8 +28,8 @@ const LadderIcon = mk(<path d="M8 3v18M16 3v18M8 8h8M8 13h8M8 18h8" />);
 const VERSION = 'v1.2.0';
 const CHANGELOG = [
   { v: 'v1.2.0', date: '2026-11-04',
-    en: ['First release: 24 diuretics (18 core plus 6 sold in the UK, EU or Japan) with doses, electrolyte effects and side effects.', 'Tile, list and table views.', 'Mechanism button: highlights where selected drugs act on the nephron.', 'Diuretic resistance: sequential nephron blockade guide.', 'References grouped by topic (Thai lists, country registration, labels, heart failure, hypertension and kidney, pharmacology).', 'The “Never” status is renamed “Not found”: it means no registration was found in that register, not proof that the drug was never registered. UK cancellation history checked in NHS dm+d (Dytac discontinued; chlorothiazide and canrenoate only unlicensed supplies; Edecrin withdrawn in Ireland 1998). UK rechecked on the MHRA register: xipamide (Diurexan) is licensed; Italy AIFA confirms canrenoate (Kanrenol). Thailand status checked against the Thai FDA drug register: five drugs are past (all registrations cancelled) and eight have no registration found. UK/EU rechecked (emc, Spain CIMA, German product information): xipamide confirmed in Germany; the other gaps stay “?” with the check noted. Japan status rechecked on PMDA: triamterene is current (Triteren), bumetanide is past, five drugs have no PMDA entry; new trials for bumetanide, triamterene, xipamide and canrenoate.', 'New Check interactions button in each drug’s detail view: it opens the Interactions screen for that drug, listing the medicines flagged for it (Avoid first) that you tap to add. Interactions screen: medicines grouped with a search box, a selected row with Clear all, a count of Avoid / Caution / None listed, results split by severity, and the no-interaction list folded; larger tap targets on phones. Filters are remembered between visits; Copy summary button in each drug’s detail view; disclaimer now covers the new tools.', 'Four more PubMed trials (azosemide, ethacrynic acid, torasemide vs azosemide, esaxerenone vs trichlormethiazide); UK status of triamterene is now “past” (Dytac discontinued).', 'Thai drug names removed (drugs are shown by their international names). Evidence level: each trial is tagged by design, endpoint and result, and each card shows the best trial evidence. The Mechanism diagram now shares the electrolyte filter: pick K⁺↓ (or any effect) and the sites of every matching drug light up.', 'New tools: Kidney check (eGFR, K⁺ and liver sort the drugs into avoid / caution / no restriction), Interactions (pick the patient’s other drugs), Compare (select 2 or more drugs), and a next-step helper in the resistance guide.', 'Thai brands checked in MIMS for every drug (dapagliflozin has three; the six added drugs have none); two more PubMed trials (DAPA-RESIST, chlorthalidone / HCTZ / amiloride).', 'Market (brand) names on every card, in a Brands column and by country in the detail view; search also finds brand names.', 'Electrolyte filter in two rows (increased on top, decreased below, same electrolyte stacked): pick several electrolytes, one direction each; the other arrow switches it.', 'Warning triangle on serious side effects (hyperkalemia, ototoxicity, liver injury, ODS, DKA, blood-count drops, AKI, pulmonary edema) on cards, table and detail view; filters open with FDA status “Current” selected by default.', 'Key clinical trials in each drug’s detail view, summarised from the PubMed abstracts with PubMed and DOI links (drugs with no landmark outcome trial say so).', 'References section at the bottom of the page (collapsible, as in the bronchodilator guide).', 'Mechanism diagram redrawn on the ScienceDirect Topics nephron layout (glomerulus, macula densa, cortex / medulla, osmolality gradient, water / salt / urea flow, ADH and aldosterone), with the source listed.', 'Kidney / liver dosing and key interactions on every drug (from labels and guidelines), and a loop dose conversion table.', 'Thai NLEM 2569 chip checked against the official list (5 Basic drugs, the rest Non-NLEM) and TH / US / UK / EU / JP availability filter (all five checked 2026-11-04: UK on emc, EU on Spain AEMPS, EMA lists and national sources, JP on KEGG / JAPIC). FDA status per country (current / past † / not found ⊘) with a filter; US checked against openFDA. Doses and Thai brands checked against MIMS Thailand.'],
-    th: ['เปิดตัวครั้งแรก: ยาขับปัสสาวะ 24 ชนิด (หลัก 18 ชนิด และอีก 6 ชนิดที่มีใน UK, EU หรือญี่ปุ่น) พร้อมขนาดยา ผลต่ออิเล็กโทรไลต์ และผลข้างเคียง', 'มุมมองการ์ด รายการ และตาราง', 'ปุ่มกลไก: แสดงตำแหน่งที่ยาที่เลือกออกฤทธิ์บนเนฟรอน', 'ภาวะดื้อยาขับปัสสาวะ: แนวทางการปิดกั้นเนฟรอนตามลำดับ', 'เอกสารอ้างอิงจัดกลุ่มตามหัวข้อ (บัญชียาไทย การขึ้นทะเบียนรายประเทศ ฉลากยา หัวใจล้มเหลว ความดันและไต เภสัชวิทยา)', 'สถานะ “ไม่เคยมี” เปลี่ยนชื่อเป็น “ไม่พบ” หมายถึงไม่พบทะเบียนในแหล่งนั้น ไม่ใช่หลักฐานว่าไม่เคยขึ้นทะเบียน ตรวจประวัติเลิกจำหน่ายใน UK ด้วย NHS dm+d (Dytac เลิกแล้ว chlorothiazide และ canrenoate มีเฉพาะยาไม่มีทะเบียน Edecrin ถูกถอนในไอร์แลนด์ปี 2541) ตรวจ UK กับทะเบียน MHRA: xipamide (Diurexan) มีใบอนุญาต และ AIFA อิตาลียืนยัน canrenoate (Kanrenol) ตรวจสถานะไทยกับทะเบียนยาของ อย.: 5 ตัวเคยมีแต่ยกเลิกทั้งหมด และ 8 ตัวไม่พบทะเบียน ตรวจ UK/EU ซ้ำ (emc, CIMA สเปน, เอกสารกำกับยาเยอรมัน): ยืนยัน xipamide ในเยอรมนี ช่องว่างอื่นยังเป็น “?” พร้อมบันทึกการตรวจ ตรวจสถานะญี่ปุ่นซ้ำกับ PMDA: triamterene มีจำหน่าย (Triteren) bumetanide เคยมีแต่เลิกแล้ว 5 ตัวไม่พบใน PMDA และเพิ่มการศึกษาของ bumetanide, triamterene, xipamide, canrenoate', 'ปุ่มตรวจปฏิกิริยายาใหม่ในหน้ารายละเอียดของแต่ละยา: เปิดหน้าปฏิกิริยายาของยานั้น แสดงรายการยาที่ถูกระบุ (หลีกเลี่ยงก่อน) แตะเพื่อเพิ่มได้ หน้าปฏิกิริยายา: จัดกลุ่มยา มีช่องค้นหา แถวยาที่เลือกพร้อมปุ่มล้างทั้งหมด สรุปจำนวนหลีกเลี่ยง/ระวัง/ไม่มีที่ระบุ แยกผลตามความรุนแรง พับรายการที่ไม่พบปฏิกิริยา และปุ่มใหญ่ขึ้นบนมือถือ จำค่าตัวกรองไว้ระหว่างการใช้งาน ปุ่มคัดลอกสรุปในหน้ารายละเอียดของแต่ละยา และข้อจำกัดครอบคลุมเครื่องมือใหม่', 'เพิ่มการศึกษาจาก PubMed อีก 4 รายการ (azosemide, ethacrynic acid, torasemide เทียบ azosemide, esaxerenone เทียบ trichlormethiazide) สถานะ triamterene ใน UK เป็น “เคยมี” (Dytac เลิกจำหน่าย)', 'เอาชื่อยาภาษาไทยออก (แสดงชื่อสากล) ระดับหลักฐาน: แต่ละการศึกษามีป้ายรูปแบบ ตัวชี้วัด และผลหลัก และการ์ดแสดงหลักฐานที่ดีที่สุด แผนภาพกลไกใช้ตัวกรองอิเล็กโทรไลต์ร่วมกัน เลือก K⁺↓ (หรือผลอื่น) แล้วตำแหน่งออกฤทธิ์ของยาที่ตรงกันทั้งหมดจะสว่าง', 'เครื่องมือใหม่: ตรวจไต/ตับ (eGFR, K⁺ และโรคตับ แบ่งยาเป็นหลีกเลี่ยง/ระวัง/ไม่พบข้อจำกัด) ปฏิกิริยายา (เลือกยาอื่นของผู้ป่วย) เปรียบเทียบ (เลือก 2 ตัวยาขึ้นไป) และตัวช่วยเลือกขั้นถัดไปในหัวข้อดื้อยา', 'ตรวจยี่ห้อในไทยกับ MIMS ครบทุกตัวยา (dapagliflozin มี 3 ยี่ห้อ ยา 6 ตัวที่เพิ่มไม่มียี่ห้อในไทย) เพิ่มการศึกษาจาก PubMed อีก 2 รายการ (DAPA-RESIST, chlorthalidone / HCTZ / amiloride)', 'ชื่อทางการค้าในทุกการ์ด คอลัมน์ชื่อการค้าในตาราง และแยกตามประเทศในหน้ารายละเอียด ค้นหาด้วยชื่อการค้าได้', 'ตัวกรองอิเล็กโทรไลต์สองแถว (เพิ่มขึ้นแถวบน ลดลงแถวล่าง อิเล็กโทรไลต์เดียวกันซ้อนกัน) เลือกได้หลายตัว ตัวละหนึ่งทิศทาง กดลูกศรอีกด้านเพื่อสลับ', 'สัญลักษณ์เตือนรูปสามเหลี่ยมที่ผลข้างเคียงสำคัญ (โพแทสเซียมสูง พิษต่อหู ตับ ODS DKA เม็ดเลือดผิดปกติ AKI ปอดบวมน้ำ) ในการ์ด ตาราง และหน้ารายละเอียด ตัวกรองเปิดไว้และเลือกสถานะ อย. “ปัจจุบัน” เป็นค่าเริ่มต้น', 'การศึกษาทางคลินิกสำคัญในหน้ารายละเอียดของแต่ละยา (ตรวจกับบทคัดย่อใน PubMed พร้อมลิงก์ PubMed และ DOI)', 'ส่วนเอกสารอ้างอิงท้ายหน้า (พับ/เปิดได้ เหมือนแอปยาขยายหลอดลม)', 'แผนภาพกลไกวาดใหม่ตามผังเนฟรอนของ ScienceDirect Topics (โกลเมอรูลัส แมคูลาเดนซา เปลือก/ไขสันหลังไต ความเข้มข้นออสโมลาลิตี การเคลื่อนของน้ำ/เกลือ/ยูเรีย ADH และอัลโดสเตอโรน) พร้อมแหล่งอ้างอิง', 'ขนาดยาตามการทำงานของไต/ตับ และยาที่ต้องระวังเมื่อใช้ร่วมในทุกตัวยา (จากฉลากและแนวทางเวชปฏิบัติ) พร้อมตารางเทียบขนาดยาลูป', 'ป้าย NLEM 2569 ตรวจกับบัญชียาหลักฯ ฉบับจริง (หมวดพื้นฐาน 5 ชนิด ที่เหลือไม่อยู่ใน NLEM) และตัวกรองประเทศ TH / US / UK / EU / JP (ตรวจครบทั้งห้าเมื่อ 2026-11-04: UK ใน emc, EU ใน AEMPS สเปน รายการ EMA และแหล่งระดับประเทศ, JP ใน KEGG / JAPIC) สถานะ อย. รายประเทศ (ปัจจุบัน / เคยมี † / ไม่พบ ⊘) พร้อมตัวกรอง ตรวจสหรัฐฯ กับ openFDA ตรวจขนาดยาและยี่ห้อในไทยกับ MIMS Thailand'] },
+    en: ['First release: 24 diuretics (18 core plus 6 sold in the UK, EU or Japan) with doses, electrolyte effects and side effects.', 'Tile, list and table views.', 'Mechanism button: highlights where selected drugs act on the nephron.', 'Diuretic resistance: sequential nephron blockade guide.', 'References grouped by topic (Thai lists, country registration, labels, heart failure, hypertension and kidney, pharmacology).', 'The “Never” status is renamed “Not found”: it means no registration was found in that register, not proof that the drug was never registered. UK cancellation history checked in NHS dm+d (Dytac discontinued; chlorothiazide and canrenoate only unlicensed supplies; Edecrin withdrawn in Ireland 1998). UK rechecked on the MHRA register: xipamide (Diurexan) is licensed; Italy AIFA confirms canrenoate (Kanrenol). Thailand status checked against the Thai FDA drug register: five drugs are past (all registrations cancelled) and eight have no registration found. UK/EU rechecked (emc, Spain CIMA, German product information): xipamide confirmed in Germany; the other gaps stay “?” with the check noted. Japan status rechecked on PMDA: triamterene is current (Triteren), bumetanide is past, five drugs have no PMDA entry; new trials for bumetanide, triamterene, xipamide and canrenoate.', 'Drug cards: brands are a labelled text line (no second country chip), the site and evidence chips carry a label (full site name on hover), registered countries share one colour, the Compare and Details buttons have words and sit at the bottom of the card, serious and common side effects are labelled, and acetazolamide’s resistance dose sits under a divider. New Compact switch hides the site, evidence, NLEM, country and common side-effect rows. New Check interactions button in each drug’s detail view: it opens the Interactions screen for that drug, listing the medicines flagged for it (Avoid first) that you tap to add. Interactions screen: medicines grouped with a search box, a selected row with Clear all, a count of Avoid / Caution / None listed, results split by severity, and the no-interaction list folded; larger tap targets on phones. Filters are remembered between visits; Copy summary button in each drug’s detail view; disclaimer now covers the new tools.', 'Four more PubMed trials (azosemide, ethacrynic acid, torasemide vs azosemide, esaxerenone vs trichlormethiazide); UK status of triamterene is now “past” (Dytac discontinued).', 'Thai drug names removed (drugs are shown by their international names). Evidence level: each trial is tagged by design, endpoint and result, and each card shows the best trial evidence. The Mechanism diagram now shares the electrolyte filter: pick K⁺↓ (or any effect) and the sites of every matching drug light up.', 'New tools: Kidney check (eGFR, K⁺ and liver sort the drugs into avoid / caution / no restriction), Interactions (pick the patient’s other drugs), Compare (select 2 or more drugs), and a next-step helper in the resistance guide.', 'Thai brands checked in MIMS for every drug (dapagliflozin has three; the six added drugs have none); two more PubMed trials (DAPA-RESIST, chlorthalidone / HCTZ / amiloride).', 'Market (brand) names on every card, in a Brands column and by country in the detail view; search also finds brand names.', 'Electrolyte filter in two rows (increased on top, decreased below, same electrolyte stacked): pick several electrolytes, one direction each; the other arrow switches it.', 'Warning triangle on serious side effects (hyperkalemia, ototoxicity, liver injury, ODS, DKA, blood-count drops, AKI, pulmonary edema) on cards, table and detail view; filters open with FDA status “Current” selected by default.', 'Key clinical trials in each drug’s detail view, summarised from the PubMed abstracts with PubMed and DOI links (drugs with no landmark outcome trial say so).', 'References section at the bottom of the page (collapsible, as in the bronchodilator guide).', 'Mechanism diagram redrawn on the ScienceDirect Topics nephron layout (glomerulus, macula densa, cortex / medulla, osmolality gradient, water / salt / urea flow, ADH and aldosterone), with the source listed.', 'Kidney / liver dosing and key interactions on every drug (from labels and guidelines), and a loop dose conversion table.', 'Thai NLEM 2569 chip checked against the official list (5 Basic drugs, the rest Non-NLEM) and TH / US / UK / EU / JP availability filter (all five checked 2026-11-04: UK on emc, EU on Spain AEMPS, EMA lists and national sources, JP on KEGG / JAPIC). FDA status per country (current / past † / not found ⊘) with a filter; US checked against openFDA. Doses and Thai brands checked against MIMS Thailand.'],
+    th: ['เปิดตัวครั้งแรก: ยาขับปัสสาวะ 24 ชนิด (หลัก 18 ชนิด และอีก 6 ชนิดที่มีใน UK, EU หรือญี่ปุ่น) พร้อมขนาดยา ผลต่ออิเล็กโทรไลต์ และผลข้างเคียง', 'มุมมองการ์ด รายการ และตาราง', 'ปุ่มกลไก: แสดงตำแหน่งที่ยาที่เลือกออกฤทธิ์บนเนฟรอน', 'ภาวะดื้อยาขับปัสสาวะ: แนวทางการปิดกั้นเนฟรอนตามลำดับ', 'เอกสารอ้างอิงจัดกลุ่มตามหัวข้อ (บัญชียาไทย การขึ้นทะเบียนรายประเทศ ฉลากยา หัวใจล้มเหลว ความดันและไต เภสัชวิทยา)', 'สถานะ “ไม่เคยมี” เปลี่ยนชื่อเป็น “ไม่พบ” หมายถึงไม่พบทะเบียนในแหล่งนั้น ไม่ใช่หลักฐานว่าไม่เคยขึ้นทะเบียน ตรวจประวัติเลิกจำหน่ายใน UK ด้วย NHS dm+d (Dytac เลิกแล้ว chlorothiazide และ canrenoate มีเฉพาะยาไม่มีทะเบียน Edecrin ถูกถอนในไอร์แลนด์ปี 2541) ตรวจ UK กับทะเบียน MHRA: xipamide (Diurexan) มีใบอนุญาต และ AIFA อิตาลียืนยัน canrenoate (Kanrenol) ตรวจสถานะไทยกับทะเบียนยาของ อย.: 5 ตัวเคยมีแต่ยกเลิกทั้งหมด และ 8 ตัวไม่พบทะเบียน ตรวจ UK/EU ซ้ำ (emc, CIMA สเปน, เอกสารกำกับยาเยอรมัน): ยืนยัน xipamide ในเยอรมนี ช่องว่างอื่นยังเป็น “?” พร้อมบันทึกการตรวจ ตรวจสถานะญี่ปุ่นซ้ำกับ PMDA: triamterene มีจำหน่าย (Triteren) bumetanide เคยมีแต่เลิกแล้ว 5 ตัวไม่พบใน PMDA และเพิ่มการศึกษาของ bumetanide, triamterene, xipamide, canrenoate', 'การ์ดยา: ยี่ห้อเป็นข้อความมีป้ายกำกับ (ไม่มีชิปประเทศซ้ำ) ชิปตำแหน่งและหลักฐานมีป้ายกำกับ (ชื่อเต็มเมื่อชี้) ประเทศที่ขึ้นทะเบียนใช้สีเดียวกัน ปุ่มเปรียบเทียบและรายละเอียดมีข้อความและอยู่ท้ายการ์ด ผลข้างเคียงที่สำคัญและที่พบบ่อยมีป้ายกำกับ และขนาดยากรณีดื้อยาของ acetazolamide อยู่ใต้เส้นแบ่ง สวิตช์แบบย่อใหม่ซ่อนแถวตำแหน่ง หลักฐาน NLEM ประเทศ และผลข้างเคียงที่พบบ่อย ปุ่มตรวจปฏิกิริยายาใหม่ในหน้ารายละเอียดของแต่ละยา: เปิดหน้าปฏิกิริยายาของยานั้น แสดงรายการยาที่ถูกระบุ (หลีกเลี่ยงก่อน) แตะเพื่อเพิ่มได้ หน้าปฏิกิริยายา: จัดกลุ่มยา มีช่องค้นหา แถวยาที่เลือกพร้อมปุ่มล้างทั้งหมด สรุปจำนวนหลีกเลี่ยง/ระวัง/ไม่มีที่ระบุ แยกผลตามความรุนแรง พับรายการที่ไม่พบปฏิกิริยา และปุ่มใหญ่ขึ้นบนมือถือ จำค่าตัวกรองไว้ระหว่างการใช้งาน ปุ่มคัดลอกสรุปในหน้ารายละเอียดของแต่ละยา และข้อจำกัดครอบคลุมเครื่องมือใหม่', 'เพิ่มการศึกษาจาก PubMed อีก 4 รายการ (azosemide, ethacrynic acid, torasemide เทียบ azosemide, esaxerenone เทียบ trichlormethiazide) สถานะ triamterene ใน UK เป็น “เคยมี” (Dytac เลิกจำหน่าย)', 'เอาชื่อยาภาษาไทยออก (แสดงชื่อสากล) ระดับหลักฐาน: แต่ละการศึกษามีป้ายรูปแบบ ตัวชี้วัด และผลหลัก และการ์ดแสดงหลักฐานที่ดีที่สุด แผนภาพกลไกใช้ตัวกรองอิเล็กโทรไลต์ร่วมกัน เลือก K⁺↓ (หรือผลอื่น) แล้วตำแหน่งออกฤทธิ์ของยาที่ตรงกันทั้งหมดจะสว่าง', 'เครื่องมือใหม่: ตรวจไต/ตับ (eGFR, K⁺ และโรคตับ แบ่งยาเป็นหลีกเลี่ยง/ระวัง/ไม่พบข้อจำกัด) ปฏิกิริยายา (เลือกยาอื่นของผู้ป่วย) เปรียบเทียบ (เลือก 2 ตัวยาขึ้นไป) และตัวช่วยเลือกขั้นถัดไปในหัวข้อดื้อยา', 'ตรวจยี่ห้อในไทยกับ MIMS ครบทุกตัวยา (dapagliflozin มี 3 ยี่ห้อ ยา 6 ตัวที่เพิ่มไม่มียี่ห้อในไทย) เพิ่มการศึกษาจาก PubMed อีก 2 รายการ (DAPA-RESIST, chlorthalidone / HCTZ / amiloride)', 'ชื่อทางการค้าในทุกการ์ด คอลัมน์ชื่อการค้าในตาราง และแยกตามประเทศในหน้ารายละเอียด ค้นหาด้วยชื่อการค้าได้', 'ตัวกรองอิเล็กโทรไลต์สองแถว (เพิ่มขึ้นแถวบน ลดลงแถวล่าง อิเล็กโทรไลต์เดียวกันซ้อนกัน) เลือกได้หลายตัว ตัวละหนึ่งทิศทาง กดลูกศรอีกด้านเพื่อสลับ', 'สัญลักษณ์เตือนรูปสามเหลี่ยมที่ผลข้างเคียงสำคัญ (โพแทสเซียมสูง พิษต่อหู ตับ ODS DKA เม็ดเลือดผิดปกติ AKI ปอดบวมน้ำ) ในการ์ด ตาราง และหน้ารายละเอียด ตัวกรองเปิดไว้และเลือกสถานะ อย. “ปัจจุบัน” เป็นค่าเริ่มต้น', 'การศึกษาทางคลินิกสำคัญในหน้ารายละเอียดของแต่ละยา (ตรวจกับบทคัดย่อใน PubMed พร้อมลิงก์ PubMed และ DOI)', 'ส่วนเอกสารอ้างอิงท้ายหน้า (พับ/เปิดได้ เหมือนแอปยาขยายหลอดลม)', 'แผนภาพกลไกวาดใหม่ตามผังเนฟรอนของ ScienceDirect Topics (โกลเมอรูลัส แมคูลาเดนซา เปลือก/ไขสันหลังไต ความเข้มข้นออสโมลาลิตี การเคลื่อนของน้ำ/เกลือ/ยูเรีย ADH และอัลโดสเตอโรน) พร้อมแหล่งอ้างอิง', 'ขนาดยาตามการทำงานของไต/ตับ และยาที่ต้องระวังเมื่อใช้ร่วมในทุกตัวยา (จากฉลากและแนวทางเวชปฏิบัติ) พร้อมตารางเทียบขนาดยาลูป', 'ป้าย NLEM 2569 ตรวจกับบัญชียาหลักฯ ฉบับจริง (หมวดพื้นฐาน 5 ชนิด ที่เหลือไม่อยู่ใน NLEM) และตัวกรองประเทศ TH / US / UK / EU / JP (ตรวจครบทั้งห้าเมื่อ 2026-11-04: UK ใน emc, EU ใน AEMPS สเปน รายการ EMA และแหล่งระดับประเทศ, JP ใน KEGG / JAPIC) สถานะ อย. รายประเทศ (ปัจจุบัน / เคยมี † / ไม่พบ ⊘) พร้อมตัวกรอง ตรวจสหรัฐฯ กับ openFDA ตรวจขนาดยาและยี่ห้อในไทยกับ MIMS Thailand'] },
 ];
 
 // Nephron segments, in flow order
@@ -280,7 +280,7 @@ const TXT = {
   tile: ['Tile', 'การ์ด'], list: ['List', 'รายการ'], table: ['Table', 'ตาราง'],
   sort: ['Sort', 'เรียง'], byClass: ['Class', 'กลุ่มยา'], byName: ['Name', 'ชื่อยา'], bySite: ['Site', 'ตำแหน่ง'],
   showing: ['Showing', 'แสดง'], of: ['of', 'จาก'], drugs: ['drugs', 'ชนิด'], clear: ['Clear', 'ล้าง'],
-  select: ['Select', 'เลือก'], selected: ['Selected', 'เลือกแล้ว'], nsel: ['selected', 'รายการที่เลือก'],
+  select: ['Select', 'เลือก'], compareB: ['Compare', 'เปรียบเทียบ'], siteS: ['Site', 'ตำแหน่ง'], evS: ['Evidence', 'หลักฐาน'], brandsOf: ['Brands', 'ยี่ห้อ'], seSerious: ['Serious', 'สำคัญ'], seCommon: ['Common', 'ที่พบบ่อย'], compactT: ['Compact', 'แบบย่อ'], compactTitle: ['Hide the site, evidence, NLEM, country and common side-effect rows on cards', 'ซ่อนแถวตำแหน่ง หลักฐาน NLEM ประเทศ และผลข้างเคียงที่พบบ่อยบนการ์ด'], selected: ['Selected', 'เลือกแล้ว'], nsel: ['selected', 'รายการที่เลือก'],
   none: ['No drug matches these filters.', 'ไม่พบยาที่ตรงกับตัวกรอง'],
   dose: ['Dose', 'ขนาดยา'], site: ['Site of action', 'ตำแหน่งออกฤทธิ์'], target: ['Target', 'เป้าหมาย'], fena: ['Filtered Na⁺ blocked', 'Na⁺ ที่ถูกกั้น'],
   elec: ['Electrolyte effect', 'ผลต่ออิเล็กโทรไลต์'], se: ['Side effects', 'ผลข้างเคียง'], pearl: ['Clinical pearl', 'ข้อควรรู้'],
@@ -330,8 +330,9 @@ function EffChip({ k, v, bare }) {
 function ClassChip({ c, lang }) {
   return <span className={'inline-flex rounded border px-1 py-px text-[10px] font-bold whitespace-nowrap ' + CLS[c].chip}>{CLS[c].s[lang]}</span>;
 }
-function SiteChips({ d, lang }) {
-  return <>{d.sites.map(s => <span key={s} className="inline-flex rounded border px-1 py-px text-[10px] font-bold whitespace-nowrap bg-indigo-50 text-indigo-700 border-indigo-200 dark:bg-indigo-500/10 dark:text-indigo-300 dark:border-indigo-400/30">{s.toUpperCase()}</span>)}</>;
+function SiteChips({ d, lang, lbl }) {
+  const i = lang === 'th' ? 1 : 0;
+  return <>{d.sites.map((s, k) => <span key={s} title={SEG_NAME[s][lang]} className="inline-flex rounded border px-1 py-px text-[10px] font-bold whitespace-nowrap bg-indigo-50 text-indigo-700 border-indigo-200 dark:bg-indigo-500/10 dark:text-indigo-300 dark:border-indigo-400/30">{lbl && k === 0 ? TXT.siteS[i] + ': ' : ''}{s.toUpperCase()}</span>)}</>;
 }
 function NlemChip({ d, lang }) {
   const c = NLEM[d.id];
@@ -340,7 +341,7 @@ function NlemChip({ d, lang }) {
 function CountryChips({ d, lang }) {
   return <>{COUNTRIES.map(c => {
     const st = stOf(d, c);
-    const cls = st === 'current' ? CTRY[c].chip : st === 'past' ? 'border-amber-300 bg-amber-50 text-amber-800 dark:border-amber-400/30 dark:bg-amber-500/10 dark:text-amber-300' : 'border-slate-200 text-slate-400 dark:border-[#263449] dark:text-slate-500';
+    const cls = st === 'current' ? 'border-emerald-200 bg-emerald-50 text-emerald-700 dark:border-emerald-400/30 dark:bg-emerald-500/10 dark:text-emerald-300' : st === 'past' ? 'border-amber-300 bg-amber-50 text-amber-800 dark:border-amber-400/30 dark:bg-amber-500/10 dark:text-amber-300' : 'border-slate-200 text-slate-400 dark:border-[#263449] dark:text-slate-500';
     return <span key={c} title={CTRY[c].name[lang === 'th' ? 1 : 0] + ': ' + TXT['st_' + (st || 'unk')][lang === 'th' ? 1 : 0]} className={'text-[10px] font-bold rounded border px-1 py-px leading-none whitespace-nowrap ' + cls}>{c.toUpperCase()}{st === 'past' ? ' †' : st === 'never' ? ' ⊘' : st ? '' : ' ?'}</span>;
   })}</>;
 }
@@ -865,11 +866,11 @@ const TRIALS_OF = {
 };
 // Best evidence level for a drug: 'out' (a clinical-outcome RCT), 'sur' (surrogate-endpoint RCTs only) or null
 const evOf = (d) => { const l = (TRIALS_OF[d.id] || []).map(k => EV[k][1]); return l.includes('out') ? 'out' : l.length ? 'sur' : null; };
-function EvChip({ d, lang }) {
+function EvChip({ d, lang, lbl }) {
   const i = lang === 'th' ? 1 : 0;
   const e = evOf(d);
-  const lbl = { out: ['Outcome RCT', 'RCT ผลลัพธ์ทางคลินิก'], sur: ['Surrogate RCT', 'RCT ตัวชี้วัดทดแทน'] }[e] || ['No trial listed', 'ไม่มีการศึกษาในแอป'];
-  return <span title={TXT.evTitle[i]} className={'inline-flex items-center rounded border px-1.5 py-px text-[10px] font-bold ' + (e ? EV_STYLE[e] : 'border-slate-200 text-slate-400 dark:border-[#263449]')}>{lbl[i]}</span>;
+  const name = { out: ['Outcome RCT', 'RCT ผลลัพธ์ทางคลินิก'], sur: ['Surrogate RCT', 'RCT ตัวชี้วัดทดแทน'] }[e] || ['No trial listed', 'ไม่มีการศึกษาในแอป'];
+  return <span title={TXT.evTitle[i]} className={'inline-flex items-center rounded border px-1.5 py-px text-[10px] font-bold ' + (e ? EV_STYLE[e] : 'border-slate-200 text-slate-400 dark:border-[#263449]')}>{lbl ? TXT.evS[i] + ': ' : ''}{name[i]}</span>;
 }
 function Trials({ d, lang }) {
   const i = lang === 'th' ? 1 : 0;
@@ -1392,31 +1393,41 @@ function CardButtons({ d, on, toggle, open, lang }) {
   );
 }
 
-function BrandLine({ d }) {
+function BrandLine({ d, lang }) {
   const m = marketLine(d);
   if (!m) return null;
-  return <div className="mt-1 flex items-start gap-1.5 text-[11px]"><span className={'shrink-0 rounded border px-1 text-[10px] font-bold ' + CTRY[m.c].chip}>{m.c.toUpperCase()}</span><span className="font-semibold min-w-0">{shortBrands(m.b)}</span></div>;
+  const i = lang === 'th' ? 1 : 0;
+  return <div className="mt-1 text-[11px] leading-snug"><span className={MUTED}>{TXT.brandsOf[i]} ({m.c.toUpperCase()}):</span> <span className="font-semibold">{shortBrands(m.b)}</span></div>;
 }
 
-function Tile({ d, lang, on, toggle, open }) {
+function Tile({ d, lang, on, toggle, open, compact }) {
+  const i = lang === 'th' ? 1 : 0;
+  const serious = d.se.filter(x => CAUTION.has(x));
+  const common = d.se.filter(x => !CAUTION.has(x)).slice(0, 3);
+  const act = 'inline-flex items-center gap-1.5 h-8 px-2.5 rounded-lg border text-[11px] font-bold transition-colors ';
   return (
-    <div onClick={open} className={'rounded-xl md:rounded-2xl border shadow-sm p-3.5 md:p-5 cursor-pointer hover:shadow-md transition flex gap-3 ' + SURF + (on ? ' ring-2 ring-indigo-500' : '')}>
-      <div className="min-w-0 flex-1">
-        <div className="flex flex-wrap items-center gap-1.5">
-          <h3 className={'text-lg font-extrabold leading-tight ' + CLS[d.cls].txt}>{d.name}</h3>
-          <ClassChip c={d.cls} lang={lang} />
-        </div>
-        <BrandLine d={d} />
-        <div className="flex flex-wrap gap-1 mt-1.5"><SiteChips d={d} lang={lang} /><NlemChip d={d} lang={lang} /><EvChip d={d} lang={lang} /></div>
-        <div className="mt-1.5 flex flex-wrap gap-1"><CountryChips d={d} lang={lang} /></div>
-        <div className={'mt-2.5 rounded-lg border p-2 text-[12px] space-y-0.5 ' + INSET}>
-          {d.dose.map((x, k) => <div key={k}><b>{x[0]}</b> {x[1]}</div>)}
-        </div>
-        <div className="mt-2"><Effects d={d} /></div>
-        <div className="mt-2"><Cautions d={d} lang={lang} /></div>
-        <div className={'mt-1.5 text-[11px] ' + MUTED}>{d.se.filter(x => !CAUTION.has(x)).slice(0, 3).map(x => SE[x][lang === 'th' ? 1 : 0]).join(' · ')}</div>
+    <div onClick={open} className={'rounded-xl md:rounded-2xl border shadow-sm p-3.5 md:p-5 cursor-pointer hover:shadow-md transition flex flex-col ' + SURF + (on ? ' ring-2 ring-indigo-500' : '')}>
+      <div className="flex flex-wrap items-center gap-1.5">
+        <h3 className={'text-lg font-extrabold leading-tight ' + CLS[d.cls].txt}>{d.name}</h3>
+        <ClassChip c={d.cls} lang={lang} />
       </div>
-      <CardButtons d={d} on={on} toggle={toggle} open={open} lang={lang} />
+      {!compact && <BrandLine d={d} lang={lang} />}
+      {!compact && <div className="flex flex-wrap gap-1 mt-1.5"><SiteChips d={d} lang={lang} lbl /><NlemChip d={d} lang={lang} /><EvChip d={d} lang={lang} lbl /></div>}
+      {!compact && <div className="mt-1.5 flex flex-wrap gap-1"><CountryChips d={d} lang={lang} /></div>}
+      <div className={'mt-2.5 rounded-lg border p-2 text-[12px] space-y-0.5 ' + INSET}>
+        {d.dose.map((x, k) => /^Resist/.test(x[0])
+          ? <div key={k} className="mt-1 pt-1 border-t border-dashed border-slate-300 dark:border-slate-600"><span className={'font-bold ' + MUTED}>{x[0]}</span> {x[1]}</div>
+          : <div key={k}><b>{x[0]}</b> {x[1]}</div>)}
+      </div>
+      <div className="mt-2"><Effects d={d} /></div>
+      {serious.length > 0 && <div className="mt-2 flex flex-wrap items-start gap-1.5"><span className={'text-[10px] font-bold pt-0.5 ' + MUTED}>{TXT.seSerious[i]}:</span><Cautions d={d} lang={lang} /></div>}
+      {!compact && common.length > 0 && <div className={'mt-1.5 text-[11px] ' + MUTED}><b>{TXT.seCommon[i]}:</b> {common.map(x => SE[x][i]).join(' · ')}</div>}
+      <div className="mt-3 flex items-center gap-2">
+        <button type="button" onClick={(e) => { e.stopPropagation(); toggle(); }} aria-pressed={on}
+          className={act + (on ? 'bg-indigo-600 border-indigo-600 text-white' : BTN_OFF)}><CompareIcon className="w-4 h-4" />{on ? TXT.selected[i] : TXT.compareB[i]}</button>
+        <button type="button" onClick={(e) => { e.stopPropagation(); open(); }}
+          className={act + 'bg-indigo-50 dark:bg-indigo-500/10 border-indigo-200 dark:border-indigo-400/30 text-indigo-600 dark:text-indigo-300 hover:bg-indigo-100'}><InfoIcon className="w-4 h-4" />{TXT.details[i]}</button>
+      </div>
     </div>
   );
 }
@@ -1427,8 +1438,8 @@ function Row({ d, lang, on, toggle, open }) {
       <div className="min-w-0 flex-1 sm:flex sm:items-center sm:gap-3">
         <div className="sm:w-56 shrink-0">
           <div className="flex flex-wrap items-center gap-1.5"><span className={'font-extrabold ' + CLS[d.cls].txt}>{d.name}</span><ClassChip c={d.cls} lang={lang} /></div>
-          <BrandLine d={d} />
-          <div className="flex flex-wrap gap-1 mt-0.5"><SiteChips d={d} lang={lang} /><NlemChip d={d} lang={lang} /><EvChip d={d} lang={lang} /></div>
+          <BrandLine d={d} lang={lang} />
+          <div className="flex flex-wrap gap-1 mt-0.5"><SiteChips d={d} lang={lang} lbl /><NlemChip d={d} lang={lang} /><EvChip d={d} lang={lang} lbl /></div>
         </div>
         <div className="flex-1 min-w-0 text-[12px] mt-1.5 sm:mt-0">{doseLine(d)}<div className="flex flex-wrap gap-1 mt-1"><CountryChips d={d} lang={lang} /></div></div>
         <div className="sm:w-52 mt-1.5 sm:mt-0"><Effects d={d} /><div className="mt-1"><Cautions d={d} lang={lang} /></div></div>
@@ -1453,7 +1464,7 @@ function TableView({ rows, lang, sel, toggle, open }) {
             <td className={'px-2 py-2 font-extrabold sticky left-0 z-10 whitespace-nowrap ' + SURF + ' ' + CLS[d.cls].txt}>{d.name}</td>
             <td className="px-2 py-2"><ClassChip c={d.cls} lang={lang} /></td>
             <td className="px-2 py-2"><div className="flex gap-1"><SiteChips d={d} lang={lang} /></div></td>
-            <td className="px-2 py-2 min-w-[120px]"><BrandLine d={d} /></td>
+            <td className="px-2 py-2 min-w-[120px]"><BrandLine d={d} lang={lang} /></td>
             <td className="px-2 py-2">{d.dose.map((x, k) => <div key={k}><b>{x[0]}</b> {x[1]}</div>)}</td>
             {ELECTROLYTES.map(e => <td key={e.k} className="px-2 py-2"><EffChip k={e.k} v={String(d.fx[e.k])} /></td>)}
             <td className="px-2 py-2"><div className="flex flex-wrap gap-x-2 gap-y-0.5">{d.se.map(x => CAUTION.has(x) ? <span key={x} title={TXT.caution[i]} className="inline-flex items-center gap-0.5 font-bold text-amber-700 dark:text-amber-300"><WarnIcon className="w-3 h-3 shrink-0" />{SE[x][i]}</span> : <span key={x}>{SE[x][i]}</span>)}</div></td>
@@ -1499,6 +1510,7 @@ function App() {
   const [lang, setLang] = useState(() => store.get('dg-lang', 'en'));
   const [dark, setDark] = useState(() => document.documentElement.classList.contains('dark'));
   const [view, setView] = useState(() => store.get('dg-view', 'tile'));
+  const [compact, setCompact] = useState(() => store.get('dg-compact', '0') === '1');
   const [q, setQ] = useState('');
   const [searchOpen, setSearchOpen] = useState(false);
   const [classes, setClasses] = useState(() => savedList('classes', CLS_ORDER, []));
@@ -1520,6 +1532,7 @@ function App() {
   useEffect(() => { document.documentElement.classList.toggle('dark', dark); store.set('dg-theme', dark ? 'dark' : 'light'); }, [dark]);
   useEffect(() => { store.set('dg-lang', lang); document.documentElement.lang = lang; document.title = t('title'); }, [lang]);
   useEffect(() => { store.set('dg-view', view); }, [view]);
+  useEffect(() => { store.set('dg-compact', compact ? '1' : '0'); }, [compact]);
   useEffect(() => { store.set('dg-filters', JSON.stringify({ classes, fx, ctry, st: stSel, nlem: nlemOnly, sort })); }, [classes, fx, ctry, stSel, nlemOnly, sort]);
   useEffect(() => {
     const el = barRef.current; if (!el) return;
@@ -1691,10 +1704,14 @@ function App() {
             <div className={'text-[11px] md:text-xs min-w-0 pt-0.5 ' + MUTED} aria-live="polite">
               {t('showing')} <span className="font-bold text-slate-800 dark:text-slate-100 tabular-nums">{rows.length}</span> {t('of')} <span className="font-bold text-slate-800 dark:text-slate-100 tabular-nums">{DRUGS.length}</span> {t('drugs')} <span className="text-slate-400">({DRUGS.length} {t('inDb')})</span>
             </div>
+            <div className="shrink-0 flex items-center gap-1.5">
+            {view === 'tile' && <button type="button" onClick={() => setCompact(v => !v)} aria-pressed={compact} title={t('compactTitle')}
+              className={'inline-flex items-center h-6 md:h-7 px-2 rounded-md border shadow-sm text-[11px] font-bold whitespace-nowrap transition-colors ' + (compact ? BTN_ON : BTN_OFF)}>{t('compactT')}</button>}
             <button type="button" onClick={() => setModal({ t: 'key' })} title={t('keyTitle')} aria-haspopup="dialog"
               className={'shrink-0 inline-flex items-center gap-1 h-6 md:h-7 px-2 rounded-md border shadow-sm text-[11px] font-bold whitespace-nowrap transition-colors ' + BTN_OFF}>
               <HelpIcon className="w-3 h-3" />{t('key')}
             </button>
+            </div>
           </div>
         </div>
 
@@ -1706,7 +1723,7 @@ function App() {
               <button type="button" onClick={clearAll} className="mt-2 text-blue-600 dark:text-blue-300 hover:underline text-sm md:text-base">{t('clear')}</button>
             </div>
           )}
-          {view === 'tile' && <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-3">{rows.map(d => <Tile key={d.id} d={d} lang={lang} on={sel.has(d.id)} toggle={() => toggle(d.id)} open={() => open(d.id)} />)}</div>}
+          {view === 'tile' && <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-3">{rows.map(d => <Tile key={d.id} d={d} lang={lang} compact={compact} on={sel.has(d.id)} toggle={() => toggle(d.id)} open={() => open(d.id)} />)}</div>}
           {view === 'list' && <div className="space-y-2">{rows.map(d => <Row key={d.id} d={d} lang={lang} on={sel.has(d.id)} toggle={() => toggle(d.id)} open={() => open(d.id)} />)}</div>}
           {view === 'table' && rows.length > 0 && <TableView rows={rows} lang={lang} sel={sel} toggle={toggle} open={open} />}
           <ReferencesSection lang={lang} />
