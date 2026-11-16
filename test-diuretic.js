@@ -124,6 +124,11 @@ test('indication guide: every source is also in the references', () => {
   ['ESC Guidelines', 'Focused Update', 'Clinical practice update', 'HFCT', 'AASLD', 'KDIGO 2024', 'Thai guidelines on the treatment of hypertension', 'elevated blood pressure', 'European Society of Hypertension', 'Glomerular Diseases', 'hyponatraemia', 'Glaucoma', 'Yellow Book', 'intracranial pressure', 'Severe Traumatic Brain Injury', 'Cerebral Edema', 'Acute Altitude Illness', '2023 ESH Guidelines', 'Intracerebral Hemorrhage', 'Preferred Practice Pattern', 'expert panel recommendations'].forEach(k => assert.ok(cites.includes(k), k));
 });
 
+test('donate button is installed and placed in the header', () => {
+  assert.ok(src.includes("<DonateButton isTh={lang === 'th'} />"), 'button in the header'); assert.ok(src.includes('data-donate-btn') && src.includes('data-donate-qr'), 'block installed');
+  assert.strictEqual(src.split('// <donate>').length - 1, 1, 'one donate block');
+});
+
 // Filters: same rules as the app (country status, electrolyte direction)
 const count = (f) => T.DRUGS.filter(f).length;
 test('country filters', () => {
