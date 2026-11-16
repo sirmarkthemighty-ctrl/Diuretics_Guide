@@ -92,18 +92,20 @@ test('every dose line names a route or is a resistance line', () => T.DRUGS.forE
 test('route icons: PO/IV gives both, IV gives one', () => { assert.strictEqual(T.routeOf('PO/IV').join(), 'PO,IV'); assert.strictEqual(T.routeOf('IV').join(), 'IV'); assert.strictEqual(T.routeOf('Resistance').length, 0); });
 
 test('indication guide: every line has both languages and a known source', () => {
-  assert.ok(T.INDICATIONS.length >= 5);
+  assert.ok(T.INDICATIONS.length >= 10);
+  const srcUsed = new Set(T.INDICATIONS.flatMap(g => g.items.map(x => x.s)));
+  Object.keys(T.IND_SRC).forEach(k => assert.ok(srcUsed.has(k), 'unused source ' + k));
   T.INDICATIONS.forEach(g => {
     assert.ok(isPair(g.n) && g.items.length > 0, g.k);
     g.ids.forEach(id => assert.ok(ids.includes(id), g.k + ' drug ' + id));
-    g.items.forEach(x => { assert.ok(isPair(x.t), g.k + ' text'); assert.ok(T.IND_SRC[x.s], g.k + ' source ' + x.s); assert.ok(x.c === undefined || /^(I|IIa|IIb|III) [ABC]( \/ (I|IIa|IIb|III) [ABC])?$/.test(x.c), g.k + ' class ' + x.c); });
+    g.items.forEach(x => { assert.ok(isPair(x.t), g.k + ' text'); assert.ok(T.IND_SRC[x.s], g.k + ' source ' + x.s); assert.ok(x.c === undefined || /^(I|IIa|IIb|III) [ABC]( \/ (I|IIa|IIb|III) [ABC])?$/.test(x.c) || /^[12][A-D]( \/ [12][A-D])?$/.test(x.c), g.k + ' class ' + x.c); });
   });
   T.IND_NA.forEach(x => assert.ok(isPair(x.n) && isText(x.src)));
   Object.values(T.IND_SRC).forEach(x => assert.ok(isText(x.s) && isText(x.full)));
 });
 test('indication guide: every source is also in the references', () => {
   const cites = T.REFS.filter(r => r.g === 'ind').map(r => r.cite).join(' ');
-  ['ESC Guidelines', 'Focused Update', 'Clinical practice update', 'HFCT', 'AASLD', 'KDIGO 2024', 'Thai guidelines on the treatment of hypertension'].forEach(k => assert.ok(cites.includes(k), k));
+  ['ESC Guidelines', 'Focused Update', 'Clinical practice update', 'HFCT', 'AASLD', 'KDIGO 2024', 'Thai guidelines on the treatment of hypertension', 'elevated blood pressure', 'European Society of Hypertension', 'Glomerular Diseases', 'hyponatraemia', 'Glaucoma', 'Yellow Book', 'intracranial pressure'].forEach(k => assert.ok(cites.includes(k), k));
 });
 
 // Filters: same rules as the app (country status, electrolyte direction)
