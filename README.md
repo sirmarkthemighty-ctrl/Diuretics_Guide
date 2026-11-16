@@ -11,7 +11,7 @@ Decision support for healthcare professionals, not a substitute for the product 
 - 24 drugs by international name: doses, site of action, electrolyte effects, side effects, evidence level, brands by country; tile, list and table views.
 - Mechanism: highlights the selected drugs' sites on a nephron diagram (layout redrawn from the ScienceDirect Topics "Nephron" figure).
 - Tools: Kidney check (eGFR, K⁺ and liver disease sort the drugs into avoid / caution), Interactions (pick the patient's other drugs), Compare (select 2 or more drugs) and a next-step helper in the resistance guide.
-- Which diuretic for what: indication guide (heart failure, cirrhosis with ascites, hypertension, CKD, nephrotic oedema, hyponatremia, acute angle-closure glaucoma, altitude illness, raised intracranial pressure) with every line tied to its guideline and class/level; sources not read show N/A.
+- Which diuretic for what: a table per indication (heart failure, cirrhosis with ascites, hypertension, CKD, nephrotic oedema, hyponatremia, acute angle-closure and open-angle glaucoma, altitude illness, raised intracranial pressure); each row is tied to its guideline with class/level.
 - Kidney / liver dosing, key interactions, a loop dose conversion table and key clinical trials (checked against PubMed) in each drug's detail view; warning triangles on serious side effects.
 - Diuretic resistance: sequential nephron blockade ladder.
 - Filters: country (TH, US, UK, EU, JP), FDA status, Thai NLEM 2569, class, electrolyte effect.

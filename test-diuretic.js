@@ -14,7 +14,7 @@ const Babel = require(path.join(TOOLS, 'node_modules', '@babel', 'standalone'));
 
 const src = fs.readFileSync(path.join(ROOT, 'diuretic-src', 'app.jsx'), 'utf8');
 let code = Babel.transform(src, { presets: ['react'], filename: 'app.jsx' }).code;
-code += `\n;globalThis.__T = { DRUGS, DRUG, SE, SCREEN, RENAL, TR, TRIALS_OF, EV, EV_TXT, REFS, REF_GROUPS, REG, REG_X, MKT, BRANDS, NLEM, TXT, CHANGELOG, DDI, DDI_X, CO_MEDS, CO_GROUPS, INDICATIONS, IND_SRC, IND_NA, CLS, COUNTRIES, ELECTROLYTES, SEGS, ddiOf, routeOf, screenOf, evOf, fxMatch, summaryText, VERSION };`;
+code += `\n;globalThis.__T = { DRUGS, DRUG, SE, SCREEN, RENAL, TR, TRIALS_OF, EV, EV_TXT, REFS, REF_GROUPS, REG, REG_X, MKT, BRANDS, NLEM, TXT, CHANGELOG, DDI, DDI_X, CO_MEDS, CO_GROUPS, INDICATIONS, IND_SRC, IND_NA, IND_TOPICS, IND_NUM, indTone, CLS, COUNTRIES, ELECTROLYTES, SEGS, ddiOf, routeOf, screenOf, evOf, fxMatch, summaryText, VERSION };`;
 const noop = () => null;
 const React = { createElement: noop, useState: (v) => [typeof v === 'function' ? v() : v, noop], useMemo: (f) => f(), useEffect: noop, useRef: () => ({ current: null }) };
 const ctx = {
@@ -91,21 +91,37 @@ test('every dose line names a route or is a resistance line', () => T.DRUGS.forE
 })));
 test('route icons: PO/IV gives both, IV gives one', () => { assert.strictEqual(T.routeOf('PO/IV').join(), 'PO,IV'); assert.strictEqual(T.routeOf('IV').join(), 'IV'); assert.strictEqual(T.routeOf('Resistance').length, 0); });
 
-test('indication guide: every line has both languages and a known source', () => {
-  assert.ok(T.INDICATIONS.length >= 10);
-  const srcUsed = new Set(T.INDICATIONS.flatMap(g => g.items.map(x => x.s)));
+test('indication guide: every line has both languages, a known source and a topic', () => {
+  assert.ok(T.INDICATIONS.length >= 11);
+  assert.strictEqual(T.IND_NA.length, 0, 'every listed guideline has been read');
+  const srcUsed = new Set(T.INDICATIONS.flatMap(g => g.items.flatMap(x => [x.s, ...(x.also || []).map(y => y.s)])));
   Object.keys(T.IND_SRC).forEach(k => assert.ok(srcUsed.has(k), 'unused source ' + k));
+  const okClass = (c) => c === undefined || /^(I|IIa|IIb|III) [ABC]( \/ (I|IIa|IIb|III) [ABC])?$/.test(c) || /^[12][A-D]( \/ [12][A-D])?$/.test(c) || /^conditional, (low|very low)( \(pre-hospital: very low\))?$/.test(c) || /^(strong|weak), (high|moderate|low)( \/ (strong|weak), (high|moderate|low))?$/.test(c) || /^(1|2a|2b|3) (A|B-R|B-NR|C-LD|C-EO)( \/ (1|2a|2b|3) (A|B-R|B-NR|C-LD|C-EO))?$/.test(c);
   T.INDICATIONS.forEach(g => {
-    assert.ok(isPair(g.n) && g.items.length > 0, g.k);
+    assert.ok(isPair(g.n) && isPair(g.sh) && g.items.length > 0, g.k);
+    ['first', 'add', 'watch', 'avoid'].forEach(q => assert.ok(isPair(g.qa[q]), g.k + ' quick answer ' + q));
     g.ids.forEach(id => assert.ok(ids.includes(id), g.k + ' drug ' + id));
-    g.items.forEach(x => { assert.ok(isPair(x.t), g.k + ' text'); assert.ok(T.IND_SRC[x.s], g.k + ' source ' + x.s); assert.ok(x.c === undefined || /^(I|IIa|IIb|III) [ABC]( \/ (I|IIa|IIb|III) [ABC])?$/.test(x.c) || /^[12][A-D]( \/ [12][A-D])?$/.test(x.c), g.k + ' class ' + x.c); });
+    g.items.forEach(x => {
+      assert.ok(isPair(x.t), g.k + ' text'); assert.ok(T.IND_TOPICS[x.h], g.k + ' topic ' + x.h);
+      [x, ...(x.also || [])].forEach(y => { assert.ok(T.IND_SRC[y.s], g.k + ' source ' + y.s); assert.ok(okClass(y.c), g.k + ' class ' + y.c); });
+    });
   });
   T.IND_NA.forEach(x => assert.ok(isPair(x.n) && isText(x.src)));
   Object.values(T.IND_SRC).forEach(x => assert.ok(isText(x.s) && isText(x.full)));
+  Object.values(T.IND_TOPICS).forEach(x => assert.ok(isPair(x)));
+});
+test('indication guide: strength tones and bold numbers', () => {
+  const tones = { 'I C': 'hi', 'IIa B': 'mid', 'IIb C': 'lo', III: 'no', '1B': 'hi', '2D': 'mid', '1C': 'hi', 'strong, high': 'hi', 'weak, moderate': 'lo', 'conditional, low': 'mid', '2b B-NR': 'lo', '2b C-LD': 'lo', '1 B-NR': 'hi' };
+  Object.entries(tones).forEach(([c, v]) => assert.strictEqual(T.indTone(c), v, c));
+  T.INDICATIONS.forEach(g => g.items.forEach(x => {
+    [x, ...(x.also || [])].forEach(y => (y.c || '').split(' / ').filter(Boolean).forEach(c => assert.notStrictEqual(T.indTone(c), 'none', g.k + ' ' + c)));
+    x.t.forEach(txt => assert.strictEqual(txt.split(T.IND_NUM).join(''), txt, 'bolding must not change the text'));
+  }));
+  assert.strictEqual('furosemide 20–40 mg IV at 2 h'.split(T.IND_NUM).filter((p, k) => k % 2).join('|'), '20–40 mg|2 h');
 });
 test('indication guide: every source is also in the references', () => {
   const cites = T.REFS.filter(r => r.g === 'ind').map(r => r.cite).join(' ');
-  ['ESC Guidelines', 'Focused Update', 'Clinical practice update', 'HFCT', 'AASLD', 'KDIGO 2024', 'Thai guidelines on the treatment of hypertension', 'elevated blood pressure', 'European Society of Hypertension', 'Glomerular Diseases', 'hyponatraemia', 'Glaucoma', 'Yellow Book', 'intracranial pressure'].forEach(k => assert.ok(cites.includes(k), k));
+  ['ESC Guidelines', 'Focused Update', 'Clinical practice update', 'HFCT', 'AASLD', 'KDIGO 2024', 'Thai guidelines on the treatment of hypertension', 'elevated blood pressure', 'European Society of Hypertension', 'Glomerular Diseases', 'hyponatraemia', 'Glaucoma', 'Yellow Book', 'intracranial pressure', 'Severe Traumatic Brain Injury', 'Cerebral Edema', 'Acute Altitude Illness', '2023 ESH Guidelines', 'Intracerebral Hemorrhage', 'Preferred Practice Pattern', 'expert panel recommendations'].forEach(k => assert.ok(cites.includes(k), k));
 });
 
 // Filters: same rules as the app (country status, electrolyte direction)
